@@ -1,0 +1,1655 @@
+
+\part{Electrodinámica Clásica} %Capítulo •%
+
+%\chapter*{Introducción}
+\chapter{Fuerzas En Electrodinámica}
+	\section{Fuerza Electromagnética: Ley De Lorentz} %TERMINADO
+		\subsection{Definición}
+Sea $q$ una partícula cargada eléctricamente en el vacío en la posición $\vc{r}_{(t)}$ que se mueve con velocidad $\vc{v}_{(t)} := \dot{\vc{r}}_{(t)}$, inmersa en un Campo Eléctrico $\vc{E} := \vc{E}_{(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ y un Campo Magnético $\vc{B} := \vc{B}_{(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces: \\\\
+La Fuerza Electromagnética que la partícula en movimiento sufre debido a los Campos $\vc{E}$ y $\vc{B}$ está dada por:
+\f{\vc{F}_q := q \cor{\vc{E}_{(\vc{r},t)} + \PV{\dot{\vc{r}}_{(t)}}{\vc{B}_{(\vc{r},t)}}}}
+\paragraph{Formulación Potencial}
+\f{\vc{F}_q := q \cor{- \gr[\vc{r}]{\phij}_{(\vc{r},t)} - \pd{\vc{A}_{(\vc{r},t)}}{t} + \PV{\dot{\vc{r}}_{(t)}}{\rot[\vc{r}]{A}_{(\vc{r},t)}}}}
+		\subsection{Fuerza Electromagnética En Un Sistema De $N$-Partículas}
+Sean $q_i$, $N$-partículas estáticas cargadas eléctricamente en el vacío en las posiciones $\vc{r}_i$ que se mueven con velocidades $\vc{v}_{(\vc{r}_i)}$, con $1 \nig i \nig N$, entonces: \\\\
+La Fuerza Electromagnética que las partículas $q_1,q_2,q_3,\pors,q_N$ en movimiento sufren debido a los Campos $\vc{E}$ y $\vc{B}$ será, por el Principio de Superposición, de la forma:
+\begin{align*}
+	\vc{F}_{q_1\pors q_N} :&= \S{i=1}{N}{\vc{F}_{q_i}} \\
+	&= \vc{F}_{q_1} + \vc{F}_{q_2} + \vc{F}_{q_3} + \porh + \vc{F}_{q_N} \\
+	&= \S{i=1}{N}{q_i \cor{\vc{E}_{(\vc{r},t)} + \PV{\dot{\vc{r}}_{i(t)}}{\vc{B}_{(\vc{r},t)}}}}
+\end{align*}
+\q{\vc{F}_{q_1\pors q_N} := \S{i=1}{N}{q_i \cor{\vc{E}_{(\vc{r},t)} + \PV{\dot{\vc{r}}_{i(t)}}{\vc{B}_{(\vc{r},t)}}}}}
+		\subsection{Fuerza Electromagnética En Una Distribución Continua De Carga Y Corriente}
+Cuando la cantidad de partículas cargadas $q_i$ tiende a infinito, obtenemos una Suma de Riemann por cada Diferencial de Carga:
+\begin{align*}
+	\lim{N}{\inf}{\pr{\vc{F}_{q_1 \pors q_N}}} &= \lim{N}{\inf}{\lla{\S{i=1}{N}{q_i \cor{\vc{E}_{(\vc{r},t)} + \PV{\dot{\vc{r}}_{i(t)}}{\vc{B}_{(\vc{r},t)}}}}}} \\
+	\vc{F}_{\tx{em}(\vc{r},t)} &= \lim{N}{\inf}{\lla{\S{i=1}{N}{q_i \cor{\vc{E}_{(\vc{r},t)} + \PV{\dot{\vc{r}}_{i(t)}}{\vc{B}_{(\vc{r},t)}}}}}} \\
+	&= \Int{}{}{\cor{\vc{E}_{(\vc{r},t)} + \PV{\dot{\vc{r}}'_{(t)}}{\vc{B}_{(\vc{r},t)}}}}{q}'
+\end{align*}
+\q{\vc{F}_{\tx{em}(\vc{r})} = \Int{}{}{\cor{\vc{E}_{(\vc{r},t)} + \PV{\dot{\vc{r}}'_{(t)}}{\vc{B}_{(\vc{r},t)}}}}{q}'}
+\paragraph{Distribución Lineal}
+Si la distribución de cargas $q'$ puede expresarse como una densidad lineal de carga $\lamda := \lamda_{(\vc{r}',t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\dot{\vc{r}}'_{(t)}$, podemos expresar la corriente $I$ como una densidad lineal vectorial de corriente $\vc{I}_{(\vc{r}',t)} := \lamda_{(\vc{r}',t)} \dot{\vc{r}}'_{(t)}$, entonces:
+\f{\vc{F}_{\tx{em}(\vc{r},t)} = \ils{\cal{C}}{\cor{\lamda_{(\vc{r}',t)} \vc{E}_{(\vc{r},t)} + \vc{I}_{(\vc{r}',t)} \Por \vc{B}_{(\vc{r},t)}}}{s}'}
+\paragraph{Distribución Superficial}
+Si la distribución de cargas $q'$ puede expresarse como una densidad superficial de carga $\sigma := \sigma_{(\vc{r}',t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\dot{\vc{r}}'_{(t)}$, podemos expresar la corriente $I$ como una densidad superficial vectorial de corriente $\vc{K}_{(\vc{r}',t)} := \sigma_{(\vc{r}',t)} \dot{\vc{r}}'_{(t)}$, entonces:
+\f{\vc{F}_{\tx{em}(\vc{r},t)} = \iss{\ff{S}}{\cor{\sigma_{(\vc{r}',t)} \vc{E}_{(\vc{r},t)} + \vc{K}_{(\vc{r}',t)} \Por \vc{B}_{(\vc{r},t)}}}{S}'}
+\paragraph{Distribución Volumétrica}
+Si la distribución de cargas $q'$ puede expresarse como una densidad volumétrica de carga $\ro := \ro_{(\vc{r}',t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\dot{\vc{r}}'_{(t)}$, podemos expresar la corriente $I$ como una densidad volumétrica vectorial de corriente $\vc{J}_{(\vc{r}',t)} := \ro_{(\vc{r}',t)} \dot{\vc{r}}'_{(t)}$, entonces:
+\f{\vc{F}_{\tx{em}(\vc{r},t)} = \ivs{\bb{Q}}{\cor{\ro_{(\vc{r}',t)} \vc{E}_{(\vc{r},t)} + \vc{J}_{(\vc{r}',t)} \Por \vc{B}_{(\vc{r},t)}}}{V}'}
+	\section{Fuerza Electromotriz} %TERMINADO
+Sean $N$ cargas eléctricas $q_i$ en las posiciones $\vc{r}_{i(t)}$ y que se mueven con velocidad $\dot{\vc{r}}_{i(t)}$ a través de un Circuito Eléctrico en presencia de un Campo Eléctrico $\vc{E} := \vc{E}_{(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ y un Campo Magnético $\vc{B} := \vc{B}_{(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, con $N\to\inf$, entonces: \\\\
+Se denomina Fuerza Electromotriz a la transferencia de energía por unidad de carga otorgada a las cargas eléctricas $q_i$ producida por baterías, generadores, transductores u otros dispositivos a través de un circuito eléctrico cerrado, y su expresión es de la forma:
+\f{\cal{E} := \ilovcr{\cal{C}^+}{\cor{\vc{E}_{(\vc{r},t)} + \PV{\dot{\vc{r}}_{(t)}}{\vc{B}_{(\vc{r},t)}}}}{\ell}}
+\chapter{Leyes Fundamentales En Electrodinámica}
+	\section{Ley De Faraday: Ley De Inducción Magnética} %TERMINADO
+La Ley de Faraday establece que la Fuerza Electromotriz Inducida $\cal{E}_{\tx{Ind}}$ en un circuito eléctrico cerrado $\cal{C}$ que se desplaza con velocidad $\dot{\vc{r}}_{(t)}$ expuesto a un Campo Eléctrico $\vc{E} := \vc{E}_{(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ y un Campo Magnético $\vc{B} := \vc{B}_{(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, es igual y opuesta a la variación del Flujo Magnético $\Phi_{\vc{B}}$ con respecto al tiempo que atraviesa a la superficie $\ff{S}$ con normal exterior que describe el circuito $\cal{C}$ en su movimiento ($\cal{C}^+ := \p \ff{S}^+$ en cada instante de tiempo).
+\begin{align*}
+	\cal{E}_{\tx{Ind}} :&= \ilovcr{\cal{C}_{(t)}^+}{\cor{\vc{E}_{(\vc{r},t)} + \PV{\dot{\vc{r}}_{(t)}}{\vc{B}_{(\vc{r},t)}}}}{\ell} \\
+	&= \ilovcr{\cal{C}_{(t)}^+}{\vc{E}_{(\vc{r},t)}}{\ell} + \ilovcr{\cal{C}_{(t)}^+}{\cor{\PV{\dot{\vc{r}}_{(t)}}{\vc{B}_{(\vc{r},t)}}}}{\ell} \\
+	&\tx{Por la Circuilación Nula y la Regla del Triple Producto Escalar:} \\
+	&= 0 + \ointctrclockwise\limits_{\cal{C}_{(t)}^+} \PI{\vc{B}_{(\vc{r},t)}}{\cor{\PV{\d \vc{\ell}}{\dot{\vc{r}}_{(t)}}}} \\
+	&= \ointctrclockwise\limits_{\cal{C}_{(t)}^+} \PI{\vc{B}_{(\vc{r},t)}}{\cor{\PV{\d \vc{\ell}}{\dot{\vc{r}}_{(t)} \dv{t}{t}}}} \\
+	&= \fr{1}{\d t} \ointctrclockwise\limits_{\cal{C}_{(t)}^+} \PI{\vc{B}_{(\vc{r},t)}}{\cor{\PV{\d \vc{\ell}}{\d \vc{r}_{(t)}}}} \\
+	&= \fr{1}{\d t} \isv{\ff{S}_{\tx{Lat.}(t)}}{\esp{-8}\vc{B}_{(\vc{r},t)}}{S} \\
+	&\tx{Por la Ley de Gauss para el Magnetismo, tenemos:} \\
+	&= \fr{1}{\d t} \cor{- \isv{\ff{S}_{\tx{Sup.}(t)}}{\esp{-10}\vc{B}_{(\vc{r})}}{S} - \isv{\ff{S}_{\tx{Inf.}(t)}}{\esp{-8}\vc{B}_{(\vc{r})}}{S}} \\
+	&= -\fr{1}{\d t} \cor{\Phi_{(\vc{B}_{\tx{Sup.}})} - \Phi_{(\vc{B}_{\tx{Inf.}})}} \\
+	&= -\dv{\Phi_{\vc{B}}}{t}
+\end{align*}
+\q{\cal{E}_{\tx{Ind}} = - \dv{\Phi_{\vc{B}}}{t}}
+\paragraph{Ley De Lenz}
+La Ley de Lenz establece que la Corriente Inducida en el circuito eléctrico debida a un cambio en el Campo Magnético se opone al cambio en el Flujo Magnético y para ello ejerce una Fuerza Electromotriz en dirección opuesta.
+		\subsection{Ley De Faraday-Maxwell}
+Cuando el circuito $\cal{C}$ no se desplaza o deforma con respecto al tiempo, dada una superficie $\ff{S}$ cuya curva frontera está dada por el circuito $\cal{C}$ ($\cal{C}^+:=\p\ff{S}^+$), entonces:
+\begin{align*}
+	\cal{E}_{\tx{Ind}} &= - \dv{\Phi_{\vc{B}}}{t} \\
+	\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\cor{\vc{E}_{(\vc{r},t)} + \PV{\dot{\vc{r}}_{(t)}}{\vc{B}_{(\vc{r},t)}}}}{\ell} &= - \dv{}{t} \isv{\ff{S}}{\vc{B}_{(\vc{r},t)}}{S} \\
+	\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\cor{\vc{E}_{(\vc{r},t)} + \PV{0}{\vc{B}_{(\vc{r},t)}}}}{\ell} &= \isv{\ff{S}}{\cor{- \pd{\vc{B}_{(\vc{r},t)}}{t}}}{S} \\
+	\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\cor{\vc{E}_{(\vc{r},t)} + 0}}{\ell} &= \isv{\ff{S}}{\cor{- \pd{\vc{B}_{(\vc{r},t)}}{t}}}{S} \\
+	\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{E}_{(\vc{r},t)}}{\ell} &= \isv{\ff{S}}{\cor{- \pd{\vc{B}_{(\vc{r},t)}}{t}}}{S} \\
+	\tx{Por el Teorema de Stokes, } &\tx{tenemos que:} \\
+	\isv{\ff{S}}{\rot[\vc{r}]{E}_{(\vc{r},t)}}{S} &= \isv{\ff{S}}{\cor{- \pd{\vc{B}_{(\vc{r},t)}}{t}}}{S} \\
+	\rot[\vc{r}]{E}_{(\vc{r},t)} &= -\pd{\vc{B}_{(\vc{r},t)}}{t}
+\end{align*}
+\q{\rot[\vc{r}]{E}_{(\vc{r},t)} = -\pd{\vc{B}_{(\vc{r},t)}}{t}}
+\paragraph{Ley De Faraday-Maxwell: Forma Integral}
+\f{\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{E}_{(\vc{r},t)}}{\ell} = - \dv{}{t} \isv{\ff{S}}{\vc{B}_{(\vc{r},t)}}{S}}
+\paragraph{Ley De Faraday-Maxwell: Forma Diferencial}
+\f{\rot[\vc{r}]{E}_{(\vc{r},t)} = -\pd{\vc{B}_{(\vc{r},t)}}{t}}
+	\section{Ley De Ampère-Maxwell} %TERMINADO
+La Ley de Ampère-Maxwell es una corrección de la Ley de Ampère hecha por Maxwell, que tiene en cuenta la corriente de polarización cuando el Campo Electromagnético varía en el tiempo. \\\\
+Sea un Campo Eléctrico $\vc{E} := \vc{E}_{(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ y un Campo Magnético $\vc{B} := \vc{B}_{(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, Diferenciables a Primer ($C^1$) y Segundo Orden ($C^2$), respectivamente, entonces:
+\begin{align*}
+	0 &= \nabla_{\vc{r}} \por \cor{\rot[\vc{r}]{B}_{(\vc{r},t)}} \ptd \vc{B}_{(\vc{r},t)} \\
+	&\tx{Por la Ley de Ampère, tenemos que:} \\
+	&= \nabla_{\vc{r}} \por \cor{\kpmv \vc{J}_{(\vc{r},t)}} \\
+	&= \nabla_{\vc{r}} \por \cor{\kpmv \vc{J}_{(\vc{r},t)} + \cte} \\
+	&= \kpmv \div[\vc{r}]{J}_{(\vc{r},t)} + \nabla_{\vc{r}} \por \cte \\
+	&\tx{Por la Ecuación de Continuidad, tenemos:} \\
+	&= -\kpmv \pd{\ro_{(\vc{r},t)}}{t} + \nabla_{\vc{r}} \por \cte \\
+	&\tx{Por la Ley de Gauss, tenemos:} \\
+	0 &= -\kpmv \pd{}{t} \cor{\kpev \div[\vc{r}]{E}_{(\vc{r},t)}} + \nabla_{\vc{r}} \por \cte \\
+	\nabla_{\vc{r}} \por \cte &= \kpmv \kpev \pd{}{t} \cor{\div[\vc{r}]{E}_{(\vc{r},t)}} \\
+	\nabla_{\vc{r}} \por \cte &= \nabla_{\vc{r}} \por \cor{\kpmv \kpev \pd{\vc{E}_{(\vc{r},t)}}{t}} \\
+	\cte &\sii \kpmv \kpev \pd{\vc{E}_{(\vc{r},t)}}{t}
+\end{align*}
+\q{\rot[\vc{r}]{B}_{(\vc{r},t)} = \kpmv \vc{J}_{(\vc{r},t)} + \cte \Sii \cte = \kpmv \kpev \pd{\vc{E}_{(\vc{r},t)}}{t}}
+\paragraph{Ley De Ampère-Maxwell: Forma Integral}
+\f{\ilovcr{\cal{C}^+:=\p\vc{S}^+}{\quadl\vc{B}_{(\vc{r},t)}}{\ell} = \kpmv \isv{\ff{S}}{\vc{J}_{(\vc{r},t)}}{S} + \kpmv\kpev\dv{}{t}\isv{\ff{S}}{\vc{E}_{(\vc{r},t)}}{S}}
+\paragraph{Ley De Ampère-Maxwell: Forma Diferencial}
+\f{\rot{B}_{(\vc{r},t)} = \kpmv \vc{J}_{(\vc{r},t)} + \kpmv\kpev\pd{\vc{E}_{(\vc{r},t)}}{t}}
+\chapter{Ecuaciones De Maxwell}
+	\section{Definición}
+Las Ecuaciones de Maxwell son cuatro Ecuaciones Diferenciales Parciales (E.D.P.'s) de Primer Orden que resumen, junto con la Ley de Lorentz, todo el contenido teórico de la Electrodinámica Clásica. La Ley de Gauss y la Ley de Faraday-Maxwell describen como los Campos Eléctricos $\vc{E}_{(\vc{r},t)}$ pueden ser producidos por distribuciones volumétricas de carga eléctrica $\ro_{(\vc{r},t)}$ o bien por Campos Magnéticos que cambian con el tiempo ($\p[t] \vc{B}_{(\vc{r},t)}$), respectivamente, mientras que la Ley de Gauss para el Magnetismo determina que no existen distribuciones volumétricas de carga magnética $\nex \ro_{m(\vc{r},t)}$ (no existen los monopolos magnéticos), y que los Campos Magnéticos $\vc{B}_{(\vc{r},t)}$ pueden ser producidos por densidades volumétricas de corriente eléctrica $\vc{J}_{(\vc{r},t)}$ o bien por Campos Eléctricos que cambian con el tiempo ($\p[t] \vc{E}_{(\vc{r},t)}$), respectivamente. \\
+		\subsection{Tabla}
+\begin{table}[!htbp] \C \SB{1}{
+	\begin{tabular}{|Sl|Sl|Sl|} \hline
+		\Fa \MC{1}{|Sc|}{\Tb{\bf Ley}} & \MC{1}{Sc|}{\Tb{\bf Ecuación Integral}} & \MC{1}{Sc|}{\Tb{\bf Ecuación Diferencial}} \HL
+		\CaTb{Ley De Gauss} & $\s{\isov{\ff{S}^+:=\p \bb{Q}}{\esp{-10}\vc{E}_{(\vc{r},t)}}{S} = \fr{1}{\kpev} \ivs{\bb{Q}}{\ro_{(\vc{r},t)}}{V}}$ & $\s{\div[\vc{r}]{E}_{(\vc{r},t)} = \fr{\ro_{(\vc{r},t)}}{\kpev}}$ \HL
+		\CaTb{Ley De Faraday-Maxwell} & $\s{\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{E}_{(\vc{r},t)}}{\ell} = -\dv{}{t} \isv{\ff{S}}{\vc{B}_{(\vc{r},t)}}{S}}$ & $\s{\rot[\vc{r}]{E}_{(\vc{r},t)} = -\pd{\vc{B}_{(\vc{r},t)}}{t}}$ \HL
+		\CaTb{Ley De Gauss Para El Magnetismo} & $\s{\isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\vc{B}_{(\vc{r},t)}}{S} = 0}$ & $\s{\div[\vc{r}]{B}_{(\vc{r},t)} = 0}$ \HL
+		\CaTb{Ley De Ampère-Maxwell} & $\s{\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{B}_{(\vc{r},t)}}{\ell} = \kpmv \isv{\ff{S}}{\vc{J}_{(\vc{r},t)}}{S} + \kpmv\kpev\dv{}{t}\isv{\ff{S}}{\vc{E}_{(\vc{r},t)}}{S}}$ & $\s{\rot[\vc{r}]{B}_{(\vc{r},t)} = \kpmv \vc{J}_{(\vc{r},t)} + \kpmv\kpev\pd{\vc{E}_{(\vc{r},t)}}{t}}$ \HL
+	\end{tabular}}
+	\caption{Ecuaciones de Maxwell en el Sistema Internacional de Unidades (S.I.).}
+\end{table}
+\NS Es decir, las Ecuaciones de Maxwell determinan como las cargas y corrientes eléctricas producen Campos Electromagnéticos, mientras que la Ley de Lorentz determina cómo los Campos Electromagnéticos afectan a las cargas y corrientes.
+		\subsection{Campos En Función De Los Potenciales}
+De las ecuaciones de Maxwell, se sigue que los campos eléctrico $\vc{E} := \vc{E}_{(\vc{r},t)}$ y magnético $\vc{B} := \vc{B}_{(\vc{r},t)}$ en términos del potencial eléctrico $\phij := \phij_{(\vc{r},t)}$ y el potencial magnético $\vc{A} := \vc{A}_{(\vc{r},t)}$, son de la forma:
+			\subsubsection{Campo Eléctrico}
+\paragraph{Deducción}
+\begin{align*}
+	\tx{Por la Ley de } &\tx{Faraday-Maxwell, tenemos que:} \\
+	\rot[\vc{r}]{E}_{(\vc{r},t)} &= - \pd{\vc{B}_{(\vc{r},t)}}{t} \\
+	\nabla_{\vc{r}} \Por \cor{-\gr[\vc{r}]{\phij}_{(\vc{r},t)} + \cte} &= -\pd{}{t} \rot[\vc{r}]{A}_{(\vc{r},t)} \\
+	-\nabla_{\vc{r}} \Por \cor{\gr[\vc{r}]{\phij}_{(\vc{r},t)}} + \nabla_{\vc{r}} \Por \cte &= \nabla_{\vc{r}} \Por \cor{-\pd{\vc{A}_{(\vc{r},t)}}{t}} \\
+	- 0 + \nabla_{\vc{r}} \Por \cte &= \nabla_{\vc{r}} \Por \cor{-\pd{\vc{A}_{(\vc{r},t)}}{t}} \ptd \phij_{(\vc{r},t)} \\
+	\nabla_{\vc{r}} \Por \cte &= \nabla_{\vc{r}} \Por \cor{-\pd{\vc{A}_{(\vc{r},t)}}{t}} \\
+	\cte &\sii - \pd{\vc{A}_{(\vc{r},t)}}{t}
+\end{align*}
+\q{\vc{E}_{(\vc{r},t)} = - \gr[\vc{r}]{\phij}_{(\vc{r},t)} + \cte \Sii \cte = - \pd{\vc{A}_{(\vc{r},t)}}{t}}
+\paragraph{Definición}
+\f{\vc{E}_{(\vc{r},t)} := - \gr[\vc{r}]{\phij}_{(\vc{r},t)} - \pd{\vc{A}_{(\vc{r},t)}}{t}}
+			\subsubsection{Campo Magnético}
+\paragraph{Definición}
+\f{\vc{B}_{(\vc{r},t)} := \rot[\vc{r}]{A}_{(\vc{r},t)}}
+		\subsection{Corolario: Ecuación De Continuidad (Conservación De La Carga)}
+Las Ecuaciones de Maxwell incluyen implícitamente el principio de la Conservación de la Carga descripto por la Ecuación de Continuidad. Por la Ley de Ampère-Maxwell, tenemos que:
+\begin{align*}
+	\rot[\vc{r}]{B}_{(\vc{r},t)} &= \kpmv \vc{J}_{(\vc{r},t)} + \kpmv\kpev\pd{\vc{E}_{(\vc{r},t)}}{t} \\
+	\nabla_{\vc{r}} \por \cor{\rot[\vc{r}]{B}_{(\vc{r},t)}} &= \nabla_{\vc{r}} \por \cor{\kpmv \vc{J}_{(\vc{r},t)} + \kpmv\kpev\pd{\vc{E}_{(\vc{r},t)}}{t}} \\
+	0 &= \kpmv \div[\vc{r}]{J}_{(\vc{r},t)} + \kpmv\kpev\pd{}{t} \cor{\div[\vc{r}]{E}_{(\vc{r},t)}} \\
+	&\tx{Por la Ley De Gauss, tenemos:} \\
+	\kpmv \div[\vc{r}]{J}_{(\vc{r},t)} &= -\kpmv\kpev\pd{}{t} \cor{\fr{\ro_{(\vc{r},t)}}{\kpev}} \\
+	\div[\vc{r}]{J}_{(\vc{r},t)} &= -\pd{\ro_{(\vc{r},t)}}{t}
+\end{align*}
+\q{\div[\vc{r}]{J}_{(\vc{r},t)} = -\pd{\ro_{(\vc{r},t)}}{t}}
+	\section{Tipos De Ecuaciones De Maxwell}
+		\subsection{Ecuaciones De Maxwell En El Sistema De Unidades Gaussianas}
+En el Sistema de Unidades Gaussianas o C.G.S., pueden escribirse las Ecuaciones de Maxwell sin las Constantes de Permitividad Eléctrica $\kpev$ y Permeabilidad Magnética $\kpmv$ del vacío, y son de la forma: \\
+\begin{table}[!htbp] \C \SB{0.9}{
+	\begin{tabular}{|Sl|Sl|Sl|} \hline
+		\Fa \MC{1}{|Sc|}{\Tb{\bf Ley}} & \MC{1}{Sc|}{\Tb{\bf Ecuación Integral}} & \MC{1}{Sc|}{\Tb{\bf Ecuación Diferencial}} \HL
+		\CaTb{Ley De Gauss} & $\s{\isov{\ff{S}^+:=\p \bb{Q}}{\esp{-10}\vc{E}_{(\vc{r},t)}}{S} = 4\pi \ivs{\bb{Q}}{\ro_{(\vc{r},t)}}{V}}$ & $\s{\div[\vc{r}]{E}_{(\vc{r},t)} = 4\pi\ro_{(\vc{r},t)}}$ \HL
+		\CaTb{Ley De Faraday-Maxwell} & $\s{\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{E}_{(\vc{r},t)}}{\ell} = -\fr{1}{c}\dv{}{t} \isv{\ff{S}}{\vc{B}_{(\vc{r},t)}}{S}}$ & $\s{\rot[\vc{r}]{E}_{(\vc{r},t)} = -\fr{1}{c}\pd{\vc{B}_{(\vc{r},t)}}{t}}$ \HL
+		\CaTb{Ley De Gauss Para El Magnetismo} & $\s{\isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\vc{B}_{(\vc{r},t)}}{S} = 0}$ & $\s{\div[\vc{r}]{B}_{(\vc{r},t)} = 0}$ \HL
+		\CaTb{Ley De Ampère-Maxwell} & $\s{\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{B}_{(\vc{r},t)}}{\ell} = \fr{4\pi}{c} \isv{\ff{S}}{\vc{J}_{(\vc{r},t)}}{S} + \fr{1}{c}\dv{}{t}\isv{\ff{S}}{\vc{E}_{(\vc{r},t)}}{S}}$ & $\s{\rot[\vc{r}]{B}_{(\vc{r},t)} = \fr{4\pi\vc{J}_{(\vc{r},t)}}{c} + \fr{1}{c}\pd{\vc{E}_{(\vc{r},t)}}{t}}$ \HL
+	\end{tabular}}
+	\caption{Ecuaciones de Maxwell en el Sistema de Unidades Gaussianas (C.G.S.).}
+\end{table}
+		\subsection{Ecuaciones De Maxwell En El Vacío}
+En ausencia de fuentes ($\ro_{(\vc{r},t)} = \vc{J}_{(\vc{r},t)} = 0$), las Ecuaciones de Maxwell presentan alta simetría, y son de la forma: \\
+\begin{table}[!htbp] \C \SB{1}{
+	\begin{tabular}{|Sl|Sl|Sl|} \hline
+		\Fa \MC{1}{|Sc|}{\Tb{\bf Ley}} & \MC{1}{Sc|}{\Tb{\bf Ecuación Integral}} & \MC{1}{Sc|}{\Tb{\bf Ecuación Diferencial}} \HL
+		\CaTb{Ley De Gauss} & $\s{\isov{\ff{S}^+:=\p \bb{Q}}{\esp{-10}\vc{E}_{(\vc{r},t)}}{S} = 0}$ & $\s{\div[\vc{r}]{E}_{(\vc{r},t)} = 0}$ \HL
+		\CaTb{Ley De Faraday-Maxwell} & $\s{\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{E}_{(\vc{r},t)}}{\ell} = -\dv{}{t} \isv{\ff{S}}{\vc{B}_{(\vc{r},t)}}{S}}$ & $\s{\rot[\vc{r}]{E}_{(\vc{r},t)} = -\pd{\vc{B}_{(\vc{r},t)}}{t}}$ \HL
+		\CaTb{Ley De Gauss Para El Magnetismo} & $\s{\isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\vc{B}_{(\vc{r},t)}}{S} = 0}$ & $\s{\div[\vc{r}]{B}_{(\vc{r},t)} = 0}$ \HL
+		\CaTb{Ley De Ampère-Maxwell} & $\s{\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{B}_{(\vc{r},t)}}{\ell} = \kpmv\kpev\dv{}{t}\isv{\ff{S}}{\vc{E}_{(\vc{r},t)}}{S}}$ & $\s{\rot[\vc{r}]{B}_{(\vc{r},t)} = \kpmv\kpev\pd{\vc{E}_{(\vc{r},t)}}{t}}$ \HL
+	\end{tabular}}
+	\caption{Ecuaciones de Maxwell en el Sistema Internacional de Unidades (S.I.) en ausencia de fuentes ($\ro_{(\vc{r},t)} = \vc{J}_{(\vc{r},t)} = 0$).}
+\end{table}
+		\subsection{Ecuaciones De Maxwell En Medios Materiales}
+Las Ecuaciones de Maxwell describen las interacciones y fenómenos electromagnéticos en forma microscópica. Las Ecuaciones de Maxwell pueden obtenerse también en forma macroscópica, y corresponden a las Ecuaciones de Maxwell en Medios Materiales. Tanto la Ley de Faraday-Maxwell como la Ley de Gauss para el Magnetismo se mantienen pero la Ley de Gauss y la Ley de Ampère-Maxwell deben reformularse.
+			\subsubsection{Ley De Gauss Para Dieléctricos}
+En Medios Materiales, la Ley de Gauss puede reescribirse teniendo en cuenta que $\ro := \ro_{(\vc{r},t)} = \ro_{l(\vc{r},t)} + \ro_{p(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, que corresponde a la Ley de Gauss Para Dieléctricos y puede obtenerse de la forma:
+\begin{align*}
+	\div[\vc{r}]{E}_{(\vc{r},t)} &= \fr{\ro_{(\vc{r},t)}}{\kpev} \\
+	\kpev \div[\vc{r}]{E}_{(\vc{r},t)} &= \ro_{l(\vc{r},t)} + \ro_{p(\vc{r},t)} \\
+	\nabla_{\vc{r}} \por \cor{\kpev \vc{E}_{(\vc{r},t)}} &= \ro_{l(\vc{r},t)} - \div[\vc{r}]{P}_{(\vc{r},t)} \\
+	\nabla_{\vc{r}} \por \cor{\kpev \vc{E}_{(\vc{r},t)}} + \div[\vc{r}]{P}_{(\vc{r},t)} &= \ro_{l(\vc{r},t)} \\
+	\nabla_{\vc{r}} \por \cor{\kpev \vc{E}_{(\vc{r},t)} + \vc{P}_{(\vc{r},t)}} &= \ro_{l(\vc{r},t)} \\
+	\div[\vc{r}]{D}_{(\vc{r},t)} &= \ro_{l(\vc{r},t)}
+\end{align*}
+\q{\div[\vc{r}]{D}_{(\vc{r},t)} = \ro_{l(\vc{r},t)}}
+\paragraph{Corriente De Polarización}
+Dado que la Densidad de Polarización $\ro_p := \ro_{p(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ varía con el tiempo, definimos a la Corriente de Polarización $\vc{J}_p := \vc{J}_{p(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, y debe verificar la Ecuación de Continuidad, entonces:
+\begin{align*}
+	\div[\vc{r}]{J}_{p(\vc{r},t)} &= -\pd{\ro_{p(\vc{r},t)}}{t} \\
+	\div[\vc{r}]{J}_{p(\vc{r},t)} &= -\pd{}{t} \cor{- \div[\vc{r}]{P}_{(\vc{r},t)}} \\
+	\div[\vc{r}]{J}_{p(\vc{r},t)} &= \nabla_{\vc{r}} \por \cor{\pd{\vc{P}_{(\vc{r},t)}}{t}} \\
+	\vc{J}_{p(\vc{r},t)} &\sii \pd{\vc{P}_{(\vc{r},t)}}{t}
+\end{align*}
+\q{\vc{J}_{p(\vc{r},t)} := \pd{\vc{P}_{(\vc{r},t)}}{t}}
+			\subsubsection{Ley De Ampère-Maxwell Para Materiales Magnéticos}
+En Medios Materiales, la Ley de Ampère-Maxwell puede reescribirse teniendo en cuenta que $\vc{J} := \vc{J}_{(\vc{r},t)} = \vc{J}_{l(\vc{r},t)} + \vc{J}_{m(\vc{r},t)} + \vc{J}_{p(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, que corresponde a la Ley de Ampère para Materiales Magnéticos pero con la corrección de Maxwell, entonces:
+\begin{align*}
+	\rot[\vc{r}]{B}_{(\vc{r})} &= \kpmv \vc{J}_{(\vc{r})} + \kpmv \kpev \pd{\vc{E}_{(\vc{r},t)}}{t} \\
+	\fr{\rot[\vc{r}]{B}_{(\vc{r})}}{\kpmv} &= \vc{J}_{l(\vc{r})} + \vc{J}_{m(\vc{r})} + \vc{J}_{p(\vc{r},t)} + \kpev \pd{\vc{E}_{(\vc{r},t)}}{t} \\
+	\nabla_{\vc{r}} \Por \cor{\fr{\vc{B}_{(\vc{r})}}{\kpmv}} &= \vc{J}_{l(\vc{r})} + \rot[\vc{r}]{M}_{(\vc{r})} + \pd{\vc{P}_{(\vc{r},t)}}{t} + \kpev \pd{\vc{E}_{(\vc{r},t)}}{t} \\
+	\nabla_{\vc{r}} \Por \cor{\fr{\vc{B}_{(\vc{r})}}{\kpmv}} - \rot[\vc{r}]{M}_{(\vc{r})} &= \vc{J}_{l(\vc{r})} + \pd{}{t} \cor{\kpev \vc{E}_{(\vc{r},t)} + \vc{P}_{(\vc{r},t)}} \\
+	\nabla_{\vc{r}} \Por \cor{\fr{\vc{B}_{(\vc{r})}}{\kpmv} - \vc{M}_{(\vc{r})}} &= \vc{J}_{l(\vc{r})} + \pd{\vc{D}_{(\vc{r},t)}}{t} \\
+	\rot[\vc{r}]{H}_{(\vc{r})} &= \vc{J}_{l(\vc{r})} + \pd{\vc{D}_{(\vc{r},t)}}{t}
+\end{align*}
+\q{\rot[\vc{r}]{H}_{(\vc{r})} = \vc{J}_{l(\vc{r})} + \pd{\vc{D}_{(\vc{r},t)}}{t}}
+\paragraph{Corriente De Desplazamiento Eléctrico}
+Definimos a la Corriente de Desplazamiento Eléctrico como $\vc{J}_p := \vc{J}_{d(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, que es de la forma:
+\f{\vc{J}_{d(\vc{r},t)} := \pd{\vc{D}_{(\vc{r},t)}}{t}}
+			\subsubsection{Tabla De Las Ecuaciones De Maxwell En Medios Materiales}
+\begin{table}[!htbp] \C \SB{1}{
+	\begin{tabular}{|Sl|Sl|Sl|} \hline
+		\Fa \MC{1}{|Sc|}{\Tb{\bf Ley}} & \MC{1}{Sc|}{\Tb{\bf Ecuación Integral}} & \MC{1}{Sc|}{\Tb{\bf Ecuación Diferencial}} \HL
+		\CaTb{Ley De Gauss Para Dieléctricos} & $\s{\isov{\ff{S}^+:=\p \bb{Q}}{\esp{-10}\vc{D}_{(\vc{r},t)}}{S} = \ivs{\bb{Q}}{\ro_{l(\vc{r},t)}}{V}}$ & $\s{\div[\vc{r}]{D}_{(\vc{r},t)} = \ro_{l(\vc{r},t)}}$ \HL
+		\CaTb{Ley De Faraday-Maxwell} & $\s{\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{E}_{(\vc{r},t)}}{\ell} = -\dv{}{t} \isv{\ff{S}}{\vc{B}_{(\vc{r},t)}}{S}}$ & $\s{\rot[\vc{r}]{E}_{(\vc{r},t)} = -\pd{\vc{B}_{(\vc{r},t)}}{t}}$ \HL
+		\CaTb{Ley De Gauss Para El Magnetismo} & $\s{\isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\vc{B}_{(\vc{r},t)}}{S} = 0}$ & $\s{\div[\vc{r}]{B}_{(\vc{r},t)} = 0}$ \HL
+		\CaTb{Ley De Ampère-Maxwell Para Materiales Magnéticos} & $\s{\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{H}_{(\vc{r},t)}}{\ell} = \isv{\ff{S}}{\vc{J}_{l(\vc{r},t)}}{S} + \dv{}{t}\isv{\ff{S}}{\vc{D}_{(\vc{r},t)}}{S}}$ & $\s{\rot[\vc{r}]{H}_{(\vc{r},t)} = \vc{J}_{l(\vc{r},t)} + \pd{\vc{D}_{(\vc{r},t)}}{t}}$ \HL
+	\end{tabular}}
+	\caption{Ecuaciones de Maxwell en el Sistema Internacional de Unidades (S.I.) en Medios Materiales.}
+\end{table}
+\paragraph{Tabla De Las Ecuaciones De Maxwell En Medios Materiales En Ausencia De Fuentes}
+\begin{table}[!htbp] \C \SB{1}{
+	\begin{tabular}{|Sl|Sl|Sl|} \hline
+		\Fa \MC{1}{|Sc|}{\Tb{\bf Ley}} & \MC{1}{Sc|}{\Tb{\bf Ecuación Integral}} & \MC{1}{Sc|}{\Tb{\bf Ecuación Diferencial}} \HL
+		\CaTb{Ley De Gauss Para Dieléctricos} & $\s{\isov{\ff{S}^+:=\p \bb{Q}}{\esp{-10}\vc{D}_{(\vc{r},t)}}{S} = 0}$ & $\s{\div[\vc{r}]{D}_{(\vc{r},t)} = 0}$ \HL
+		\CaTb{Ley De Faraday-Maxwell} & $\s{\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{E}_{(\vc{r},t)}}{\ell} = -\dv{}{t} \isv{\ff{S}}{\vc{B}_{(\vc{r},t)}}{S}}$ & $\s{\rot[\vc{r}]{E}_{(\vc{r},t)} = -\pd{\vc{B}_{(\vc{r},t)}}{t}}$ \HL
+		\CaTb{Ley De Gauss Para El Magnetismo} & $\s{\isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\vc{B}_{(\vc{r},t)}}{S} = 0}$ & $\s{\div[\vc{r}]{B}_{(\vc{r},t)} = 0}$ \HL
+		\CaTb{Ley De Ampère-Maxwell Para Materiales Magnéticos} & $\s{\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{H}_{(\vc{r},t)}}{\ell} = \dv{}{t}\isv{\ff{S}}{\vc{D}_{(\vc{r},t)}}{S}}$ & $\s{\rot[\vc{r}]{H}_{(\vc{r},t)} = \pd{\vc{D}_{(\vc{r},t)}}{t}}$ \HL
+	\end{tabular}}
+	\caption{Ecuaciones de Maxwell en el Sistema Internacional de Unidades (S.I.) en Medios Materiales en ausencia de fuentes.}
+\end{table}
+	\section{Formulación Potencial De Las Ecuaciones De Maxwell}
+Las Ecuaciones de Maxwell pueden resumirse en dos Ecuaciones Diferenciales Parciales (E.D.P's) de segundo orden, reemplazando las expresiones del Potencial Eléctrico $\phij_{(\vc{r},t)}$ y el Potencial Magnético $\vc{A}_{(\vc{r},t)}$ en los Campos Eléctrico y Magnético.
+		\subsection{Ley De Gauss Para El Magnetismo Y Ley De Faraday-Maxwell}
+La Ley de Gauss para el Magnetismo y la Ley de Faraday-Maxwell se satisfacen en la Formulación Potencial, pero no aportan información:
+\begin{align*}
+	\div[\vc{r}]{B}_{(\vc{r},t)} &= 0 & \rot[\vc{r}]{E}_{(\vc{r},t)} &= - \pd{\vc{B}_{(\vc{r},t)}}{t} \\
+	\nabla_{\vc{r}} \por \cor{\rot[\vc{r}]{A}_{(\vc{r},t)}} &= 0  & \nabla_{\vc{r}} \Por \cor{- \gr[\vc{r}]{\phij}_{(\vc{r},t)} - \pd{\vc{A}_{(\vc{r},t)}}{t}} &= - \pd{}{t} \cor{\rot[\vc{r}]{A}_{(\vc{r},t)}} \\
+	0 &= 0 \ptd \vc{A}_{(\vc{r},t)} & - \nabla_{\vc{r}} \Por \cor{\gr[\vc{r}]{\phij}_{(\vc{r},t)}} - \pd{}{t} \cor{\rot[\vc{r}]{A}_{(\vc{r},t)}} &= - \pd{\vc{B}_{(\vc{r},t)}}{t} \\
+	& & 0 + \pd{\vc{B}_{(\vc{r},t)}}{t} &= \pd{\vc{B}_{(\vc{r},t)}}{t} \ptd \phij_{(\vc{r},t)} \\
+	& & \vc{B}_{(\vc{r},t)} &= \vc{B}_{(\vc{r},t)}
+\end{align*}
+Por lo tanto: \B{Las leyes no aportan información.}
+		\subsection{Ley De Gauss Y Ley De Ampère-Maxwell}
+La Ley de Gauss y la Ley de Ampère-Maxwell combinan las cuatro Ecuaciones de Maxwell en dos ecuaciones de orden superior, de la forma:
+\begin{align*}
+	\div[\vc{r}]{E}_{(\vc{r},t)} &= \fr{\ro_{(\vc{r},t)}}{\kpev} & \rot[\vc{r}]{B}_{(\vc{r},t)} - \kpmv \kpev \pd{\vc{E}_{(\vc{r},t)}}{t} &= \kpmv \vc{J}_{(\vc{r},t)} \\
+	\nabla_{\vc{r}} \por \cor{-\gr[\vc{r}]{\phij}_{(\vc{r},t)} - \pd{\vc{A}_{(\vc{r},t)}}{t}} &= \fr{\ro_{(\vc{r},t)}}{\kpev} & \nabla_{\vc{r}} \Por \cor{\rot[\vc{r}]{A}_{(\vc{r})}} - \kpmv \kpev \pd{}{t} \cor{-\gr[\vc{r}]{\phij}_{(\vc{r},t)} - \pd{\vc{A}_{(\vc{r},t)}}{t}} &= \kpmv \vc{J}_{(\vc{r},t)} \\
+	- \lap[\vc{r}]{\phij}_{(\vc{r},t)} - \pd{}{t} \cor{\div[\vc{r}]{A}_{(\vc{r},t)}} &= \fr{\ro_{(\vc{r},t)}}{\kpev} & \tx{Por la definición del Laplaciano Vectorial, tenemos:}& \\
+	\lap[\vc{r}]{\phij}_{(\vc{r},t)} + \pd{}{t} \cor{\div[\vc{r}]{A}_{(\vc{r},t)}} &= - \fr{\ro_{(\vc{r},t)}}{\kpev} & \nabla_{\vc{r}} \cor{\div[\vc{r}]{A}_{(\vc{r},t)}} - \lapv[\vc{r}]{A}_{(\vc{r},t)} + \kpmv \kpev \nabla_{\vc{r}} \cor{\pd{\phij_{(\vc{r},t)}}{t}} + \kpmv \kpev \pd[2]{\vc{A}_{(\vc{r},t)}}{t} &= \kpmv \vc{J}_{(\vc{r},t)} \\
+	& & - \lapv[\vc{r}]{A}_{(\vc{r},t)} + \kpmv \kpev \pd[2]{\vc{A}_{(\vc{r},t)}}{t} + \nabla_{\vc{r}} \cor{\div[\vc{r}]{A}_{(\vc{r},t)}} + \kpmv \kpev \nabla_{\vc{r}} \cor{\pd{\phij_{(\vc{r},t)}}{t}} &= \kpmv \vc{J}_{(\vc{r},t)} \\
+	& & \cor{- \lapv[\vc{r}]{} + \fr{1}{c^2} \pd[2]{}{t}} \vc{A}_{(\vc{r},t)} + \nabla_{\vc{r}} \cor{\div[\vc{r}]{A}_{(\vc{r},t)} + \fr{1}{c^2} \pd{\phij_{(\vc{r},t)}}{t}} &= \kpmv \vc{J}_{(\vc{r},t)} \\
+	& & \dalv[\vc{r}]{A}_{(\vc{r},t)} + \nabla_{\vc{r}} \cor{\div[\vc{r}]{A}_{(\vc{r},t)} + \fr{1}{c^2} \pd{\phij_{(\vc{r},t)}}{t}} &= \kpmv \vc{J}_{(\vc{r},t)}
+\end{align*}
+		\subsection{Ecuaciones De Maxwell En Formulación Potencial}
+Las Ecuaciones de Maxwell en Formulación Potencial resultan:
+\begin{table}[!htbp] \C \SB{1}{
+	\begin{tabular}{|Sl|Sl|} \hline
+		\Fa \Cn & \MC{1}{Sc|}{\Tb{\bf Ecuación Diferencial}} \HL
+		\Ca{•}  & $\s{\lap[\vc{r}]{\phij}_{(\vc{r},t)} + \pd{}{t} \cor{\div[\vc{r}]{A}_{(\vc{r},t)}} = - \fr{\ro_{(\vc{r},t)}}{\kpev}}$ \HL
+		\Ca{•}  & $\s{\dalv[\vc{r}]{A}_{(\vc{r},t)} + \nabla_{\vc{r}} \cor{\div[\vc{r}]{A}_{(\vc{r},t)} + \fr{1}{c^2} \pd{\phij_{(\vc{r},t)}}{t}} = \kpmv \vc{J}_{(\vc{r},t)}}$ \HL
+	\end{tabular}}
+	\caption{Formulación Potencial de las Ecuaciones de Maxwell en el Sistema Internacional de Unidades (S.I.).}
+\end{table}
+		\subsection{Libertad De Gauge}
+Se denomina \cur{libertad de gauge} a la libre elección de la divergencia del potencial magnético $\div[\vc{r}]{A}_{(\vc{r},t)}$, valor que puede fijarse libremente dependiendo del problema de electromagnetismo.
+			\subsubsection{Gauge De Lorenz: Ecuaciones De Ondas}
+Debido a la libertad de gauge que aporta el campo magnético $\vc{B}$ para elegir un potencial magnético $\vc{A}$, las ecuaciones de Maxwell pueden simplificarse. En particular, el denominado \cur{gauge de Lorenz} es de la forma:
+\f{\div[\vc{r}]{A}_{(\vc{r},t)} = - \fr{1}{c^2} \pd{\phij_{(\vc{r},t)}}{t}}
+Reemplazando el gauge de Lorenz en las ecuaciones de Maxwell en formulación potencial, obtenemos dos ecuaciones de onda en el espacio $\bb{R}^3$ para los potenciales eléctrico y magnético, de la forma:
+\begin{align*}
+	\lap[\vc{r}]{\phij}_{(\vc{r},t)} + \pd{}{t} \cor{\div[\vc{r}]{A}_{(\vc{r},t)}} &= - \fr{\ro_{(\vc{r},t)}}{\kpev} & \dalv[\vc{r}]{A}_{(\vc{r},t)} + \nabla_{\vc{r}} \cor{\div[\vc{r}]{A}_{(\vc{r},t)} + \fr{1}{c^2} \pd{\phij_{(\vc{r},t)}}{t}} &= \kpmv \vc{J}_{(\vc{r},t)} \\
+	\lap[\vc{r}]{\phij}_{(\vc{r},t)} + \pd{}{t} \cor{-\fr{1}{c^2} \pd{\phij_{(\vc{r},t)}}{t}} &= - \fr{\ro_{(\vc{r},t)}}{\kpev} & \dalv[\vc{r}]{A}_{(\vc{r},t)} + \nabla_{\vc{r}} \cor{- \fr{1}{c^2} \pd{\phij_{(\vc{r},t)}}{t} + \fr{1}{c^2} \pd{\phij_{(\vc{r},t)}}{t}} &= \kpmv \vc{J}_{(\vc{r},t)} \\
+	\lap[\vc{r}]{\phij}_{(\vc{r},t)} - \fr{1}{c^2} \pd[2]{\phij_{(\vc{r},t)}}{t} &= - \fr{\ro_{(\vc{r},t)}}{\kpev} & \dalv[\vc{r}]{A}_{(\vc{r},t)} + \nabla_{\vc{r}} (0) &= \kpmv \vc{J}_{(\vc{r},t)} \\
+	\cor{- \lap[\vc{r}]{} + \fr{1}{c^2} \pd[2]{}{t}} \phij_{(\vc{r},t)} &= \fr{\ro_{(\vc{r},t)}}{\kpev} & \dalv[\vc{r}]{A}_{(\vc{r},t)} + 0 &= \kpmv \vc{J}_{(\vc{r},t)} \\
+	\dal[\vc{r}]{\phij}_{(\vc{r},t)} &= \fr{\ro_{(\vc{r},t)}}{\kpev} & \dalv[\vc{r}]{A}_{(\vc{r},t)} &= \kpmv \vc{J}_{(\vc{r},t)}
+\end{align*}
+\paragraph{Ecuaciones De Maxwell (Gauge De Lorenz)}
+\begin{table}[!htbp] \C \SB{1}{
+	\begin{tabular}{|Sl|Sl|} \hline
+		\Fa \MC{1}{|Sc|}{\Tb{\bf Ecuación De Ondas}} & \MC{1}{Sc|}{\Tb{\bf Ecuación Diferencial}} \HL
+		\CaTb{Potencial Eléctrico} & $\s{\dal[\vc{r}]{\phij}_{(\vc{r},t)} = \fr{\ro_{(\vc{r},t)}}{\kpev}}$ \HL
+		\CaTb{Potencial Magnético} & $\s{\dalv[\vc{r}]{A}_{(\vc{r},t)} = \kpmv \vc{J}_{(\vc{r},t)}}$ \HL
+	\end{tabular}}
+	\caption{Ecuaciones de Maxwell en el Sistema Internacional de Unidades (S.I.) en formulación potencial con el gauge de Lorenz.}
+\end{table}
+\paragraph{Observación}
+Si los potenciales eléctrico $\phij$ y magnético $\vc{A}$ satisfacen el gauge de Lorenz se tiene que:
+\B{Los potenciales $\s{\Fpp{\phij'_{(\vc{r},t)} = \phij_{(\vc{r},t)} - \fr{1}{c^2} \pd{f_{(\vc{r},t)}}{t}}{\vc{A}'_{(\vc{r},t)} = \vc{A}_{(\vc{r},t)} + \gr[\vc{r}]{f}_{(\vc{r},t)}}}$ satisfacen las ecuaciones de Maxwell pues $\s{\Fpp{\vc{E}_{(\vc{r},t)} := -\gr[\vc{r}]{\phij}_{(\vc{r},t)} - \pd{\vc{A}_{(\vc{r},t)}}{t} = -\gr[\vc{r}]{\phij}'_{(\vc{r},t)} - \pd{\vc{A}'_{(\vc{r},t)}}{t}}{\vc{B}_{(\vc{r},t)} := \rot[\vc{r}]{A}_{(\vc{r},t)} = \rot[\vc{r}]{A}'_{(\vc{r},t)}}}$.}
+			\subsubsection{Gauge De Coulomb}
+Se denomina \cur{gauge de Coulomb}, a la elección de gauge de la forma:
+\f{\div[\vc{r}]{A}_{(\vc{r},t)} = 0}
+Reemplazando el gauge de Coulomb en las ecuaciones de Maxwell en formulación potencial, se obtiene:
+\begin{align*}
+	\lap[\vc{r}]{\phij}_{(\vc{r},t)} + \pd{}{t} \cor{\div[\vc{r}]{A}_{(\vc{r},t)}} &= - \fr{\ro_{(\vc{r},t)}}{\kpev} & \dalv[\vc{r}]{A}_{(\vc{r},t)} + \nabla_{\vc{r}} \cor{\div[\vc{r}]{A}_{(\vc{r},t)} + \fr{1}{c^2} \pd{\phij_{(\vc{r},t)}}{t}} &= \kpmv \vc{J}_{(\vc{r},t)} \\
+	\lap[\vc{r}]{\phij}_{(\vc{r},t)} + \pd{}{t} (0) &= - \fr{\ro_{(\vc{r},t)}}{\kpev} & \dalv[\vc{r}]{A}_{(\vc{r},t)} + \nabla_{\vc{r}} \cor{0 + \fr{1}{c^2} \pd{\phij_{(\vc{r},t)}}{t}} &= \kpmv \vc{J}_{(\vc{r},t)} \\
+	\lap[\vc{r}]{\phij}_{(\vc{r},t)} + 0 &= - \fr{\ro_{(\vc{r},t)}}{\kpev} & \dalv[\vc{r}]{A}_{(\vc{r},t)} + \nabla_{\vc{r}} \cor{\fr{1}{c^2} \pd{\phij_{(\vc{r},t)}}{t}} &= \kpmv \vc{J}_{(\vc{r},t)} \\
+	\lap[\vc{r}]{\phij}_{(\vc{r},t)} &= - \fr{\ro_{(\vc{r},t)}}{\kpev} & \dalv[\vc{r}]{A}_{(\vc{r},t)} &= \kpmv \vc{J}_{(\vc{r},t)} - \nabla_{\vc{r}} \cor{\fr{1}{c^2} \pd{\phij_{(\vc{r},t)}}{t}}
+\end{align*}
+\q{\Fpp{\lap[\vc{r}]{\phij}_{(\vc{r},t)} = - \fr{\ro_{(\vc{r},t)}}{\kpev}}{\dalv[\vc{r}]{A}_{(\vc{r},t)} = \kpmv \vc{J}_{(\vc{r},t)} - \nabla_{\vc{r}} \cor{\fr{1}{c^2} \pd{\phij_{(\vc{r},t)}}{t}}}}
+	\section{Solución Exacta De Las Ecuaciones De Maxwell (Gauge De Lorenz)}
+Mediante el método de la función de Green es posible hallar la solución de las ecuaciones de Maxwell utilizando el Gauge de Lorenz, de la forma:
+		\subsection{Motivación}
+Sean $\phij$ y $\vc{A}$ el potencial eléctrico y magnético, respectivamente, sea $\ro$ una distribución de carga eléctrica volumétrica y sea $\vc{J}$ la densidad de corriente eléctrica, entonces:
+\begin{itemize}
+	\item Por las ecuaciones de Maxwell en forma potencial con Gauge de Lorenz, tenemos que: \\\\
+	$\s{\Fpp{\dal{\phij}_{(\vc{r},t)} = \fr{\ro_{(\vc{r},t)}}{\kpev}}{\dalv{A}_{(\vc{r},t)} = \kpmv \vc{J}_{(\vc{r},t)}}}$
+	\item Es decir, que el potencial eléctrico satisface una E.D.P. de segundo orden de la forma:
+	\begin{align*}
+		\dal{\phij}_{(\vc{r},t)} &= \fr{\ro_{(\vc{r},t)}}{\kpev} \\
+		-\lap{\phij}_{(\vc{r},t)} + \fr{1}{c^2} \pd[2]{\phij_{(\vc{r},t)}}{t} &= \fr{\ro_{(\vc{r},t)}}{\kpev} \\
+		\lap{\phij}_{(\vc{r},t)} &= \fr{1}{c^2} \pd[2]{\phij_{(\vc{r},t)}}{t} - \fr{\ro_{(\vc{r},t)}}{\kpev}
+	\end{align*}
+	\q{\lap{\phij}_{(\vc{r},t)} = \fr{1}{c^2} \pd[2]{\phij_{(\vc{r},t)}}{t} - \fr{\ro_{(\vc{r},t)}}{\kpev}}
+	\item Y el potencial vector satisface una E.D.P. de segundo orden de la forma:
+	\begin{align*}
+		\dalv{A}_{(\vc{r},t)} &= \kpmv \vc{J}_{(\vc{r},t)} \\
+		-\lapv{A}_{(\vc{r},t)} + \fr{1}{c^2} \pd[2]{\vc{A}_{(\vc{r},t)}}{t} &= \kpmv \vc{J}_{(\vc{r},t)} \\
+		\lapv{A}_{(\vc{r},t)} &= \fr{1}{c^2} \pd[2]{\vc{A}_{(\vc{r},t)}}{t} - \kpmv \vc{J}_{(\vc{r},t)} \\
+		\lapv{} \cor{A_{1(\vc{r},t)} \ver{e}_1 + A_{2(\vc{r},t)} \ver{e}_2 + A_{3(\vc{r},t)} \ver{e}_3} &= \fr{1}{c^2} \pd[2]{}{t} \cor{A_{1(\vc{r},t)} \ver{e}_1 + A_{2(\vc{r},t)} \ver{e}_2 + A_{3(\vc{r},t)} \ver{e}_3} - \kpmv \cor{J_{1(\vc{r},t)} \ver{e}_1 + J_{2(\vc{r},t)} \ver{e}_2 + J_{3(\vc{r},t)} \ver{e}_3} \\
+		\ent &\Fppp{\ver{e}_1 : \lap{A}_{1(\vc{r},t)} = \fr{1}{c^2} \pd[2]{A_{1(\vc{r},t)}}{t} - \kpmv J_{1(\vc{r},t)}}{\ver{e}_2 : \lap{A}_{2(\vc{r},t)} = \fr{1}{c^2} \pd[2]{A_{2(\vc{r},t)}}{t} - \kpmv J_{2(\vc{r},t)}}{\ver{e}_3 : \lap{A}_{3(\vc{r},t)} = \fr{1}{c^2} \pd[2]{A_{3(\vc{r},t)}}{t} - \kpmv J_{3(\vc{r},t)}}
+	\end{align*}
+	\q{\lap{A}_{i(\vc{r},t)} = \fr{1}{c^2} \pd[2]{A_{i(\vc{r},t)}}{t} - \kpmv J_{i(\vc{r},t)} \tx{, con } i=1,2,3}
+	\item Es decir, que para resolver las ecuaciones de Maxwell con Gauge de Lorenz debemos resolver únicamente una E.D.P. de segundo orden de la forma:
+	\f{\lap{\ji}_{(\vc{r},t)} = \fr{1}{c^2} \pd[2]{\ji_{(\vc{r},t)}}{t} - f_{(\vc{r},t)}}
+\end{itemize}
+		\subsection{Función De Green}
+Sea $\ji := \ji_{(\vc{r},t)} : \bb{R}^4 \to \bb{R}$ una función de cuatro variables diferenciable a segundo orden ($C^2$) en el espacio y en el tiempo, y sea $f := f_{(\vc{r},t)}$ una función de cuatro variables continua, entonces:
+\begin{itemize}
+	\item Si la función $\ji$ satisface la misma ecuación diferencial que las ecuaciones de Maxwell en forma potencial utilizando el gauge de Lorenz, se tiene que:
+	\begin{align*}
+		\lap{\ji}_{(\vc{r},t)} &= \fr{1}{c^2} \pd[2]{\ji_{(\vc{r},t)}}{t} - f_{(\vc{r},t)} \\
+		\tx{Antitransformando Fourier a la función } &\ji_{(\vc{r},t)} \tx{ al espacio de frecuencias, tenemos que:} \\
+		\lap{} \cor{\fr{1}{\rz{2\pi}}\Int{-\inf}{\inf}{\ji_{(\vc{r},\omega)} e^{-i\omega t}}{\omega}} &= \fr{1}{c^2} \pd[2]{}{t} \cor{\fr{1}{\rz{2\pi}}\Int{-\inf}{\inf}{\ji_{(\vc{r},\omega)} e^{-i\omega t}}{\omega}} - \fr{1}{\rz{2\pi}}\Int{-\inf}{\inf}{f_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} \\
+		\fr{1}{\rz{2\pi}}\Int{-\inf}{\inf}{\lap{\ji}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} &= \fr{1}{\rz{2\pi}c^2} \Int{-\inf}{\inf}{\ji_{(\vc{r},\omega)} \pd[2]{}{t} \pr{e^{-i\omega t}}}{\omega} - \fr{1}{\rz{2\pi}}\Int{-\inf}{\inf}{f_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} \\
+		\Int{-\inf}{\inf}{\lap{\ji}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} &= \fr{1}{c^2} \Int{-\inf}{\inf}{\ji_{(\vc{r},\omega)} e^{-i\omega t} (-i\omega)^2}{\omega} - \Int{-\inf}{\inf}{f_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} \\
+		\Int{-\inf}{\inf}{\lap{\ji}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} &= \Int{-\inf}{\inf}{\cor{-\fr{\omega^2}{c^2} \ji_{(\vc{r},\omega)} - f_{(\vc{r},\omega)}} e^{-i\omega t}}{\omega} \\
+		\sii \lap{\ji}_{(\vc{r},\omega)} &= -\fr{\omega^2}{c^2} \ji_{(\vc{r},\omega)} - f_{(\vc{r},\omega)}
+	\end{align*}
+	\q{\lap{\ji}_{(\vc{r},\omega)} = -\fr{\omega^2}{c^2} \ji_{(\vc{r},\omega)} - f_{(\vc{r},\omega)}}
+	\item Es decir, obtuvimos una E.D.P. en el espacio de Fourier que no contiene derivadas segundas respecto del tiempo o la frecuencia. Ahora para la parte espacial proponemos una función de Green de la forma: \\\\
+	$\s{\Fpp{\pr{\lap[\vc{r}]{} + k^2} G_{k(\vc{r},\vc{r}')} = -\dirac{(\vc{r}-\vc{r}')}}{G_{k(\vc{r},\vc{r}')} \Tiende{\mod{\vc{r}} \to \inf} 0} \tx{, con } k := \fr{\omega}{c}}$
+	\item Si realizamos la sustitución $\vc{R} := \vc{r}-\vc{r}'$, tenemos que:
+	\begin{align*}
+		\pr{\lap[\vc{r}]{} + k^2} G_{k(\vc{r},\vc{r}')} &= -\dirac{(\vc{r}-\vc{r}')} \\
+		\pr{\lap[\vc{R}]{} + k^2} G_{k(\vc{R})} &= -\dirac{(\vc{R})}
+	\end{align*}
+	\q{\pr{\lap[\vc{R}]{} + k^2} G_{k(\vc{R})} = -\dirac{(\vc{R})}}
+	\item Las soluciones de esta ecuación diferencial son de la forma: \\\\
+	$\s{G_{k(\vc{R})} = \fr{1}{\mod{\vc{R}}} \pr{A_+ e^{ik\mod{\vc{R}}} + A_- e^{-ik\mod{\vc{R}}}}}$
+	\item Estas soluciones representan ondas esféricas entrantes y salientes, cuyas amplitudes $A_+$ y $A_-$ decrecen con la distancia. Introduciendo la notación reducida $\pm$, podemos escribir la solución de la ecuación diferencial de la forma: \\\\
+	$\s{G_{k(\vc{R})}^{\pm} = \fr{A_{\pm}}{\mod{\vc{R}}} e^{\pm ik\mod{\vc{R}}}}$
+	\item Hasta ahora no tuvimos en cuenta la parte temporal de nuestra ecuación diferencial. Para hacerlo, proponemos una función de Green de la forma: \\\\
+	$\s{\Fpp{\pr{\lap[\vc{r}]{} - \fr{1}{c^2} \pd[2]{}{t}} G_{(\vc{r},\vc{r}')} = -\dirac{(\vc{r}-\vc{r}')} \dirac{(t-t')}}{G_{(\vc{r},t,\vc{r}',t')} \Tiende{\mod{\vc{r}} \to \inf} 0}}$
+	\item Transformando Fourier al espacio temporal esta nueva ecuación diferencial, se obtiene que: \\\\
+	$\s{\pr{\lap[\vc{r}]{} - k^2} G_{k(\vc{r},\vc{r}')} = -\dirac{(\vc{r}-\vc{r}')} e^{i\omega t'}}$
+	\item Teniendo en cuenta las soluciones de la parte espacial de la función de Green propuesta anteriormente, las soluciones de esta nueva ecuación son de la forma: \\\\
+	$\s{G_{k(\vc{r},\vc{r}')}^{\pm} = \fr{1}{\mod{\vc{R}}} e^{\pm ik\mod{\vc{R}}} e^{i\omega t'}}$
+	\item Antitransformando se obtiene que:
+	\begin{align*}
+		G_{\pm(\vc{r},t,\vc{r}',t')} &= \fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\fr{1}{\mod{\vc{R}}} e^{\pm ik\mod{\vc{R}}} e^{i\omega t'} e^{i\omega t}}{\omega} \\
+		&= \fr{1}{\mod{\vc{R}}} \fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{e^{i\omega \pr{\pm \frr{\mod{\vc{R}}}{c} + t' - t}}}{\omega} \\
+		&\tx{Por la definición de la delta de Dirac, tenemos que:} \\
+		&= \fr{1}{\mod{\vc{R}}} \dirac{\pr{\pm\frr{\mod{\vc{R}}}{c} + t'-t}} \\
+		&\tx{Deshaciendo la sustitución } \vc{R} \tx{, tenemos que:} \\
+		&= \fr{1}{\mod{\vc{r}-\vc{r}'}} \dirac{\pr{\pm\frr{\mod{\vc{r}-\vc{r}'}}{c} + t'-t}}
+	\end{align*}
+	\item Finalmente, la función de Green para las ecuaciones de Maxwell utilizando el gauge de Lorenz, será de la forma:
+	\f{G_{\pm(\vc{r},t,\vc{r}',t')} := \fr{1}{\mod{\vc{r}-\vc{r}'}} \dirac{\pr{\pm\frr{\mod{\vc{r}-\vc{r}'}}{c} + t'-t}}}
+\end{itemize}
+\paragraph{Interpretación}
+Las funciones de Green $G_{\pm}$ son la solución de la ecuación de ondas inhomogénea en $(\vc{r},t)$ si existe una inhomogeneidad (una fuente) en la posición y el tiempo $(\vc{r}',t')$, y son no nulas únicamente en el tiempo $t := t' \pm \frr{\mod{\vc{r}-\vc{r}'}}{c}$. Éstas soluciones describen la propagación hacia adelante en el tiempo y con velocidad de propagación $v_{\phi} = c$ de lo que ocurrió en la posición y el tiempo $(\vc{r}',t')$.
+		\subsection{Solución General}
+La solución general exacta de las ecuaciones de Maxwell será de la forma:
+\f{\ji_{(\vc{r},t)} := \ji_{\tx{hom}(\vc{r},t)} + \ji_{\tx{part}(\vc{r},t)}}
+\paragraph{Solución Homogénea}
+La solución homogénea $\ji_{\tx{hom}(\vc{r},t)}$ se obtiene al especificar las condiciones de contorno del problema.
+\paragraph{Solución Particular}
+\f{\ji_{\tx{part}(\vc{r},t)} := \Int{-\inf}{\inf}{\ivsr[\inf]{-\inf}{G_{\pm(\vc{r},t,\vc{r}',t')} f_{(\vc{r}',t')}}{r}}{t}'}
+	\section{Potencial Electromagnético: Potencial Retardado (Gauge De Lorenz)}
+Se denomina \cur{potencial retardado} al valor que toma el potencial electromagnético observado en un espacio y tiempo campos $(\vc{r},t)$, que se produjo debido a distribuciones de carga eléctrica $\ro_{(\vc{r},t)}$ o densidades de corriente eléctrica $\vc{J}_{(\vc{r},t)}$ en el espacio y tiempo fuentes $(\vc{r}',t')$. Se dice que los potenciales son \cur{retardados} debido a que éstos, son ondas que se propagan con velocidad de fase finita $v_{\phi}=c$ (a la velocidad de la luz), por lo que el tiempo que tarda la información en viajar desde un punto fuente $(\vc{r}',t')$ a un punto campo $(\vc{r},t)$ sufre un \cur{retardo} debido a su velocidad de propagación $c$.
+		\subsection{Tiempo Retardado}
+Se denomina \cur{tiempo retardado} al tiempo que tiene en cuenta la demora que le tomó al campo electromagnético en propagarse desde su tiempo fuente $t'$ en la posición fuente $\vc{r}'$ hasta el tiempo actual $t$ en el punto campo $\vc{r}$, y se define como:
+\f{t_{\tx{r}} := t' = t - \fr{\mod{\vc{r}-\vc{r}'}}{c}}
+		\subsection{Tiempo Avanzado}
+Se denomina \cur{tiempo avanzado} al tiempo que tiene en cuenta la demora que le tomará al campo electromagnético en propagarse desde su tiempo fuente $t'$ en la posición fuente $\vc{r}'$ hasta un tiempo posterior $t$ en el punto campo $\vc{r}$, y se define como:
+\f{t_{\tx{a}} := t' = t + \fr{\mod{\vc{r}-\vc{r}'}}{c}}
+		\subsection{Deducción}
+Utilizando la expresión de la función de Green para las ecuaciones de Maxwell con gauge de Lorenz, puede obtenerse el potencial electromagnético en el espacio tiempo campo $(\vc{r},t)$, si éste se produjo en un espacio tiempo fuente $(\vc{r}',t')$, de la forma:
+\begin{align*}
+	\phij_{(\vc{r},t)} :&= \fr{1}{4\pi\kpev} \Int{-\inf}{\inf}{\ivsr[\inf]{-\inf}{\ro_{(\vc{r}',t')} G_{\pm (\vc{r},t,\vc{r}',t')}}{r}'}{t}' & \vc{A}_{(\vc{r},t)} :&= \fr{\kpmv}{4\pi} \Int{-\inf}{\inf}{\ivsr[\inf]{-\inf}{\vc{J}_{(\vc{r}',t')} G_{\pm (\vc{r},t,\vc{r}',t')}}{r}'}{t}' \\
+	&= \fr{1}{4\pi\kpev} \Int{-\inf}{\inf}{\ivsr[\inf]{-\inf}{\fr{\ro_{(\vc{r}',t')}}{\mod{\vc{r}-\vc{r}'}} \dirac{\pr{\pm\frr{\mod{\vc{r}-\vc{r}'}}{c} + t'-t}}}{r}'}{t}' & &= \fr{\kpmv}{4\pi} \Int{-\inf}{\inf}{\ivsr[\inf]{-\inf}{\fr{\vc{J}_{(\vc{r}',t')}}{\mod{\vc{r}-\vc{r}'}} \dirac{\pr{\pm\frr{\mod{\vc{r}-\vc{r}'}}{c} + t'-t}}}{r}'}{t}' \\
+	&= \fr{1}{4\pi\kpev} \Int{-\inf}{\inf}{\ivsr[\inf]{-\inf}{\fr{\ro_{(\vc{r}',t')}}{\mod{\vc{r}-\vc{r}'}} \dirac{\cor{t' - \pr{t \mp\frr{\mod{\vc{r}-\vc{r}'}}{c}}}}}{r}'}{t}' & &= \fr{\kpmv}{4\pi} \Int{-\inf}{\inf}{\ivsr[\inf]{-\inf}{\fr{\vc{J}_{(\vc{r}',t')}}{\mod{\vc{r}-\vc{r}'}} \dirac{\cor{t' - \pr{t \mp\frr{\mod{\vc{r}-\vc{r}'}}{c}}}}}{r}'}{t}' \\
+	&\tx{Si el potencial se debe al tiempo retardado } t_{\tx{r}} \ent G = G_+ \tx{, es decir:} & &\tx{Si el potencial se debe al tiempo retardado } t_{\tx{r}} \ent G = G_+ \tx{, es decir:} \\
+	&= \fr{1}{4\pi\kpev} \Int{-\inf}{\inf}{\ivsr[\inf]{-\inf}{\fr{\ro_{(\vc{r}',t')}}{\mod{\vc{r}-\vc{r}'}} \dirac{\cor{t' - \pr{t - \frr{\mod{\vc{r}-\vc{r}'}}{c}}}}}{r}'}{t}' & &= \fr{\kpmv}{4\pi} \Int{-\inf}{\inf}{\ivsr[\inf]{-\inf}{\fr{\vc{J}_{(\vc{r}',t')}}{\mod{\vc{r}-\vc{r}'}} \dirac{\cor{t' - \pr{t - \frr{\mod{\vc{r}-\vc{r}'}}{c}}}}}{r}'}{t}' \\
+	&\tx{Por la definición de tiempo retardado, tenemos que:} & &\tx{Por la definición de tiempo retardado, tenemos que:} \\
+	&= \fr{1}{4\pi\kpev} \Int{-\inf}{\inf}{\ivsr[\inf]{-\inf}{\fr{\ro_{(\vc{r}',t')}}{\mod{\vc{r}-\vc{r}'}} \dirac{(t'-t_{\tx{r}})}}{r}'}{t}' & &= \fr{\kpmv}{4\pi} \Int{-\inf}{\inf}{\ivsr[\inf]{-\inf}{\fr{\vc{J}_{(\vc{r}',t')}}{\mod{\vc{r}-\vc{r}'}} \dirac{(t'-t_{\tx{r}})}}{r}'}{t}' \\
+	&= \fr{1}{4\pi\kpev} \ivsr[\inf]{-\inf}{\fr{\ro_{(\vc{r}',t_{\tx{r}})}}{\mod{\vc{r}-\vc{r}'}}}{r}' & &= \fr{\kpmv}{4\pi} \ivsr[\inf]{-\inf}{\fr{\vc{J}_{(\vc{r}',t_{\tx{r}})}}{\mod{\vc{r}-\vc{r}'}}}{r}'
+\end{align*}
+\q{\Fpp{\phij_{(\vc{r},t)} = \fr{1}{4\pi\kpev} \s{\ivsr[\inf]{-\inf}{\fr{\ro_{(\vc{r}',t_{\tx{r}})}}{\mod{\vc{r}-\vc{r}'}}}{r}'}}{\vc{A}_{(\vc{r},t)} = \fr{\kpmv}{4\pi} \s{\ivsr[\inf]{-\inf}{\fr{\vc{J}_{(\vc{r}',t_{\tx{r}})}}{\mod{\vc{r}-\vc{r}'}}}{r}'}}}
+		\subsection{Potencial Eléctrico}
+El \cur{potencial eléctrico} que representa la solución de las ecuaciones de Maxwell en forma potencial es de la forma:
+\f{\phij_{(\vc{r},t)} := \fr{1}{4\pi\kpev} \ivsr[\inf]{-\inf}{\fr{\ro_{(\vc{r}',t_{\tx{r}})}}{\mod{\vc{r}-\vc{r}'}}}{r}' \tx{, con } t_{\tx{r}} := t - \fr{\mod{\vc{r}-\vc{r}'}}{c}}
+		\subsection{Potencial Magnético}
+El \cur{potencial magnético} que representa la solución de las ecuaciones de Maxwell en forma potencial es de la forma:
+\f{\vc{A}_{(\vc{r},t)} := \fr{\kpmv}{4\pi} \ivsr[\inf]{-\inf}{\fr{\vc{J}_{(\vc{r}',t_{\tx{r}})}}{\mod{\vc{r}-\vc{r}'}}}{r}' \tx{, con } t_{\tx{r}} := t - \fr{\mod{\vc{r}-\vc{r}'}}{c}}
+	\section{Campo Electromagnético: Ecuaciones De Jefimenko (Gauge De Lorenz)}
+Se denomina \cur{ecuaciones de Jefimenko} a las expresiones del campo electromagnético, derivadas del potencial electromagnético cuando se tiene en cuenta que éstos son potenciales retardados, y son de la forma:
+		\subsection{Deducción}
+\begin{align*}
+	\vc{E}_{(\vc{r},t)} :&= - \gr{\phij}_{(\vc{r},t)} - \pd{\vc{A}_{(\vc{r},t)}}{t} & \vc{B}_{(\vc{r},t)} :&= \rot{A}_{(\vc{r},t)} \\
+	&= - \gr[\vc{r}]{} \cor{\fr{1}{4\pi\kpev} \ivsr[\inf]{-\inf}{\fr{\ro_{(\vc{r}',t_{\tx{r}})}}{\mod{\vc{r}-\vc{r}'}}}{r}'} - \pd{}{t} \cor{\fr{\kpmv}{4\pi} \ivsr[\inf]{-\inf}{\fr{\vc{J}_{(\vc{r}',t_{\tx{r}})}}{\mod{\vc{r}-\vc{r}'}}}{r}'} & \vc{B}_{(\vc{r},t)} :&= \rot[\vc{r}]{} \cor{\fr{\kpmv}{4\pi} \ivsr[\inf]{-\inf}{\fr{\vc{J}_{(\vc{r}',t_{\tx{r}})}}{\mod{\vc{r}-\vc{r}'}}}{r}'} \\
+	&= & &= 
+\end{align*}
+			\subsubsection{Campo Eléctrico}
+El \cur{campo eléctrico} que representa la solución de las ecuaciones de Maxwell es de la forma:
+\f{\vc{E}_{(\vc{r},t)} := \fr{1}{4\pi\kpev} \ivsr[\inf]{-\inf}{\cor{\ro_{(\vc{r}',t_{\tx{r}})} \fr{\vc{r}-\vc{r}'}{\mod[3]{\vc{r}-\vc{r}'}} + \fr{1}{c} \pd{\ro_{(\vc{r}',t_{\tx{r}})}}{t} \fr{\vc{r}-\vc{r}'}{\mod[2]{\vc{r}-\vc{r}'}} - \fr{1}{c^2} \pd{\vc{J}_{(\vc{r}',t_{\tx{r}})}}{t} \fr{1}{\mod{\vc{r}-\vc{r}'}}}}{r}'}
+			\subsubsection{Campo Magnético}
+El \cur{campo magnético} que representa la solución de las ecuaciones de Maxwell es de la forma:
+\f{\vc{B}_{(\vc{r},t)} := \fr{\kpmv}{4\pi} \ivsr[\inf]{-\inf}{\cor{\PV{\vc{J}_{(\vc{r}',t_{\tx{r}})}}{\fr{\vc{r}-\vc{r}'}{\mod[3]{\vc{r}-\vc{r}'}}} + \fr{1}{c} \PV{\pd{\vc{J}_{(\vc{r}',t_{\tx{r}})}}{t}}{\fr{\vc{r}-\vc{r}'}{\mod[2]{\vc{r}-\vc{r}'}}}}}{r}'}
+	\section{Aproximación Cuasiestacionaria}
+Se denomina \cur{aproximación cuasiestacionaria} a la aproximación de las ecuaciones de Maxwell en la que se asume que los campos eléctrico y magnético, y la distribución de carga eléctrica y la densidad de corriente eléctrica (sus fuentes) varían lentamente y lo hacen en forma ondulatoria, por lo que los términos asociados a sus derivadas temporales son despreciables.
+		\subsection{Definición}
+Sean $\vc{E}$ y $\vc{B}$ los campos eléctrico y magnético, tales que éstos varían en el tiempo en forma ondulatoria, con frecuencia angular $\omega = kc$, número de onda $k = \frr{2\pi}{\lamda}$ y longitud de onda $\lamda$, con $\lamda \mm d$, donde $d$ es una longitud característica del problema, entonces:
+\begin{itemize}
+	\item Por las ecuaciones de Maxwell tenemos que: \\\\
+	$\s{\Fpppp{\div{E}_{(\vc{r},t)} = \fr{\ro_{(\vc{r},t)}}{\kpev}}{\rot{E}_{(\vc{r},t)} = -\pd{\vc{B}_{(\vc{r},t)}}{t}}{\div{B}_{(\vc{r},t)} = 0}{\rot{B}_{(\vc{r},t)} = \kpmv\vc{J}_{(\vc{r},t)} + \kpmv\kpev\pd{\vc{E}_{(\vc{r},t)}}{t}}}$
+	\item Si suponemos que los campos eléctrico y magnético, y la distribución de carga y corriente eléctrica varían en forma ondulatoria, podemos proponer que: \\\\
+	$\s{\Fpppp{\vc{E}_{(\vc{r},t)} := \vc{E}_{(\vc{r})} e^{i\omega t}}{\vc{B}_{(\vc{r},t)} := \vc{B}_{(\vc{r})} e^{i\omega t}}{\ro_{(\vc{r},t)} := \ro_{(\vc{r})} e^{i\omega t}}{\vc{J}_{(\vc{r},t)} := \vc{J}_{(\vc{r})} e^{i\omega t}}}$
+	\item De esta forma las ecuaciones de Maxwell, resultan:
+	\begin{align*}
+		\div{E}_{(\vc{r},t)} &= \fr{\ro_{(\vc{r},t)}}{\kpev} & \rot{E}_{(\vc{r},t)} &= -\pd{\vc{B}_{(\vc{r},t)}}{t} & \div{B}_{(\vc{r},t)} &= 0 & \rot{B}_{(\vc{r},t)} &= \kpmv\vc{J}_{(\vc{r},t)} + \kpmv\kpev\pd{\vc{E}_{(\vc{r},t)}}{t} \\
+		\div{} \cor{\vc{E}_{(\vc{r})} e^{i\omega t}} &= \fr{\ro_{(\vc{r})}}{\kpev} e^{i\omega t} & \rot{} \cor{\vc{E}_{(\vc{r})} e^{i\omega t}} &= -\pd{}{t} \cor{\vc{B}_{(\vc{r})} e^{i\omega t}} & \div{} \cor{\vc{B}_{(\vc{r})} e^{i\omega t}} &= 0 & \rot{} \cor{\vc{B}_{(\vc{r})} e^{i\omega t}} &= \kpmv\vc{J}_{(\vc{r})}e^{i\omega t} + \kpmv\kpev\pd{}{t} \cor{\vc{E}_{(\vc{r})} e^{i\omega t}} \\
+		\div{E}_{(\vc{r})} &= \fr{\ro_{(\vc{r})}}{\kpev} & \rot{E}_{(\vc{r})} &= -i\omega \vc{B}_{(\vc{r})} & \div{B}_{(\vc{r})} &= 0 & \rot{B}_{(\vc{r})} &= \kpmv\vc{J}_{(\vc{r})} + i\omega\kpmv\kpev \vc{E}_{(\vc{r})}
+	\end{align*}
+	\q{\Fpppp{\div{E}_{(\vc{r})} = \fr{\ro_{(\vc{r})}}{\kpev}}{\rot{E}_{(\vc{r})} = -i\omega \vc{B}_{(\vc{r})}}{\div{B}_{(\vc{r})} = 0}{\rot{B}_{(\vc{r})} = \kpmv\vc{J}_{(\vc{r})} + i\omega\kpmv\kpev \vc{E}_{(\vc{r})}}}
+	\item De esta forma, las ecuaciones de Maxwell pueden resolverse en forma perturbativa, planteando que los campos eléctrico y magnético son de la forma:
+	\f{\Fpp{\vc{E}_{(\vc{r})} = \S{j=0}{\inf}{k^j \vc{E}_{(\vc{r})}^{(j)}}}{\vc{B}_{(\vc{r})} = \S{j=0}{\inf}{k^j \vc{B}_{(\vc{r})}^{(j)}}}}
+\end{itemize}
+\paragraph{Observación: Material Conductor}
+En materiales conductores, la ley de Ampère-Maxwell suele escribirse reemplazando la densidad de corriente eléctrica volumétrica en función del campo eléctrico de acuerdo con la ley de Ohm, de la forma:
+\begin{align*}
+	\rot{B}_{(\vc{r})} &= \kpmv\vc{J}_{(\vc{r})} + i\omega\kpmv\kpev \vc{E}_{(\vc{r})} \\
+	&= \kpmv\sigma\vc{E}_{(\vc{r})} + i\omega\kpmv\kpev \vc{E}_{(\vc{r})} \\
+	&= \kpmv (\sigma + i\omega\kpev) \vc{E}_{(\vc{r})}
+\end{align*}
+\q{\rot{B}_{(\vc{r})} = \kpmv (\sigma + i\omega\kpev) \vc{E}_{(\vc{r})}}
+			\subsubsection{Tiempo Característico}
+En materiales conductores, se denomina \cur{tiempo característico} a la inversa de su conductividad eléctrica, de la forma:
+\f{t_{\tx{c}} := \fr{1}{\sigma}}
+		\subsection{Caso 1: Distribución De Carga Eléctrica Nula}
+		\subsection{Caso 2: Distribución De Corriente Eléctrica Nula}
+\chapter{Trabajo Y Energía Electromagnética} % EMPROLIJAR. ACÁ HAY QUE USAR IDENTIDADES DE PRODUCTO VECTORIAL TRIPLE PARA HALLAR EL TRABAJO MAGNÉTICO
+	\section{Trabajo Eléctrico}
+Debido a que la Ley de Gauss es la misma en Electrostática que en Electrodinámica, la expresión del Trabajo Electrostático es idéntica a la del Trabajo Eléctrico, por lo tanto:
+\f{W_{\tx{e}(t)} = \fr{1}{2} \ivs{\bb{Q}}{\ro_{(\vc{r}',t)} \phij_{(\vc{r}',t)}}{V}'}
+	\section{Trabajo Magnético}
+Si bien el Trabajo Magnetostático es nulo, el Trabajo Magnético no lo es, ya que para crear un Campo Magnético debe realizarse Trabajo Magnético para vencer al Campo Eléctrico Inducido que se produce de acuerdo con la Ley de Faraday-Maxwell. De esta forma, dada $q_{(t)}$ una partícula estática cargada eléctricamente en la posición $\vc{r}'$ inmersa en un Campo Eléctrico Continuo $\vc{E} := \vc{E}_{(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, el Trabajo Magnético necesario para llevar a la partícula $q$ desde una posición $\vc{r}_0$ hasta la posición $\vc{r}$, será de la forma:
+\begin{align*}
+	W_{\tx{m}(\vc{r},t)} :&= \ilovcr{\cal{C}^+}{\vc{F}_{\tx{m}(\vc{r}')}}{\ell}' \\
+	&= \ilovcr{\cal{C}^+}{q \cor{\PV{\dot{\vc{r}}_{(t)}}{\vc{B}_{(\vc{r}',t)}}}}{\ell}' \\
+	&= q \ilovcr[\vc{r}]{\vc{r}_0}{\PV{\dot{\vc{r}}_{(t)}}{\vc{B}_{(\vc{r}',t)}}}{\ell}' \\
+	&= -q \cal{E}_{\tx{Ind}}
+\end{align*}
+		\subsection{Definición}
+Se denomina Trabajo Magnético a la Fuerza Electromotriz opuesta necesaria para mover una carga de prueba $q$ de un punto $\vc{r}_0$ hasta un punto $\vc{r}$, multiplicada por dicha carga $q$:
+\f{W_{\tx{m}(\vc{r},t)} = -q \cal{E}_{\tx{Ind}}}
+		\subsection{Trabajo Magnético En Un Sistema De $N$-Partículas}
+Sean $q_i$, $N$-partículas estáticas cargadas eléctricamente en las posiciones $\vc{r}_i$, entonces:
+\begin{align*}
+	W_{q_1\pors q_N} &= W_{q_1} + W_{q_2} + W_{q_3} + \porh + W_{q_N} \\
+	&= - q_1 \cal{E}_{\tx{Ind}} - q_2 \cal{E}_{\tx{Ind}} - q_3 \cal{E}_{\tx{Ind}} - \porh - q_N \cal{E}_{\tx{Ind}} \\
+	&= - \cal{E}_{\tx{Ind}} \pr{q_1 + q_2 + q_3 + \porh + q_N} \\
+	&= - \cal{E}_{\tx{Ind}} \S{i=1}{N}{q_i}
+\end{align*}
+\q{W_{q_1\pors q_N} = - \cal{E}_{\tx{Ind}} \S{i=1}{N}{q_i}}
+		\subsection{Trabajo Magnético En Una Distribución Continua De Carga} %ESTO HAY QUE EMPROLIJAR
+Cuando la cantidad de partículas cargadas $q_i$ tiende a infinito, obtenemos una Suma de Riemann por cada Diferencial de Carga:
+\begin{align*}
+	\lim{N}{\inf}{\pr{W_{q_1 \pors q_N}}} &= \lim{N}{\inf}{\pr{- \cal{E}_{\tx{Ind}} \S{i=1}{N}{q_i}}} \\
+	W_{\tx{m}(\vc{r},t)} &= - \cal{E}_{\tx{Ind}} \lim{N}{\inf}{\pr{\S{i=1}{N}{q_i}}} \\
+	&= - \cal{E}_{\tx{Ind}} \Int{}{}{\esp{-4}}{q}'_{(t)} \\
+	&\tx{Por la Ley de Faraday, tenemos:} \\
+	&= \dv{\Phi_{\vc{B}(t)}}{t} \Int{}{}{\esp{-4}}{q}'_{(t)} \\
+	&\tx{Por la definición de Inductancia, tenemos:} \\
+	&= \dv{}{t} \cor{L I_{(t)}} \Int{}{}{\esp{-4}}{q}'_{(t)} \\
+	&= L \dv{I_{(t)}}{t} \Int{}{}{\esp{-4}}{q}'_{(t)} \\
+	&= L \Int{}{}{\esp{-4}}{I}'_{(t)} \dv{q'_{(t)}}{t'} \\
+	&= L \Int{}{}{\esp{-4}}{I}'_{(t)} \dv{q'_{(t)}}{t'} \\
+	&= L \Int{}{}{\esp{-4}}{I}'_{(t)} \Int{}{}{\esp{-4}}{I}'_{(t)} \\
+	&= LI \fr{I}{2} \\
+	&= \fr{I}{2} \ilov{}{\vc{A}_{(\vc{r},t)}}{\ell}' \\
+	&= \fr{1}{2} \ilos{}{\PI{\vc{A}_{(\vc{r}',t)}}{\vc{I}_{(\vc{r}',t)}}}{s}'
+\end{align*}
+\q{W_{\tx{m}(\vc{r},t)} := \fr{1}{2} \Int{}{}{\PI{\vc{A}_{(\vc{r}',t)}}{\dot{\vc{r}}'_{(t)}}}{q}'}
+\paragraph{Distribución Lineal}
+Si la distribución de cargas $q'$ puede expresarse como una densidad lineal de carga $\lamda := \lamda_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{W_{\tx{m}(\vc{r},t)} = \fr{1}{2} \ilos{\cal{C}}{\PI{\vc{A}_{(\vc{r}',t)}}{\vc{I}_{(\vc{r}',t)}}}{s}'}
+\paragraph{Distribución Superficial}
+Si la distribución de cargas $q'$ puede expresarse como una densidad superficial de carga $\sigma := \sigma_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{W_{\tx{m}(\vc{r},t)} = \fr{1}{2} \iss{\ff{S}}{\PI{\vc{A}_{(\vc{r}',t)}}{\vc{K}_{(\vc{r}',t)}}}{S}'}
+\paragraph{Distribución Volumétrica}
+Si la distribución de cargas $q'$ puede expresarse como una densidad volumétrica de carga $\ro := \ro_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{W_{\tx{m}(\vc{r},t)} = \fr{1}{2} \ivs{\bb{Q}}{\PI{\vc{A}_{(\vc{r}',t)}}{\vc{J}_{(\vc{r}',t)}}}{V}'}
+	\section{Trabajo Electromagnético}
+El Trabajo Electromagnético se define como la suma del Trabajo Eléctrico y el Trabajo Magnético, por lo tanto:
+\f{W_{\tx{em}(\vc{r},t)} = \fr{1}{2} \ivs{\bb{Q}}{\cor{\ro_{(\vc{r}',t)} \phij_{(\vc{r}',t)} + \PI{\vc{A}_{(\vc{r}',t)}}{\vc{J}_{(\vc{r}',t)}}}}{V}'}
+\paragraph{Trabajo Electromagnético En Medios Materiales}
+En medios materiales, el Trabajo Electromagnético debe realizarse únicamente sobre las fuentes de carga eléctrica y corriente eléctrica libres. De esta forma, el Trabajo Electromagnético en un medio material con permitividad eléctrica $\eps$ y permeabilidad magnética $\mi$, es de la forma:
+\f{W_{\tx{em}(\vc{r},t)} = \fr{1}{2} \ivs{\bb{Q}}{\cor{\ro_{l(\vc{r}',t)} \phij_{(\vc{r}',t)} + \PI{\vc{A}_{(\vc{r}',t)}}{\vc{J}_{l(\vc{r}',t)}}}}{V}'}
+	\section{Energía Eléctrica}
+Debido a que la Ley de Gauss es la misma en Electrostática que en Electrodinámica, la expresión de Energía Electrostática es idéntica a la de Energía Eléctrica, por lo tanto:
+\f{E_{\tx{e}(t)} = \fr{\kpev}{2} \ivs{\bb{R}^3}{\mod[2]{\vc{E}_{(\vc{r}',t)}}}{V}'}
+	\section{Energía Magnética}
+Debido a que conocemos el Trabajo Magnético $W_{\tx{m}(\vc{r})}$ para una distribución continua de corriente eléctrica volumétrica, suele denominarse Energía Magnética a dicho trabajo realizado cuando la región de integración $\bb{Q}$ es todo el espacio ($\bb{Q} = \bb{R}^3$), y puede representarse en función del Campo Magnético $\vc{B} := \vc{B}_{(\vc{r},t)} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ de la forma:
+\begin{align*}
+	W_{\tx{m}(\vc{r},t)} :&= \fr{1}{2} \ivs{\bb{Q}}{\PI{\vc{A}_{(\vc{r}',t)}}{\vc{J}_{(\vc{r}',t)}}}{V}' \\
+	&\tx{Por la Ley de Ampère (despreciando el término de Maxwell), tenemos:} \\
+	&= \fr{1}{2\kpmv} \ivs{\bb{Q}}{\PI{\vc{A}_{(\vc{r}',t)}}{\cor{\rot[\vc{r}']{B}_{(\vc{r}',t)}}}}{V}' \\
+	&\tx{Por la Regla del Producto Vectorial de la Divergencia, tenemos:} \\
+	&= \fr{1}{2\kpmv} \ivs{\bb{Q}}{\lla{\nabla_{\vc{r}'} \por \cor{\PV{\vc{B}_{(\vc{r}',t)}}{\vc{A}_{(\vc{r}',t)}}} + \PI{\vc{B}_{(\vc{r}',t)}}{\cor{\rot[\vc{r}']{A}_{(\vc{r}',t)}}}}}{V}' \\
+	&= \fr{1}{2\kpmv} \ivs{\bb{Q}}{\nabla_{\vc{r}'} \por \cor{\PV{\vc{B}_{(\vc{r}',t)}}{\vc{A}_{(\vc{r}',t)}}}}{V}' + \fr{1}{2\kpmv} \ivs{\bb{Q}}{\PI{\vc{B}_{(\vc{r}',t)}}{\cor{\rot[\vc{r}']{A}_{(\vc{r}',t)}}}}{V}' \\
+	&\tx{Por el Teorema de Gauss, tenemos:} \\
+	&= \fr{1}{2\kpmv} \isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\cor{\PV{\vc{B}_{(\vc{r}',t)}}{\vc{A}_{(\vc{r}',t)}}}}{S}' + \fr{1}{2\kpmv} \ivs{\bb{Q}}{\PI{\vc{B}_{(\vc{r}',t)}}{\vc{B}_{(\vc{r}',t)}}}{V}' \\
+	&\tx{Si } \bb{Q} = \bb{R}^3 \tx{, la integral de superficie tiende a cero, entonces:} \\
+	&= \fr{1}{2\kpmv}.0 + \fr{1}{2\kpmv} \ivs{\bb{Q}}{\mod[2]{\vc{B}_{(\vc{r}',t)}}}{V}' \\
+	&= \fr{1}{2\kpmv} \ivs{\bb{R}^3}{\mod[2]{\vc{B}_{(\vc{r}',t)}}}{V}'
+\end{align*}
+\q{E_{\tx{m}(t)} = \fr{1}{2\kpmv} \ivs{\bb{R}^3}{\mod[2]{\vc{B}_{(\vc{r}',t)}}}{V}'}
+	\section{Energía Electromagnética}
+La Energía Electromagnética se define como la suma de la Energía Eléctrica y la Energía Magnética, por lo tanto:
+\begin{align*}
+	E_{\tx{em}(t)} :&= E_{\tx{e}(t)} + E_{\tx{m}(t)} \\
+	&= \fr{\kpev}{2} \ivs{\bb{R}^3}{\mod[2]{\vc{E}_{(\vc{r}',t)}}}{V}' + \fr{1}{2\kpmv} \ivs{\bb{R}^3}{\mod[2]{\vc{B}_{(\vc{r}',t)}}}{V}' \\
+	&= \fr{1}{2} \ivs{\bb{R}^3}{\cor{\kpev \mod[2]{\vc{E}_{(\vc{r}',t)}} + \fr{1}{\kpmv} \mod[2]{\vc{B}_{(\vc{r}',t)}}}}{V}'
+\end{align*}
+\f{E_{\tx{em}(t)} = \fr{1}{2} \ivs{\bb{R}^3}{\cor{\kpev \mod[2]{\vc{E}_{(\vc{r}',t)}} + \fr{1}{\kpmv}\mod[2]{\vc{B}_{(\vc{r}',t)}}}}{V}'}
+\paragraph{Energía Electromagnética En Medios Materiales}
+En medios materiales, conocemos las expresiones tanto para la Energía Eléctrica en Dieléctricos como para la Energía Magnética en Materiales Magnéticos. De esta forma, la Energía Electromagnética en un medio material con permitividad eléctrica $\eps$ y permeabilidad magnética $\mi$, se define como la suma de ambas energías, por lo tanto:
+\begin{align*}
+	E_{\tx{em}(t)} :&= E_{\tx{e}(t)} + E_{\tx{m}(t)} \\
+	&= \fr{1}{2} \ivs{\bb{R}^3}{\PI{\vc{D}_{(\vc{r}',t)}}{\vc{E}_{(\vc{r}',t)}}}{V}' + \fr{1}{2} \ivs{\bb{R}^3}{\PI{\vc{H}_{(\vc{r}',t)}}{\vc{B}_{(\vc{r}',t)}}}{V}' \\
+	&= \fr{1}{2} \ivs{\bb{R}^3}{\cor{\PI{\vc{D}_{(\vc{r}',t)}}{\vc{E}_{(\vc{r}',t)}} + \PI{\vc{H}_{(\vc{r}',t)}}{\vc{B}_{(\vc{r}',t)}}}}{V}'
+\end{align*}
+\f{E_{\tx{em}(t)} = \fr{1}{2} \ivs{\bb{R}^3}{\cor{\PI{\vc{D}_{(\vc{r}',t)}}{\vc{E}_{(\vc{r}',t)}} + \PI{\vc{H}_{(\vc{r}',t)}}{\vc{B}_{(\vc{r}',t)}}}}{V}'}
+\chapter{Leyes De Conservación}
+En electrodinámica es posible obtener leyes de conservación para los campos eléctrico y magnético, de la siguiente forma:
+	\section{Conservación Del Momento Lineal}
+Sea una distribución volumétrica de carga eléctrica $\ro$ que se mueve con velocidad $\dot{\vc{r}}$ produciendo una corriente eléctrica $\vc{J}$, inmersa en un campo eléctrico $\vc{E}$ y en un campo magnético $\vc{B}$, entonces:
+\begin{align*}
+	&\tx{Por la segunda ley de Newton para la ley de Lorentz, tenemos que:} \\
+	\dv{\vc{p}_{(t)}}{t} :&= \vc{F}_{\tx{em}(\vc{r},t)} \\
+	&= \ivs{\bb{Q}}{\pr{\ro \vc{E} + \PV{\vc{J}}{\vc{B}}}}{V} \\
+	&\tx{Por la ley de Gauss y la ley de Ampère-Maxwell, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\cor{\kpev (\div{E}) \vc{E} + \PV{\pr{\fr{1}{\kpmv} \rot{B} - \kpev \pd{\vc{E}}{t}}}{\vc{B}}}}{V} \\
+	&= \ivs{\bb{Q}}{\cor{\kpev (\div{E}) \vc{E} + \fr{1}{\kpmv} \PV{(\rot{B})}{\vc{B}} - \kpev \pr{\PV{\pd{\vc{E}}{t}}{\vc{B}}}}}{V} \\
+	&\tx{Por la regla del producto, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\cor{\kpev (\div{E}) \vc{E} - \fr{1}{\kpmv} \PV{\vc{B}}{(\rot{B})} - \kpev \pd{}{t} (\PV{\vc{E}}{\vc{B}}) + \kpev \pr{\PV{\vc{E}}{\pd{\vc{B}}{t}}}}}{V} \\
+	&\tx{Por la ley de Faraday-Maxwell, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\cor{\kpev (\div{E}) \vc{E} - \fr{1}{\kpmv} \PV{\vc{B}}{(\rot{B})} - \kpev \pd{}{t} (\PV{\vc{E}}{\vc{B}}) + \kpev \PV{\vc{E}}{\pr{-\rot{E}}}}}{V} \\
+	&\tx{Por la ley de Gauss para el magnetismo } (\div{B} = 0) \tx{, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\cor{\kpev (\div{E}) \vc{E} - \kpev\PV{\vc{E}}{\pr{\rot{E}}} + \fr{1}{\kpmv} (\div{B}) \vc{B} - \fr{1}{\kpmv} \PV{\vc{B}}{(\rot{B})} - \kpev \pd{}{t} (\PV{\vc{E}}{\vc{B}})}}{V} \\
+	&\tx{Por la regla del producto interno del gradiente, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\lla{\kpev (\div{E}) \vc{E} - \kpev\cor{\fr{1}{2} \gr{}(\PI{\vc{E}}{\vc{E}}) - (\PI{\vc{E}}{\nabla})\vc{E}} + \fr{1}{\kpmv} (\div{B}) \vc{B} - \fr{1}{\kpmv} \cor{\fr{1}{2} \gr{}(\PI{\vc{B}}{\vc{B}}) - (\PI{\vc{B}}{\nabla})\vc{B}}}}{V} - \ivs{\bb{Q}}{\kpev \pd{}{t} (\PV{\vc{E}}{\vc{B}})}{V} \\
+	&= \ivs{\bb{Q}}{\lla{\kpev \cor{(\div{E}) \vc{E} + (\PI{\vc{E}}{\nabla})\vc{E}} + \fr{1}{\kpmv} \cor{(\div{B}) \vc{B} + (\PI{\vc{B}}{\nabla})\vc{B}} - \fr{1}{2} \gr{}\pr{\kpev \mod[2]{\vc{E}} + \fr{1}{\kpmv} \mod[2]{\vc{B}}}}}{V} - \pd{}{t} \ivs{\bb{Q}}{\kpev(\PV{\vc{E}}{\vc{B}})}{V} \\
+	&= \ivs{\bb{Q}}{\div{\sigma}_{ij(t)}}{V} - \pd{}{t} \ivs{\bb{Q}}{\vc{p}_{\tx{em}}}{V} \\
+	&\tx{Por el teorema de Gauss para tensores, tenemos que:} \\
+	&= \isov{\vc{S}^+:=\p\bb{Q}}{\esp{-10}\vc{\sigma}_{ij(t)}}{S} - \pd{}{t} \ivs{\bb{Q}}{\vc{p}_{\tx{em}}}{V}
+\end{align*}
+\q{\dv{\vc{p}_{(t)}}{t} = \isov{\vc{S}^+:=\p\bb{Q}}{\esp{-10}\vc{\sigma}_{ij(t)}}{S} - \pd{}{t} \ivs{\bb{Q}}{\vc{p}_{\tx{em}}}{V}}
+		\subsection{Momento Lineal Electromagnético}
+Se denomina \cur{momento lineal electromagnético} a la contribución de momento lineal del campo electromagnético en el vacío para partículas microscópicas, y se define como:
+\f{\vc{p}_{\tx{em}(\vc{r},t)} := \kpev \cor{\PV{\vc{E}_{(\vc{r},t)}}{\vc{B}_{(\vc{r},t)}}}}
+\paragraph{Observación}
+El momento lineal electromagnético se relaciona con el vector de Poynting de la forma:
+\f{\vc{p}_{\tx{em}(\vc{r},t)} = \kpmv\kpev\vc{S}_{(\vc{r},t)}}
+		\subsection{Tensor De Esfuerzos De Maxwell}
+Se denomina \cur{tensor de esfuerzos de Maxwell} o \cur{tensor de Maxwell} al tensor de segundo orden que representa el momento lineal del campo electromagnético para partículas macroscópicas, y se define como:
+\f{\sigma_{ij} := \kpev \pr{E_iE_j - \fr{1}{2} \kro{ij} E^2} + \fr{1}{\kpmv} \pr{B_iB_j - \fr{1}{2} \kro{ij} B^2}}
+\paragraph{Notación Matricial}
+\f{\sigma_{ij} := \lbm \kpev \pr{E_x^2 - \frr{1}{2} E^2} + \frr{1}{\kpmv} \pr{B_x^2 - \frr{1}{2} B^2} & \kpev E_xE_y + \frr{1}{\kpmv} B_xB_y & \kpev E_xE_z + \frr{1}{\kpmv} B_xB_z \\ \kpev E_yE_x + \frr{1}{\kpmv} B_yB_x & \kpev \pr{E_y^2 - \frr{1}{2} E^2} + \frr{1}{\kpmv} \pr{B_y^2 - \frr{1}{2} B^2} & \kpev E_yE_z + \frr{1}{\kpmv} B_yB_z \\ \kpev E_zE_x + \frr{1}{\kpmv} B_zB_x & \kpev E_zE_y + \frr{1}{\kpmv} B_zB_y & \kpev \pr{E_z^2 - \frr{1}{2} E^2} + \frr{1}{\kpmv} \pr{B_z^2 - \frr{1}{2} B^2} \rbm}
+\paragraph{Observación: Simetría}
+El tensor de Maxwell es simétrico, es decir:
+\f{\sigma_{ij} = \sigma_{ji}}
+	\section{Conservación Del Momento Angular}
+Sea una distribución volumétrica de carga eléctrica $\ro$ que se mueve con velocidad $\dot{\vc{r}}$ produciendo una corriente eléctrica $\vc{J}$, inmersa en un campo eléctrico $\vc{E}$ y en un campo magnético $\vc{B}$, y sea $(o)$ un punto fijo desde el cual se mide el momento angular del sistema, entonces:
+\begin{align*}
+	&\tx{Por la derivada del momento angular para la ley de Lorentz, tenemos que:} \\
+	\dv{\vco{L}_{(t)}}{t} :&= \PV{\vc{r}_{(t)}}{\vc{F}_{\tx{em}(\vc{r},t)}} \\
+	&\tx{Por la conservación del momento lineal electromagnético, tenemos que:} \\
+	&= \PV{\vc{r}}{\cor{\ivs{\bb{Q}}{\div{\sigma}_{ij(t)}}{V} - \pd{}{t} \ivs{\bb{Q}}{\vc{p}_{\tx{em}}}{V}}} \\
+	&= \ivs{\bb{Q}}{\PV{\vc{r}}{\cor{\div{\sigma}_{ij(t)}}}}{V} - \pd{}{t} \ivs{\bb{Q}}{\PV{\vc{r}}{\vc{p}_{\tx{em}}}}{V} \\
+	&\tx{En notación de índices, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\levi{lki} r_k\p[j] \sigma_{ij}}{V} - \pd{}{t} \ivs{\bb{Q}}{\vc{L}_{\tx{em}}}{V} \\
+	&\tx{Por la regla del producto, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\levi{lki} \cor{\p[j] (r_k\sigma_{ij}) - \sigma_{ij} \p[j]r_k}}{V} - \pd{}{t} \ivs{\bb{Q}}{\vc{L}_{\tx{em}}}{V} \\
+	&= \ivs{\bb{Q}}{\cor{\levi{lki} \p[j] (r_k\sigma_{ij}) - \levi{lki}\sigma_{ij} \kro{jk}}}{V} - \pd{}{t} \ivs{\bb{Q}}{\vc{L}_{\tx{em}}}{V} \\
+	&= \ivs{\bb{Q}}{\p[j] (\levi{lki} r_k\sigma_{ij})}{V} - \ivs{\bb{Q}}{\levi{lji}\sigma_{ij}}{V} - \pd{}{t} \ivs{\bb{Q}}{\vc{L}_{\tx{em}}}{V} \\
+	&\tx{Como } \sigma_{ij} \tx{ es simétrico, y } \levi{lji} \tx{ es antisimétrico, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\p[j] \taf_{lj(t)}}{V} - \ivs{\bb{Q}}{0}{V} - \pd{}{t} \ivs{\bb{Q}}{\vc{L}_{\tx{em}}}{V} \\
+	&\tx{Renombrando } l=i \tx{, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\div{\taf}_{ij(t)}}{V} - 0 - \pd{}{t} \ivs{\bb{Q}}{\vc{L}_{\tx{em}}}{V} \\
+	&\tx{Por el teorema de Gauss para tensores, tenemos que:} \\
+	&= \isov{\vc{S}^+:=\p\bb{Q}}{\esp{-10} \vc{\taf}_{ij(t)}}{S} - \pd{}{t} \ivs{\bb{Q}}{\vc{L}_{\tx{em}}}{V}
+\end{align*}
+\q{\dv{\vco{L}_{(t)}}{t} = \isov{\vc{S}^+:=\p\bb{Q}}{\esp{-10} \vc{\taf}_{ij(t)}}{S} - \pd{}{t} \ivs{\bb{Q}}{\vc{L}_{\tx{em}}}{V}}
+		\subsection{Momento Angular Electromagnético}
+Se denomina \cur{momento angular electromagnético} a la contribución de momento angular del campo electromagnético en el vacío para partículas microscópicas, y se define como:
+\f{\vco{L}_{\tx{em}(\vc{r},t)} := \PV{\vco{r}_{(t)}}{\vc{p}_{\tx{em}(\vc{r},t)}}}
+		\subsection{Tensor Momento De Fuerza Electromagnético}
+Se denomina \cur{tensor momento de fuerza electromagnético} al tensor de segundo orden que representa el momento de fuerza del campo electromagnético para partículas macroscópicas, y se define como:
+\f{\vc{\taf}_{ij(t)} := \PV{\vc{r}_{(t)}}{\vc{\sigma}_{ij(t)}}}
+\paragraph{Notación De Índices}
+En notación de índices, el tensor momento de fuerza electromagnético es de la forma:
+\begin{align*}
+	\taf_{ij} :&= \levi{ikl} r_k \sigma_{lj} \\
+	&\tx{Por la definición del tensor de Maxwell, tenemos que:} \\
+	&= \levi{ikl} r_k \cor{\kpev \pr{E_lE_j - \fr{1}{2} \kro{lj} E^2} + \fr{1}{\kpmv} \pr{B_lB_j - \fr{1}{2} \kro{lj} B^2}} \\
+	&= \kpev \pr{\levi{ikl} r_kE_lE_j - \fr{1}{2} \levi{ikl} r_k\kro{lj} E^2} + \fr{1}{\kpmv} \pr{\levi{ikl} r_kB_lB_j - \fr{1}{2} \levi{ikl} r_k\kro{lj} B^2} \\
+	&= \kpev \pr{\levi{ikl} r_kE_lE_j - \fr{1}{2} \levi{ikj} r_k E^2} + \fr{1}{\kpmv} \pr{\levi{ikl} r_kB_lB_j - \fr{1}{2} \levi{ikj} r_k B^2}
+\end{align*}
+\f{\taf_{ij} := \levi{ikl} r_k \sigma_{lj} = \kpev \pr{\levi{ikl} r_kE_lE_j - \fr{1}{2} \levi{ikj} r_k E^2} + \fr{1}{\kpmv} \pr{\levi{ikl} r_kB_lB_j - \fr{1}{2} \levi{ikj} r_k B^2}}
+	\section{Conservación De La Energía Mecánica}
+Sea una distribución volumétrica de carga eléctrica $\ro$ que se mueve con velocidad $\dot{\vc{r}}$ produciendo una corriente eléctrica $\vc{J}$, inmersa en un campo eléctrico $\vc{E}$ y en un campo magnético $\vc{B}$, entonces:
+\begin{align*}
+	&\tx{Por la definición de trabajo mecánico para la ley de Lorentz, tenemos que:} \\
+	W_{(\vc{r},t)} :&= \Int{t_1}{t_2}{\PI{\vc{F}_{\tx{em}(\vc{r},t)}}{\vc{v}_{(t)}}}{t} \\
+	\dv{W_{(\vc{r},t)}}{t} &= \PI{\vc{F}_{\tx{em}(\vc{r},t)}}{\vc{v}_{(t)}} \\
+	&= \ivs{\bb{Q}}{\PI{\cor{q(\vc{E} + \PV{\vc{v}}{\vc{B}})}}{\vc{v}}}{V} \\
+	&= \ivs{\bb{Q}}{(q \PI{\vc{v}}{\vc{E}} + q. 0)}{V} \ptd \vc{v} \\
+	&\tx{Por la definición de densidad de corriente volumétrica, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\PI{\vc{J}}{\vc{E}}}{V} \\
+	&\tx{Por la ley de Ampère-Maxwell, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\PI{\pr{\fr{1}{\kpmv} \rot{B} - \kpev \pd{\vc{E}}{t}}}{\vc{E}}}{V} \\
+	&= \ivs{\bb{Q}}{\cor{\fr{1}{\kpmv} \PI{(\rot{B})}{\vc{E}} - \kpev \pr{\PI{\pd{\vc{E}}{t}}{\vc{E}}}}}{V} \\
+	&\tx{Por la regla del producto vectorial de la divergencia, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\lla{\fr{1}{\kpmv} \cor{\PI{\vc{B}}{(\rot{E})} - \div{}(\PV{\vc{E}}{\vc{B}})} - \kpev \pr{\PI{\pd{\vc{E}}{t}}{\vc{E}}}}}{V} \\
+	&\tx{Por la ley de Faraday-Maxwell, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\lla{\fr{1}{\kpmv} \cor{\PI{\vc{B}}{\pr{-\pd{\vc{B}}{t}}} - \div{}(\PV{\vc{E}}{\vc{B}})} - \kpev \pr{\PI{\pd{\vc{E}}{t}}{\vc{E}}}}}{V} \\
+	&= -\ivs{\bb{Q}}{\cor{\fr{1}{\kpmv} \div{}(\PV{\vc{E}}{\vc{B}}) + \kpev \pr{\PI{\vc{E}}{\pd{\vc{E}}{t}}} + \fr{1}{\kpmv} \pr{\PI{\vc{B}}{\pd{\vc{B}}{t}}}}}{V} \\
+	&\tx{Como } \pd{}{t} (\PI{\vc{A}}{\vc{A}}) = \PI{\pd{\vc{A}}{t}}{\vc{A}} + \PI{\vc{A}}{\pd{\vc{A}}{t}} = 2\pr{\PI{\vc{A}}{\pd{\vc{A}}{t}}} \tx{, tenemos que:} \\
+	&= -\fr{1}{\kpmv} \ivs{\bb{Q}}{\div{}(\PV{\vc{E}}{\vc{B}})}{V} - \ivs{\bb{Q}}{\cor{\fr{\kpev}{2} \pd{}{t} (\PI{\vc{E}}{\vc{E}}) + \fr{1}{2\kpmv} \pd{}{t} (\PI{\vc{B}}{\vc{B}})}}{V} \\
+	&\tx{Por el teorema de Gauss, tenemos que:} \\
+	&= -\fr{1}{\kpmv} \isov{\vc{S}^+:=\p\bb{Q}}{\esp{-10}\PV{\vc{E}}{\vc{B}}}{S} - \pd{}{t} \ivs{\bb{Q}}{\fr{1}{2} \pr{\kpev \mod[2]{\vc{E}} + \fr{1}{\kpmv} \mod[2]{\vc{B}}}}{V} \\
+	&\tx{Por la definición de energía electromagnética, tenemos que:} \\
+	&= -\isov{\vc{S}^+:=\p\bb{Q}}{\pr{\fr{1}{\kpmv} \PV{\vc{E}}{\vc{B}}}}{S} - \pd{}{t} \ivs{\bb{Q}}{u_{\tx{em}}}{V} \\
+	&= -\isov{\vc{S}^+:=\p\bb{Q}}{\esp{-10}\vc{S}_{(\vc{r},t)}}{S} - \pd{}{t} \ivs{\bb{Q}}{u_{\tx{em}}}{V}
+\end{align*}
+\q{\dv{W_{(\vc{r},t)}}{t} = -\isov{\vc{S}^+:=\p\bb{Q}}{\esp{-10}\vc{S}_{(\vc{r},t)}}{S} - \pd{}{t} \ivs{\bb{Q}}{u_{\tx{em}}}{V}}
+		\subsection{Densidad De Energía Electromagnética}
+Se denomina \cur{densidad de energía electromagnética} a la energía del campo electromagnético por unidad de volumen, y se define como:
+\f{u_{\tx{em}(\vc{r},t)} := \fr{1}{2} \cor{\kpev \mod[2]{\vc{E}_{(\vc{r},t)}} + \fr{1}{\kpmv} \mod[2]{\vc{B}_{(\vc{r},t)}}}}
+			\subsubsection{Densidad De Energía Electromagnética En Medios Materiales}
+Para partículas macroscópicas, la densidad de energía electromagnética en medios materiales es de la forma:
+\f{u_{\tx{em}(\vc{r},t)} = \fr{1}{2} \cor{\PI{\vc{E}_{(\vc{r},t)}}{\vc{D}_{(\vc{r},t)}} + \PI{\vc{B}_{(\vc{r},t)}}{\vc{H}_{(\vc{r},t)}}}}
+		\subsection{Vector De Poynting}
+Se denomina \cur{vector de Poynting} al vector que representa el flujo de energía del campo electromagnético, y es de la forma:
+\f{\vc{S}_{(\vc{r},t)} := \fr{1}{\kpmv} \PV{\vc{E}_{(\vc{r},t)}}{\vc{B}_{(\vc{r},t)}}}
+			\subsubsection{Vector De Poynting En Medios Materiales}
+Para partículas macroscópicas, el vector de Poynting en medios materiales es de la forma:
+\f{\vc{S}_{(\vc{r},t)} = \PV{\vc{E}_{(\vc{r},t)}}{\vc{H}_{(\vc{r},t)}}}
+\paragraph{Vector De Poynting Complejo}
+En números complejos, el vector de Poynting para medios materiales es de la forma:
+\f{\vc{S}_{(\vc{r},t)} := \fr{1}{2}\PV{\vc{E}_{(\vc{r},t)}}{\conj{\vc{H}}_{(\vc{r},t)}}}
+		\subsection{Teorema De Poynting}
+Se denomina \cur{teorema de Poynting} a la ley de conservación de la energía del campo electromagnético, y es de la forma:
+\begin{align*}
+	&\tx{Por la conservación de la energía mecánica electromagnética, tenemos que:} \\
+	\ivs{\bb{Q}}{\PI{\vc{J}}{\vc{E}}}{V} &= -\isov{\vc{S}^+:=\p\bb{Q}}{\esp{-10}\vc{S}_{(\vc{r},t)}}{S} - \pd{}{t} \ivs{\bb{Q}}{u_{\tx{em}}}{V} \\
+	&\tx{Por el teorema de Gauss, tenemos que:} \\
+	\ivs{\bb{Q}}{\div{S}_{(\vc{r},t)}}{V} &= - \ivs{\bb{Q}}{\PI{\vc{J}}{\vc{E}}}{V} - \ivs{\bb{Q}}{\pd{u_{\tx{em}}}{t}}{V} \\
+	\div{S}_{(\vc{r},t)} &= - \PI{\vc{J}}{\vc{E}} - \pd{u_{\tx{em}}}{t}
+\end{align*}
+\q{\div{S}_{(\vc{r},t)} = -\PI{\vc{J}_{(\vc{r},t)}}{\vc{E}_{(\vc{r},t)}} - \pd{u_{\tx{em}(\vc{r},t)}}{t}}
+\paragraph{Teorema De Poynting: Forma Integral}
+\f{\isov{\vc{S}^+:=\p\bb{Q}}{\esp{-10}\vc{S}_{(\vc{r},t)}}{S} = - \ivs{\bb{Q}}{\PI{\vc{J}_{(\vc{r},t)}}{\vc{E}_{(\vc{r},t)}}}{V} - \pd{}{t} \ivs{\bb{Q}}{u_{\tx{em}(\vc{r},t)}}{V}}
+\paragraph{Teorema De Poynting: Forma Diferencial}
+\f{\div{S}_{(\vc{r},t)} = -\PI{\vc{J}_{(\vc{r},t)}}{\vc{E}_{(\vc{r},t)}} - \pd{u_{\tx{em}(\vc{r},t)}}{t}}
+\chapter{Ondas Electromagnéticas} %Capítulo •%
+	\section{Espectro Electromagnético}
+		\subsection{Clasificación}
+\begin{tabular}{|Sl|Sl|Sl|Sl|Sl|} \hline
+	\Fa \MC{1}{|Sc|}{\Tb{\bf Clasificación}} & \MC{1}{Sc|}{\Tb{\bf Símbolo}} & \MC{1}{Sc|}{\Tb{\bf Longitud De Onda $[\n{m}]$}} & \MC{1}{Sc|}{\Tb{\bf Frecuencia $[\n{Hz}]$}} & \MC{1}{Sc|}{\Tb{\bf Energía $[\n{J}]$}} \HL
+	\CaTb{\bf Rayos Cósmicos} & No & $\lamda = 10^{-15}$ & $f = 10^{23}$ & $E = 6,626 \Por 10^{-11}$ \HL
+	\CaTb{\bf Rayos Cósmicos} & No & $\lamda = 10^{-14}$ & $f = 10^{22}$ & $E = 6,626 \Por 10^{-12}$ \HL
+	\CaTb{\bf Rayos Cósmicos} & No & $\lamda = 10^{-13}$ & $f = 10^{21}$ & $E = 6,626 \Por 10^{-13}$ \HL
+	\CaTb{\bf Gamma} & $\gama$ & $\lamda = 10^{-12}$ & $f = 10^{20}$ & $E = 6,626 \Por 10^{-14}$ \HL
+	\CaTb{\bf Gamma} & $\gama$ & $\lamda = 10^{-11}$ & $f = 10^{19}$ & $E = 6,626 \Por 10^{-15}$ \HL
+	\CaTb{\bf X} & $HX$ & $\lamda = 10^{-10}$ & $f = 10^{18}$ & $E = 6,626 \Por 10^{-16}$ \HL
+	\CaTb{\bf X} & $SX$ & $\lamda = 10^{-9}$ & $f = 10^{17}$ & $E = 6,626 \Por 10^{-17}$ \HL
+	\CaTb{\bf Ultravioleta} & $EUV$ & $\lamda = 10^{-8}$ & $f = 10^{16}$ & $E = 6,626 \Por 10^{-18}$ \HL
+	\CaTb{\bf Ultravioleta} & $NUV$ & $\lamda = 10^{-7}$ & $f = 10^{15}$ & $E = 6,626 \Por 10^{-19}$ \HL
+	\CaTb{\bf Luz Visible} & $V$ & $\lamda = 10^{-6}$ & $f = 10^{14}$ & $E = 6,626 \Por 10^{-20}$ \HL
+	\CaTb{\bf Infrarrojo} & $NIR$ & $\lamda = 10^{-5}$ & $f = 10^{13}$ & $E = 6,626 \Por 10^{-21}$ \HL
+	\CaTb{\bf Infrarrojo} & $MIR$ & $\lamda = 10^{-4}$ & $f = 10^{12}$ & $E = 6,626 \Por 10^{-22}$ \HL
+	\CaTb{\bf Infrarrojo} & $FIR$ & $\lamda = 10^{-3}$ & $f = 10^{11}$ & $E = 6,626 \Por 10^{-23}$ \HL
+	\CaTb{\bf Microondas} & $EHF$ & $\lamda = 10^{-2}$ & $f = 10^{10}$ & $E = 6,626 \Por 10^{-24}$ \HL
+	\CaTb{\bf Microondas} & $SHF$ & $\lamda = 10^{-1}$ & $f = 10^9$ & $E = 6,626 \Por 10^{-25}$ \HL
+	\CaTb{\bf Radio} & $UHF$ & $\lamda = 10^0$ & $f = 10^8$ & $E = 6,626 \Por 10^{-26}$ \HL
+	\CaTb{\bf Radio} & $VHF$ & $\lamda = 10^1$ & $f = 10^7$ & $E = 6,626 \Por 10^{-27}$ \HL
+	\CaTb{\bf Radio} & $HF$ & $\lamda = 10^2$ & $f = 10^6$ & $E = 6,626 \Por 10^{-28}$ \HL
+	\CaTb{\bf Radio} & $MF$ & $\lamda = 10^3$ & $f = 10^5$ & $E = 6,626 \Por 10^{-29}$ \HL
+	\CaTb{\bf Radio} & $LF$ & $\lamda = 10^4$ & $f = 10^4$ & $E = 6,626 \Por 10^{-30}$ \HL
+	\CaTb{\bf Onda Larga} & $VLF$ & $\lamda = 10^5$ & $f = 10^3$ & $E = 6,626 \Por 10^{-31}$ \HL
+	\CaTb{\bf Onda Larga} & $ULF$ & $\lamda = 10^6$ & $f = 10^2$ & $E = 6,626 \Por 10^{-32}$ \HL
+	\CaTb{\bf Onda Larga} & $SLF$ & $\lamda = 10^7$ & $f = 10^1$ & $E = 6,626 \Por 10^{-33}$ \HL
+	\CaTb{\bf Onda Larga} & $ELF$ & $\lamda = 10^8$ & $f = 10^0$ & $E = 6,626 \Por 10^{-34}$ \HL
+\end{tabular}
+		\subsection{Espectro Visible}
+\begin{figure}[!htbp] \C
+	\newcount\WL \unitlength.75pt
+	\begin{picture}(460,60)(355,-10)
+		\C
+		\sffamily \tiny \linethickness{10\unitlength} \WL=360
+		\multiput(360,0)(1,0){456}%
+		{{\color[wave]{\the\WL}\line(0,1){50}}\global\advance\WL1}
+		\linethickness{0.25\unitlength}\WL=360
+		\multiput(360,0)(20,0){23}%
+		{\picture(0,0)
+		\line(0,-1){5} \multiput(5,0)(5,0){3}{\line(0,-1){2.5}}
+		\put(0,-10){\makebox(0,0){\the\WL}}\global\advance\WL20
+		\endpicture}
+	\end{picture}
+	\caption{Espectro Visible.}
+\end{figure}
+	\section{Definición}
+A partir de las ecuaciones de Maxwell se sigue que los campos eléctrico y magnético en el vacío satisfacen \cur{ecuaciones de onda vectoriales}, de la siguiente forma:
+		\subsection{Ondas Electromagnéticas En Vacío}
+Por las ecuaciones de Maxwell en vacío, $\ro_{(\vc{r},t)} = 0$ y $\vc{J}_{(\vc{r},t)} = \vc{0}$, entonces:
+\begin{align*}
+	\rot{E}_{(\vc{r},t)} &= -\pd{\vc{B}_{(\vc{r},t)}}{t} & \rot{B}_{(\vc{r},t)} &= \kpmv\kpev\pd{\vc{E}_{(\vc{r},t)}}{t} \\
+	\nabla \Por \cor{\rot{E}_{(\vc{r},t)}} &= \nabla \Por \cor{-\pd{\vc{B}_{(\vc{r},t)}}{t}} & \nabla \Por \cor{\rot{B}_{(\vc{r},t)}} &= \nabla \Por \cor{\kpmv\kpev\pd{\vc{E}_{(\vc{r},t)}}{t}} \\
+	\tx{Por la definición del } &\tx{Laplaciano Vectorial, tenemos:} & \tx{Por la definición del } &\tx{Laplaciano Vectorial, tenemos:} \\
+	\nabla \cor{\div{E}_{(\vc{r},t)}} - \lapv{E}_{(\vc{r},t)} &= -\pd{}{t} \cor{\rot{B}_{(\vc{r},t)}} & \nabla \cor{\div{B}_{(\vc{r},t)}} - \lapv{B}_{(\vc{r},t)} &= \kpmv\kpev\pd{}{t} \cor{\rot{E}_{(\vc{r},t)}} \\
+	\gr{(0)} - \lapv{E}_{(\vc{r},t)} &= -\pd{}{t} \cor{\kpmv\kpev\pd{\vc{E}_{(\vc{r},t)}}{t}} & \gr{(0)} - \lapv{B}_{(\vc{r},t)} &= \kpmv\kpev\pd{}{t} \cor{-\pd{\vc{B}_{(\vc{r},t)}}{t}} \\
+	0 - \lapv{E}_{(\vc{r},t)} &= -\kpmv\kpev \pd[2]{\vc{E}_{(\vc{r},t)}}{t} & 0 - \lapv{B}_{(\vc{r},t)} &= -\kpmv\kpev \pd[2]{\vc{B}_{(\vc{r},t)}}{t} \\
+	\lapv{E}_{(\vc{r},t)} &= \fr{1}{v_{\phi}^2} \pd[2]{\vc{E}_{(\vc{r},t)}}{t} & \lapv{B}_{(\vc{r},t)} &= \fr{1}{v_{\phi}^2} \pd[2]{\vc{B}_{(\vc{r},t)}}{t}
+\end{align*}
+\q{\Fpp{\lapv{E}_{(\vc{r},t)} = \fr{1}{v_{\phi}^2} \pd[2]{\vc{E}_{(\vc{r},t)}}{t}}{\lapv{B}_{(\vc{r},t)} = \fr{1}{v_{\phi}^2} \pd[2]{\vc{B}_{(\vc{r},t)}}{t}}}
+			\subsubsection{Velocidad De La Luz}
+De las ecuaciones de onda para el campo eléctrico y el campo magnético, se sigue que la velocidad de propagación (velocidad de fase) de las ondas electromagnéticas en el vacío es la \cur{velocidad de la luz}, que se define como:
+\f{v_{\phi} := c = \fr{1}{\rz{\kpmv \kpev}}}
+		\subsection{Ondas Electromagnéticas En Medios Materiales (LIH)}
+Por las ecuaciones de Maxwell para medios materiales en ausencia de fuentes libres, con $\ro_{l(\vc{r},t)} = 0$ y $\vc{J}_{l(\vc{r},t)} = \vc{0}$, si el medio es lineal, isótropo y homogéneo (LIH), tenemos que:
+\begin{align*}
+	\rot{E}_{(\vc{r},t)} &= -\pd{\vc{B}_{(\vc{r},t)}}{t} & \rot{H}_{(\vc{r},t)} &= \pd{\vc{D}_{(\vc{r},t)}}{t} \\
+	\nabla \Por \cor{\rot{E}_{(\vc{r},t)}} &= \nabla \Por \cor{-\pd{\vc{B}_{(\vc{r},t)}}{t}} & \fr{1}{\mi}\nabla \Por \cor{\rot{B}_{(\vc{r},t)}} &= \nabla \Por \cor{\pd{\vc{D}_{(\vc{r},t)}}{t}} \\
+	\tx{Por la definición del } &\tx{Laplaciano Vectorial, tenemos:} & \tx{Por la definición del } &\tx{Laplaciano Vectorial, tenemos:} \\
+	\nabla \cor{\div{E}_{(\vc{r},t)}} - \lapv{E}_{(\vc{r},t)} &= -\pd{}{t} \lla{\rot{} \cor{\mi\vc{H}_{(\vc{r},t)}}} & \nabla \cor{\div{B}_{(\vc{r},t)}} - \lapv{B}_{(\vc{r},t)} &= \mi\pd{}{t} \lla{\rot{} \cor{\eps \vc{E}_{(\vc{r},t)}}} \\
+	\gr{(0)} - \lapv{E}_{(\vc{r},t)} &= -\pd{}{t} \cor{\mi \pd{\vc{D}_{(\vc{r},t)}}{t}} & \gr{(0)} - \lapv{B}_{(\vc{r},t)} &= \mi\pd{}{t} \cor{-\eps\pd{\vc{B}_{(\vc{r},t)}}{t}} \\
+	0 - \lapv{E}_{(\vc{r},t)} &= -\mi \pd[2]{}{t} \cor{\eps\vc{E}_{(\vc{r},t)}} & 0 - \lapv{B}_{(\vc{r},t)} &= -\mi\eps \pd[2]{\vc{B}_{(\vc{r},t)}}{t} \\
+	\lapv{E}_{(\vc{r},t)} &= \mi\eps \pd[2]{\vc{E}_{(\vc{r},t)}}{t} & \lapv{B}_{(\vc{r},t)} &= \mi\eps \pd[2]{\vc{B}_{(\vc{r},t)}}{t} \\
+	&= \fr{1}{v_{\phi}^2} \pd[2]{\vc{E}_{(\vc{r},t)}}{t} & &= \fr{1}{v_{\phi}^2} \pd[2]{\vc{B}_{(\vc{r},t)}}{t}
+\end{align*}
+\q{\Fpp{\lapv{E}_{(\vc{r},t)} = \fr{1}{v_{\phi}^2} \pd[2]{\vc{E}_{(\vc{r},t)}}{t}}{\lapv{B}_{(\vc{r},t)} = \fr{1}{v_{\phi}^2} \pd[2]{\vc{B}_{(\vc{r},t)}}{t}}}
+			\subsubsection{Velocidad De Fase}
+De las ecuaciones de onda para el campo eléctrico y el campo magnético, se sigue que la velocidad de propagación (velocidad de fase) de las ondas electromagnéticas en medios materiales es de la forma:
+\f{v_{\phi} := \fr{1}{\rz{\mi\eps}}}
+\paragraph{Observación: Índice De Refracción}
+Debido a que la expresión para la velocidad de la luz y la velocidad de fase en un medio material LIH son conocidas, puede obtenerse el índice de refracción de la luz en el medio, de la forma:
+\begin{align*}
+	\tx{Por la definición } &\tx{de índice de refracción, tenemos que:} \\
+	n :&= \fr{c}{v_{\phi}} \\
+	&= \fr{1}{\rz{\kpmv\kpev}} \fr{1}{\frr{1}{\rz{\mi\eps}}} \\
+	&= \fr{\rz{\mi\eps}}{\rz{\kpmv\kpev}} \\
+	&= \rz{\fr{\mi}{\kpmv} \fr{\eps}{\kpev}} \\
+	\tx{Por la definición de permeabilidad magnética } &\tx{y permitividad eléctrica relativas, tenemos que:} \\
+	&= \rz{\kpmr\kper}
+\end{align*}
+\q{n := \fr{c}{v_{\phi}} = \rz{\kpmr\kper}}
+		\subsection{Ondas Electromagnéticas En Conductores Eléctricos}
+Por las ecuaciones de Maxwell para medios materiales cuando la distribución volumétrica de carga eléctrica libre es nula ($\ro_{l(\vc{r},t)} = 0$), si se cuenta con un conductor eléctrico de conductividad eléctrica $\sigma$, con corrientes libres $\vc{J}_{l(\vc{r},t)} = \sigma\vc{E}_{(\vc{r},t)}$ (de acuerdo con la ley de Ohm), si el medio es lineal, isótropo y homogéneo (LIH), tenemos que:
+\begin{align*}
+	\rot{E}_{(\vc{r},t)} &= -\pd{\vc{B}_{(\vc{r},t)}}{t} & \rot{H}_{(\vc{r},t)} &= \vc{J}_{l(\vc{r},t)} + \pd{\vc{D}_{(\vc{r},t)}}{t} \\
+	\nabla \Por \cor{\rot{E}_{(\vc{r},t)}} &= \nabla \Por \cor{-\pd{\vc{B}_{(\vc{r},t)}}{t}} & \fr{1}{\mi}\nabla \Por \cor{\rot{B}_{(\vc{r},t)}} &= \nabla \Por \cor{\sigma\vc{E}_{(\vc{r},t)} + \eps\pd{\vc{E}_{(\vc{r},t)}}{t}} \\
+	\tx{Por la definición del } &\tx{Laplaciano Vectorial, tenemos:} & \tx{Por la definición del } &\tx{Laplaciano Vectorial, tenemos:} \\
+	\nabla \cor{\div{E}_{(\vc{r},t)}} - \lapv{E}_{(\vc{r},t)} &= -\pd{}{t} \lla{\rot{} \cor{\mi\vc{H}_{(\vc{r},t)}}} & \nabla \cor{\div{B}_{(\vc{r},t)}} - \lapv{B}_{(\vc{r},t)} &= \mi\sigma \rot{E}_{(\vc{r},t)} + \mi\eps \pd{}{t} \cor{\rot{E}_{(\vc{r},t)}} \\
+	\gr{(0)} - \lapv{E}_{(\vc{r},t)} &= -\pd{}{t} \cor{\mi\vc{J}_{l(\vc{r},t)} + \mi \pd{\vc{D}_{(\vc{r},t)}}{t}} & \gr{(0)} - \lapv{B}_{(\vc{r},t)} &= -\mi\sigma\pd{\vc{B}_{(\vc{r},t)}}{t} + \mi\eps\pd{}{t} \cor{-\pd{\vc{B}_{(\vc{r},t)}}{t}} \\
+	0 - \lapv{E}_{(\vc{r},t)} &= -\mi\sigma \pd{\vc{E}_{(\vc{r},t)}}{t} - \mi\eps \pd[2]{\vc{E}_{(\vc{r},t)}}{t} & 0 - \lapv{B}_{(\vc{r},t)} &= - \mi\sigma\pd{\vc{B}_{(\vc{r},t)}}{t} - \mi\eps \pd[2]{\vc{B}_{(\vc{r},t)}}{t} \\
+	\lapv{E}_{(\vc{r},t)} &= \mi\sigma \pd{\vc{E}_{(\vc{r},t)}}{t} + \mi\eps \pd[2]{\vc{E}_{(\vc{r},t)}}{t} & \lapv{B}_{(\vc{r},t)} &= \mi\sigma\pd{\vc{B}_{(\vc{r},t)}}{t} + \mi\eps \pd[2]{\vc{B}_{(\vc{r},t)}}{t} \\
+	&= \mi\sigma \pd{\vc{E}_{(\vc{r},t)}}{t} + \fr{1}{v_{\phi}^2} \pd[2]{\vc{E}_{(\vc{r},t)}}{t} & &= \mi\sigma\pd{\vc{B}_{(\vc{r},t)}}{t} + \fr{1}{v_{\phi}^2} \pd[2]{\vc{B}_{(\vc{r},t)}}{t}
+\end{align*}
+\q{\Fpp{\lapv{E}_{(\vc{r},t)} = \mi\sigma \pd{\vc{E}_{(\vc{r},t)}}{t} + \fr{1}{v_{\phi}^2} \pd[2]{\vc{E}_{(\vc{r},t)}}{t}}{\lapv{B}_{(\vc{r},t)} = \mi\sigma\pd{\vc{B}_{(\vc{r},t)}}{t} + \fr{1}{v_{\phi}^2} \pd[2]{\vc{B}_{(\vc{r},t)}}{t}}}
+			\subsubsection{Velocidad De Fase}
+Debido a que las ecuaciones de Maxwell para conductores eléctricos coinciden con las de medios materiales LIH pero con un término extra de difusión, su velocidad de propagación (velocidad de fase) es la misma:
+\f{v_{\phi} := \fr{1}{\rz{\mi\eps}}}
+\paragraph{Observación: Índice De Refracción}
+El índice de refracción de las ondas en conductores es el mismo:
+\f{n := \fr{c}{v_{\phi}} = \rz{\kpmr\kper}}
+	\section{Ondas Electromagnéticas Planas}
+La solución de las ecuaciones de onda electromagnéticas en ausencia de fuentes (ya sea en vacío o en medios materiales), son \cur{ondas planas}.
+		\subsection{Campo Electromagnético}
+Las expresiones de ondas planas para el campo eléctrico y el campo magnético son de la forma:
+\f{\Fpp{\vc{E}_{(\vc{r},t)} = \re{\vc{E}_0 e^{i(\PI{\vc{k}}{\vc{r}} - \omega t)}}}{\vc{B}_{(\vc{r},t)} = \re{\vc{B}_0 e^{i(\PI{\vc{k}}{\vc{r}} - \omega t)}}} \ptd \vc{E}_0, \vc{B}_0 \in \bb{C}}
+\paragraph{Observación}
+Los frentes de onda de una onda plana son constantes, es decir:
+\f{\phi_{(\vc{r},t)} := \PI{\vc{k}}{\vc{r}} - \omega t = \cte}
+		\subsection{Espacio De Fourier}
+En el espacio de Fourier, las ecuaciones de ondas para el campo eléctromagnético son de la forma:
+\begin{align*}
+	\tx{Por la ecuación de ondas } &\tx{del campo eléctrico, tenemos que:} & \tx{Por la ecuación de ondas } &\tx{del campo magnético, tenemos que:} \\
+	\lapv{E}_{(\vc{r},t)} &= \fr{1}{c^2} \pd[2]{\vc{E}_{(\vc{r},t)}}{t} & \lapv{B}_{(\vc{r},t)} &= \fr{1}{c^2} \pd[2]{\vc{B}_{(\vc{r},t)}}{t} \\
+	\tx{Antitransformando Fourier } &\tx{al campo eléctrico, tenemos que:} & \tx{Antitransformando Fourier } &\tx{al campo magnético, tenemos que:} \\
+	\lapv{} \cor{\fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\vc{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega}} &= \fr{1}{c^2} \pd[2]{}{t} \cor{\fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\vc{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega}} & \lapv{} \cor{\fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\vc{B}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega}} &= \fr{1}{c^2} \pd[2]{}{t} \cor{\fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\vc{B}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega}} \\
+	\fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\lapv{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} &= \fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\fr{1}{c^2} \vc{E}_{(\vc{r},\omega)} \pd[2]{}{t} \pr{e^{-i\omega t}}}{\omega} & \fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\lapv{B}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} &= \fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\fr{1}{c^2} \vc{B}_{(\vc{r},\omega)} \pd[2]{}{t} \pr{e^{-i\omega t}}}{\omega} \\
+	\Int{-\inf}{\inf}{\lapv{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} &= \Int{-\inf}{\inf}{\fr{(-i\omega)^2}{c^2} \vc{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} & \Int{-\inf}{\inf}{\lapv{B}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} &= \Int{-\inf}{\inf}{\fr{(-i\omega)^2}{c^2} \vc{B}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} \\
+	\sii \lapv{E}_{(\vc{r},\omega)} &= -\fr{\omega^2}{c^2} \vc{E}_{(\vc{r},\omega)} & \sii \lapv{B}_{(\vc{r},\omega)} &= -\fr{\omega^2}{c^2} \vc{B}_{(\vc{r},\omega)} \\
+	\pr{\lapv{} + \fr{\omega^2}{c^2}} \vc{E}_{(\vc{r},\omega)} &= 0 & \pr{\lapv{} + \fr{\omega^2}{c^2}} \vc{B}_{(\vc{r},\omega)} &= 0
+\end{align*}
+\q{\Fpp{\pr{\lapv{} + \fr{\omega^2}{c^2}} \vc{E}_{(\vc{r},\omega)} = 0}{\pr{\lapv{} + \fr{\omega^2}{c^2}} \vc{B}_{(\vc{r},\omega)} = 0}}
+\paragraph{Medios Materiales LIH}
+En medios materiales LIH, las ecuaciones de onda para el campo electromagnético en el espacio de Fourier son de la forma:
+\f{\Fpp{\pr{\lapv{} + \fr{\omega^2}{v_{\phi}^2}} \vc{E}_{(\vc{r},\omega)} = 0}{\pr{\lapv{} + \fr{\omega^2}{v_{\phi}^2}} \vc{B}_{(\vc{r},\omega)} = 0}}
+			\subsubsection{Conductores Eléctricos}
+En conductores eléctricos, las ecuaciones de onda para el campo electromagnético en el espacio de Fourier son de la forma:
+\paragraph{Campo Eléctrico}
+Para hallar la ecuación de ondas del campo eléctrico en el espacio de Fourier, procedemos análogamente como con la ecuación de ondas del campo eléctrico en vacío, de la forma:
+\begin{align*}
+	\tx{Por la ecuación de ondas } &\tx{del campo eléctrico, tenemos que:} \\
+	\lapv{E}_{(\vc{r},t)} &= \mi\sigma\pd{\vc{E}_{(\vc{r},t)}}{t} + \mi\eps \pd[2]{\vc{E}_{(\vc{r},t)}}{t} \\
+	\tx{Antitransformando Fourier } &\tx{al campo eléctrico, tenemos que:} \\
+	\lapv{} \cor{\fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\vc{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega}} &= \mi\sigma \pd{}{t} \cor{\fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\vc{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega}} + \mi\eps \pd[2]{}{t} \cor{\fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\vc{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega}} \\
+	\fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\lapv{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} &= \fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\mi\sigma \vc{E}_{(\vc{r},\omega)} \pd{}{t} \pr{e^{-i\omega t}}}{\omega} + \fr{1}{\rz{2\pi}} \Int{-\inf}{\inf}{\mi\eps \vc{E}_{(\vc{r},\omega)} \pd[2]{}{t} \pr{e^{-i\omega t}}}{\omega} \\
+	\Int{-\inf}{\inf}{\lapv{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} &= \Int{-\inf}{\inf}{(-i\mi\sigma\omega) \vc{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} + \Int{-\inf}{\inf}{(-i\omega)^2\mi\eps \vc{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} \\
+	\Int{-\inf}{\inf}{\lapv{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} &= \Int{-\inf}{\inf}{[-\mi\omega(\omega\eps + i\sigma)] \vc{E}_{(\vc{r},\omega)} e^{-i\omega t}}{\omega} \\
+	\sii \lapv{E}_{(\vc{r},\omega)} &= -\mi\omega(\omega\eps + i\sigma) \vc{E}_{(\vc{r},\omega)} \\
+	\cor{\lapv{} + \mi\omega(\omega\eps + i\sigma)} \vc{E}_{(\vc{r},\omega)} &= 0 \\
+	\tx{Como el cálculo para el campo } &\vc{B} \tx{ es idéntico, tenemos que:} \\
+	\cor{\lapv{} + \mi\omega(\omega\eps + i\sigma)} \vc{B}_{(\vc{r},\omega)} &= 0
+\end{align*}
+\q{\Fpp{\cor{\lapv{} + \mi\omega(\omega\eps + i\sigma)} \vc{E}_{(\vc{r},\omega)} = 0}{\cor{\lapv{} + \mi\omega(\omega\eps + i\sigma)} \vc{B}_{(\vc{r},\omega)} = 0}}
+		\subsection{Relación De Dispersión}
+Sean $\vc{E}_0$ y $\vc{B}_0$ dos números complejos ($\vc{E}_0, \vc{B}_0 \in \bb{C}$) y sea $\vc{k} := \mod{\vc{k}} \ver{k} = k_x\ver{x} + k_y\ver{y} + k_z\ver{z} : \bb{R} \to \bb{R}^3$ el vector de onda, entonces:
+\begin{align*}
+	\tx{Por la ecuación de ondas } &\tx{en el espacio de Fourier, tenemos que:} & \tx{Por la ecuación de ondas } &\tx{en el espacio de Fourier, tenemos que:} \\
+	\pr{\lapv{} + \fr{\omega^2}{c^2}} \vc{E}_{(\vc{r},\omega)} &= 0 & \pr{\lapv{} + \fr{\omega^2}{c^2}} \vc{B}_{(\vc{r},\omega)} &= 0 \\
+	\tx{Proponiendo una solución de onda plana } &\vc{E}_{(\vc{r},\omega)} = \vc{E}_0 e^{i\PI{\vc{k}}{\vc{r}}} \tx{, tenemos que:} & \tx{Proponiendo una solución de onda plana } &\vc{B}_{(\vc{r},\omega)} = \vc{B}_0 e^{i\PI{\vc{k}}{\vc{r}}} \tx{, tenemos que:} \\
+	\pr{\lapv{} + \fr{\omega^2}{c^2}} \pr{\vc{E}_0 e^{i\PI{\vc{k}}{\vc{r}}}} &= 0 & \pr{\lapv{} + \fr{\omega^2}{c^2}} \pr{\vc{B}_0 e^{i\PI{\vc{k}}{\vc{r}}}} &= 0 \\
+	\vc{E}_0 \lapv{}\pr{e^{i\PI{\vc{k}}{\vc{r}}}} + \fr{\omega^2}{c^2} \vc{E}_0 e^{i\PI{\vc{k}}{\vc{r}}} &= 0 & \vc{B}_0 \lapv{}\pr{e^{i\PI{\vc{k}}{\vc{r}}}} + \fr{\omega^2}{c^2} \vc{B}_0 e^{i\PI{\vc{k}}{\vc{r}}} &= 0 \\
+	(i\mod{\vc{k}})^2 e^{i\PI{\vc{k}}{\vc{r}}} + \fr{\omega^2}{c^2} e^{i\PI{\vc{k}}{\vc{r}}} &= 0 & (i\mod{\vc{k}})^2 e^{i\PI{\vc{k}}{\vc{r}}} + \fr{\omega^2}{c^2} e^{i\PI{\vc{k}}{\vc{r}}} &= 0 \\
+	-\mod[2]{\vc{k}} + \fr{\omega^2}{c^2} &= 0 & -\mod[2]{\vc{k}} + \fr{\omega^2}{c^2} &= 0 \\
+	\mod{\vc{k}} &= \fr{\omega}{c} & \mod{\vc{k}} &= \fr{\omega}{c}
+\end{align*}
+\q{\vc{k} := \mod{\vc{k}} \ver{k} = \fr{\omega}{c} \ver{k}}
+			\subsubsection{Medios Materiales LIH}
+En medios materiales LIH, el vector de onda es de la forma:
+\f{\vc{k} := \mod{\vc{k}} \ver{k} = \fr{\omega}{v_{\phi}} \ver{k}}
+\paragraph{Índice De Refracción}
+En términos del índice de refracción, la relación de dispersión de las ondas electromagnéticas puede escribirse de la forma:
+\begin{align*}
+	\mod{\vc{k}} &= \fr{\omega}{v_{\phi}} \\
+	\tx{Por la definición de } &\tx{índice de refracción, tenemos:} \\
+	&= \fr{n\omega}{c}
+\end{align*}
+\q{\vc{k} := \mod{\vc{k}} \ver{k} = \fr{n\omega}{c} \ver{k}}
+			\subsubsection{Conductores Eléctricos}
+En un conductor eléctrico, el vector de onda es de la forma:
+\begin{align*}
+	\tx{Por la ecuación de ondas en el espacio } &\tx{de Fourier, tenemos que:} \\
+	\cor{\lapv{} + \mi\omega(\omega\eps + i\sigma)} \vc{E}_{(\vc{r},\omega)} &= 0 \\
+	\tx{Proponiendo una solución de onda plana } &\vc{E}_{(\vc{r},\omega)} = \vc{E}_0 e^{i\PI{\vc{k}}{\vc{r}}} \tx{, tenemos que:} \\
+	\cor{\lapv{} + \mi\omega(\omega\eps + i\sigma)} \pr{\vc{E}_0 e^{i\PI{\vc{k}}{\vc{r}}}} &= 0 \\
+	\vc{E}_0 \lapv{}\pr{e^{i\PI{\vc{k}}{\vc{r}}}} + \mi\omega(\omega\eps + i\sigma) \vc{E}_0 e^{i\PI{\vc{k}}{\vc{r}}} &= 0 \\
+	(i\mod{\vc{k}})^2 e^{i\PI{\vc{k}}{\vc{r}}} + \mi\omega(\omega\eps + i\sigma) e^{i\PI{\vc{k}}{\vc{r}}} &= 0 \\
+	-\mod[2]{\vc{k}} + \mi\omega(\omega\eps + i\sigma) &= 0 \\
+	\mod{\vc{k}} &= \pm \rz{\mi\eps\omega^2\pr{1 + i\fr{\sigma}{\omega\eps}}} \sii \vc{k} \in \bb{C}
+\end{align*}
+\q{\vc{k} := \mod{\vc{k}} \ver{k} = \pm \rz{\mi\eps\omega^2\pr{1 + i\fr{\sigma}{\omega\eps}}} \ver{k} = \vc{k}_{\tx{re}} + i\vc{k}_{\tx{im}}}
+			\subsubsection{Relación Del Vector De Onda Con El Campo Electromagnético}
+Por las ecuaciones de Maxwell en vacío, tenemos que:
+\begin{align*}
+	\div{E}_{(\vc{r},t)} &= 0 & \div{B}_{(\vc{r},t)} &= 0 & \rot{E}_{(\vc{r},t)} &= -\pd{\vc{B}_{(\vc{r},t)}}{t} \\
+	\div{}\cor{\vc{E}_0 e^{i(\PI{\vc{k}}{\vc{r}} - \omega t)}} &= 0 & \div{}\cor{\vc{B}_0 e^{i(\PI{\vc{k}}{\vc{r}} - \omega t)}} &= 0 & \rot{}\cor{\vc{E}_0 e^{i(\PI{\vc{k}}{\vc{r}} - \omega t)}} &= -\pd{}{t} \cor{\vc{B}_0 e^{i(\PI{\vc{k}}{\vc{r}} - \omega t)}} \\
+	i\PI{\vc{k}}{\cor{\vc{E}_0 e^{i(\PI{\vc{k}}{\vc{r}} - \omega t)}}} &= 0 & i\PI{\vc{k}}{\cor{\vc{B}_0 e^{i(\PI{\vc{k}}{\vc{r}} - \omega t)}}} &= 0 & i\PV{\vc{k}}{\cor{\vc{E}_0 e^{i(\PI{\vc{k}}{\vc{r}} - \omega t)}}} &= - (-i\omega) \cor{\vc{B}_0 e^{i(\PI{\vc{k}}{\vc{r}} - \omega t)}} \\
+	\PI{\vc{k}}{\vc{E}_{(\vc{r},t)}} &= 0 \sii \vc{k} \perp \vc{E} & \PI{\vc{k}}{\vc{B}_{(\vc{r},t)}} &= 0 \sii \vc{k} \perp \vc{B} & \PV{\vc{k}}{\vc{E}_{(\vc{r},t)}} &= \omega \vc{B}_{(\vc{r},t)}
+\end{align*}
+\q{\Fppp{\vc{k} \perp \vc{E}}{\vc{k} \perp \vc{B}}{\PV{\vc{k}}{\vc{E}_{(\vc{r},t)}} = \omega \vc{B}_{(\vc{r},t)}}}
+\paragraph{Regla De Terna Derecha}
+Las tres condiciones halladas pueden resumirse en una única condición de \cur{terna derecha}, de la forma:
+\f{\vc{k} = \omega \PV{\vc{E}_{(\vc{r},t)}}{\vc{B}_{(\vc{r},t)}}}
+\paragraph{Regla De Terna Derecha En Medios Materiales LIH}
+En medios materiales LIH la regla de terna derecha entre los campos eléctrico y magnético y el vector de onda, es de la forma:
+\begin{align*}
+	\vc{k} &= \omega\PV{\vc{E}_{(\vc{r},t)}}{\vc{B}_{(\vc{r},t)}} \\
+	\fr{n\omega}{c} \ver{k} &= \omega\PV{\vc{E}_{(\vc{r},t)}}{\vc{B}_{(\vc{r},t)}} \\
+	\ver{k} &= \fr{c}{n} \PV{\vc{E}_{(\vc{r},t)}}{\vc{B}_{(\vc{r},t)}}
+\end{align*}
+\q{\ver{k} = \fr{c}{n} \PV{\vc{E}_{(\vc{r},t)}}{\vc{B}_{(\vc{r},t)}}}
+\paragraph{Fase}
+De la relación de terna derecha, se sigue que el campo eléctrico $\vc{E}$ y el campo magnético $\vc{B}$ son vectores perpendiculares entre sí, que viven en un plano cuyo vector normal es el vector de onda $\vc{k}$. Por esta razón, el campo eléctrico y el campo magnético están en \cur{fase}.
+		\subsection{Vector De Poynting}
+Mediante el vector de Poynting, es posible hallar el flujo de energía de una onda plana con dirección de propagación $\ver{k}$, debida al campo eléctrico $\vc{E}$ y magnético $\vc{B}$, de la forma:
+\begin{align*}
+	\vc{S}_{(\vc{r},t)} :&= \fr{1}{\kpmv} \PV{\vc{E}_{(\vc{r},t)}}{\vc{B}_{(\vc{r},t)}} \\
+	\tx{Por la } &\tx{regla de terna derecha del campo electromagnético, tenemos que:} \\
+	&= \fr{1}{\kpmv} \PV{\vc{E}_{(\vc{r},t)}}{\cor{\fr{1}{\omega} \PV{\vc{k}}{\vc{E}_{(\vc{r},t)}}}} \\
+	\tx{Por la } &\tx{regla del triple producto vectorial, tenemos que:} \\
+	&= \fr{1}{\kpmv\omega} (\PI{\vc{E}_{(\vc{r},t)}}{\vc{E}_{(\vc{r},t)}}) \vc{k} - (\PI{\vc{E}_{(\vc{r},t)}}{\vc{k}}) \vc{E}_{(\vc{r},t)} \\
+	\tx{Como } &\vc{E} \perp \vc{k} \tx{, tenemos que:} \\
+	&= \fr{1}{\kpmv\omega} \mod[2]{\vc{E}_{(\vc{r},t)}} \vc{k} - (0).\vc{E}_{(\vc{r},t)} \\
+	&= \fr{1}{\kpmv\omega} \mod[2]{\vc{E}_{(\vc{r},t)}} \fr{n\omega}{c} \ver{k} - 0 \\
+	&= \fr{n}{\kpmv c} \mod[2]{\vc{E}_{(\vc{r},t)}} \ver{k}
+\end{align*}
+\q{\vc{S}_{(\vc{r},t)} = \fr{1}{\kpmv\omega} \mod[2]{\vc{E}_{(\vc{r},t)}} \vc{k} = \fr{n}{\kpmv c} \mod[2]{\vc{E}_{(\vc{r},t)}} \ver{k}}
+			\subsubsection{Parte Real}
+En términos de la parte real del campo electromagnético, el vector de Poynting es de la forma:
+\begin{align*}
+	&\tx{Por la definición del vector de Poynting, tenemos que:} \\
+	\vc{S}_{(\vc{r},t)} :&= \fr{1}{\kpmv} \PV{\vc{E}_{(\vc{r},t)}}{\vc{B}_{(\vc{r},t)}} \\
+	&= \fr{1}{\kpmv} \PV{\re{\vc{E}_{0(\vc{r})} e^{-i\omega t}}}{\re{\vc{B}_{0(\vc{r})} e^{-i\omega t}}} \\
+	&\tx{Como } \re{z} = \fr{z+\conj{z}}{2} \tx{, tenemos que:} \\
+	&= \fr{1}{\kpmv} \PV{\fr{1}{2} \cor{\vc{E}_{0(\vc{r})} e^{-i\omega t} + \conj{\vc{E}}_{0(\vc{r})} e^{i\omega t}}}{\fr{1}{2} \cor{\vc{B}_{0(\vc{r})} e^{-i\omega t} + \conj{\vc{B}}_{0(\vc{r})} e^{i\omega t}}} \\
+	&= \fr{1}{\kpmv} \lla{\fr{1}{4} \cor{\PV{\vc{E}_{0(\vc{r})}}{\vc{B}_{0(\vc{r})}} e^{-2i\omega t} + \PV{\conj{\vc{E}}_{0(\vc{r})}}{\conj{\vc{B}}_{0(\vc{r})}} e^{2i\omega t}} + \fr{1}{4} \cor{\PV{\vc{E}_{0(\vc{r})}}{\conj{\vc{B}}_{0(\vc{r})}} + \PV{\conj{\vc{E}}_{0(\vc{r})}}{\vc{B}_{0(\vc{r})}}}} \\
+	&= \fr{1}{\kpmv} \cor{\fr{1}{2} \re{\PV{\vc{E}_{0(\vc{r})}}{\vc{B}_{0(\vc{r})}} e^{-2i\omega t}} + \fr{1}{2} \re{\PV{\vc{E}_{0(\vc{r})}}{\conj{\vc{B}}_{0(\vc{r})}}}} \\
+	&\tx{Como } \omega \vc{B}_{(\vc{r},t)} = \PV{\vc{k}}{\vc{E}_{(\vc{r},t)}} \tx{, tenemos que:} \\
+	&= \fr{1}{2\kpmv} \lla{\re{\PV{\vc{E}_{0(\vc{r})}}{\cor{\fr{1}{\omega} \PV{\vc{k}}{\vc{E}_{0(\vc{r})}}} e^{-2i\omega t}}} + \re{\PV{\vc{E}_{0(\vc{r})}}{\cor{\fr{1}{\omega} \PV{\vc{k}}{\conj{\vc{E}}_{0(\vc{r})}}}}}} \\
+	&\tx{Por la regla del triple producto vectorial, tenemos que:} \\
+	&= \fr{1}{2\kpmv\omega} \lla{\re{\cor{(\PI{\vc{E}_{0(\vc{r})}}{\vc{E}_{0(\vc{r})}}) \vc{k} + (\PI{\vc{E}_{0(\vc{r})}}{\vc{k}})\vc{E}_{0(\vc{r})}} e^{-2i\omega t}} + \re{(\PI{\vc{E}_{0(\vc{r})}}{\vc{E}_{0(\vc{r})}}) \vc{k} + (\PI{\vc{E}_{0(\vc{r})}}{\vc{k}})\vc{E}_{0(\vc{r})}}} \\
+	&\tx{Como } \vc{E} \perp \vc{k} \tx{, tenemos que:} \\
+	&= \fr{1}{2\kpmv\omega} \lla{\re{\cor{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k} + 0.\vc{E}_{0(\vc{r})}} e^{-2i\omega t}} + \re{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k} + 0.\vc{E}_{0(\vc{r})}}} \\
+	&= \fr{1}{2\kpmv\omega} \lla{\re{\cor{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k} + 0} e^{-2i\omega t}} + \re{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k} + 0}} \\
+	&= \fr{1}{2\kpmv\omega} \cor{\re{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k} e^{-2i\omega t}} + \re{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k}}}
+\end{align*}
+\q{\vc{S}_{(\vc{r},t)} = \fr{1}{2\kpmv\omega} \cor{\re{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k} e^{-2i\omega t}} + \re{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k}}}}
+\paragraph{Valor Medio}
+El valor medio del vector de Poynting será de la forma:
+\begin{align*}
+	\vm{\vc{S}_{(\vc{r},t)}} :&= \fr{1}{T} \Int{0}{T}{\vc{S}_{(\vc{r},t)}}{t} \\
+	&= \fr{1}{T} \Int{0}{T}{\lla{\fr{1}{2\kpmv\omega} \cor{\re{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k} e^{-2i\omega t}} + \re{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k}}}}}{t} \\
+	&= \fr{1}{2\kpmv\omega T} \re{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k} \Int{0}{T}{e^{-2i\omega t}}{t}} + \fr{1}{2\kpmv\omega T} \re{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k}} \Int{0}{T}{\esp{-6}}{t} \\
+	&\tx{Si } \omega \tx{ es una frecuencia muy alta, se tiene que:} \\
+	&= \fr{1}{2\kpmv\omega T} \re{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k} .0} + \fr{1}{2\kpmv\omega T} \re{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k}} \ldot{(t)}\right|_0^T \\
+	&= \fr{1}{2\kpmv\omega T} \re{0} + \fr{1}{2\kpmv\omega T} \re{\mod[2]{\vc{E}_{0(\vc{r})}} \vc{k}} (T-0) \\
+	&\tx{Como } \vc{k} = \fr{n\omega}{c} \ver{k} \tx{, tenemos que:} \\
+	&= 0 + \fr{1}{2\kpmv\omega T} \re{\mod[2]{\vc{E}_{0(\vc{r})}} \fr{n\omega}{c} \ver{k}} T \\
+	&= \fr{n}{2\kpmv c} \mod[2]{\vc{E}_{0(\vc{r})}} \ver{k}
+\end{align*}
+\q{\vm{\vc{S}_{(\vc{r},t)}} = \fr{n}{2\kpmv c} \mod[2]{\vc{E}_{0(\vc{r})}} \ver{k}}
+		\subsection{Polarización}
+Se denomina \cur{polarización} a la propiedad de las ondas transversales de tener una orientación geométrica en sus oscilaciones bien definida. Las ondas electromagnéticas admiten polarización debido a que son ondas que se producen de manera transversal (por los campos eléctrico $\vc{E}$ y magnético $\vc{B}$) a la dirección de propagación (el vector de onda $\vc{k}$).
+			\subsubsection{Deducción}
+\begin{itemize}
+	\item Sea un campo eléctrico $\vc{E}_{(\vc{r},t)}$ que se propaga con vector de onda $\vc{k}$, definido por la terna derecha $(\ver{e}_1,\ver{e}_2,\ver{k})$, entonces:
+	\begin{align*}
+		\vc{E}_{(\vc{r},t)} :&= \vc{E}_{1(\vc{r},t)} \ver{e}_1 + \vc{E}_{2(\vc{r},t)} \ver{e}_2 \\
+		&= \re{E_0^{(1)} e^{i\phi_1} e^{i(\PI{\vc{k}}{\vc{r}} - \omega t)}} \ver{e}_1 + \re{E_0^{(2)} e^{i\phi_2} e^{i(\PI{\vc{k}}{\vc{r}} - \omega t)}} \ver{e}_2 \\
+		&= \re{E_0^{(1)} e^{i(\PI{\vc{k}}{\vc{r}} - \omega t + \phi_1)}} \ver{e}_1 + \re{E_0^{(2)} e^{i(\phi_2 - \phi_1)} e^{i(\PI{\vc{k}}{\vc{r}} - \omega t + \phi_1)}} \ver{e}_2 \\
+		&\tx{Definiendo a } \Fpp{t_0 := \frr{\PI{\vc{k}}{\vc{r}} + \phi_1}{\omega}}{\phi := \phi_2 - \phi_1} \tx{, tenemos que:} \\
+		&= \re{E_0^{(1)} e^{i\omega (t_0-t)}} \ver{e}_1 + \re{E_0^{(2)} e^{i[\omega(t_0-t) + \phi]}} \ver{e}_2 \\
+		&\tx{Por la fórmula de Euler, tenemos que:} \\
+		&= \re{E_0^{(1)} \lla{\cos[\omega (t_0-t)] + i\sen[\omega(t_0-t)]}} \ver{e}_1 + \re{E_0^{(2)} \lla{\cos[\omega(t_0-t) + \phi] + i\sen[\omega(t_0-t) + \phi]}} \ver{e}_2 \\
+		&= E_0^{(1)} \cos[\omega (t_0-t)] \ver{e}_1 + E_0^{(2)} \cos[\omega(t_0-t) + \phi] \ver{e}_2 \\
+		&\tx{Como el coseno es par, tenemos:} \\
+		&= E_0^{(1)} \cos[\omega (t-t_0)] \ver{e}_1 + E_0^{(2)} \cos[\omega(t-t_0) - \phi] \ver{e}_2 \\
+		&\tx{Definiendo el tiempo } \taf := t - t_0 \tx{, tenemos:} \\
+		&= E_0^{(1)} \cos(\omega\taf) \ver{e}_1 + E_0^{(2)} \cos(\omega\taf - \phi) \ver{e}_2 \\
+		&\tx{Por las propiedades de suma y resta de ángulos, tenemos:} \\
+		&= E_0^{(1)} \cos(\omega\taf) \ver{e}_1 + E_0^{(2)} \cor{\cos(\omega\taf)\cos(\phi) + \sen(\omega\taf)\sen(\phi)} \ver{e}_2 \\
+		&\tx{Es decir, obtuvimos que:} \\
+		&\Fpp{\fr{\vc{E}_{1(\vc{r},t)}}{E_0^{(1)}} = \cos(\omega\taf)}{\fr{\vc{E}_{2(\vc{r},t)}}{E_0^{(2)}} = \cos(\omega\taf)\cos(\phi) + \sen(\omega\taf)\sen(\phi)} \\
+		&\tx{Definiendo } \Fpp{E_1 := \vc{E}_{1(\vc{r},t)}}{E_2 := \vc{E}_{2(\vc{r},t)}} \tx{, tenemos que:} \\
+		&\Fpp{\fr{E_1}{E_0^{(1)}} = \cos(\omega\taf)}{\fr{E_2}{E_0^{(2)}} = \cos(\omega\taf)\cos(\phi) + \sen(\omega\taf)\sen(\phi)}
+	\end{align*}
+	\q{\Fpp{\fr{E_1}{E_0^{(1)}} = \cos(\omega\taf)}{\fr{E_2}{E_0^{(2)}} = \cos(\omega\taf)\cos(\phi) + \sen(\omega\taf)\sen(\phi)}}
+	\item Restando la segunda ecuación, la primera ecuación multiplicada por $\cos(\phi)$, tenemos que:
+	\begin{align*}
+		\fr{E_2}{E_0^{(2)}} - \fr{E_1}{E_0^{(1)}} \cos(\phi) &= \cos(\omega\taf)\cos(\phi) + \sen(\omega\taf)\sen(\phi) - \cos(\omega\taf)\cos(\phi) \\
+		\fr{E_2}{E_0^{(2)}} - \fr{E_1}{E_0^{(1)}} \cos(\phi) &= \sen(\omega\taf)\sen(\phi) \\
+		\cor[2]{\fr{E_2}{E_0^{(2)}} - \fr{E_1}{E_0^{(1)}} \cos(\phi)} &= \sen^2(\omega\taf)\sen^2(\phi) \\
+		\cor[2]{\fr{E_2}{E_0^{(2)}}} + \cor[2]{\fr{E_1}{E_0^{(1)}}} \cos^2(\phi) - 2 \fr{E_1E_2}{E_0^{(1)}E_0^{(2)}} \cos(\phi) &= \lla{1-\cor[2]{\fr{E_1}{E_0^{(1)}}}} \sen^2(\phi) \\
+		\cor[2]{\fr{E_2}{E_0^{(2)}}} + \cor[2]{\fr{E_1}{E_0^{(1)}}} [\cos^2(\phi) + \sen^2(\phi)] - 2 \fr{E_1E_2}{E_0^{(1)}E_0^{(2)}} \cos(\phi) &= \sen^2(\phi) \\
+		\cor[2]{\fr{E_2}{E_0^{(2)}}} + \cor[2]{\fr{E_1}{E_0^{(1)}}} .1 - 2 \fr{E_1E_2}{E_0^{(1)}E_0^{(2)}} \cos(\phi) &= \sen^2(\phi) \\
+		\cor[2]{\fr{E_1}{E_0^{(1)}}} + \cor[2]{\fr{E_2}{E_0^{(2)}}} - 2 \fr{E_1E_2}{E_0^{(1)}E_0^{(2)}} \cos(\phi) &= \sen^2(\phi)
+	\end{align*}
+	\q{\cor[2]{\fr{E_1}{E_0^{(1)}}} + \cor[2]{\fr{E_2}{E_0^{(2)}}} - 2 \fr{E_1E_2}{E_0^{(1)}E_0^{(2)}} \cos(\phi) = \sen^2(\phi)}
+	\item Es decir, obtuvimos la ecuación de una elipse para las componentes $E_1$ y $E_2$. Ésta elipse tendrá distintos casos particulares dependiendo del valor de la fase $\phi$ y de las amplitudes $E_0^{(1)}$ y $E_0^{(2)}$.
+\end{itemize}
+			\subsubsection{Polarización Lineal}
+Si $\phi=n\pi \ptd n \in \bb{Z}$ se obtiene la denominada \cur{polarización lineal}, de la forma:
+\begin{align*}
+	\cor[2]{\fr{E_1}{E_0^{(1)}}} + \cor[2]{\fr{E_2}{E_0^{(2)}}} - 2 \fr{E_1E_2}{E_0^{(1)}E_0^{(2)}} \cos(n\pi) &= \sen^2(n\pi) \\
+	\cor[2]{\fr{E_1}{E_0^{(1)}}} + \cor[2]{\fr{E_2}{E_0^{(2)}}} - 2 \fr{E_1E_2}{E_0^{(1)}E_0^{(2)}} . (\mp 1) &= 0 \\
+	\cor[2]{\fr{E_1}{E_0^{(1)}} \pm \fr{E_2}{E_0^{(2)}}} &= 0 \\
+	\pm \cor{\fr{E_1}{E_0^{(1)}} \pm \fr{E_2}{E_0^{(2)}}} &= 0 \\
+	\pm \fr{E_1}{E_0^{(1)}} + \fr{E_2}{E_0^{(2)}} &= 0 \\
+	\fr{E_1}{E_0^{(1)}} &= \pm \fr{E_2}{E_0^{(2)}}
+\end{align*}
+\q{\fr{E_1}{E_0^{(1)}} = \pm \fr{E_2}{E_0^{(2)}}}
+\paragraph{Campo Eléctrico}
+Cuando la polarización es lineal, el campo eléctrico es de la forma:
+\f{\vc{E}_{\tx{lin}(\vc{r},t)} = \cor{E_0^{(1)} \ver{e}_1 + E_0^{(2)} \ver{e}_2} \cos(\PI{\vc{k}}{\vc{r}} - \omega t)}
+			\subsubsection{Polarización Circular}
+Si $\phi=n\pi + \frr{\pi}{2} \ptd n \in \bb{Z}$ y se cumple que $E_0^{(1)} = E_0^{(2)} \equiv E_0$, se obtiene la denominada \cur{polarización circular}, de la forma:
+\begin{align*}
+	\pr[2]{\fr{E_1}{E_0}} + \pr[2]{\fr{E_2}{E_0}} - 2 \fr{E_1E_2}{E_0E_0} \cos\pr{n\pi + \fr{\pi}{2}} &= \sen^2\pr{n\pi+\fr{\pi}{2}} \\
+	\pr[2]{\fr{E_1}{E_0}} + \pr[2]{\fr{E_2}{E_0}} - 2 \fr{E_1E_2}{E_0^2} . 0 &= (\pm 1)^2 \\
+	\pr[2]{\fr{E_1}{E_0}} + \pr[2]{\fr{E_2}{E_0}} - 0 &= 1 \\
+	E_1^2 + E_2^2 &= E_0^2
+\end{align*}
+\q{E_1^2 + E_2^2 = E_0^2}
+\paragraph{Campo Eléctrico}
+Cuando la polarización es circular, el campo eléctrico es de la forma:
+\f{\vc{E}_{\tx{circ}(\vc{r},t)} = E_0 [\cos(\PI{\vc{k}}{\vc{r}} - \omega t) \ver{e}_1 + \sen(\PI{\vc{k}}{\vc{r}} - \omega t) \ver{e}_2]}
+			\subsubsection{Polarización Elíptica}
+Si $\phi=n\pi + \frr{\pi}{2} \ptd n \in \bb{Z}$, o no se cumple el caso de polarización lineal o circular, se obtiene la denominada \cur{polarización elíptica}, de la forma:
+\begin{align*}
+	\cor[2]{\fr{E_1}{E_0^{(1)}}} + \cor[2]{\fr{E_2}{E_0^{(2)}}} - 2 \fr{E_1E_2}{E_0^{(1)}E_0^{(2)}} \cos\pr{n\pi + \fr{\pi}{2}} &= \sen^2\pr{n\pi+\fr{\pi}{2}} \\
+	\cor[2]{\fr{E_1}{E_0^{(1)}}} + \cor[2]{\fr{E_2}{E_0^{(2)}}} - 2 \fr{E_1E_2}{E_0^{(1)}E_0^{(2)}} . 0 &= (\pm 1)^2 \\
+	\cor[2]{\fr{E_1}{E_0^{(1)}}} + \cor[2]{\fr{E_2}{E_0^{(2)}}} - 0 &= 1 \\
+	\cor[2]{\fr{E_1}{E_0^{(1)}}} + \cor[2]{\fr{E_2}{E_0^{(2)}}} &= 1
+\end{align*}
+\q{\cor[2]{\fr{E_1}{E_0^{(1)}}} + \cor[2]{\fr{E_2}{E_0^{(2)}}} = 1}
+\paragraph{Campo Eléctrico}
+Cuando la polarización es elíptica, el campo eléctrico es de la forma:
+\f{\vc{E}_{\tx{el}(\vc{r},t)} = E_0^{(1)} \cos(\PI{\vc{k}}{\vc{r}} - \omega t) \ver{e}_1 + E_0^{(2)} \cos(\PI{\vc{k}}{\vc{r}} - \omega t + \del) \ver{e}_2}
+		\subsection{Ondas Planas En Una Interfaz}
+Sean dos medios $(1)$ y $(2)$ de índices de refracción $n_1$ y $n_2$, separados por una interfaz en el plano $z=0$ sobre la cual incide una onda electromagnética plana con ángulo de incidencia $\tita_i$, entonces:
+\paragraph{Onda Incidente}
+\f{\Fpp{\vc{E}_{i(\vc{r},t)} := \vc{E}_{i0} e^{i(\PI{\vc{k}_i}{\vc{r}} - \omega_i t)}}{\vc{B}_{i(\vc{r},t)} := \fr{n_1}{c} \PV{\ver{k}_i}{\vc{E}_{i(\vc{r},t)}}}}
+\paragraph{Onda Reflejada}
+\f{\Fpp{\vc{E}_{r(\vc{r},t)} := \vc{E}_{r0} e^{i(\PI{\vc{k}_r}{\vc{r}} - \omega_r t)}}{\vc{B}_{r(\vc{r},t)} := \fr{n_1}{c} \PV{\ver{k}_r}{\vc{E}_{r(\vc{r},t)}}}}
+\paragraph{Onda Transmitida}
+\f{\Fpp{\vc{E}_{t(\vc{r},t)} := \vc{E}_{t0} e^{i(\PI{\vc{k}_t}{\vc{r}} - \omega_t t)}}{\vc{B}_{t(\vc{r},t)} := \fr{n_2}{c} \PV{\ver{k}_t}{\vc{E}_{t(\vc{r},t)}}}}
+\paragraph{Vectores De Onda}
+\f{\Fppp{\vc{k}_i = \fr{n_1\omega_i}{c} [\sen(\tita_i)\ver{x} - \cos(\tita_i)\ver{z}]}{\vc{k}_r = \fr{n_1\omega_r}{c} [\sen(\tita_r) \ver{x} + \cos(\tita_r) \ver{z}]}{\vc{k}_t = \fr{n_2\omega_t}{c} [\sen(\tita_t)\ver{x} - \cos(\tita_t)\ver{z}]}}
+			\subsubsection{Condiciones Cinemáticas}
+Se denomina \cur{condiciones cinemáticas} a la condición de contorno que deben satisfacer las ondas planas en una interfaz que establece que cualquier combinación lineal de las ondas incidente, reflejada y transmitida debe ser nula, de la forma:
+\begin{align*}
+	0 &= \alfa e^{i(\PI{\vc{k}_i}{\vc{r}} - \omega_i t)} + \vita e^{i(\PI{\vc{k}_r}{\vc{r}} - \omega_r t)} + \gama e^{i(\PI{\vc{k}_t}{\vc{r}} - \omega_t t)} \\
+	\tx{Para un vector } &\vc{r} \tx{ fijo en el plano, esta condición se cumple} \ptd t \sii \omega_i=\omega_r=\omega_t\equiv\omega \tx{, entonces:} \\
+	0 &= \alfa e^{i(\PI{\vc{k}_i}{\vc{r}})} e^{-i\omega t} + \vita e^{i(\PI{\vc{k}_r}{\vc{r}})} e^{-i\omega t} + \gama e^{i(\PI{\vc{k}_t}{\vc{r}})} e^{-i\omega t} \\
+	0 &= \alfa e^{i(\PI{\vc{k}_i}{\vc{r}})} + \vita e^{i(\PI{\vc{k}_r}{\vc{r}})} + \gama e^{i(\PI{\vc{k}_t}{\vc{r}})} \\
+	&\tx{Esta condición vale} \ptd \vc{r} \tx{ en el plano} \sii \PI{\vc{k}_i}{\vc{r}} = \PI{\vc{k}_r}{\vc{r}} = \PI{\vc{k}_t}{\vc{r}} \tx{.}
+\end{align*}
+\q{\tx{Condiciones Cinemáticas} := \Fpp{\omega_i=\omega_r=\omega_t}{\PI{\vc{k}_i}{\vc{r}} = \PI{\vc{k}_r}{\vc{r}} = \PI{\vc{k}_t}{\vc{r}}}}
+\paragraph{Ley De Reflexión}
+Imponiendo las condiciones de contorno cinemáticas sobre los vectores de onda, puede obtenerse la denominada \cur{ley de reflexión}, de la forma:
+\begin{align*}
+	\tx{Como } &\PI{\vc{k}_i}{\vc{r}} = \PI{\vc{k}_r}{\vc{r}} \tx{, tenemos que:} \\
+	\PI{\lla{\fr{n_1\omega_i}{c} [\sen(\tita_i)\ver{x} - \cos(\tita_i)\ver{z}]}}{(x\ver{x} + y\ver{y} + z\ver{z})} &= \PI{\lla{\fr{n_1\omega_r}{c} [\sen(\tita_r)\ver{x} + \cos(\tita_r)\ver{z}]}}{(x\ver{x} + y\ver{y} + z\ver{z})} \\
+	\fr{n_1\omega_i}{c} [\sen(\tita_i)x - \cos(\tita_i)z\ver{z}] &= \fr{n_1\omega_r}{c} [\sen(\tita_r)x + \cos(\tita_r)z\ver{z}] \\
+	\tx{Como } &\omega_i = \omega_r \equiv \omega \tx{, tenemos que:} \\
+	\fr{n_1\omega}{c} [\sen(\tita_i)x - \cos(\tita_i)z] &= \fr{n_1\omega}{c} [\sen(\tita_r)x + \cos(\tita_r)z] \\
+	\ent \fr{n_1\omega}{c} \sen(\tita_i)x &= \fr{n_1\omega}{c} \sen(\tita_r)x \\
+	\sen(\tita_i) &= \sen(\tita_r) \\
+	\sii \tita_i &= \tita_r
+\end{align*}
+\q{\tita_i = \tita_r}
+\paragraph{Ley De Ibn-Sahl-Snell: Ley De Refracción}
+Imponiendo las condiciones de contorno cinemáticas sobre los vectores de onda, puede obtenerse la denominada \cur{ley de Ibn-Sahl-Snell} o \cur{ley de refracción}, de la forma:
+\begin{align*}
+	\tx{Como } &\PI{\vc{k}_i}{\vc{r}} = \PI{\vc{k}_t}{\vc{r}} \tx{, tenemos que:} \\
+	\PI{\lla{\fr{n_1\omega_i}{c} [\sen(\tita_i)\ver{x} - \cos(\tita_i)\ver{z}]}}{(x\ver{x} + y\ver{y} + z\ver{z})} &= \PI{\lla{\fr{n_2\omega_t}{c} [\sen(\tita_t)\ver{x} - \cos(\tita_t)\ver{z}]}}{(x\ver{x} + y\ver{y} + z\ver{z})} \\
+	\fr{n_1\omega_i}{c} [\sen(\tita_i)x - \cos(\tita_i)z\ver{z}] &= \fr{n_2\omega_t}{c} [\sen(\tita_t)x - \cos(\tita_t)z\ver{z}] \\
+	\tx{Como } &\omega_i = \omega_t \equiv \omega \tx{, tenemos que:} \\
+	\fr{n_1\omega}{c} [\sen(\tita_i)x - \cos(\tita_i)z] &= \fr{n_2\omega}{c} [\sen(\tita_t)x - \cos(\tita_t)z] \\
+	\ent \fr{n_1\omega}{c} \sen(\tita_i)x &= \fr{n_2\omega}{c} \sen(\tita_t)x \\
+	n_1\sen(\tita_i) &= n_2\sen(\tita_t)
+\end{align*}
+\q{n_1\sen(\tita_i) = n_2\sen(\tita_t)}
+			\subsubsection{Condiciones Dinámicas}
+Se denomina \cur{condiciones dinámicas} a las condiciones de contorno electrodinámicas necesarias y suficientes que deben imponerse para la continuidad y el salto de los campos eléctrico $\vc{E}_{(\vc{r},t)}$ y magnético $\vc{B}_{(\vc{r},t)}$ sobre la interfaz $z=0$, y son de la forma:
+\f{\tx{Condiciones Dinámicas} := \Fpppp{\PI{\ver{\ita}_{\tx{e}}}{\ldot{\cor{\vc{D}_{2(\vc{r},t)} - \vc{D}_{1(\vc{r},t)}}}\right|_{z=0}} = 0}{\PV{\ver{\ita}_{\tx{e}}}{\ldot{\cor{\vc{E}_{2(\vc{r},t)} - \vc{E}_{1(\vc{r},t)}}}\right|_{z=0}} = 0}{\PI{\ver{\ita}_{\tx{e}}}{\ldot{\cor{\vc{B}_{2(\vc{r},t)} - \vc{B}_{1(\vc{r},t)}}}\right|_{z=0}} = 0}{\PV{\ver{\ita}_{\tx{e}}}{\ldot{\cor{\vc{H}_{2(\vc{r},t)} - \vc{H}_{1(\vc{r},t)}}}\right|_{z=0}} = 0}}
+			\subsubsection{Coeficientes De Fresnel}
+Dados dos medios $(1)$ y $(2)$ de índices de refracción $n_1 = \rz{\mi_{\tx{r}1}\eps_{\tx{r}1}}$ y $n_2 = \rz{\mi_{\tx{r}2}\eps_{\tx{r}2}}$, respectivamente, se denomina \cur{coeficientes de Fresnel} a los valores que toman el módulo de las amplitudes reflejadas y transmitidas del campo eléctrico en término de la amplitud del campo eléctrico incidente $E_i$ y su ángulo de incidencia $\tita_i$, y de los índices de refracción $n_1$ y $n_2$ de los medios separados por la interfaz. Estos coeficientes se obtienen al despejar las amplitudes del campo eléctrico de las condiciones dinámicas.
+\paragraph{Caso Transverso Eléctrico (TE)}
+Se denomina \cur{caso transverso eléctrico (TE)} al caso en el que el campo eléctrico tiene diracción normal al plano donde se representa el corte entre los medios $(1)$ y $(2)$ (si la interfaz se encuentra en $z=0$, la dirección del campo es $-\ver{y}$). En este caso los coeficientes de Fresnel son de la forma:
+\f{\Fpp{E_r^{\tx{TE}} = \fr{n_1\cos(\tita_i) - \frr{\mi_1}{\mi_2} \rz{n_2^2 - n_1^2 \sen^2(\tita_i)}}{n_1\cos(\tita_i) + \frr{\mi_1}{\mi_2} \rz{n_2^2 - n_1^2 \sen^2(\tita_i)}} E_i}{E_t^{\tx{TE}} = \fr{2n_1\cos(\tita_i)}{n_1\cos(\tita_i) + \frr{\mi_1}{\mi_2} \rz{n_2^2 - n_1^2 \sen^2(\tita_i)}} E_i} \tx{ cuando } \vc{E} \perp \tx{plano de corte.}}
+\paragraph{Caso Transverso Magnético (TM)}
+Se denomina \cur{caso transverso magnético (TM)} al caso en el que el campo magnético tiene dirección normal al plano donde se representa el corte entre los medios $(1)$ y $(2)$ (si la interfaz se encuentra en $z=0$, la dirección del campo es $-\ver{y}$). En este caso los coeficientes de Fresnel son de la forma:
+\f{\Fpp{E_r^{\tx{TM}} = \fr{\frr{\mi_1}{\mi_2} n_2^2 \cos(\tita_i) - n_1\rz{n_2^2 - n_1^2 \sen^2(\tita_i)}}{\frr{\mi_1}{\mi_2} n_2^2 \cos(\tita_i) + n_1\rz{n_2^2 - n_1^2 \sen^2(\tita_i)}} E_i}{E_t^{\tx{TM}} = \fr{2n_1n_2\cos(\tita_i)}{\frr{\mi_1}{\mi_2} n_2^2\cos(\tita_i) + n_1\rz{n_2^2 - n_1^2 \sen^2(\tita_i)}} E_i} \tx{ cuando } \vc{B} \perp \tx{plano de corte.}}
+\paragraph{Observación}
+\B{Si $n_2^2 - n_1^2 \sen^2(\tita_i) \mig 0$, los coeficientes de Fresnel son reales.}
+			\subsubsection{Ángulo Crítico}
+Se denomina \cur{ángulo crítico} al ángulo en el cual la onda plana transmitida únicamente es paralela a la superficie de la interfaz ($\tita_t = \pi/2$), es decir:
+\begin{align*}
+	\tx{Por la ley de } &\tx{Ibn-Sahl-Snell, tenemos que:} \\
+	n_1 \sen(\tita_i) &= n_2 \sen\pr{\fr{\pi}{2}} \\
+	\tita_i &= \asen\pr{\fr{n_2.1}{n_1}} \\
+	&= \asen\pr{\fr{n_2}{n_1}}
+\end{align*}
+\f{\tita_{\tx{cr}} := \tita_{i\pr{\tita_t=\frr{\pi}{2}}} = \asen\pr{\fr{n_2}{n_1}} \ptd n_2 < n_1}
+\paragraph{Reflexión Total Interna}
+Se denomina \cur{reflexión total interna} al fenómeno de reflexión total que se produce en el caso en el cual el ángulo de incidencia es mayor al ángulo crítico, donde no hay onda transmitida, de la forma:
+\f{\tita_{i(\tita_t)} := \asen\cor{\fr{n_2\sen(\tita_t)}{n_1}} \ptd \tita_i \in \pr{\tita_{\tx{cr}},\fr{\pi}{2}}}
+			\subsubsection{Ángulo De Brewster}
+Se denomina \cur{ángulo de Brewster} solo en modo TM al ángulo:
+\f{\tita_{\tx{B}} := \atan\pr{\fr{n_2}{n_1}}}
+		\subsection{Ondas Planas En Materiales Conductores}
+			\subsubsection{Vector De Onda}
+El vector de onda en un conductor eléctrico es complejo, por lo que para hallar su expresión hacemos lo siguiente:
+\begin{itemize}
+	\item Definimos al vector de onda $\vc{k}$ como una parte real e imaginaria, y la relacionamos con la relación de dispersión para conductores eléctricos, cuya expresión es conocida:
+	\begin{align*}
+		\vc{k} :&= k_0 (x + iy) \\
+		\mod[2]{\vc{k}} &= \PI{[k_0(x + iy)]}{[k_0(x + iy)]} \\
+		\tx{Por la } &\tx{relación de dispersión en conductores, tenemos:} \\
+		\mi\eps\omega^2 \pr{1 + i \fr{\sigma}{\omega\eps}} &= k_0^2 (x^2 + ixy + iyx + i^2y^2) \\
+		\mi\eps\omega^2 \pr{1 + i \fr{\sigma}{\omega\eps}} &= k_0^2 (x^2-y^2 + i2xy) \\
+		\sii &\Fppp{k_0 = \rz{\mi\eps} \omega}{x^2 - y^2 = 1}{2xy = \frr{\sigma}{\omega\eps}}
+	\end{align*}
+	\q{\Fppp{k_0 = \rz{\mi\eps} \omega}{x^2 - y^2 = 1}{2xy = \frr{\sigma}{\omega\eps}}}
+	\item Es decir, obtuvimos un sistema de dos ecuaciones para las variables $x$ e $y$. Para hallarlas, despejamos dos veces $x$ e $y$ de la segunda ecuación y la reemplazamos en la primera, respectivamente, de la forma:
+	\begin{align*}
+		\tx{Como } &y=\frr{\sigma}{2\omega\eps x} \tx{, tenemos que:} & \tx{Como } &x=\frr{\sigma}{2\omega\eps y} \tx{, tenemos que:} \\
+		x^2 - \pr[2]{\fr{\sigma}{2\omega\eps x}} &= 1 & \pr[2]{\fr{\sigma}{2\omega\eps y}} - y^2 &= 1 \\
+		\fr{\sigma^2}{4\omega^2\eps^2 x^2} &= x^2 - 1 & \fr{\sigma^2}{4\omega^2\eps^2 y^2} &= y^2 + 1 \\
+		x^4 - x^2 - \fr{\sigma^2}{4\omega^2\eps^2} &= 0 & y^4 + y^2 - \fr{\sigma^2}{4\omega^2\eps^2} &= 0 \\
+		\tx{Sustituyendo } &v=x^2 \tx{, tenemos que:} & \tx{Sustituyendo } &u=y^2 \tx{, tenemos que:} \\
+		v^2 - v - \fr{\sigma^2}{4\omega^2\eps^2} &= 0 & u^2 + u - \fr{\sigma^2}{4\omega^2\eps^2} &= 0 \\
+		v_{1,2} &= \fr{1 \pm \rz{(-1)^2 - 4.1.\pr{-\frr{\sigma^2}{4\omega^2\eps^2}}}}{2.1} & u_{1,2} &= \fr{-1 \pm \rz{1^2 - 4.1.\pr{-\frr{\sigma^2}{4\omega^2\eps^2}}}}{2.1} \\
+		\tx{Deshaciendo la } &\tx{sustitución, tenemos:} & \tx{Deshaciendo la } &\tx{sustitución, tenemos:} \\
+		x^2 &= \fr{1}{2} \pm \fr{1}{2} \rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} & y^2 &= -\fr{1}{2} \pm \fr{1}{2} \rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} \\
+		\tx{Debido a que } x \in \bb{R} &\tx{, solo contamos la rama positiva:} & \tx{Debido a que } y \in \bb{R} &\tx{, solo contamos la rama positiva:} \\
+		x &= \pm\rz{\fr{1}{2} + \fr{1}{2} \rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}}} & y &= \pm\rz{-\fr{1}{2} + \fr{1}{2} \rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}}} \\
+		\tx{Tomando los } &\tx{valores de } x>0 \tx{, tenemos que:} & \tx{Tomando los } &\tx{valores de } y>0 \tx{, tenemos que:} \\
+		x &= \fr{1}{\rz{2}} \rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} + 1} & y &= \fr{1}{\rz{2}} \rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} - 1}
+	\end{align*}
+	\q{\Fpp{x = \fr{1}{\rz{2}} \rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} + 1}}{y = \fr{1}{\rz{2}} \rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} - 1}}}
+	\item Finalmente, el vector de onda será de la forma:
+	\begin{align*}
+		\vc{k} :&= k_0 (x + iy) \ver{k} \\
+		&= \rz{\mi\eps} \omega \cor{\fr{1}{\rz{2}} \rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} + 1} + i\fr{1}{\rz{2}} \rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} - 1}} \ver{k} \\
+		&= \omega \rz{\fr{\mi\eps}{2}} \cor{\rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} + 1} + i\rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} - 1}} \ver{k}
+	\end{align*}
+	\q{\vc{k} = \omega \rz{\fr{\mi\eps}{2}} \cor{\rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} + 1} + i\rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} - 1}} \ver{k}}
+\end{itemize}
+			\subsubsection{Onda Incidente}
+Sea $\vc{k} := \vc{k}_{\tx{re}} + i\vc{k}_{\tx{im}}$ el vector de onda complejo ($\vc{k} \in \bb{C}$) de una onda electromagnética incidente sobre un conductor eléctricco, entonces:
+\f{\vc{E}_{(\vc{r},t)} = \vc{E}_0 e^{-\PI{\vc{k}_{\tx{im}}}{\vc{r}}} e^{i(\PI{\vc{k}_{\tx{re}}}{\vc{r}} - \omega_i t)}}
+\paragraph{Observación}
+Las ondas se propagan en dirección $\vc{k}_{\tx{r}}$ y se atenúan en dirección $\vc{k}_{\tx{im}}$.
+			\subsubsection{Buen Conductor}
+\B{Se dice que un medio material es un \cur{buen conductor} cuando $\s{\fr{\sigma}{\omega\eps} \mm 1}$.}
+\paragraph{Vector De Onda}
+En un buen conductor el vector de onda es de la forma:
+\begin{align*}
+	\vc{k} &= \omega \rz{\fr{\mi\eps}{2}} \cor{\rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} + 1} + i\rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} - 1}} \ver{k} \\
+	&\tx{Si } \frr{\sigma}{\omega\eps} \mm 1 \tx{, tomando la aproximación binomial en el segundo término tenemos:} \\
+	&\apxig \omega \rz{\fr{\mi\eps}{2}} \pr{\rz{\rz{\pr[2]{\fr{\sigma}{\omega\eps}}} + 1} + i\rz{\rz{\pr[2]{\fr{\sigma}{\omega\eps}}} - 1}} \ver{k} \\
+	&\apxig \omega \rz{\fr{\mi\eps}{2}} \pr{\rz{\fr{\sigma}{\omega\eps}} + i\rz{\fr{\sigma}{\omega\eps}}} \ver{k} \\
+	&= \rz{\fr{\mi\eps\omega^2}{2} \fr{\sigma}{\omega\eps}} (1 + i) \ver{k} \\
+	&= \rz{\fr{\mi\omega\sigma}{2}} (1 + i) \ver{k} \\
+	&= \fr{1}{\del} (1 + i) \ver{k}
+\end{align*}
+\q{\vc{k} = \rz{\fr{\mi\omega\sigma}{2}} (1 + i) \ver{k} = \fr{1}{\del} (1+i) \ver{k}}
+\paragraph{Longitud De Penetración}
+Se denomina \cur{longitud de penetración} $\del$ a la longitud característica que representa cuánto una onda electromagnética puede atravesar un conductor eléctrico sin atenuarse, y es de la forma:
+\f{\del := \rz{\fr{2}{\mi\omega\sigma}}}
+\paragraph{Onda Incidente}
+En un buen conductor, una onda electromagnética plana incidente es de la forma:
+\begin{align*}
+	\vc{E}_{i(\vc{r},t)} :&= \vc{E}_0 e^{i(\PI{\vc{k}_i}{\vc{r}} - \omega_i t)} \\
+	&= \vc{E}_0 e^{i\cor{\PI{\frr{1}{\del} (1+i) \ver{k}_i}{\vc{r}} - \omega_i t}} \\
+	&= \vc{E}_0 e^{\frr{i}{\del} (\PI{\ver{k}_i}{\vc{r}}) + \frr{i^2}{\del} (\PI{\ver{k}_i}{\vc{r}}) - i\omega_i t} \\
+	&= \vc{E}_0 e^{-\frr{1}{\del}(\PI{\ver{k}_i}{\vc{r}})} e^{i\pr{\frr{\PI{\ver{k}_i}{\vc{r}}}{\del} - \omega_i t}}
+\end{align*}
+\q{\vc{E}_{i(\vc{r},t)} = \vc{E}_0 e^{-\frr{1}{\del}(\PI{\ver{k}_i}{\vc{r}})} e^{i\pr{\frr{\PI{\ver{k}_i}{\vc{r}}}{\del} - \omega_i t}}}
+			\subsubsection{Mal Conductor}
+\B{Se dice que un medio material es un \cur{mal conductor} cuando $\s{\fr{\sigma}{\omega\eps} \nn 1}$.}
+\paragraph{Vector De Onda}
+En un mal conductor el vector de onda es de la forma:
+\begin{align*}
+	\vc{k} &= \omega \rz{\fr{\mi\eps}{2}} \cor{\rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} + 1} + i\rz{\rz{1 + \pr[2]{\frr{\sigma}{\omega\eps}}} - 1}} \ver{k} \\
+	&\tx{Si } \frr{\sigma}{\omega\eps} \nn 1 \tx{, tomando la aproximación binomial en el segundo término tenemos:} \\
+	&\apxig \omega \rz{\fr{\mi\eps}{2}} \pr{\rz{\rz{1 + 0^2} + 1} + i\rz{1 + \fr{1}{2} \pr[2]{\fr{\sigma}{\omega\eps}} - 1}} \ver{k} \\
+	&= \omega \rz{\fr{\mi\eps}{2}} \pr{\rz{1 + 1} + i\fr{\sigma}{\omega\eps} \fr{\rz{2}}{2}} \ver{k} \\
+	&= \omega \rz{\mi\eps} \pr{1 + i\fr{\sigma}{2\omega\eps}} \ver{k}
+\end{align*}
+\q{\vc{k} = \omega \rz{\mi\eps} \pr{1 + i\fr{\sigma}{2\omega\eps}} \ver{k}}
+\chapter{Radiación Electromagnética}
+	\section{Radiación Electromagnética De Una Carga Puntual}
+		\subsection{Potencial De Liénard-Wiechert}
+Se denomina \cur{potencial de Liénard-Wiechert} al potencial electromagnético con gauge de Lorenz producido por una carga puntual en movimiento. Este potencial tiene en cuenta las correcciones relativistas debidas al movimiento de la carga pero no tiene en cuenta efectos cuánticos.
+			\subsubsection{Deducción}
+Sea una carga puntual $q$ que se encuentra en la posición $\vc{r}_0 := \vc{r}_{0(t)} : \bb{R} \to \bb{R}^3$ y que se mueve con velocidad $\vc{v}_0 := \vc{v}_{0(t)} : \bb{R} \to \bb{R}^3$ y aceleración $\dot{\vc{v}}_0 := \dot{\vc{v}}_{0(t)} : \bb{R} \to \bb{R}^3$, entonces:
+\paragraph{Distribución De Carga Eléctrica Volumétrica}
+La distribución de carga eléctrica volumétrica de la carga puntual será de la forma:
+\f{\ro_{(\vc{r}',t')} := q \dirac[3]{[\vc{r}' - \vc{r}_{0(t')}]}}
+\paragraph{Densidad De Corriente Eléctrica Volumétrica}
+La densidad de corriente eléctrica volumétrica generada por la carga puntual será de la forma:
+\f{\vc{J}_{(\vc{r}',t')} := q \vc{v}_{0(t')} \dirac[3]{[\vc{r}' - \vc{r}_{0(t')}]}}
+\paragraph{Potenciales}
+El potencial de Liénard-Wiechert se obtiene a partir de la definición de los potenciales retardados, de la forma:
+\begin{align*}
+	\tx{Por } &\tx{la definición del potencial eléctrico retardado, tenemos que:} & \tx{Por } &\tx{la definición del potencial magnético retardado, tenemos que:} \\
+	\phij_{(\vc{r},t)} :&= \fr{1}{4\pi\kpev} \ivsr[\inf]{-\inf}{\fr{\ro_{(\vc{r}',t'_{\tx{r}})}}{\mod{\vc{r} - \vc{r}'}}}{r}' & \vc{A}_{(\vc{r},t)} :&= \fr{\kpmv}{4\pi} \ivsr[\inf]{-\inf}{\fr{\vc{J}_{(\vc{r}',t'_{\tx{r}})}}{\mod{\vc{r} - \vc{r}'}}}{r}' \\
+	&= \fr{1}{4\pi\kpev} \ivsr[\inf]{-\inf}{\fr{q \dirac[3]{[\vc{r}'-\vc{r}_{0(t'_{\tx{r}})}]}}{\mod{\vc{r} - \vc{r}'}}}{r}' & &= \fr{\kpmv}{4\pi} \ivsr[\inf]{-\inf}{\fr{q \vc{v}_{0(t'_{\tx{r}})} \dirac[3]{[\vc{r}'-\vc{r}_{0(t'_{\tx{r}})}]}}{\mod{\vc{r} - \vc{r}'}}}{r}' \\
+	&= \fr{1}{4\pi\kpev} \Int{-\inf}{\inf}{\ivsr[\inf]{-\inf}{\fr{q \dirac[3]{[\vc{r}'-\vc{r}_{0(t')}]}}{\mod{\vc{r} - \vc{r}'}} \dirac{(t'-t'_{\tx{r}})}}{r}'}{t}' & &= \fr{\kpmv}{4\pi} \Int{-\inf}{\inf}{\ivsr[\inf]{-\inf}{\fr{q \vc{v}_{0(t')} \dirac[3]{[\vc{r}'-\vc{r}_{0(t')}]}}{\mod{\vc{r} - \vc{r}'}} \dirac{(t'-t'_{\tx{r}})}}{r}'}{t}' \\
+	\tx{Por } &\tx{el teorema de Fubini, tenemos que:} & \tx{Por } &\tx{el teorema de Fubini, tenemos que:} \\
+	&= \fr{1}{4\pi\kpev} \ivsr[\inf]{-\inf}{\Int{-\inf}{\inf}{\fr{q \dirac{[t'-t'_{\tx{r}(\vc{r},\vc{r}',t)}]}}{\mod{\vc{r} - \vc{r}'}} \dirac[3]{[\vc{r}'-\vc{r}_{0(t')}]}}{t}'}{r}' & &= \fr{\kpmv}{4\pi} \ivsr[\inf]{-\inf}{\Int{-\inf}{\inf}{\fr{q \vc{v}_{0(t')} \dirac{[t'-t'_{\tx{r}(\vc{r},\vc{r}',t)}]}}{\mod{\vc{r} - \vc{r}'}} \dirac[3]{[\vc{r}'-\vc{r}_{0(t')}]}}{t}'}{r}' \\
+	&= \fr{1}{4\pi\kpev} \Int{-\inf}{\inf}{\fr{q}{\mod{\vc{r} - \vc{r}_{0(t')}}} \dirac{[t'-t'_{\tx{r}(\vc{r},\vc{r}_0(t'),t)}]}}{t}' & &= \fr{\kpmv}{4\pi} \Int{-\inf}{\inf}{\fr{q \vc{v}_{0(t')}}{\mod{\vc{r} - \vc{r}_{0(t')}}} \dirac{[t'-t'_{\tx{r}(\vc{r},\vc{r}_0(t'),t)}]}}{t}' \\
+	\tx{Por } &\tx{la propiedad: } \del_{[f_{\x}]} = \S{i=1}{n}{\fr{\del_{(x-x_i)}}{\mod{\dvs{f_{(x_i)}}{x}}}} \tx{, (con } x_i \tx{ los ceros de } f \tx{), entonces:} & \tx{Por } &\tx{la propiedad: } \del_{[f_{\x}]} = \S{i=1}{n}{\fr{\del_{(x-x_i)}}{\mod{\dvs{f_{(x_i)}}{x}}}} \tx{, (con } x_i \tx{ los ceros de } f \tx{), entonces:} \\
+	&= \fr{1}{4\pi\kpev} \Int{-\inf}{\inf}{\fr{q}{\mod{\vc{r} - \vc{r}_{0(t')}}} \fr{\dirac{(t'-t_{\tx{r}})}}{\pds{}{t'} \ldot{(t'-t'_{\tx{r}})}\right|_{t'=t_{\tx{r}}}}}{t}' \tx{, pues } t_{\tx{r}} \tx{ es el único cero de } f_{(t')}. & &= \fr{\kpmv}{4\pi} \Int{-\inf}{\inf}{\fr{q \vc{v}_{0(t')}}{\mod{\vc{r} - \vc{r}_{0(t')}}} \fr{\dirac{(t'-t_{\tx{r}})}}{\pds{}{t'} \ldot{(t'-t'_{\tx{r}})}\right|_{t'=t_{\tx{r}}}}}{t}' \tx{, pues } t_{\tx{r}} \tx{ es el único cero de } f_{(t')}. \\
+	&= \fr{1}{4\pi\kpev} \Int{-\inf}{\inf}{\fr{q}{\mod{\vc{r} - \vc{r}_{0(t')}}} \fr{\dirac{(t'-t_{\tx{r}})}}{1 - \pds{}{t'} \ldot{\cor{t - \frr{\mod{\vc{r} - \vc{r}_{0(t')}}}{c}}}\right|_{t'=t_{\tx{r}}}}}{t}' & &= \fr{\kpmv}{4\pi} \Int{-\inf}{\inf}{\fr{q \vc{v}_{0(t')}}{\mod{\vc{r} - \vc{r}_{0(t')}}} \fr{\dirac{(t'-t_{\tx{r}})}}{1 - \pds{}{t'} \ldot{\cor{t - \frr{\mod{\vc{r} - \vc{r}_{0(t')}}}{c}}}\right|_{t'=t_{\tx{r}}}}}{t}' \\
+	&= \fr{1}{4\pi\kpev} \Int{-\inf}{\inf}{\fr{q}{\mod{\vc{r} - \vc{r}_{0(t')}}} \fr{\dirac{(t'-t_{\tx{r}})}}{1 - \cor{0 - \frr{1}{c} \PI{\frr{\vc{r} - \vc{r}_{0(t_{\tx{r}})}}{\mod{\vc{r} - \vc{r}_{0(t_{\tx{r}})}}}}{(-\vc{v}_{0(t_{\tx{r}})})}}}}{t}' & &= \fr{\kpmv}{4\pi} \Int{-\inf}{\inf}{\fr{q \vc{v}_{0(t')}}{\mod{\vc{r} - \vc{r}_{0(t')}}} \fr{\dirac{(t'-t_{\tx{r}})}}{1 - \cor{0 - \frr{1}{c} \PI{\frr{\vc{r} - \vc{r}_{0(t_{\tx{r}})}}{\mod{\vc{r} - \vc{r}_{0(t_{\tx{r}})}}}}{(-\vc{v}_{0(t_{\tx{r}})})}}}}{t}' \\
+	&= \fr{1}{4\pi\kpev} \Int{-\inf}{\inf}{\fr{q}{\mod{\vc{r} - \vc{r}_{0(t')}}} \fr{\dirac{(t'-t_{\tx{r}})}}{1 - \PI{\ver{\ita}_{(t_{\tx{r}})}}{\vc{\vita}_{(t_{\tx{r}})}}}}{t}' & &= \fr{\kpmv}{4\pi} \Int{-\inf}{\inf}{\fr{q c\vc{\vita}_{(t')}}{\mod{\vc{r} - \vc{r}_{0(t')}}} \fr{\dirac{(t'-t_{\tx{r}})}}{1 - \PI{\ver{\ita}_{(t_{\tx{r}})}}{\vc{\vita}_{(t_{\tx{r}})}}}}{t}' \\
+	&= \fr{1}{4\pi\kpev} \fr{q}{\mod{\vc{r} - \vc{r}_{0(t_{\tx{r}})}}} \fr{1}{1 - \PI{\ver{\ita}_{(t_{\tx{r}})}}{\vc{\vita}_{(t_{\tx{r}})}}} & &= \fr{\kpmv c}{4\pi} \fr{q \vc{\vita}_{(t_{\tx{r}})}}{\mod{\vc{r} - \vc{r}_{0(t_{\tx{r}})}}} \fr{1}{1 - \PI{\ver{\ita}_{(t_{\tx{r}})}}{\vc{\vita}_{(t_{\tx{r}})}}} \\
+	&= \fr{1}{4\pi\kpev} \ldot{\cor{\fr{q}{(1-\PI{\ver{\ita}}{\vc{\vita}}) \mod{\vc{r} - \vc{r}_0}}}}\right|_{t_{\tx{r}}} & &= \fr{\kpmv c}{4\pi} \ldot{\cor{\fr{q \vc{\vita}}{(1-\PI{\ver{\ita}}{\vc{\vita}}) \mod{\vc{r} - \vc{r}_0}}}}\right|_{t_{\tx{r}}}	
+\end{align*}
+\q{\Fpp{\phij_{(\vc{r},t)} := \fr{1}{4\pi\kpev} \ldot{\cor{\fr{q}{(1-\PI{\ver{\ita}}{\vc{\vita}}) \mod{\vc{r} - \vc{r}_0}}}}\right|_{t_{\tx{r}}}}{\vc{A}_{(\vc{r},t)} := \fr{\kpmv c}{4\pi} \ldot{\cor{\fr{q \vc{\vita}}{(1-\PI{\ver{\ita}}{\vc{\vita}}) \mod{\vc{r} - \vc{r}_0}}}}\right|_{t_{\tx{r}}}}}
+\paragraph{Parámetros}
+\begin{itemize}
+	\item Factor Beta:
+	\f{\vc{\vita} := \vc{\vita}_{(t)} = \fr{\vc{v}_{0(t)}}{c} = \fr{1}{c} \dv{\vc{r}_{0(t)}}{t}}
+	\item Versor Normal:
+	\f{\ver{\ita} := \ver{\ita}_{(t)} = \fr{\vc{r} - \vc{r}_{0(t)}}{\mod{\vc{r} - \vc{r}_{0(t)}}}}
+	\item Factor De Lorentz:
+	\f{\gama := \gama_{(t)} = \fr{1}{\rz{1 - \mod[2]{\vc{\vita}_{(t)}}}}}
+\end{itemize}
+			\subsubsection{Potencial Electromagnético}
+\paragraph{Potencial Eléctrico}
+El primer potencial de Liénard-Wiechert, el potencial eléctrico producido por la carga puntual en movimiento, es de la forma:
+\f{\phij_{(\vc{r},t)} := \fr{1}{4\pi\kpev} \ldot{\cor{\fr{q}{(1-\PI{\ver{\ita}}{\vc{\vita}}) \mod{\vc{r} - \vc{r}_0}}}}\right|_{t_{\tx{r}}}}
+\paragraph{Potencial Magnético}
+El segundo potencial de Liénard-Wiechert, el potencial magnético producido por la carga puntual en movimiento, es de la forma:
+\f{\vc{A}_{(\vc{r},t)} := \fr{\kpmv c}{4\pi} \ldot{\cor{\fr{q \vc{\vita}}{(1-\PI{\ver{\ita}}{\vc{\vita}}) \mod{\vc{r} - \vc{r}_0}}}}\right|_{t_{\tx{r}}}}
+		\subsection{Campo Electromagnético}
+El campo electromagnético producido por la carga puntual en movimiento, será de la forma:
+			\subsubsection{Deducción}
+Los campos eléctrico y magnético pueden obtenerse a partir de los potenciales de Liénard-Wiechert, de la forma:
+\begin{align*}
+	\vc{E}_{(\vc{r},t)} :&= - \gr{\phij}_{(\vc{r},t)} - \pd{\vc{A}_{(\vc{r},t)}}{t} & \vc{B}_{(\vc{r},t)} :&= \rot{A}_{(\vc{r},t)} \\
+	&= & &= 
+\end{align*}
+			\subsubsection{Campo Eléctrico}
+El campo eléctrico de la carga puntual es de la forma:
+\f{\vc{E}_{(\vc{r},t)} := \fr{1}{4\pi\kpev} \ldot{\lla{\fr{q(\ver{\ita} - \vc{\vita})}{\gama^2 (1-\PI{\ver{\ita}}{\vc{\vita}})^3 \mod[2]{\vc{r} - \vc{r}_0}} + \fr{q\PV{\ver{\ita}}{\cor{\PV{(\ver{\ita} - \vc{\vita})}{\dot{\vc{\vita}}}}}}{c(1-\PI{\ver{\ita}}{\vc{\vita}})^3 \mod{\vc{r}-\vc{r}_0}}}}\right|_{t_{\tx{r}}}}
+\paragraph{Campo De Velocidades}
+Se denomina \cur{campo de velocidades} al primer término del campo eléctrico, que corresponde a la parte estática del campo eléctrico de la carga puntual, y es de la forma:
+\f{\vc{E}_{\tx{vel}(\vc{r},t)} := \fr{q}{4\pi\kpev\gama^2} \ldot{\fr{(\ver{\ita} - \vc{\vita})}{(1-\PI{\ver{\ita}}{\vc{\vita}})^3 \mod[2]{\vc{r} - \vc{r}_0}}}\right|_{t_{\tx{r}}}}
+El campo de velocidades decae como $\frr{1}{R^2}$. El campo es radial respecto al punto en el que está la carga puntual con velocidad $\vc{v}$ uniforme.
+\paragraph{Campo De Radiación}
+Se denomina \cur{campo de radiación} al segundo término del campo eléctrico, que corresponde a la parte que tiene en cuenta la aceleración de la carga puntual, y es de la forma:
+\f{\vc{E}_{\tx{rad}(\vc{r},t)} := \fr{q}{4\pi\kpev c} \ldot{\fr{\PV{\ver{\ita}}{\cor{\PV{(\ver{\ita} - \vc{\vita})}{\dot{\vc{\vita}}}}}}{(1-\PI{\ver{\ita}}{\vc{\vita}})^3 \mod{\vc{r}-\vc{r}_0}}}\right|_{t_{\tx{r}}}}
+El campo de velocidades decae como $\frr{1}{R}$ y lleva energía al infinito, es decir, el campo de radiación abarca todo el espacio. El campo está polarizado en el plano que contiene a $\dot{\vc{\vita}}$ y a la normal $\ver{\ita}$.
+			\subsubsection{Campo Magnético}
+El campo magnético de la carga puntual es de la forma:
+\f{\vc{B}_{(\vc{r},t)} := \fr{\kpmv}{4\pi} \ldot{\pr{\fr{qc(\PV{\vc{\vita}}{\ver{\ita}})}{\gama^2 (1-\PI{\ver{\ita}}{\vc{\vita}})^3 \mod[2]{\vc{r} - \vc{r}_0}} + \fr{q\PV{\ver{\ita}}{\lla{\PV{\ver{\ita}}{\cor{\PV{(\ver{\ita} - \vc{\vita})}{\dot{\vc{\vita}}}}}}}}{(1-\PI{\ver{\ita}}{\vc{\vita}})^3 \mod{\vc{r}-\vc{r}_0}}}}\right|_{t_{\tx{r}}}}
+\paragraph{Observación}
+\f{\vc{B}_{(\vc{r},t)} = \fr{1}{c} \PV{\ver{\ita}_{(t_{\tx{r}})}}{\vc{E}_{(\vc{r},t)}}}
+\paragraph{Campo De Velocidades}
+El \cur{campo de velocidades} del campo magnético se define como:
+\f{\vc{B}_{\tx{vel}(\vc{r},t)} := \fr{\kpmv qc}{4\pi\gama^2} \ldot{\fr{\PV{\vc{\vita}}{\ver{\ita}}}{(1-\PI{\ver{\ita}}{\vc{\vita}})^3 \mod[2]{\vc{r} - \vc{r}_0}}}\right|_{t_{\tx{r}}}}
+El campo de velocidades decae como $\frr{1}{R^2}$.
+\paragraph{Campo De Radiación}
+El \cur{campo de radiación} del campo magnético se define como:
+\f{\vc{B}_{\tx{rad}(\vc{r},t)} := \fr{\kpmv q}{4\pi} \ldot{\fr{\PV{\ver{\ita}}{\lla{\PV{\ver{\ita}}{\cor{\PV{(\ver{\ita} - \vc{\vita})}{\dot{\vc{\vita}}}}}}}}{(1-\PI{\ver{\ita}}{\vc{\vita}})^3 \mod{\vc{r}-\vc{r}_0}}}\right|_{t_{\tx{r}}}}
+El campo de velocidades decae como $\frr{1}{R}$ y lleva energía al infinito, es decir, el campo de radiación abarca todo el espacio.
+			\subsubsection{Efectos Relativistas}
+Hay dos tipos de efectos relativistas producidos por los campos de radiación: el primero de ellos es debido al ángulo que forman $\vc{\vita}$ y $\dot{\vc{\vita}}$; y el segundo de ellos es debido a la transformación del sistema de referencia de la carga al del observador ($1 - \PI{\ver{\ita}}{\vc{\vita}}$).
+		\subsection{Potencia Total Irradiada}
+A partir de la expresión del campo eléctrico de radiación, puede obtenerse la potencia total irradiada por una carga puntual en movimiento acelerado mediante su vector de Poynting $\vc{S}$, de la siguiente forma:
+			\subsubsection{Deducción}
+Sea una carga puntual $q$ que se encuentra en la posición $\vc{r}_0 := \vc{r}_{0(t)} : \bb{R} \to \bb{R}^3$ y que se mueve con velocidad $\vc{v}_0 := \vc{v}_{0(t)} : \bb{R} \to \bb{R}^3$ y aceleración $\dot{\vc{v}}_0 := \dot{\vc{v}}_{0(t)} : \bb{R} \to \bb{R}^3$, donde $\tita$ es el ángulo entre la aceleración $\dot{\vc{v}}$ y el versor normal $\ver{\ita} := \frr{\vc{r} - \vc{r}_{0(t)}}{\mod{\vc{r} - \vc{r}_{0(t)}}}$, entonces:
+\begin{align*}
+	\tx{Definimos } &\tx{a la potencia irradiada de la forma:} \\
+	\d P :&= \PI{\vc{S}_{(\vc{r},t)}}{\d\vc{A}} \\
+	\tx{Por la } &\tx{expresión del vector de Poynting en ondas planas, tenemos:} \\
+	\d P &= \PI{\cor{\fr{n}{\kpmv c} \mod[2]{\vc{E}_{(\vc{r},t)}} \ver{k}}}{R^2\d\Omega \ver{\ita}} \tx{, donde } \Fpp{R := \mod{\vc{r}-\vc{r}_0}}{\Omega := \tx{Ángulo Sólido}} \\
+	\tx{Como } &\ver{k} = \ver{\ita} \tx{, tenemos que:} \\
+	\dv{P_{\tx{rad}(\Omega)}}{\Omega} &= \fr{n}{\kpmv c} \mod[2]{R\vc{E}_{\tx{rad}(\vc{r},t)}} (\PI{\ver{\ita}}{\ver{\ita}}) \\
+	\tx{Por el } &\tx{campo eléctrico de radiación de una carga puntual, tenemos:} \\
+	&= \fr{n}{\kpmv c} \mod[2]{R \fr{q}{4\pi\kpev c} \ldot{\fr{\PV{\ver{\ita}}{\cor{\PV{(\ver{\ita} - \vc{\vita})}{\dot{\vc{\vita}}}}}}{(1-\PI{\ver{\ita}}{\vc{\vita}})^3 \mod{\vc{r}-\vc{r}_0}}}\right|_{t_{\tx{r}}}} . 1 \\
+	&\tx{Como } R = \mod{\vc{r}-\vc{r}_0} \tx{, tenemos que:} \\
+	&= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \mod[2]{\mod{\vc{r}-\vc{r}_0} \ldot{\fr{\PV{\ver{\ita}}{\cor{\PV{(\ver{\ita} - \vc{\vita})}{\dot{\vc{\vita}}}}}}{(1-\PI{\ver{\ita}}{\vc{\vita}})^3 \mod{\vc{r}-\vc{r}_0}}}\right|_{t_{\tx{r}}}} \\
+	&= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \mod[2]{\ldot{\fr{\PV{\ver{\ita}}{\cor{\PV{(\ver{\ita} - \vc{\vita})}{\dot{\vc{\vita}}}}}}{(1-\PI{\ver{\ita}}{\vc{\vita}})^3}}\right|_{t_{\tx{r}}}}
+\end{align*}
+\q{\dv{P_{\tx{rad}(\Omega)}}{\Omega} := \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \mod[2]{\ldot{\fr{\PV{\ver{\ita}}{\cor{\PV{(\ver{\ita} - \vc{\vita})}{\dot{\vc{\vita}}}}}}{(1-\PI{\ver{\ita}}{\vc{\vita}})^3}}\right|_{t_{\tx{r}}}}}
+			\subsubsection{Potencia Total Irradiada: Caso Clásico}
+Si la partícula se mueve a velocidades bajas, es decir, $\vc{v} \nn c$, tenemos que:
+\begin{align*}
+	\dv{P_{\tx{rad}(\Omega)}}{\Omega} &= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \mod[2]{\ldot{\fr{\PV{\ver{\ita}}{\cor{\PV{(\ver{\ita} - \vc{\vita})}{\dot{\vc{\vita}}}}}}{(1-\PI{\ver{\ita}}{\vc{\vita}})^3}}\right|_{t_{\tx{r}}}} \\
+	\tx{Si } &\vc{v} \nn c \ent \vc{\vita} \to 0 \tx{, es decir:} \\
+	&\apxig \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \mod[2]{\fr{\PV{\ver{\ita}}{\cor{\PV{(\ver{\ita} - 0)}{\dot{\vc{\vita}}}}}}{(1-0)^3}} \\
+	&= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \mod[2]{\PV{\ver{\ita}}{(\PV{\ver{\ita}}{\dot{\vc{\vita}}})}} \\
+	\tx{Por la } &\tx{relación del producto vectorial con el producto interno, tenemos:} \\
+	&= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \mod[2]{\ver{\ita}} \mod[2]{\PV{\ver{\ita}}{\dot{\vc{\vita}}}} - \cor[2]{\PI{\ver{\ita}}{(\PV{\ver{\ita}}{\dot{\vc{\vita}}})}} \\
+	\tx{Como } &\PV{\ver{\ita}}{\dot{\vc{\vita}}} \perp \ver{\ita} \tx{, tenemos que:} \\
+	&= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \mod[2]{\ver{\ita}} \mod[2]{\PV{\ver{\ita}}{\dot{\vc{\vita}}}} - \pr[2]{0} \\
+	\tx{Como } &\mod{\ver{\ita}} = 1 \tx{, tenemos que:} \\
+	&= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} 1.\mod[2]{\PV{\ver{\ita}}{\dot{\vc{\vita}}}} - 0 \\
+	\tx{Por la } &\tx{definición del producto vectorial, tenemos que:} \\
+	&= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \mod[2]{\mod{\ver{\ita}} \mod{\dot{\vc{\vita}}} \sen(\tita) \ver{\ita}_{\perp}} \\
+	&= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \mod[2]{\ver{\ita}} \mod[2]{\dot{\vc{\vita}}} \mod[2]{\sen(\tita)} \mod[2]{\ver{\ita}_{\perp}} \\
+	\tx{Como } &\mod[2]{\sen(\tita)} = \sen^2(\tita) \tx{, tenemos que:} \\
+	&= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} 1. \mod[2]{\dot{\vc{\vita}}} \sen^2(\tita) .1 \\
+	&= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^5} \mod[2]{\dot{\vc{v}}} \sen^2(\tita)
+\end{align*}
+\q{\dv{P_{\tx{rad}(\Omega)}}{\Omega} = \fr{nq^2}{16\pi^2\kpmv \kpev^2c^5} \mod[2]{\dot{\vc{v}}} \sen^2(\tita)}
+\paragraph{Movimiento Lineal: Fórmula De Larmor}
+Si la partícula es no relativista y es acelerada linealmente en la misma dirección de su movimiento, es decir, $\vc{\vita} \paral \dot{\vc{\vita}}$, integrando a lo largo de todo el ángulo sólido se obtiene la denominada \cur{fórmula de Larmor}, de la forma:
+\begin{align*}
+	\dv{P_{\tx{rad}(\Omega)}}{\Omega} &= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^5} \mod[2]{\dot{\vc{v}}} \sen^2(\tita) \\
+	\tx{Integrando a lo } &\tx{largo del ángulo sólido } \Omega \tx{, tenemos que:} \\
+	\Int{0}{P_{\tx{rad}}}{\esp{-6}}{P}'_{\tx{rad}} &= \ii{0}{\pi}{0}{2\pi}{\fr{nq^2}{16\pi^2\kpmv \kpev^2c^5} \mod[2]{\dot{\vc{v}}} \sen^2(\tita) \sen(\tita)}{\tita}{\phi} \\
+	P_{\tx{rad}} - 0 &= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^5} \mod[2]{\dot{\vc{v}}} \Int{0}{2\pi}{\esp{-6}}{\phi} \Int{0}{\pi}{\sen^3(\tita)}{\tita} \\
+	P_{\tx{rad}} &= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^5} \mod[2]{\dot{\vc{v}}} . 2\pi . \fr{4}{3} \\
+	&= \fr{nq^2}{6\pi\kpmv \kpev^2c^5} \mod[2]{\dot{\vc{v}}}
+\end{align*}
+\q{P_{\tx{Lar}} := \fr{nq^2}{6\pi\kpmv \kpev^2c^5} \mod[2]{\dot{\vc{v}}}}
+			\subsubsection{Potencia Total Irradiada: Caso Relativista}
+En el caso relativista, la potencia total irradiada por la carga puntual $q$ en el sistema de referencia de la fuente (de la carga), es de la forma:
+\begin{align*}
+	\dv{P_{\tx{rad}(\Omega,t')}}{\Omega} &= R^2 \PI{\vc{S}_{(\vc{r},t)}}{\ver{\ita}} \dv{t}{t'} \\
+	&= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \mod[2]{\ldot{\fr{\PV{\ver{\ita}}{\cor{\PV{(\ver{\ita} - \vc{\vita})}{\dot{\vc{\vita}}}}}}{(1-\PI{\ver{\ita}}{\vc{\vita}})^3}}\right|_{t_{\tx{r}}}} (1 - \PI{\ver{\ita}}{\vc{\vita}}) \\
+	&= \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \ldot{\fr{\mod[2]{\PV{\ver{\ita}}{\cor{\PV{(\ver{\ita} - \vc{\vita})}{\dot{\vc{\vita}}}}}}}{\mod[5]{1-\PI{\ver{\ita}}{\vc{\vita}}}}}\right|_{t_{\tx{r}}}
+\end{align*}
+\q{\dv{P_{\tx{rad}(\Omega,t')}}{\Omega} = \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \ldot{\fr{\mod[2]{\PV{\ver{\ita}}{\cor{\PV{(\ver{\ita} - \vc{\vita})}{\dot{\vc{\vita}}}}}}}{\mod[5]{1-\PI{\ver{\ita}}{\vc{\vita}}}}}\right|_{t_{\tx{r}}}}
+\paragraph{Movimiento Lineal}
+Si la partícula es relativista y es acelerada linealmente en la misma dirección de su movimiento, es decir, $\vc{\vita} \paral \dot{\vc{\vita}}$, la potencia total irradiada es de la forma:
+\f{\dv{P_{\tx{rad}(\Omega,t')}}{\Omega} = \fr{nq^2}{16\pi^2\kpmv \kpev^2c^3} \fr{\sen^2(\tita)}{[1 - \mod{\vc{\vita}}\cos(\tita)]^5} \mod[2]{\dot{\vc{\vita}}}}
+	\section{Radiación Electromagnética De Fuentes Localizadas}
+
+\chapter{Formulación Covariante}
+Se denomina \cur{formulación covariante} a una formulación tensorial de la electrodinámica clásica que busca unificar el electromagnetismo con la relatividad especial. Para ello, considera un espacio-tiempo en ausencia de gravedad descripto por la métrica de Minkowski, y no tiene en cuenta efectos cuánticos.
+    \section{Transformación De Lorentz En Electromagnetismo}
+\begin{table}[!htbp] \C \SB{1}{\begin{tabular}{|Sl|Sl|Sl|} \hline
+	\Fa \MC{1}{|Sc|}{\bf \Tb{Campo}} & \MC{1}{Sc|}{\bf \Tb{Transformación De Lorentz}} & \MC{1}{Sc|}{\bf \Tb{Transformación De Lorentz En Componentes}} \HL
+	\CaTb{Densidad De Carga Eléctrica} & $\s{\ro'_{(\vc{r},t)} = \gama_{(\vc{v})} \cor{\vc{r}_{(\vc{r},t)} - \fr{1}{c^2} \PI{\vc{J}_{(\vc{r},t)}}{\vc{v}_{(t)}}}}$ & \HL
+	\CaTb{Densidad De Corriente Eléctrica} & $\s{\vc{J}'_{(\vc{r},t)} = \vc{J}_{(\vc{r},t)} - \gama_{(\vc{v})} \ro_{(\vc{r},t)} \vc{v}_{(t)} + \cor{\gama_{(\vc{v})} - 1} (\PI{\vc{J}_{(\vc{r},t)}}{\ver{v}}) \ver{v}}$ & $\s{\Fpp{\vc{J}'_{\paral(\vc{r},t)} = \gama_{(\vc{v})} \cor{\vc{J}_{\paral(\vc{r},t)} - \ro_{(\vc{r},t)} \vc{v}_{(t)}}}{\vc{J}'_{\perp(\vc{r},t)} = \vc{J}_{\perp(\vc{r},t)}}}$ \HL
+	\CaTb{Fuerza Electromagnética} & $\s{\vc{F}'_{\tx{em}(\vc{r},t)} = q \cor{\vc{E}'_{(\vc{r},t)} + \PV{\vc{v}'_{(t)}}{\vc{B}'_{(\vc{r},t)}}}}$ & $\s{}$ \HL
+	\CaTb{Potencial Eléctrico} & $\s{\phij'_{(\vc{r},t)} = \gama_{(\vc{v})} \cor{\phij_{(\vc{r},t)} - \PI{\vc{A}_{(\vc{r},t)}}{\vc{v}_{(t)}}}}$ & $\s{}$ \HL
+	\CaTb{Potencial Magnético} & $\s{\vc{A}'_{(\vc{r},t)} = \vc{A}_{(\vc{r},t)} - \fr{1}{c^2} \gama_{(\vc{v})} \phij_{(\vc{r},t)} \vc{v}_{(t)} + \cor{\gama_{(\vc{v})} - 1} (\PI{\vc{A}_{(\vc{r},t)}}{\ver{v}}) \ver{v}}$ & $\s{\Fpp{\vc{A}'_{\paral(\vc{r},t)} = \gama_{(\vc{v})} \cor{\vc{A}_{\paral(\vc{r},t)} - \fr{1}{c^2}\phij_{(\vc{r},t)} \vc{v}_{(t)}}}{\vc{A}'_{\perp(\vc{r},t)} = \vc{A}_{\perp(\vc{r},t)}}}$ \HL
+	\CaTb{Campo Eléctrico} & $\s{\vc{E}'_{(\vc{r},t)} = \gama_{(\vc{v})} \cor{\vc{E}_{(\vc{r},t)} + \PV{\vc{v}_{(t)}}{\vc{B}_{(\vc{r},t)}}} - \cor{\gama_{(\vc{v})} - 1} \pr{\PI{\vc{E}_{(\vc{r},t)}}{\ver{v}}} \ver{v}}$ & $\s{\Fpp{\vc{E}'_{\paral(\vc{r},t)} = \vc{E}_{\paral(\vc{r},t)}}{\vc{E}'_{\perp(\vc{r},t)} = \gama_{(\vc{v})} \cor{\vc{E}_{\perp(\vc{r},t)} + \PV{\vc{v}_{(t)}}{\vc{B}_{(\vc{r},t)}}}}}$ \HL
+	\CaTb{Campo Magnético} & $\s{\vc{B}'_{(\vc{r},t)} = \gama_{(\vc{v})} \cor{\vc{B}_{(\vc{r},t)} - \fr{1}{c^2} \PV{\vc{v}_{(t)}}{\vc{E}_{(\vc{r},t)}}} - \cor{\gama_{(\vc{v})} - 1} \pr{\PI{\vc{B}_{(\vc{r},t)}}{\ver{v}}} \ver{v}}$ & $\s{\Fpp{\vc{B}'_{\paral(\vc{r},t)} = \vc{B}_{\paral(\vc{r},t)}}{\vc{B}'_{\perp(\vc{r},t)} = \gama_{(\vc{v})} \cor{\vc{B}_{\perp(\vc{r},t)} - \fr{1}{c^2} \PV{\vc{v}_{(t)}}{\vc{E}_{(\vc{r},t)}}}}}$ \HL
+	\CaTb{Campo Desplazamiento Eléctrico} & $\s{\vc{D}'_{(\vc{r},t)} = \gama_{(\vc{v})} \cor{\vc{D}_{(\vc{r},t)} + \fr{1}{c^2} \PV{\vc{v}_{(t)}}{\vc{H}_{(\vc{r},t)}}} - \cor{\gama_{(\vc{v})} - 1} \pr{\PI{\vc{D}_{(\vc{r},t)}}{\ver{v}}} \ver{v}}$ & $\s{\Fpp{\vc{D}'_{\paral(\vc{r},t)} = \vc{D}_{\paral(\vc{r},t)}}{\vc{D}'_{\perp(\vc{r},t)} = \gama_{(\vc{v})} \cor{\vc{D}_{\perp(\vc{r},t)} + \fr{1}{c^2} \PV{\vc{v}_{(t)}}{\vc{H}_{(\vc{r},t)}}}}}$ \HL
+	\CaTb{Campo Intensidad Magnética} & $\s{\vc{H}'_{(\vc{r},t)} = \gama_{(\vc{v})} \cor{\vc{H}_{(\vc{r},t)} - \PV{\vc{v}_{(t)}}{\vc{D}_{(\vc{r},t)}}} - \cor{\gama_{(\vc{v})} - 1} \pr{\PI{\vc{H}_{(\vc{r},t)}}{\ver{v}}} \ver{v}}$ & $\s{\Fpp{\vc{H}'_{\paral(\vc{r},t)} = \vc{H}_{\paral(\vc{r},t)}}{\vc{H}'_{\perp(\vc{r},t)} = \gama_{(\vc{v})} \cor{\vc{H}_{\perp(\vc{r},t)} - \PV{\vc{v}_{(t)}}{\vc{D}_{(\vc{r},t)}}}}}$ \HL
+\end{tabular}}
+\caption{Transformación de Lorentz de campos en el electromagnetismo.}
+\end{table}
+	\section{Cuadriescalares}
+		\subsection{Intervalo Espacio-temporal}
+\f{\d s = \rz{\d x^{\mi} \d x_{\mi}} = \rz{\ita_{\mi\ni} \d x^{\mi} \d x^{\ni}}}
+		\subsection{Tiempo Propio}
+\f{\d\taf := \rz{\fr{\d s^2}{c^2}}}
+		\subsection{Masa En Reposo}
+\f{m_0 := \fr{1}{c} \rz{\ita_{\mi\ni} p^{\mi} p^{\ni}} = \fr{1}{c} \rz{\fr{E^2}{c^2} - \mod[2]{\vc{p}_{(t)}}}}
+		\subsection{Invariante Electromagnético}
+\f{F_{\mi\ni} F^{\mi\ni} = 2\cor{\mod[2]{\vc{B}_{(\vc{r},t)}} - \fr{\mod[2]{\vc{E}_{(\vc{r},t)}}}{c^2}}}
+	\section{Cuadrivectores}
+Los cuadrivectores son vectores en cuatro dimensiones que pueden pensarse como cuadritensores de rango 1. Cualquier producto entre cuadrivectores en el que dos índices se encuentran repetidos, corresponde a sumar sobre dichos índices de acuerdo al convenio de suma en notación de Einstein.
+        \subsection{Cuadrivector Contravariante}
+Se denomina \cur{cuadrivector contravariante} a todo cuadrivector de la forma:
+\f{x^{\mi} := \pr{x^0;x^i} = \pr{x^0,x^1,x^2,x^3} \tx{, con } \Fpp{0 : \tx{parte temporal}}{i : \tx{parte espacial}}}
+\paragraph{Transformación}
+Los cuadrivectores contravariantes transforman de la forma:
+\f{x'^{\mi} := \fr{\p x'^{\mi}}{\p x^{\ni}} x^{\ni} = \S{\ni=0}{3}{\pr{\fr{\p x'^{\mi}}{\p x^{\ni}} x^{\ni}}} = \fr{\p x'^{\mi}}{\p x^0} x^0 + \fr{\p x'^{\mi}}{\p x^1} x^1 + \fr{\p x'^{\mi}}{\p x^2} x^2 + \fr{\p x'^{\mi}}{\p x^3} x^3}
+\paragraph{Observación}
+\begin{itemize}
+    \item
+	\f{\fr{\p y}{\p x^{\mi}} = \fr{\p y}{\p x'^{\ni}} \fr{\p x'^{\ni}}{\p x^{\mi}}}
+    \item
+	\f{\fr{\p y}{\p x'^{\mi}} = \fr{\p y}{\p x^{\ni}} \fr{\p x^{\ni}}{\p x'^{\mi}}}
+\end{itemize}
+        \subsection{Cuadrivector Covariante}
+Se denomina \cur{cuadrivector covariante} a todo cuadrivector de la forma:
+\f{x_{\mi} := \pr{x_0;-x_i} = \pr{x_0,-x_1,-x_2,-x_3} \tx{, con } \Fpp{0 : \tx{parte temporal}}{i : \tx{parte espacial}}}
+\paragraph{Transformación}
+Los cuadrivectores covariantes transforman de la forma:
+\f{x'_{\mi} := \fr{\p x^{\ni}}{\p x'^{\mi}} x_{\ni} = \S{\ni=0}{3}{\pr{\fr{\p x^{\ni}}{\p x'^{\mi}} x_{\ni}}} = \fr{\p x^0}{\p x'^{\mi}} x_0 + \fr{\p x^1}{\p x'^{\mi}} x_1 + \fr{\p x^2}{\p x'^{\mi}} x_2 + \fr{\p x^3}{\p x'^{\mi}} x_3}
+        \subsection{Operaciones}
+            \subsubsection{Producto Covariante-Contravariante}
+\f{x_{\mi}y^{\mi} := \S{\mi=0}{3}{x_{\mi}y^{\mi}} = x_0y^0 + x_1y^1 + x_2y^2 + x_3y^3}
+            \subsubsection{Producto Contravariante-Covariante}
+\f{x^{\mi}y_{\mi} := \S{\mi=0}{3}{x^{\mi}y_{\mi}} = x^0y_0 + x^1y_1 + x^2y_2 + x^3y_3}
+            \subsubsection{Producto Mixto}
+\f{x_{\mi} x^{\mi} = x^{\mi} x_{\mi} = (x^0)^2 + (x^1)^2 + (x^2)^2 + (x^3)^2}
+            \subsubsection{Conversión}
+\paragraph{Subir Un Índice}
+\f{x_{\mi} = g_{\mi\ni} x^{\ni}}
+\paragraph{Bajar Un Índice}
+\f{x^{\mi} = g^{\mi\ni} x_{\ni}}
+        \subsection{Cuadrivectores Comunes}
+		    \subsubsection{Cuadrivector Posición}
+Se denomina \cur{cuadrivector posición} o \cur{cuadriposición} al vector contravariante de la forma:
+\f{x_{(t)}^{\mi} := \pr{ct;\vc{r}_{(t)}} = \pr{ct,x_{(t)},y_{(t)},z_{(t)}}}
+\paragraph{Norma}
+La norma (la longitud) de un cuadrivector posición está dado por el intervalo en el espacio-tiempo de Minkowski, de la forma:
+\begin{align*}
+    x_{\mi}x^{\mi} &= \S{\mi=0}{3}{x_{\mi}x^{\mi}} \\
+    &= x_0x^0 + x_1x^1 + x_2x^2 + x_3x^3 \\
+    &= (ct).(ct) + [-x_{(t)}] . x_{(t)} + [-y_{(t)}] . y_{(t)} + [-z_{(t)}] . z_{(t)} \\
+    &= c^2t^2 - x_{(t)}^2 - y_{(t)}^2 - z_{(t)}^2 \\
+    \tx{Por la } &\tx{definición del intervalo espacio-temporal, tenemos que:} \\
+    &= s^2
+\end{align*}
+\q{x_{\mi}x^{\mi} = s^2}
+		    \subsubsection{Cuadrivector Velocidad}
+Se denomina \cur{cuadrivector velocidad} o \cur{cuadrivelocidad} al cuadrivector contravariante que representa la derivada temporal (respecto al tiempo propio) del cuadrivector posición, de la forma:
+\begin{align*}
+    v_{(t)}^{\mi} :&= \dv{x_{(t)}^{\mi}}{\taf} \\
+    &= \dv{}{\taf} \pr{ct,x_{(t)},y_{(t)},z_{(t)}} \\
+    &= \pr{c \dv{t}{\taf},\dv{x_{(t)}}{t} \dv{t}{\taf},\dv{y_{(t)}}{t} \dv{t}{\taf},\dv{z_{(t)}}{t} \dv{t}{\taf}} \\
+    &= \pr{c \gama_{(\vc{v})},\gama_{(\vc{v})} v_{x(t)}, \gama_{(\vc{v})} v_{y(t)}, \gama_{(\vc{v})} v_{z(t)}} \\
+    &= \gama_{(\vc{v})} \pr{c,v_{x(t)},v_{y(t)},v_{z(t)}}
+\end{align*}
+\q{v_{(t)}^{\mi} := \dv{x_{(t)}^{\mi}}{\taf} = \gama_{(\vc{v})} \pr{c;\vc{v}_{(t)}} = \gama_{(\vc{v})} \pr{c,v_{x(t)},v_{y(t)},v_{z(t)}}}
+\paragraph{Norma}
+La norma (módulo) del cuadrivector velocidad es la velocidad de la luz, de la forma:
+\begin{align*}
+    v_{\mi}v^{\mi} &= \S{\mi=0}{3}{v_{\mi}v^{\mi}} \\
+    &= v_0v^0 + v_1v^1 + v_2v^2 + v_3v^3 \\
+    &= [\gama_{(\vc{v})} c] . [\gama_{(\vc{v})} c] + [-\gama_{(\vc{v})} v_{x(t)}] . [\gama_{(\vc{v})} v_{x(t)}] + [-\gama_{(\vc{v})} v_{y(t)}] . [\gama_{(\vc{v})} v_{y(t)}] + [-\gama_{(\vc{v})} v_{z(t)}] . [\gama_{(\vc{v})} v_{z(t)}] \\
+    &= c^2 \gama_{(\vc{v})}^2 - \gama_{(\vc{v})}^2 v_{x(t)}^2 - \gama_{(\vc{v})}^2 v_{y(t)}^2 - \gama_{(\vc{v})}^2 v_{z(t)}^2 \\
+    &= \gama_{(\vc{v})}^2 \cor{c^2 - v_{x(t)}^2 - v_{y(t)}^2 - v_{z(t)}^2} \\
+    &\tx{Por la definición de gamma, tenemos que:} \\
+    &= \fr{1}{1-\frr{\mod[2]{\vc{v}_{(t)}}}{c^2}} \cor{c^2 - \mod[2]{\vc{v}_{(t)}}} \\
+    &= \fr{1}{\frr{1}{c^2} \cor{c^2-\mod[2]{\vc{v}_{(t)}}}} \cor{c^2 - \mod[2]{\vc{v}_{(t)}}} \\
+    &= c^2
+\end{align*}
+\q{v_{\mi}v^{\mi} = c^2}
+		    \subsubsection{Cuadrivector Aceleración}
+Se denomina \cur{cuadrivector aceleración} o \cur{cuadriaceleración} al cuadrivector contravariante que representa la derivada temporal (respecto al tiempo propio) del cuadrivector velocidad, de la forma:
+\begin{align*}
+    a_{(t)}^{\mi} :&= \dv{v_{(t)}^{\mi}}{\taf} \\
+    &= \dv{}{\taf} \pr{c \gama_{(\vc{v})},\gama_{(\vc{v})} v_{x(t)}, \gama_{(\vc{v})} v_{y(t)}, \gama_{(\vc{v})} v_{z(t)}} \\
+    &= \pr{c \dv{\gama_{(\vc{v})}}{t} \dv{t}{\taf},\dv{}{\taf} \cor{\gama_{(\vc{v})} v_{x(t)}}, \dv{}{\taf} \cor{\gama_{(\vc{v})} v_{y(t)}}, \dv{}{\taf} \cor{\gama_{(\vc{v})} v_{z(t)}}} \\
+    &= \pr{c \dot{\gama}_{(\vc{v})} \gama_{(\vc{v})},\dv{\gama_{(\vc{v})}}{t} \dv{t}{\taf} v_{x(t)} + \gama_{(\vc{v})} \dv{v_{x(t)}}{t} \dv{t}{\taf},\dv{\gama_{(\vc{v})}}{t} \dv{t}{\taf} v_{y(t)} + \gama_{(\vc{v})} \dv{v_{y(t)}}{t} \dv{t}{\taf},\dv{\gama_{(\vc{v})}}{t} \dv{t}{\taf} v_{z(t)} + \gama_{(\vc{v})} \dv{v_{z(t)}}{t} \dv{t}{\taf}} \\
+    &= \pr{c\dot{\gama}_{(\vc{v})} \gama_{(\vc{v})},\dot{\gama}_{(\vc{v})} \gama_{(\vc{v})} v_{x(t)} + \gama_{(\vc{v})}^2\alfa_{x(t)},\dot{\gama}_{(\vc{v})} \gama_{(\vc{v})} v_{y(t)} + \gama_{(\vc{v})}^2 \alfa_{y(t)},\dot{\gama}_{(\vc{v})} \gama_{(\vc{v})} v_{z(t)} + \gama_{(\vc{v})}^2\alfa_{z(t)}} \\
+    &= \gama_{(\vc{v})} \pr{c\dot{\gama}_{(\vc{v})},\dot{\gama}_{(\vc{v})}v_{x(t)} + \gama_{(\vc{v})}\alfa_{x(t)},\dot{\gama}_{(\vc{v})}v_{y(t)} + \gama_{(\vc{v})}\alfa_{y(t)},\dot{\gama}_{(\vc{v})}v_{z(t)} + \gama_{(\vc{v})}\alfa_{z(t)}}
+\end{align*}
+\q{a_{(t)}^{\mi} := \dv{v_{(t)}^{\mi}}{\taf} = \dv[2]{x_{(t)}^{\mi}}{\taf} = \gama_{(\vc{v})} \pr{c\dot{\gama}_{(\vc{v})};\dot{\gama}_{(\vc{v})} \vc{v}_{(t)} + \gama_{(\vc{v})} \vc{\alfa}_{(t)}} = \gama_{(\vc{v})} \pr{c\dot{\gama}_{(\vc{v})},\dot{\gama}_{(\vc{v})}v_{x(t)} + \gama_{(\vc{v})}\alfa_{x(t)},\dot{\gama}_{(\vc{v})}v_{y(t)} + \gama_{(\vc{v})}\alfa_{y(t)},\dot{\gama}_{(\vc{v})}v_{z(t)} + \gama_{(\vc{v})}\alfa_{z(t)}}}
+\paragraph{Observación: Ortogonalidad}
+Los cuadrivectores velocidad y aceleración son ortogonales, es decir:
+\begin{align*}
+    v_{\mi}v^{\mi} &= c^2 \\
+    \dv{}{\taf} (v_{\mi}v^{\mi}) &= \dv{}{\taf} (c^2) \\
+    \dv{v_{\mi}}{\taf} v^{\mi} + v_{\mi} \dv{v^{\mi}}{\taf} &= 0 \\
+    \dv{v^{\mi}}{\taf} v_{\mi} + v_{\mi} \dv{v^{\mi}}{\taf} &= 0 \\
+    2 v_{\mi} \dv{v^{\mi}}{\taf} &= 0 \\
+    v_{\mi} a^{\mi} &= 0
+\end{align*}
+\q{v_{\mi} a^{\mi} = 0}
+		    \subsubsection{Cuadrivector Momento}
+Se denomina \cur{cuadrivector momento} o \cur{cuadrimomento lineal} al cuadrivector contravariante que representa el producto de la masa en reposo por el cuadrivector velocidad, de la forma:
+\begin{align*}
+    p^{\mi} :&= m_0 v^{\mi} \\
+    &= m_0\gama_{(\vc{v})} \pr{c,v_{x(t)},v_{y(t)},v_{z(t)}} \\
+    &= \pr{\fr{\gama_{(\vc{v})} m_0 c^2}{c}, m_0 \gama_{(\vc{v})} v_{x(t)}, m_0 \gama_{(\vc{v})} v_{y(t)}, m_0 \gama_{(\vc{v})} v_{z(t)}} \\
+    \tx{Por la } &\tx{definición de energía y momento lineal relativistas, tenemos:} \\
+    &= \pr{\fr{E}{c}, p_{x(t)}, p_{y(t)}, p_{z(t)}}
+\end{align*}
+\q{p_{(t)}^{\mi} := \pr{\fr{E}{c};\vc{p}_{(t)}} = \pr{\fr{E}{c},p_{x(t)},p_{y(t)},p_{z(t)}}}
+\paragraph{Relación Con La Velocidad}
+\f{p_{(t)}^{\mi} := m_0v_{(t)}^{\mi} = m_0\dv{x_{(t)}^{\mi}}{\taf} = m_0\gama_{(\vc{v})} \pr{c,\vc{v}_{(t)}} = m_0\gama_{(\vc{v})} \pr{c,v_{x(t)},v_{y(t)},v_{z(t)}}}
+\paragraph{Norma}
+La norma (la longitud) de un cuadrivector posición está dado por el intervalo en el espacio-tiempo de Minkowski, de la forma:
+\begin{align*}
+    p_{\mi}p^{\mi} &= \S{\mi=0}{3}{p_{\mi}p^{\mi}} \\
+    &= p_0p^0 + p_1p^1 + p_2p^2 + p_3p^3 \\
+    &= \pr{\fr{E}{c}} . \pr{\fr{E}{c}} + [-p_{x(t)}] . p_{x(t)} + [-p_{y(t)}] . p_{y(t)} + [-p_{z(t)}] . p_{z(t)} \\
+    &= \fr{E^2}{c^2} - p_{x(t)}^2 - p_{y(t)}^2 - p_{z(t)}^2 \\
+    &= \fr{E^2}{c^2} - \mod[2]{\vc{p}_{(t)}}
+\end{align*}
+\q{p_{\mi}p^{\mi} = \fr{E^2}{c^2} - \mod[2]{\vc{p}_{(t)}}}
+\paragraph{Equivalencia Masa-Energía}
+\begin{align*}
+    p_{\mi}p^{\mi} &= \fr{E^2}{c^2} - \mod[2]{\vc{p}_{(t)}} \\
+    m_0^2 v_{\mi}v^{\mi} &= \fr{E^2}{c^2} - \mod[2]{\vc{p}_{(t)}} \\
+    \tx{Por la norma del } &\tx{cuadrivector velocidad, tenemos:} \\
+    m_0^2 c^2 &= \fr{E^2}{c^2} - \mod[2]{\vc{p}_{(t)}} \\
+    E &= \rz{\mod[2]{\vc{p}_{(t)}}c^2 + m_0^2c^4}
+\end{align*}
+\q{E = \rz{\mod[2]{\vc{p}_{(t)}}c^2 + m_0^2c^4}}
+		    \subsubsection{Cuadrivector Fuerza}
+Se denomina \cur{cuadrivector fuerza} o \cur{cuadrifuerza} al cuadrivector contravariante que representa la derivada temporal (respecto al tiempo propio) del cuadrivector momento, de la forma:
+\begin{align*}
+    f_{(t)}^\mi :&= \dv{p_{(t)}^{\mi}}{\taf} \\
+    &= \dv{}{\taf} \cor{m_0 v_{(t)}^{\mi}} \\
+    &= m_0 \dv{}{\taf} \cor{\gama_{(\vc{v})} \pr{c;\vc{v}_{(t)}}} \\
+    &= m_0 \dv{\gama_{(\vc{v})}}{t} \dv{t}{\taf} \pr{c;\vc{v}_{(t)}} + m_0 \gama_{(\vc{v})} \pr{\dv{c}{\taf};\dv{\vc{v}_{(t)}}{t} \dv{t}{\taf}} \\
+    &= m_0 \dot{\gama}_{(\vc{v})} \gama_{(\vc{v})} \pr{c;\vc{v}_{(t)}} + m_0 \gama_{(\vc{v})} \pr{0;\vc{\alfa}_{(t)} \gama_{(\vc{v})}} \\
+    &= m_0 \gama_{(\vc{v})} \pr{c\dot{\gama}_{(\vc{v})}; \dot{\gama}_{(\vc{v})} \vc{v}_{(t)} + \gama_{(\vc{v})} \vc{\alfa}_{(t)}}
+\end{align*}
+\q{f_{(t)}^{\mi} := \dv{p_{(t)}^{\mi}}{\taf} = m_0\dv{v_{(t)}^{\mi}}{\taf} = m_0\gama_{(\vc{v})} \pr{c\dot{\gama}_{(\vc{v})};\dot{\gama}_{(\vc{v})} \vc{v}_{(t)} + \gama_{(\vc{v})} \vc{\alfa}_{(t)}} = m_0\gama_{(\vc{v})} \pr{c\dot{\gama}_{(\vc{v})},\dot{\gama}_{(\vc{v})}v_{x(t)} + \gama_{(\vc{v})}\alfa_{x(t)},\dot{\gama}_{(\vc{v})}v_{y(t)} + \gama_{(\vc{v})}\alfa_{y(t)},\dot{\gama}_{(\vc{v})}v_{z(t)} + \gama_{(\vc{v})}\alfa_{z(t)}}}
+            \subsubsection{Fuerza De Minkowski}
+Se denomina \cur{fuerza de Minkowski} al cuadrivector contravariante que representa la fuerza electromagnética y la potencia electromagnética que posee el campo electromagnético mediante el cuadritensor campo electromagnético, y se define como:
+\begin{align*}
+    K^{\mi} :&= q F^{\mi\ni} v_{\ni} \\
+    &= q \S{\ni=0}{3}{F^{\mi\ni} v_{\ni}} \\
+    &= q \pr{F^{\mi 0} v_0 + F^{\mi 1} v_1 + F^{\mi 2} v_2 + F^{\mi 3} v_3} \\
+    &= q \pr{F^{00} v_0 + F^{01} v_1 + F^{02} v_2 + F^{03} v_3, F^{10} v_0 + F^{11} v_1 + F^{12} v_2 + F^{13} v_3, F^{20} v_0 + F^{21} v_1 + F^{22} v_2 + F^{23} v_3, F^{30} v_0 + F^{31} v_1 + F^{32} v_2 + F^{33} v_3} \\
+    &\tx{Como las diagonales del tensor campo electromagnético son nulas, tenemos que:} \\
+    &= q \pr{0.v_0 + F^{01} v_1 + F^{02} v_2 + F^{03} v_3, F^{10} v_0 + 0.v_1 + F^{12} v_2 + F^{13} v_3, F^{20} v_0 + F^{21} v_1 + 0.v_2 + F^{23} v_3, F^{30} v_0 + F^{31} v_1 + F^{32} v_2 + 0.v_3} \\
+    &= q \pr{0 + F^{01} v_1 + F^{02} v_2 + F^{03} v_3, F^{10} v_0 + 0 + F^{12} v_2 + F^{13} v_3, F^{20} v_0 + F^{21} v_1 + 0 + F^{23} v_3, F^{30} v_0 + F^{31} v_1 + F^{32} v_2 + 0} \\
+    &= q \pr{F^{01} v_1 + F^{02} v_2 + F^{03} v_3, F^{10} v_0 + F^{12} v_2 + F^{13} v_3, F^{20} v_0 + F^{21} v_1 + F^{23} v_3, F^{30} v_0 + F^{31} v_1 + F^{32} v_2} \\
+    &= q \pr{\pr{-\fr{E_x}{c}} . (-\gama v_x) + \pr{-\fr{E_y}{c}} . (-\gama v_y) + \pr{-\fr{E_z}{c}} . (-\gama v_z), \fr{E_x}{c} . \gama c + (-B_z) (-\gama v_y) + B_y (-\gama v_z), \fr{E_y}{c} . \gama c + B_z (-\gama v_x) + (-B_x) (-\gama v_z), \fr{E_z}{c} . \gama c + (-B_y) (-\gama v_x) + B_x (-\gama v_y)} \\
+    &= q \pr{\fr{\gama}{c} (E_xv_x + E_yv_y + E_zv_z),\gama E_x + \gama (v_yB_z - v_zB_y), \gama E_y + \gama (v_zB_x - v_xB_z), \gama E_z + \gama (v_xB_y - v_yB_x)} \\
+    &= \gama_{(\vc{v})} \pr{\fr{1}{c} (q\PI{\vc{E}_{(\vc{r},t)}}{\vc{v}_{(t)}}), qE_x + q \cor{\PV{\vc{v}_{(t)}}{\vc{B}_{(\vc{r},t)}}}_x, qE_y + q \cor{\PV{\vc{v}_{(t)}}{\vc{B}_{(\vc{r},t)}}}_y, qE_z + q \cor{\PV{\vc{v}_{(t)}}{\vc{B}_{(\vc{r},t)}}}_z} \\
+    &\tx{Como } \vc{v}_{(t)} \perp \PV{\vc{v}_{(t)}}{\vc{B}_{(\vc{r},t)}} \tx{, tenemos que:} \\
+    &= \gama_{(\vc{v})} \pr{\fr{1}{c} \PI{q\cor{\vc{E}_{(\vc{r},t)} + \PV{\vc{v}_{(t)}}{\vc{B}_{(\vc{r},t)}}}}{\vc{v}_{(t)}}, q \cor{\vc{E}_{(\vc{r},t)} + \PV{\vc{v}_{(t)}}{\vc{B}_{(\vc{r},t)}}}} \\
+    &= \gama_{(\vc{v})} \pr{\fr{1}{c} (\PI{\vc{F}_{\tx{em}(\vc{r},t)}}{\vc{v}_{(t)}}), \vc{F}_{\tx{em}(\vc{r},t)}}
+\end{align*}
+\q{K_{(\vc{r},t)}^{\mi} := \gama_{(\vc{v})} \pr{\fr{1}{c} (\PI{\vc{F}_{\tx{em}(\vc{r},t)}}{\vc{v}_{(t)}}), \vc{F}_{\tx{em}(\vc{r},t)}} = q \gama_{(\vc{v})} \pr{\fr{1}{c} (\PI{\vc{E}_{(\vc{r},t)}}{\vc{v}_{(t)}}), E_{x(\vc{r},t)} + v_{y(t)} B_{z(\vc{r},t)} - v_{z(t)} B_{y(\vc{r},t)}, E_{y(\vc{r},t)} + v_{z(t)} B_{x(\vc{r},t)} - v_{x(t)} B_{z(\vc{r},t)}, E_{z(\vc{r},t)} + v_{x(t)} B_{y(\vc{r},t)} - v_{y(t)} B_{x(\vc{r},t)}}}
+\paragraph{Observación}
+\begin{align*}
+    \tx{Por la segunda } &\tx{ley de Newton, tenemos que:} \\
+    f_{(t)}^{\mi} :&= \dv{p_{(t)}^{\mi}}{\taf} \\
+    \tx{Si el cuadrivector fuerza es } &\tx{la fuerza de Minkowski, tenemos que:} \\
+    K_{(\vc{r},t)}^{\mi} &= \dv{p_{(t)}^{\mi}}{t} \dv{t}{\taf} \\
+    \gama_{(\vc{v})} \pr{\fr{1}{c} (\PI{\vc{F}_{\tx{em}(\vc{r},t)}}{\vc{v}_{(t)}}),\vc{F}_{\tx{em}(\vc{r},t)}} &= \dv{p_{(t)}^{\mi}}{t} \gama_{(\vc{v})} \\
+    \pr{\fr{1}{c} (\PI{\vc{F}_{\tx{em}(\vc{r},t)}}{\vc{v}_{(t)}}),\vc{F}_{\tx{em}(\vc{r},t)}} &= \dv{}{t} \cor{m_0\gama_{(\vc{v})} \pr{c,\vc{v}_{(t)}}} \\
+    \tx{Por la definición de } &\tx{cuadrivector momento, tenemos que:} \\
+    \pr{\fr{1}{c} (\PI{\vc{F}_{\tx{em}(\vc{r},t)}}{\vc{v}_{(t)}}),\vc{F}_{\tx{em}(\vc{r},t)}} &= \pr{\dv{}{t} \cor{m_0 \gama_{(\vc{v})} c}, \dv{}{t} \cor{m_0 \gama_{(\vc{v})} \vc{v}_{(t)}}} \\
+    \sii \Fpp{\fr{1}{c} (\PI{\vc{F}_{\tx{em}(\vc{r},t)}}{\vc{v}_{(t)}}) = \dv{}{t} \cor{m_0 \gama_{(\vc{v})} c}}{\vc{F}_{\tx{em}(\vc{r},t)} = \dv{}{t} \cor{m_0 \gama_{(\vc{v})} \vc{v}_{(t)}}} &\Ent \Fpp{\PI{\vc{F}_{\tx{em}(\vc{r},t)}}{\vc{v}_{(t)}} = \dv{}{t} \cor{m_0 \gama_{(\vc{v})} c^2}}{\vc{F}_{\tx{em}(\vc{r},t)} = \dv{}{t} \cor{m_0 \gama_{(\vc{v})} \vc{v}_{(t)}}} \\
+    \tx{Por la definición de energía y } &\tx{momento lineal relativistas, tenemos que:} \\
+    &\Ent \Fpp{\PI{\vc{F}_{\tx{em}(\vc{r},t)}}{\vc{v}_{(t)}} = \dv{E_{(t)}}{t}}{\vc{F}_{\tx{em}(\vc{r},t)} = \dv{\vc{p}_{(t)}}{t}}
+\end{align*}
+\q{\Fpp{\PI{\vc{F}_{\tx{em}(\vc{r},t)}}{\vc{v}_{(t)}} = \dv{E_{(t)}}{t}}{\vc{F}_{\tx{em}(\vc{r},t)} = \dv{\vc{p}_{(t)}}{t}}}
+\paragraph{Segunda Ley De Newton}
+La fuerza de Minkowski satisface la segunda ley de Newton para la fuerza electromagnética, de la forma:
+\f{\vc{F}_{\tx{em}(\vc{r},t)} = \dv{\vc{p}_{(t)}}{t}}
+\paragraph{Potencia Mecánica}
+De la fuerza de Minkowski se desprende una expresión para la potencia electromagnética a partir de la fuerza electromagnética y la velocidad, de la forma:
+\f{P_{(t)} := \dv{E_{(t)}}{t} = \PI{\vc{F}_{\tx{em}(\vc{r},t)}}{\vc{v}_{(t)}}}
+		    \subsubsection{Cuadrivector Vector De Onda}
+Se denomina \cur{cuadrivector vector de onda} al cuadrivector contravariante que representa el vector de onda de una onda plana en el espacio-tiempo de Minkowski, y es de la forma:
+\f{k_{(t)}^{\mi} := \pr{\fr{\omega}{c};\vc{k}_{(t)}} = \pr{\fr{\omega}{c},k_{x(t)},k_{y(t)},k_{z(t)}}}
+		    \subsubsection{Cuadrivector Corriente}
+Se denomina \cur{cuadrivector corriente} O \cur{cuadricorriente} al cuadrivector contravariante que representa la distribución volumétrica de carga eléctrica y a la densidad volumétrica de corriente eléctrica en el espacio, y se define como:
+\begin{align*}
+    J_{(\vc{r},t)}^{\mi} :&= \pr{c\ro_{(\vc{r},t)};\vc{J}_{(\vc{r},t)}} \\
+    &= \pr{c\ro_{(\vc{r},t)},J_{x(\vc{r},t)},J_{y(\vc{r},t)},J_{z(\vc{r},t)}} \\
+    &= \pr{c\ro_{(\vc{r},t)},\ro_{(\vc{r},t)} v_{x(t)},\ro_{(\vc{r},t)} v_{y(t)},\ro_{(\vc{r},t)} v_{z(t)}} \\
+    &= \ro_{(\vc{r},t)} \pr{c,v_{x(t)},v_{y(t)},v_{z(t)}}
+\end{align*}
+\q{J_{(\vc{r},t)}^{\mi} := \pr{c\ro_{(\vc{r},t)};\vc{J}_{(\vc{r},t)}} = \pr{c\ro_{(\vc{r},t)},J_{x(\vc{r},t)},J_{y(\vc{r},t)},J_{z(\vc{r},t)}}}
+\paragraph{Cuadrivector Corriente En Función De La Velocidad}
+\f{J_{(\vc{r},t)}^{\mi} := \ro_{(\vc{r},t)} \pr{c,\vc{v}_{(t)}} = \ro_{(\vc{r},t)} \pr{c,v_{x(\vc{r},t)},v_{y(\vc{r},t)},v_{z(\vc{r},t)}}}
+		    \subsubsection{Cuadrivector Potencial}
+Se denomina \cur{cuadrivector potencial} o \cur{cuadripotencial} al cuadrivector contravariante que representa el potencial electromagnético en el espacio, y se define como:
+\f{A_{(\vc{r},t)}^{\mi} := \pr{\fr{\phij_{(\vc{r},t)}}{c}; \vc{A}_{(\vc{r},t)}} = \pr{\fr{\phij_{(\vc{r},t)}}{c}, A_{x(\vc{r},t)}, A_{y(\vc{r},t)}, A_{z(\vc{r},t)}}}
+	\section{Cuadritensores}
+Los cuadritensores son matrices de cuatro dimensiones que pueden tener distinto rango. Cualquier producto entre cuadritensores o cuadrivectores en el que dos índices se encuentran repetidos, corresponde a sumar sobre dichos índices de acuerdo al convenio de suma en notación de Einstein.
+        \subsection{Cuadritensor Contravariante}
+Se denomina \cur{cuadritensor contravariante} a todo cuadritensor de la forma:
+\f{T^{\mi\ni} := \pr{\begin{array}{c|c} T^{00} & T^{0j} \HL T^{i0} & T^{ij} \end{array}} = \lpm T^{00} & T^{01} & T^{02} & T^{03} \\ T^{10} & T^{11} & T^{12} & T^{13} \\ T^{20} & T^{21} & T^{22} & T^{23} \\ T^{30} & T^{31} & T^{32} & T^{33} \rpm \tx{, con } \Fpp{0 : \tx{parte temporal}}{i,j : \tx{parte espacial}}}
+\paragraph{Transformación}
+Los cuadritensores contravariantes transforman de la forma:
+\f{T'^{\mi\ni} := \fr{\p x'^{\mi}}{\p x^{\alfa}} \fr{\p x'^{\ni}}{\p x^{\vita}} T^{\alfa\vita} = \S{\alfa,\vita=0}{3}{\pr{\fr{\p x'^{\mi}}{\p x^{\alfa}} \fr{\p x'^{\ni}}{\p x^{\vita}} T^{\alfa\vita}}}}
+        \subsection{Cuadritensor Covariante}
+Se denomina \cur{cuadritensor covariante} a todo cuadritensor de la forma:
+\f{T_{\mi\ni} := \pr{\begin{array}{c|c} T_{00} & T_{0j} \HL T_{i0} & T_{ij} \end{array}} = \lpm T_{00} & T_{01} & T_{02} & T_{03} \\ T_{10} & T_{11} & T_{12} & T_{13} \\ T_{20} & T_{21} & T_{22} & T_{23} \\ T_{30} & T_{31} & T_{32} & T_{33} \rpm \tx{, con } \Fpp{0 : \tx{parte temporal}}{i,j : \tx{parte espacial}}}
+\paragraph{Transformación}
+Los cuadritensores covariantes transforman de la forma:
+\f{T'_{\mi\ni} := \fr{\p x^{\alfa}}{\p x'^{\mi}} \fr{\p x^{\vita}}{\p x'^{\ni}} T_{\alfa\vita} = \S{\alfa,\vita=0}{3}{\pr{\fr{\p x^{\alfa}}{\p x'^{\mi}} \fr{\p x^{\vita}}{\p x'^{\ni}} T_{\alfa\vita}}}}
+        \subsection{Cuadritensor Mixto}
+Se denomina \cur{cuadritensor mixto} a todo cuadritensor de la forma:
+\f{T_{\ni}^{\mi} := \pr{\begin{array}{c|c} T_0^0 & T_j^0 \HL T_0^i & T_j^i \end{array}} = \lpm T_0^0 & T_1^0 & T_2^0 & T_3^0 \\ T_0^1 & T_1^1 & T_2^1 & T_3^1 \\ T_0^2 & T_1^2 & T_2^2 & T_3^2 \\ T_0^3 & T_1^3 & T_2^3 & T_3^3 \rpm \tx{, con } \Fpp{0 : \tx{parte temporal}}{i,j : \tx{parte espacial}}}
+\paragraph{Transformación}
+Los cuadritensores mixtos transforman de la forma:
+\f{T_{\ni}'^{\mi} := \fr{\p x'^{\mi}}{\p x^{\alfa}} \fr{\p x^{\vita}}{\p x'^{\ni}} T_{\vita}^{\alfa} = \S{\alfa,\vita=0}{3}{\pr{\fr{\p x'^{\mi}}{\p x^{\alfa}} \fr{\p x^{\vita}}{\p x'^{\ni}} T_{\vita}^{\alfa}}}}
+        \subsection{Operaciones}
+            \subsubsection{Producto Con Un Cuadrivector Covariante}
+\f{x^{\mi} = T^{\mi\ni} y_{\ni} := \S{\ni=0}{3}{T^{\mi\ni} y_{\ni}} = T^{\mi 0} y_0 + T^{\mi 1} y_1 + T^{\mi 2} y_2 + T^{\mi 3} y_3}
+            \subsubsection{Producto Con Un Cuadrivector Contravariante}
+\f{x_{\mi} = T_{\mi\ni} y^{\ni} := \S{\ni=0}{3}{T_{\mi\ni} y^{\ni}} = T_{\mi 0} y^0 + T_{\mi 1} y^1 + T_{\mi 2} y^2 + T_{\mi 3} y^3}
+            \subsubsection{Conversión}
+\paragraph{Cuadritensor Contravariante A Covariante}
+\f{T_{\mi\ni} = g_{\mi\alfa} g_{\ni\vita} T^{\alfa\vita}}
+\paragraph{Cuadriensor Covariante A Contravariante}
+\f{T^{\mi\ni} = g^{\mi\alfa} g^{\ni\vita} T_{\alfa\vita}}
+\paragraph{Cuadritensor Mixto}
+\f{\Fpppp{T_{\ni}^{\mi} = g_{\alfa\ni} T^{\mi\alfa}}{T_{\mi}^{\ni} = g_{\mu\vita} T^{\vita\ni}}{T_{\alfa}^{\ni} = g_{\alfa\mi} T_{\ni}^{\mi}}{T_{\vita}^{\mi} = g^{\mi\ni} T_{\ni}^{\vita}}}
+		\subsection{Cuadritensores Comunes}
+            \subsubsection{Cuadritensor Momento}
+Se denomina \cur{cuadritensor momento} o \cur{cuadrimomento angular} al cuadritensor de segundo orden que representa el producto tensorial antisimetrizado del cuadrivector momento con el cuadrivector posición, y es de la forma:
+\f{L^{\mi\ni} := \lpm 0 & r_x & r_y & r_z \\ -r_x & 0 & L_z & -L_y \\ -r_y & -L_z & 0 & L_x \\ -r_z & L_y & -L_x & 0 \rpm = \lpm 0 & ctp_x - \frr{xE}{c} & ctp_y - \frr{yE}{c} & ctp_z - \frr{zE}{c} \\ \frr{xE}{c} - ctp_x & 0 & xp_y - yp_x & xp_z - zp_x \\ \frr{yE}{c} - ctp_y & yp_x - xp_y & 0 & yp_z - zp_y \\ \frr{zE}{c} - ctp_z & zp_x - xp_z & zp_y - yp_z & 0 \rpm}
+		    \subsubsection{Cuadritensor Campo Electromagnético}
+Se denomina \cur{cuadritensor campo electromagnético} al cuadritensor de segundo orden que representa al campo eléctico y magnético en todo el espacio, y es de la forma:
+\paragraph{Forma Contravariante}
+\f{F^{\mi\ni} = \lpm 0 & -\frr{E_x}{c} & -\frr{E_y}{c} & -\frr{E_z}{c} \\ \frr{E_x}{c} & 0 & -B_z & B_y \\ \frr{E_y}{c} & B_z & 0 & -B_x \\ \frr{E_z}{c} & -B_y & B_x & 0 \rpm}
+\paragraph{Relación Con El Cuadrivector Potencial}
+\f{F^{\mi\ni} = \p[][\mi] A^{\ni} - \p[][\ni] A^{\mi}}
+\paragraph{Forma Covariante}
+\f{F_{\mi\ni} = \lpm 0 & \frr{E_x}{c} & \frr{E_y}{c} & \frr{E_z}{c} \\ -\frr{E_x}{c} & 0 & -B_z & B_y \\ -\frr{E_y}{c} & B_z & 0 & -B_x \\ -\frr{E_z}{c} & -B_y & B_x & 0 \rpm}
+\paragraph{Relación Con El Cuadrivector Potencial}
+\f{F_{\mi\ni} = \p[\mi] A_{\ni} - \p[\ni] A_{\mi}}
+\paragraph{Propiedades}
+\begin{itemize}
+    \item Antisimetría:
+    \f{F^{\mi\ni} = -F^{\ni\mi}}
+    \item Traza:
+    \f{F_{\mi}^{\mi} = 0}
+    \item Producto Interno:
+    \f{F_{\mi\ni} F^{\mi\ni} = 2 \cor{\fr{1}{c^2} \mod[2]{\vc{E}_{(\vc{r},t)}} + \mod[2]{\vc{B}_{(\vc{r},t)}}}}
+    \item Invariante Pseudo-escalar:
+    \f{F_{\mi\ni} G^{\mi\ni} = G_{\mi\ni} F^{\mi\ni} = \fr{1}{2} \levi{\alfa\vita\mi\ni} F^{\alfa\vita} F^{\mi\ni} = -4 \cor{\PI{\vc{E}_{(\vc{r},t)}}{\vc{B}_{(\vc{r},t)}}}}
+    Es decir:
+    \begin{itemize}
+        \item \B{Si $\s{\vc{E} \perp \vc{B}}$ en el sistema $\tx{S} \Ent \s{\vc{E}' \perp \vc{B}'}$ en todo sistema $\tx{S}'$.}
+        \item \B{Si $\s{\mod[2]{\vc{E}} - \mod[2]{\vc{B}} > 0}$ en el sistema $\tx{S} \Ent \s{\mod[2]{\vc{E}'} - \mod[2]{\vc{B}'} > 0}$ en todo sistema $\tx{S}'$.}
+    \end{itemize}
+    \item Determinante:
+    \f{\det(F^{\mi\ni}) = \fr{1}{c^2} \pr[2]{\PI{\vc{E}_{(\vc{r},t)}}{\vc{B}_{(\vc{r},t)}}}}
+\end{itemize}
+		    \subsubsection{Cuadritensor Dual}
+Se denomina \cur{cuadritensor dual} al cuadritensor de segundo orden que representa el campo magnético en todo el espacio, y es de la forma:
+\f{G^{\mi\ni} := \fr{1}{2} \levi[\mi\ni\alfa\vita]{} F_{\alfa\vita} = \lpm 0 & -B_x & -B_y & -B_z \\ B_x & 0 & \frr{E_z}{c} & -\frr{E_y}{c} \\ B_y & -\frr{E_z}{c} & 0 & \frr{E_x}{c} \\ B_z & \frr{E_y}{c} & -\frr{E_x}{c} & 0 \rpm}
+\paragraph{Forma Covariante}
+\f{G_{\mi\ni} = \lpm 0 & B_x & B_y & B_z \\ -B_x & 0 & -\frr{E_z}{c} & \frr{E_y}{c} \\ -B_y & \frr{E_z}{c} & 0 & -\frr{E_x}{c} \\ -B_z & -\frr{E_y}{c} & \frr{E_x}{c} & 0 \rpm}
+            \subsubsection{Cuadritensor De Energía-Momento}
+Se denomina \cur{cuadritensor de energía-momento} al cuadritensor de segundo orden que representa la contribución debida al tensor de esfuerzos de Maxwell $\sigma_{ij}$ y al tensor de campo electromagnético $F^{\mi\ni}$ debido a un campo electromagnético con vector de Poynting $\vc{S}$, y es de la forma:
+\f{T^{\mi\ni} := \fr{1}{\kpmv} \pr{F^{\mi\alfa} F_{\alfa}^{\ni} - \fr{1}{4} \ita^{\mi\ni} F_{\alfa\vita} F^{\alfa\vita}} = \lpm \fr{\kpev}{2} \mod[2]{\vc{E}_{(\vc{r},t)}} + \fr{1}{2\kpmv} \mod[2]{\vc{B}_{(\vc{r},t)}} & \frr{S_x}{c} & \frr{S_y}{c} & \frr{S_z}{c} \\ \frr{S_x}{c} & -\sigma_{xx} & -\sigma_{xy} & -\sigma_{xz} \\ \frr{S_y}{c} & -\sigma_{yx} & -\sigma_{yy} & -\sigma_{yz} \\ \frr{S_z}{c} & -\sigma_{zx} & -\sigma_{zy} & -\sigma_{zz} \rpm}
+\paragraph{Propiedades}
+\begin{itemize}
+    \item Simetría:
+    \f{T^{\mi\ni} = T^{\ni\mi}}
+    \item Traza:
+    \f{T_{\mi}^{\mi} = 0}
+\end{itemize}
+\paragraph{Ley De Conservación}
+Tanto la conservación del momento lineal como de la energía mecánica pueden escribirse mediante la divergencia del tensor de energía-momento, donde $f_{\mi}$ es la fuerza electromagnética espacio-temporal y por unidad de volumen en la materia, de la forma:
+\f{\p[\ni] T^{\mi\ni} + \ita^{\mi\alfa} f_{\alfa} = 0}
+    \section{Operadores}
+        \subsection{Operador Derivada Parcial}
+\f{\p[][\mi] := \pr{\fr{\p}{\p x^0}, -\gr{}}}
+        \subsection{Operador D'Alembertiano}
+\begin{align*}
+    \p[\mi] \p[][\mi] &= \S{\mi=0}{3}{\p[\mi] \p[][\mi]} \\
+    &= \p[0] \p[][0] + \p[1] \p[][1] + \p[2] \p[][2] + \p[3] \p[][3] \\
+    &= \fr{\p}{\p x^0} . \fr{\p}{\p x^0} + \fr{\p}{\p x^1} . \cor{-\fr{\p}{\p x^1}} + \fr{\p}{\p x^2} . \cor{-\fr{\p}{\p x^2}} + \fr{\p}{\p x^3} . \cor{-\fr{\p}{\p x^3}} \\
+    &= \fr{1}{c^2} \pd[2]{}{t} - \pd[2]{}{x} - \pd[2]{}{y} - \pd[2]{}{z} \\
+\end{align*}
+\q{\dal{} := \p[\mi] \p[][\mi] = \fr{1}{c^2} \pd[2]{}{t} - \lap{}}
+    \section{Formulación Covariante Del Electromagnetismo Clásico}
+\begin{itemize}
+    \item
+	\f{\p[\mi] F^{\mi\ni} = \fr{\p F^{\mi\ni}}{\p x^{\mi}} = \kpmv J^{\ni}}
+    \item
+	\f{\fr{\p G^{\mi\ni}}{\p x^{\mi}} = 0}
+    \item Identidad De Bianchi:
+	\f{\levi[\del\alfa\vita\gama]{} \fr{\p F_{\vita\gama}}{\p x^{\alfa}} = \fr{\p F_{\alfa\vita}}{\p x^{\gama}} + \fr{\p F_{\vita\gama}}{\p x^{\alfa}} + \fr{\p F_{\gama\alfa}}{\p x^{\vita}} = 0}
+    \f{\p[\gama] F_{\alfa\vita} + \p[\alfa] F_{\vita\gama} + \p[\vita] F_{\gama\alfa}= 0}
+    \item
+	\f{F^{\alfa\vita} = \fr{\p A^{\vita}}{\p x_{\alfa}} - \fr{\p A^{\alfa}}{\p x_{\vita}}}
+    \item Ec's maxwell in lorentz gauge:
+	\f{\dal{}A^{\mi} = \kpmv J^{\mi}} 
+    \item
+	\f{F'^{\alfa\vita} = \Lamda_{\mi}^{\alfa} \Lamda_{\ni}^{\vita} F^{\mi\ni}}
+\end{itemize}
+\paragraph{Ecuación De Continuidad}
+\f{\fr{\p J_{(\vc{r},t)}^{\mi}}{\p x^{\mi}} = 0}
+\paragraph{Gauge De Lorenz}
+\f{\p[\mi] A^{\mi} = 0}
+
+        \subsection{Transformación De Lorentz}
+\f{\lpm x'^0 \\ x'^1 \\ x'^2 \\ x'^3 \rpm = \lpm \Lamda_0^0 & \Lamda_1^0 & \Lamda_2^0 & \Lamda_3^0 \\ \Lamda_0^1 & \Lamda_1^1 & \Lamda_2^1 & \Lamda_3^1 \\ \Lamda_0^2 & \Lamda_1^2 & \Lamda_2^2 & \Lamda_3^2 \\ \Lamda_0^3 & \Lamda_1^3 & \Lamda_2^3 & \Lamda_3^3 \rpm \por \lpm x^0 \\ x^1 \\ x^2 \\ x^3 \rpm}
+\f{x'^{\mi} = \Lamda_{\ni}^{\mi} x^{\ni}}
+        \subsection{Ondas Planas}
+En fomulación covariante, una onda plana se escribe de la forma:
+\f{\vc{E}_{(\vc{r},t)} = \vc{E}_0 e^{ik_{\mi}x^{\mi}}}
+\paragraph{Observación}
+\f{k'_{\mi}x'^{\mi} = k_{\mi}x^{\mi}}
+\paragraph{Observación}
+\B{La fase de las ondas es un invariante relativista.}
+    \section{Formulación Lagrangiana Del Electromagnetismo Clásico}

@@ -1,0 +1,593 @@
+
+%============================================================================================================================================
+% Lenguaje LaTeX del documento
+%============================================================================================================================================
+
+\part{Lenguaje} % Parte • %
+\chapter{Lenguaje Matemático} % Capítulo • %
+	\section{Texto}
+\begin{tabl}{3}
+	Operador & Símbolo & Código \\
+	\CaTb{Texto} & Texto De Prueba & \Cod{Texto De Prueba} \\
+	\CaTb{Texto (En Ecuaciones)} & \tx{Texto De Prueba} & \Cod{\tx{Texto De Prueba}} \\
+	\CaTb{Inclinado} & \txinc{Texto De Prueba} & \Cod{\txinc{Texto De Prueba}} \\
+	\CaTb{Cursiva} & \cur{Texto De Prueba} & \Cod{\cur{Texto De Prueba}} \\
+	\CaTb{Negrita} & \txff{Texto De Prueba} & \Cod{\txff{Texto De Prueba}} \\
+	\CaTb{Mayúsculas} & \txmayus{Texto De Prueba} & \Cod{\txmayus{Texto De Prueba}} \\
+	\CaTb{Normal (Quita Tipos De Texto)} & \txff{\txnor{Texto De Prueba}} & \Cod{\txff{\txnor{Texto De Prueba}}} \\
+	\CaTb{Subrayado} & \txsub{Texto De Prueba} & \Cod{\txsub{Texto De Prueba}} \\
+	\CaTb{Color} & \txcol{green!50}{Texto De Prueba} & \Cod{\txcol{green!50}{Texto De Prueba}} \\
+	\CaTb{Comillas} & \comilla{Esto es una definición o cita} & \Cod{\comilla{Esto es una definición o cita}} \\
+	\CaTb{Verificación} & $\s{x=y \ok}$ & \Cod{x=y \ok} \\
+	\CaTb{Bibliografía} & \bib{Autor}{Libro}{Editorial}{Edición}{Página} & \Cod{\bib{Autor}{Libro}{Editorial}{Edicion}{Pagina}} \\
+\end{tabl}
+	\section{Operadores Matemáticos}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Operador} & \bf \Tb{Símbolo} & \bf \Tb{Código} \HL
+	\CaTb{Suma} & $\s{+}$ & \Cod{+} \HL
+	\CaTb{Resta} & $\s{-}$ & \Cod{-} \HL
+	\CaTb{Producto} & $\s{\por}$ & \Cod{\por} \HL
+	\CaTb{Producto Vectorial} & $\s{\Por}$ & \Cod{\Por} \HL
+	\CaTb{Producto Tensorial} & $\s{\Tor}$ & \Cod{\Tor} \HL
+	\CaTb{Más Menos} & $\s{\pm}$ & \Cod{\pm} \HL
+	\CaTb{Menos Más} & $\s{\mp}$ & \Cod{\mp} \HL
+	\CaTb{Divide A} & $d \dvd a$ & \Cod{d \dvd a} \HL
+	\CaTb{No Divide A} & $d \ndvd a$ & \Cod{d \ndvd a} \HL
+	\CaTb{Divisores (Opcional)} & $\Div[+]{a}$ & \Cod{\Div[+]{a}} \HL
+	\CaTb{Divisores Comunes (Opcional)} & $\Divcom[+]{a}{b}$ & \Cod{\Divcom[+]{a}{b}} \HL
+	\CaTb{Congruente} & $\congr{a}{b}{d}$ & \Cod{\congr{a}{b}{d}} \HL
+	\CaTb{No Congruente} & $\ncongr{a}{b}{d}$ & \Cod{\ncongr{a}{b}{d}} \HL
+	\CaTb{Resto} & $\resto[d]{a}$ & \Cod{\resto[d]{a}} \HL
+	\CaTb{Máximo Común Divisor} & $\mcd{a}{b}$ & \Cod{\mcd{a}{b}} \HL
+	\CaTb{Mínimo Común Múltiplo} & $\mcm{a}{b}$ & \Cod{\mcm{a}{b}} \HL
+	\CaTb{Coprimo} & $a \cop b$ & \Cod{a \cop b} \HL
+	\CaTb{Fracción} & $\fr{a}{b} \ , \ \frr{a}{b} \ , \ \frrr{a}{b}$ & \Cod{\fr{a}{b} \frr{a}{b} \frrr{a}{b}} \HL
+	\CaTb{Exponente} & $\s{a^b}$ & \Cod{a^b} \HL
+	\CaTb{Raíz Cuadrada} & $\s{\rz{5}}$ & \Cod{\rz{5}} \HL
+	\CaTb{Raíz $n$-ésima (Opcional)} & $\s{\rz[3]{5}}$ & \Cod{\rz[3]{5}} \HL
+	\CaTb{Norma} & $\s{\norm{\Vec{v_{(t)}}}[]}$ & \Cod{\norm{\Vec{v_{(t)}}}} \HL
+	\CaTb{Norma $n$-ésima (Opcionales)} & $\s{\norm[\alfa]{\vec{v}}[2]}$ & \Cod{\norm[\alfa]{\vec{v}}[2]} \HL
+	\CaTb{Módulo: Norma 2 (Opcional)} & $\s{\mod[3]{\vc{r}_2 - \vc{r}_1}}$ & \Cod{\mod[3]{\vc{r}_2 - \vc{r}_1}} \HL
+	\CaTb{Logaritmo} & $\s{\log{\cor{f_{\x}}}}$ & \Cod{\log{\cor{f_{\x}}}} \HL
+	\CaTb{Logaritmo $n$-ésimo (Opcional)} & $\s{\log[a]{\cor{f_{\x}}}}$ & \Cod{\log[a]{\cor{f_{\x}}}} \HL
+	\CaTb{Factorial} & $\s{k!}$ & \Cod{k!} \HL
+	\CaTb{Gradiente (Opcional)} & $\s{\gr[\vc{r}]{\psi_{(\vc{r})}}}$ & \Cod{\gr[\vc{r}]{\psi_{(\vc{r})}}} \HL
+	\CaTb{Divergencia (Opcional)} & $\s{\div[\vc{r}]{F}}$ & \Cod{\div[\vc{r}]{F}} \HL
+	\CaTb{Rotacional (Opcional)} & $\s{\rot[\vc{r}]{E}}$ & \Cod{\rot[\vc{r}]{E}} \HL
+	\CaTb{Laplaciano Escalar (Opcional)} & $\s{\lap[\vc{r}]{f}}$ & \Cod{\lap[\vc{r}]{f}} \HL
+	\CaTb{Laplaciano Vectorial (Opcional)} & $\s{\lapv[\vc{r}]{F}}$ & \Cod{\lapv[\vc{r}]{F}} \HL
+	\CaTb{Bilaplaciano} & $\s{\blap{f}}$ & \Cod{\blap{f}} \HL
+	\CaTb{D'Alembertiano} & $\s{\dal{\psi}_{(\vc{r},t)}}$ & \Cod{\dal{\psi}_{(\vc{r},t)}} \HL
+	\CaTb{D'Alembertiano Vectorial} & $\s{\dalv{A}_{(\vc{r},t)}}$ & \Cod{\dalv{A}_{(\vc{r},t)}} \HL
+	\CaTb{Derivada Convectiva} & $\s{\cnv{v}{\phij}}$ & \Cod{\cnv{v}{\phij}} \HL
+\end{tabular}
+	\section{Desigualdades}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Desigualdad} & \bf \Tb{Símbolo} & \bf \Tb{Código} \HL
+	\CaTb{Igual} & $\s{=}$ & \Cod{=} \HL
+	\CaTb{Distinto} & $\s{\dis}$ & \Cod{\dis} \HL
+	\CaTb{Aproximadamente} & $\s{\apx}$ & \Cod{\apx} \HL
+	\CaTb{Aproximadamente Igual} & $\s{\apxig}$ & \Cod{\apxig} \HL
+	\CaTb{Equivalente} & $\s{\eqv , \eqvl}$ & \Cod{\eqv , \eqvl} \HL
+	\CaTb{No Equivalente} & $\s{\neqv}$ & \Cod{\neqv} \HL
+	\CaTb{Mayor} & $\s{>}$ & \Cod{>} \HL
+	\CaTb{Menor} & $\s{<}$ & \Cod{<} \HL
+	\CaTb{Mayor O Igual} & $\s{\mig}$ & \Cod{\mig} \HL
+	\CaTb{Menor O Igual} & $\s{\nig}$ & \Cod{\nig} \HL
+	\CaTb{Mayor O Aproximadamente Igual} & $\s{\apxmig}$ & \Cod{\apxmig} \HL
+	\CaTb{Menor O Aproximadamente Igual} & $\s{\apxnig}$ & \Cod{\apxnig} \HL
+	\CaTb{Mucho Mayor} & $\s{\mm}$ & \Cod{\mm} \HL
+	\CaTb{Mucho Menor} & $\s{\nn}$ & \Cod{\nn} \HL
+	\CaTb{Mayor O Menor} & $\s{\mn}$ & \Cod{\mn} \HL
+	\CaTb{Menor O Mayor} & $\s{\nm}$ & \Cod{\nm} \HL
+	\CaTb{Mayor, Igual O Menor} & $\s{\mign}$ & \Cod{\mign} \HL
+	\CaTb{Símbolo con texto} & $\s{\txsim[def]{=}}$ & \Cod{\txsim[def]{=}} \HL
+\end{tabular}
+	\section{Operaciones Matemáticas}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Operación} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Producto Interno} & $\s{\PI{v}{w}}$ & \Cod{\PI{v}{w}} \HL
+	\CaTb{Producto Interno (Espacio De Funciones)} & $\s{\SPI{f}{g}}$ & \Cod{\SPI{f}{g}} \HL
+	\CaTb{Prducto Vectorial} & $\s{\PV{u}{v}}$ & \Cod{\PV{u}{v}} \HL
+	\CaTb{Prducto Tensorial} & $\s{\PT{u}{v}}$ & \Cod{\PT{u}{v}} \HL
+	\CaTb{Producto Vectorial En Componentes} & $\s{\PVc{u_1}{u_2}{u_3}{v_1}{v_2}{v_3}}$ & \Cod{\PVc{u_1}{u_2}{u_3}{v_1}{v_2}{v_3}} \HL
+	\CaTb{Producto Vectorial Resuelto} & $\s{\PVr{u_1}{u_2}{u_3}{v_1}{v_2}{v_3}}$ & \Cod{\PVr{u_1}{u_2}{u_3}{v_1}{v_2}{v_3}} \HL
+	\CaTb{Rotacional Resuelto} & $\s{\Rotr{P}{Q}{R}}$ & \Cod{\Rotr{P}{Q}{R}} \HL
+	\CaTb{Composición} & $\s{\comp{f}{g}}$ & \Cod{\comp{f}{g}} \HL
+	\CaTb{Convolución} & $\s{\conv{f}{g}}$ & \Cod{\conv{f}{g}} \HL
+	\CaTb{Conmutador} & $\s{\conm{\op{\alfa}}{\op{\vita}}}$ & \Cod{\conm{\op{\alfa}}{\op{\vita}}} \HL
+	\CaTb{Anticonmutador} & $\s{\aconm{\op{\alfa}}{\op{\vita}}}$ & \Cod{\aconm{\op{\alfa}}{\op{\vita}}} \HL
+\end{tabular}
+	\section{Conjuntos Numéricos}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Nombre} & \bf \Tb{Símbolo} & \bf \Tb{Código} \HL
+	\CaTb{Pertenece} & $\s{\in}$ & \Cod{\in} \HL
+	\CaTb{No Pertenece} & $\s{\nin}$ & \Cod{\nin} \HL
+	\CaTb{Incluido} & $\s{\inc}$ & \Cod{\inc} \HL
+	\CaTb{No Incluido} & $\s{\ninc}$ & \Cod{\ninc} \HL
+	\CaTb{Conjunto Vacío} & $\s{\vacio}$ & \Cod{\vacio} \HL
+	\CaTb{Complemento} & $\s{\compl{A}}$ & \Cod{\compl{A}} \HL
+	\CaTb{Unión} & $\s{\union}$ & \Cod{\union} \HL
+	\CaTb{Intersección} & $\s{\intsc}$ & \Cod{\intsc} \HL
+	\CaTb{Diferencia Simétrica} & $\s{\difs}$ & \Cod{\difs} \HL
+	\CaTb{Producto Cartesiano} & $\s{\PC}$ & \Cod{\PC} \HL
+	\CaTb{Cardinal} & $\s{\card{A}}$ & \Cod{\card{A}} \HL
+	\CaTb{Infinito} & $\s{\inf}$ & \Cod{\inf} \HL
+\end{tabular}
+	\section{Símbolos Lógicos}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Nombre} & \bf \Tb{Símbolo} & \bf \Tb{Código} \HL
+	\CaTb{No} & $\s{\no}$ & \Cod{\no} \HL
+	\CaTb{Y} & $\s{\Y}$ & \Cod{\Y} \HL
+	\CaTb{O} & $\s{\O}$ & \Cod{\O} \HL
+	\CaTb{O Excluyente} & $\s{\Oex}$ & \Cod{\Oex} \HL
+	\CaTb{Relacionado Con (Opcional)} & $\s{x\rel[1] y}$ & \Cod{x\rel[1] y} \HL
+	\CaTb{No Relacionado Con (Opcional)} & $\s{x\nrel[1] y}$ & \Cod{x\nrel[1] y} \HL
+	\CaTb{Existe} & $\s{\ex}$ & \Cod{\ex} \HL
+	\CaTb{Existe Un Único Elemento} & $\s{\exu}$ & \Cod{\exu} \HL
+	\CaTb{No Existe} & $\s{\nex}$ & \Cod{\nex} \HL
+	\CaTb{Para Todo} & $\s{\ptd}$ & \Cod{\ptd} \HL
+	\CaTb{Tal Que} & $\s{:}$ & \Cod{:} \HL
+	\CaTb{Por Lo Tanto} & $\s{\plt}$ & \Cod{\plt} \HL
+	\CaTb{Porque} & $\s{\porq}$ & \Cod{\porq} \HL
+	\CaTb{Proporcional} & $\s{\prop}$ & \Cod{\prop} \HL
+	\CaTb{Fin De La Demostración} & $\s{\QED}$ & \Cod{\QED} \HL
+	\CaTb{Incremento} & $\s{\Del}$ & \Cod{\Del} \HL
+	\CaTb{Puntos Suspensivos} & $\s{\pors}$ & \Cod{\pors} \HL
+	\CaTb{Elipsis Vertical} & $\s{\porv}$ & \Cod{\porv} \HL
+	\CaTb{Elipsis Horizontal} & $\s{\porh}$ & \Cod{\porh} \HL
+	\CaTb{Elipsis Diagonal} & $\s{\pord}$ & \Cod{\pord} \HL
+	\CaTb{Grados} & $\s{273 \grs K}$ & \Cod{273 \grs K} \HL
+\end{tabular}
+	\section{Flechas}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Nombre} & \bf \Tb{Símbolo} & \bf \Tb{Código} \HL
+	\CaTb{Envía} & $\s{\to}$ & \Cod{\to} \HL
+	\CaTb{Tiende} & $\s{\To}$ & \Cod{\To} \HL
+	\CaTb{Entonces} & $\s{\ent}$ & \Cod{\ent} \HL
+	\CaTb{Entonces Largo} & $\s{\Ent}$ & \Cod{\Ent} \HL
+	\CaTb{Si Y Solo Si} & $\s{\sii}$ & \Cod{\sii} \HL
+	\CaTb{Si Y Solo Si Largo} & $\s{\Sii}$ & \Cod{\Sii} \HL
+	\CaTb{Tiende, Cuando} & $\s{\Tiende{n \to \inf}}$ & \Cod{\Tiende{n \to \inf}} \HL
+	\CaTb{Tiende, Cuando (Opcional)} & $\s{\Tiende[k \dis 0]{k \to \inf}}$ & \Cod{\Tiende[k \dis 0]{k \to \inf}} \HL
+	\CaTb{Movimiento Horario} & $\s{\Sneg}$ & \Cod{\Sneg} \HL
+	\CaTb{Movimiento Antihorario} & $\s{\Spos}$ & \Cod{\Spos} \HL
+\end{tabular}
+	\section{Geometría}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Nombre} & \bf \Tb{Símbolo} & \bf \Tb{Código} \HL
+	\CaTb{Paralelo} & $\s{\paral}$ & \Cod{\paral} \HL
+	\CaTb{Perpendicular} & $\s{\perp}$ & \Cod{\perp} \HL
+\end{tabular}
+	\section{Tipos de letra}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Letra} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Texto} & $\s{\tx{R}}$ & \Cod{\tx{R}} \HL
+	\CaTb{Conjunto Numérico} & $\s{\bb{R}}$ & \Cod{\bb{R}} \HL
+	\CaTb{Negrita} & $\s{\ff{R}}$ & \Cod{\ff{R}} \HL
+	\CaTb{Negrita (Letras Griegas)} & $\s{\bs{\ro}}$ & \Cod{\bs{\ro}} \HL
+	\CaTb{Cursiva} & $\s{\cal{R}}$ & \Cod{\cal{R}} \HL
+	\CaTb{Gótica} & $\s{\gotic{R}}$ & \Cod{\gotic{R}} \HL
+\end{tabular}
+	\section{Agrupación}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Símbolo} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Paréntesis (Opcional)} & $\s{\pr[2]{x}}$ & \Cod{\pr[2]{x}} \HL
+	\CaTb{Corchetes (Opcional)} & $\s{\cor[2]{x}}$ & \Cod{\cor[2]{x}} \HL
+	\CaTb{Llaves (Opcional)} & $\s{\lla[2]{x}}$ & \Cod{\lla[2]{x}} \HL
+	\CaTb{Módulo (Opcional)} & $\s{\mod[2]{x}}$ & \Cod{\mod[2]{x}} \HL
+	\CaTb{Norma (Opcionales)} & $\s{\norm[\inf]{x}[2]}$ & \Cod{\norm[\inf]{x}[2]} \HL
+	\CaTb{Paréntesis Angulares (Opcional)} & $\s{\pra[2]{f_{\x},g_{\x},h_{\x}}}$ & \Cod{\pra[2]{f_{\x},g_{\x},h_{\x}}} \HL
+	\CaTb{Llaves Arriba (Opcional)} & $\s{\llar[n\tx{-veces}]{1+1+1+\porh+1}}$ & \Cod{\llar[n\tx{-veces}]{1+1+1+\porh+1}} \HL
+	\CaTb{Llaves Abajo (Opcional)} & $\s{\llab[n\tx{-veces}]{1+1+1+\porh+1}}$ & \Cod{\llab[n\tx{-veces}]{1+1+1+\porh+1}} \HL
+	\CaTb{Techo} & $\s{\lc x \rc}$ & \Cod{\lc x \rc} \HL
+	\CaTb{Piso} & $\s{\lfl x \rfl}$ & \Cod{\lfl x \rfl} \HL
+	\CaTb{Punto} & $\s{\ldot x \rdot}$ & \Cod{\ldot x \rdot} \HL
+\end{tabular}
+	\section{Alfabeto Griego}
+\begin{tabular}{|Sc|Sc|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Letra} & \bf \Tb{Minús.} & \bf \Tb{Código} & \bf \Tb{Mayús.} & \bf \Tb{Código} \HL
+	\CaTb{1} & $\s{\alfa}$ & \Cod{\alfa} & $\s{\Alfa}$ & \Cod{\Alfa} \HL
+	\CaTb{2} & $\s{\vita}$ & \Cod{\vita} & $\s{\Vita}$ & \Cod{\Vita} \HL
+	\CaTb{3} & $\s{\gama}$ & \Cod{\gama} & $\s{\Gama}$ & \Cod{\Gama} \HL
+	\CaTb{4} & $\s{\del}$ & \Cod{\del} & $\s{\Del}$ & \Cod{\Del} \HL
+	\CaTb{5} & $\s{\eps,\epsj}$ & \Cod{\eps,\epsj} & $\s{\Eps}$ & \Cod{\Eps} \HL
+	\CaTb{6} & $\s{\zita}$ & \Cod{\zita} & $\s{\Zita}$ & \Cod{\Zita} \HL
+	\CaTb{7} & $\s{\ita}$ & \Cod{\ita} & $\s{\Ita}$ & \Cod{\Ita} \HL
+	\CaTb{8} & $\s{\tita,\titaj}$ & \Cod{\tita,\titaj} & $\s{\Tita}$ & \Cod{\Tita} \HL
+	\CaTb{9} & $\s{\iota}$ & \Cod{\iota} & $\s{\Iota}$ & \Cod{\Iota} \HL
+	\CaTb{10} & $\s{\kapa}$ & \Cod{\kapa} & $\s{\Kapa}$ & \Cod{\Kapa} \HL
+	\CaTb{11} & $\s{\lamda}$ & \Cod{\lamda} & $\s{\Lamda}$ & \Cod{\Lamda} \HL
+	\CaTb{12} & $\s{\mi,\micro}$ & \Cod{\mi,\micro} & $\s{\Mi}$ & \Cod{\Mi} \HL
+	\CaTb{13} & $\s{\ni}$ & \Cod{\ni} & $\s{\Ni}$ & \Cod{\Ni} \HL
+	\CaTb{14} & $\s{\xi}$ & \Cod{\xi} & $\s{\Xi}$ & \Cod{\Xi} \HL
+	\CaTb{15} & $\s{\omicron}$ & \Cod{\omicron} & $\s{\Omicron}$ & \Cod{\Omicron} \HL
+	\CaTb{16} & $\s{\pi}$ & \Cod{\pi} & $\s{\Pi}$ & \Cod{\Pi} \HL
+	\CaTb{17} & $\s{\ro,\roj}$ & \Cod{\ro,\roj} & $\s{\Ro}$ & \Cod{\Ro} \HL
+	\CaTb{18} & $\s{\sigma, \sigmaj}$ & \Cod{\sigma, \sigmaj} & $\s{\Sigma}$ & \Cod{\Sigma} \HL
+	\CaTb{19} & $\s{\taf}$ & \Cod{\taf} & $\s{\Taf}$ & \Cod{\Taf} \HL
+	\CaTb{20} & $\s{\yps}$ & \Cod{\yps} & $\s{\Yps}$ & \Cod{\Yps} \HL
+	\CaTb{21} & $\s{\phi,\phij}$ & \Cod{\phi,\phij} & $\s{\Phi}$ & \Cod{\Phi} \HL
+	\CaTb{22} & $\s{\ji}$ & \Cod{\ji} & $\s{\Ji}$ & \Cod{\Ji} \HL
+	\CaTb{23} & $\s{\psi}$ & \Cod{\psi} & $\s{\Psi}$ & \Cod{\Psi} \HL
+	\CaTb{24} & $\s{\omega}$ & \Cod{\omega} & $\s{\Omega}$ & \Cod{\Omega} \HL
+\end{tabular}
+		\subsection{Otras Letras}
+\begin{tabular}{|Sc|Sc|Sl|} \hline
+	\Fa \Cn & \bf \Tb{Letra.} & \bf \Tb{Código} \HL
+	\CaTb{1} & $\s{\aleph}$ & \Cod{\aleph} \HL
+	\CaTb{2} & $\s{\imath}$ & \Cod{\imath} \HL
+	\CaTb{3} & $\s{\jmath}$ & \Cod{\jmath} \HL
+	\CaTb{4} & $\s{\ell}$ & \Cod{\ell} \HL
+	\CaTb{5} & $\s{\cte}$ & \Cod{\cte} \HL
+\end{tabular}
+	\section{Acentos}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Acento} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Vector} & $\s{\vec{v}}$ & \Cod{\vec{v}} \HL
+	\CaTb{Vector De Coordenadas} & $\s{\vc{r}}$ & \Cod{\vc{r}} \HL
+	\CaTb{Vector De Coordenadas Desde Un Centro De Momentos} & $\s{\vco{r}}$ & \Cod{\vco{r}} \HL
+	\CaTb{Vector De Coordenadas Desde El Centro De Masas} & $\s{\vcm{r}}$ & \Cod{\vcm{r}} \HL
+	\CaTb{Tensor} & $\s{\ten[\mi]{F}[\ni]}$ & \Cod{\ten[\mi]{F}[\ni]} \HL
+	\CaTb{Función Vectorial} & $\s{\Vec{v_{(t)}}}$ & \Cod{\Vec{v_{(t)}}} \HL
+	\CaTb{Vector Desde Un Centro De Momentos} & $\s{\Veco{L_{(t)}}}$ & \Cod{\Veco{L_{(t)}}} \HL
+	\CaTb{Vector Desde El Centro De Masas} & $\s{\Vecm{L_{(t)}}}$ & \Cod{\Vecm{L_{(t)}}} \HL
+	\CaTb{Vector Fila (Bra)} & $\s{\bra{\psi_{(t)}}}$ & \Cod{\bra{\psi_{(t)}}} \HL
+	\CaTb{Vector Columna (Ket)} & $\s{\ket{\psi_{(t)}}}$ & \Cod{\ket{\psi_{(t)}}} \HL
+	\CaTb{Norma (Braket)} & $\s{\bret{\psi_{(t)}}{\psi_{(t)}}}$ & \Cod{\bret{\psi_{(t)}}{\psi_{(t)}}} \HL
+	\CaTb{Producto Exterior (Ketbra)} & $\s{\kbra{\psi_{(t)}}{\psi_{(t)}}}$ & \Cod{\kbra{\psi_{(t)}}{\psi_{(t)}}} \HL
+	\CaTb{Matriz (Braket)} & $\s{\braket{\psi}{\op{A}}{\psi}}$ & \Cod{\braket{\psi}{\op{A}}{\psi}} \HL
+	\CaTb{Versor} & $\s{\ver{x}}$ & \Cod{\ver{x}} \HL
+	\CaTb{Conjugado} & $\s{\conj{\psi}}$ & \Cod{\conj{\psi}} \HL
+	\CaTb{Valor Medio} & $\s{\vm{x}}$ & \Cod{\vm{x}} \HL
+	\CaTb{Traspuesto} & $\s{\tras{A}}$ & \Cod{\tras{A}} \HL
+	\CaTb{Inversa} & $\s{\inv{A}}$ & \Cod{\inv{A}} \HL
+	\CaTb{Traspuesto Conjugado} & $\s{\tc{A}}$ & \Cod{\tc{A}} \HL
+	\CaTb{Pseudo Inversa} & $\s{\psinv{A}}$ & \Cod{\psinv{A}} \HL
+	\CaTb{Operador} & $\s{\op{p}}$ & \Cod{\op{p}} \HL
+	\CaTb{Moño} & $\s{\monio{A}}$ & \Cod{\monio{A}} \HL
+\end{tabular}
+	\section{Variables De Función}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Cn & \bf \Tb{Variables} & \bf \Tb{Código} \HL
+	\CaTb{•} & $\s{\x}$ & \Cod{\x} \HL
+	\CaTb{•} & $\s{\y}$ & \Cod{\y} \HL
+	\CaTb{•} & $\s{\z}$ & \Cod{\z} \HL
+	\CaTb{•} & $\s{\xy}$ & \Cod{\xy} \HL
+	\CaTb{•} & $\s{\xz}$ & \Cod{\xz} \HL
+	\CaTb{•} & $\s{\yz}$ & \Cod{\yz} \HL
+	\CaTb{•} & $\s{\xyz}$ & \Cod{\xyz} \HL
+	\CaTb{•} & $\s{\rf}$ & \Cod{\rf} \HL
+	\CaTb{•} & $\s{\rfz}$ & \Cod{\rfz} \HL
+	\CaTb{•} & $\s{\rtf}$ & \Cod{\rtf} \HL
+	\CaTb{•} & $\s{\xt}$ & \Cod{\xt} \HL
+	\CaTb{•} & $\s{\xyt}$ & \Cod{\xyt} \HL
+	\CaTb{•} & $\s{\xyzt}$ & \Cod{\xyzt} \HL
+	\CaTb{•} & $\s{\rft}$ & \Cod{\rft} \HL
+	\CaTb{•} & $\s{\rfzt}$ & \Cod{\rfzt} \HL
+	\CaTb{•} & $\s{\rtft}$ & \Cod{\rtft} \HL
+	\CaTb{•} & $\s{\prs{x}}$ & \Cod{\prs{x}} \HL
+	\CaTb{•} & $\s{\prs[0]{b}[m]}$ & \Cod{\prs[0]{b}[m]} \HL
+\end{tabular}
+	\section{Constantes}
+\SB{0.95}{\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Nombre} & \bf \Tb{Variables} & \bf \Tb{Código} \HL
+	\CaTb{Unidad Física} & $\s{A = (100 \pm 1) \n[2]{m}}$ & \Cod{A = (100 \pm 1) \n[2]{m}} \HL
+	\CaTb{Unidad Física (Fracción)} & $\s{v = (180 \pm 1) \nfr[2]{m}[2]{s}}$ & \Cod{v = (180 \pm 1) \nfr[2]{m}[2]{s}} \HL
+	\CaTb{Unidad Física (Fracción En Texto)} & $\s{v = (180 \pm 1) \nfrr[2]{m}[2]{s}}$ & \Cod{v = (180 \pm 1) \nfrr[2]{m}[2]{s}} \HL
+	\CaTb{Unidad Física (Fracción Grande)} & $\s{R = (330 \pm 10) \nfrac{\n{kg} \npor \n[2]{m}}{\n[2]{A} \npor \n[3]{s}}}$ & \Cod{R = (330 \pm 10) \nfrac{\n{kg} \npor \n[2]{m}}{\n[2]{A} \npor \n[3]{s}}} \HL
+	\CaTb{Unidad Física (Fracción Grande En Texto)} & $\s{R = (330 \pm 10) \nfrrac{\n{kg} \npor \n[2]{m}}{\n[2]{A} \npor \n[3]{s}}}$ & \Cod{R = (330 \pm 10) \nfrrac{\n{kg} \npor \n[2]{m}}{\n[2]{A} \npor \n[3]{s}}} \HL
+	\CaTb{Constante Del Resorte} & $\s{\kr}$ & \Cod{\kr} \HL
+	\CaTb{Constante De Gravitación Universal} & $\s{\kgu}$ & \Cod{\kgu} \HL
+	\CaTb{Constante De Coulomb} & $\s{\kc}$ & \Cod{\kc} \HL
+	\CaTb{Constante De Permitividad Eléctrica Del Vacío} & $\s{\kpev}$ & \Cod{\kpev} \HL
+	\CaTb{Constante De Permitividad Eléctrica Relativa} & $\s{\kper}$ & \Cod{\kper} \HL
+	\CaTb{Constante De Permeabilidad Magnética Del Vacío} & $\s{\kpmv}$ & \Cod{\kpmv} \HL
+	\CaTb{Constante De Permeabilidad Magnética Relativa} & $\s{\kpmr}$ & \Cod{\kpmr} \HL
+	\CaTb{Constante De Susceptibilidad Eléctrica} & $\s{\kse}$ & \Cod{\kse} \HL
+	\CaTb{Constante De Susceptibilidad Magnética} & $\s{\ksm}$ & \Cod{\ksm} \HL
+	\CaTb{Constante De Boltzmann} & $\s{\kb}$ & \Cod{\kb} \HL
+	\CaTb{Constante De Avogadro} & $\s{\ka}$ & \Cod{\ka} \HL
+	\CaTb{Constante De Los Gases Ideales} & $\s{\kgi}$ & \Cod{\kgi} \HL
+	\CaTb{Constante De Planck} & $\s{\kp}$ & \Cod{\kp} \HL
+	\CaTb{Constante De Planck Reducida} & $\s{\kpr}$ & \Cod{\kpr} \HL
+	\CaTb{Constante De Stefan-Boltzmann} & $\s{\ksb}$ & \Cod{\ksb} \HL
+	\CaTb{Armstrong} & $\s{\arm}$ & \Cod{\arm} \HL
+\end{tabular}}
+\chapter{Comandos Matemáticos} % Capítulo • %
+	\section{Comandos De Geometría}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Comando} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Distancia Euclídea} & $\s{\dist{\vec{u}}{\vec{v}}}$ & \Cod{\dist{\vec{u}}{\vec{v}}} \HL
+	\CaTb{Componente Vectorial} & $\s{\compnt{\vec{u}}{\vec{v}}}$ & \Cod{\compnt{\vec{u}}{\vec{v}}} \HL
+	\CaTb{Proyección Ortogonal Vectorial} & $\s{\proy{\vec{u}}{\vec{v}}}$ & \Cod{\proy{\vec{u}}{\vec{v}}} \HL
+\end{tabular}
+	\section{Comandos De Polinomios}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Comando} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Grado} & $\s{\grad\cor{P_{\x}}}$ & \Cod{\grad\cor{P_{\x}}} \HL
+	\CaTb{Coeficiente Principal} & $\s{\coefp(f)}$ & \Cod{\coefp(f)} \HL
+	\CaTb{Multiplicidad De Raíz} & $\s{\mult{f}{x}}$ & \Cod{\mult{f}{x}} \HL
+	\CaTb{Polinomios De Hermite} & $\s{\Polh{n}{x}}$ & \Cod{\Polh{n}{x}} \HL
+	\CaTb{Polinomios De Hermite} & $\s{\PolH{n}{\rz{\fr{m\omega}{\kpr}}x}}$ & \Cod{\PolH{n}{\rz{\fr{m\omega}{\kpr}}x}} \HL
+	\CaTb{Polinomios De Legendre} & $\s{\Polle{\ell}{x}}$ & \Cod{\Polle{\ell}{x}} \HL
+	\CaTb{Polinomios Asociados De Legendre (Opcional)} & $\s{\Polle[m]{\ell}{x}}$ & \Cod{\Polle[m]{\ell}{x}} \HL
+	\CaTb{Polinomios De Legendre Trigonométricos (Opcional)} & $\s{\Pollet[m]{\ell}}$ & \Cod{\Pollet[m]{\ell}} \HL
+	\CaTb{Polinomios De Laguerre} & $\s{\Polla{n}{x}}$ & \Cod{\Polla{n}{x}} \HL
+	\CaTb{Polinomios Asociados De Laguerre (Opcional)} & $\s{\PolLa[2\ell+1]{n-\ell-1}{\fr{2r}{na_0}}}$ & \Cod{\PolLa[2\ell+1]{n-\ell-1}{\fr{2r}{na_0}}} \HL
+	\CaTb{Polinomios De Chebyshev: Primera Especie} & $\s{\Polch{n}{x}}$ & \Cod{\Polch{n}{x}} \HL
+	\CaTb{Polinomios De Chebyshev: Segunda Especie} & $\s{\Polchs{n}{x}}$ & \Cod{\Polchs{n}{x}} \HL
+	\CaTb{Polinomios De Chebyshev Trigonométricos: Primera Especie} & $\s{\Polcht{n}}$ & \Cod{\Polcht{n}} \HL
+	\CaTb{Polinomios De Chebyshev Trigonométricos: Segunda Especie} & $\s{\Polchst{n}}$ & \Cod{\Polchst{n}} \HL
+	\CaTb{Polinomios De Jacobi} & $\s{\Polja{n}{\alfa}{\vita}{z}}$ & \Cod{\Polja{n}{\alfa}{\vita}{z}} \HL
+\end{tabular}
+	\section{Comandos De Análisis Real}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Comando} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Dominio} & $\s{\dom{f}}$ & \Cod{\dom{f}} \HL
+	\CaTb{Codominio} & $\s{\cod{f}}$ & \Cod{\cod{f}} \HL
+	\CaTb{Imágen} & $\s{\img{f}}$ & \Cod{\img{f}} \HL
+	\CaTb{Recta Tangente} & $\s{\rectan{f}{x_0}}$ & \Cod{\rectan{f}{x_0}} \HL
+	\CaTb{Plano Tangente} & $\s{\platan{f}{x_0,y_0,z_0}}$ & \Cod{\platan{f}{x_0,y_0,z_0}} \HL
+\end{tabular}
+	\section{Comandos De Análisis Complejo}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Comando} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Parte Real} & $\s{\re{z}}$ & \Cod{\re{z}} \HL
+	\CaTb{Parte Real (Opcional)} & $\s{\re[2]{z}}$ & \Cod{\re[2]{z}} \HL
+	\CaTb{Parte Imaginaria} & $\s{\im{z}}$ & \Cod{\im{z}} \HL
+	\CaTb{Parte Imaginaria (Opcional)} & $\s{\im[2]{z}}$ & \Cod{\im[2]{z}} \HL
+	\CaTb{Argumento Principal} & $\s{\Arg(z)}$ & \Cod{\Arg(z)} \HL
+	\CaTb{Rama Principal Del Logaritmo} & $\s{\Log(z)}$ & \Cod{\Log(z)} \HL
+	\CaTb{Residuo} & $\s{\res{f_{\z}}{\inf}}$ & \Cod{\res{f_{\z}}{\inf}} \HL
+	\CaTb{Residuo (Opcional)} & $\s{\res[2]{f_{\z}}{\inf}}$ & \Cod{\res[2]{f_{\z}}{\inf}} \HL
+\end{tabular}
+	\section{Comandos De Análisis Numérico}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Comando} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Punto Flotante} & $\s{\fl{x+y}}$ & \Cod{\fl{x+y}} \HL
+	\CaTb{Número De Condición} & $\s{\cond[\alpha](A)}$ & \Cod{\cond[\alpha](A)} \HL
+\end{tabular}
+	\section{Comandos De Álgebra Lineal}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Comando} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Núcleo} & $\s{\Nu(A)}$ & \Cod{\Nu(A)} \HL
+	\CaTb{Dimensión} & $\s{\dim{C}{(A)}}$ & \Cod{\dim{C}{(A)}} \HL
+	\CaTb{Rango} & $\s{\rang(A)}$ & \Cod{\rang(A)} \HL
+	\CaTb{Traza} & $\s{\tr(A)}$ & \Cod{\tr(A)} \HL
+	\CaTb{Matriz Diagonal} & $\s{\diag(A)}$ & \Cod{\diag(A)} \HL
+	\CaTb{Matriz Adjunta} & $\s{\adj(A)}$ & \Cod{\adj(A)} \HL
+\end{tabular}
+\chapter{Análisis Matemático} % Capítulo • %
+	\section{Funciones Matemáticas}
+		\subsection{Funciones}
+\SB{0.75}{\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Definición} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Definición De Una Función} & $\s{\Def{f}{X}{Y}{x}{y = f_{\x}}}$ & \Cod{\Def{f}{X}{Y}{x}{y = f_{\x}}} \HL
+	\CaTb{Definición De Una Función (Con Condición)} & $\s{\Defc{f_{\z}}{\bb{C}}{\bb{C}}{z}{y = a_n z^n}{a_n \neq 0}}$ & \Cod{\Defc{f_{\z}}{\bb{C}}{\bb{C}}{z}{y = a_n z^n}{a_n \neq 0}} \HL
+	\CaTb{Función Escalar} & $\s{\Fs{f}{3}}$ & \Cod{\Fs{f}{3}} \HL
+	\CaTb{Función Vectorial} & $\s{\Fv{\ff{F}}{3}{m}}$ & \Cod{\Fv{\ff{F}}{3}{m}} \HL
+	\CaTb{Campo Vectorial} & $\s{\Cv{E}{3}}$ & \Cod{\Cv{E}{3}} \HL
+	\CaTb{Función A Trozos (Dos Partes) (Opcional)} & $\s{\Ftt[con]{-\fr{\sigma}{2 \kpev} \ver{z}}{z \nig 0}{\fr{\sigma}{2 \kpev} \ver{z}}{0 \nig z}}$ & \Cod{\Ftt[con]{-\fr{\sigma}{2 \kpev} \ver{z}}{z \nig 0}{\fr{\sigma}{2 \kpev} \ver{z}}{0 \nig z}} \HL
+	\CaTb{Función A Trozos (Tres Partes) (Opcional)} & $\s{\Fttt[si]{z}{z \nig a}{z^2}{a \nig z \nig b}{-z}{b \nig z}}$ & \Cod{\Fttt[si]{z}{z \nig a}{z^2}{a \nig z \nig b}{-z}{b \nig z}} \HL
+	\CaTb{Función A Trozos (Cuatro Partes) (Opcional)} & $\s{\Ftttt[si]{1}{n=4m}{i}{n=4m+1}{-1}{n=4m+2}{-i}{n=4m+3}}$ & \Cod{\Ftttt[si]{1}{n=4m}{i}{n=4m+1}{-1}{n=4m+2}{-i}{n=4m+3}} \HL
+	\CaTb{Función A Trozos ($n$-Partes) (Opcional)} & $\s{\Ftn[si]{1}{n=4m}{i}{n=4m+1}{-1}{n=4m+2}{-i}{n=4m+3}}$ & \Cod{\Ftn[si]{1}{n=4m}{i}{n=4m+1}{-1}{n=4m+2}{-i}{n=4m+3}} \HL
+	\CaTb{Función Paramétrica (Un Parámetro)} & $\s{\Fp{1 \nig i \nig n}}$ & \Cod{\Fp{1 \nig i \nig n}} \HL
+	\CaTb{Función Paramétrica (Dos Parámetros)} & $\s{\Fpp{1 \nig i \nig n}{1 \nig j \nig m}}$ & \Cod{\Fpp{1 \nig i \nig n}{1 \nig j \nig m}} \HL
+	\CaTb{Función Paramétrica (Tres Parámetros)} & $\s{\Fppp{1 \nig i \nig n}{1 \nig j \nig m}{1 \nig k \nig l}}$ & \Cod{\Fppp{1 \nig i \nig n}{1 \nig j \nig m}{1 \nig k \nig l}} \HL
+	\CaTb{Función Paramétrica (Cuatro Parámetros)} & $\s{\Fpppp{1 \nig i \nig n}{1 \nig j \nig m}{1 \nig k \nig l}{i \dis j \dis k}}$ & \Cod{\Fpppp{1 \nig i \nig n}{1 \nig j \nig m}{1 \nig k \nig l}{i \dis j \dis k}} \HL
+	\CaTb{Función Paramétrica (Cinco Parámetros)} & $\s{\Fppppp{a=1}{b=2}{c=3}{d=4}{e=5}}$ & \Cod{\Fppppp{a=1}{b=2}{c=3}{d=4}{e=5}} \HL
+	\CaTb{Función Paramétrica (Seis Parámetros)} & $\s{\Fpppppp{a}{b}{c}{d}{e}{f}}$ & \Cod{\Fpppppp{a}{b}{c}{d}{e}{f}} \HL
+	\CaTb{Función Paramétrica ($\s{n}$-Parámetros, Opcional)} & $\s{\Fpn[\esp{8}]{y=mx_1+b_1}{y=mx_2+b_2}{y=mx_3+b_3}{y=mx_n+b_n}}$ & \Cod{\Fpn[\esp{8}]{y=mx_1+b_1}{y=mx_2+b_2}{y=mx_3+b_3}{y=mx_n+b_n}} \HL
+	\CaTb{Función Paramétrica ($\s{(n+1)}$-Parámetros)} & $\s{\Fppn{i=1}{j=2}{k=3}{y=mx_1+b_1}{y=mx_n+b_n}}$ & \Cod{\Fppn{i=1}{j=2}{k=3}{y=mx_1+b_1}{y=mx_n+b_n}} \HL
+\end{tabular}}
+		\subsection{Funciones Trigonométricas}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Nombre} & \bf \Tb{Función} & \bf \Tb{Código} \HL
+	\CaTb{Seno} & $\s{\sen\x}$ & \Cod{\sen\x} \HL
+	\CaTb{Coseno} & $\s{\cos\x}$ & \Cod{\cos\x} \HL
+	\CaTb{Tangente} & $\s{\tan\x}$ & \Cod{\tan\x} \HL
+	\CaTb{Cosecante} & $\s{\csc\x}$ & \Cod{\csc\x} \HL
+	\CaTb{Secante} & $\s{\sec\x}$ & \Cod{\sec\x} \HL
+	\CaTb{Cotangente} & $\s{\cot\x}$ & \Cod{\cot\x} \HL
+	\CaTb{Arcoseno} & $\s{\asen\x}$ & \Cod{\asen\x} \HL
+	\CaTb{Arcocoseno} & $\s{\acos\x}$ & \Cod{\acos\x} \HL
+	\CaTb{Arcotangente} & $\s{\atan\x}$ & \Cod{\atan\x} \HL
+	\CaTb{Arcocosecante} & $\s{\acsc\x}$ & \Cod{\acsc\x} \HL
+	\CaTb{Arcosecante} & $\s{\asec\x}$ & \Cod{\asec\x} \HL
+	\CaTb{Arcocotangente} & $\s{\acot\x}$ & \Cod{\acot\x} \HL
+	\CaTb{Seno Hiperbólico} & $\s{\senh\x}$ & \Cod{\senh\x} \HL
+	\CaTb{Coseno Hiperbólico} & $\s{\cosh\x}$ & \Cod{\cosh\x} \HL
+	\CaTb{Tangente Hiperbólica} & $\s{\tanh\x}$ & \Cod{\tanh\x} \HL
+	\CaTb{Cosecante Hiperbólica} & $\s{\csch\x}$ & \Cod{\csch\x} \HL
+	\CaTb{Secante Hiperbólica} & $\s{\sech\x}$ & \Cod{\sech\x} \HL
+	\CaTb{Cotangente Hiperbólica} & $\s{\coth\x}$ & \Cod{\coth\x} \HL
+	\CaTb{Arcoseno Hiperbólico} & $\s{\asenh\x}$ & \Cod{\asenh\x} \HL
+	\CaTb{Arcocoseno Hiperbólico} & $\s{\acosh\x}$ & \Cod{\acosh\x} \HL
+	\CaTb{Arcotangente Hiperbólica} & $\s{\atanh\x}$ & \Cod{\atanh\x} \HL
+	\CaTb{Arcocosecante Hiperbólica} & $\s{\acsch\x}$ & \Cod{\acsch\x} \HL
+	\CaTb{Arcosecante Hiperbólica} & $\s{\asech\x}$ & \Cod{\asech\x} \HL
+	\CaTb{Arcocotangente Hiperbólica} & $\s{\acoth\x}$ & \Cod{\acoth\x} \HL
+	\CaTb{Seno Cardinal} & $\s{\senc\x}$ & \Cod{\senc\x} \HL
+\end{tabular}
+		\subsection{Funciones Partidas}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Nombre} & \bf \Tb{Funciones Partidas} & \bf \Tb{Código} \HL
+	\CaTb{Función Característica} & $\s{\crc{[0,1)}{x}}$ & \Cod{\crc{[0,1)}{x}} \HL
+	\CaTb{Función Signo} & $\s{\sg(x-\alfa)}$ & \Cod{\sg(x-\alfa)} \HL
+	\CaTb{Función Escalón De Heaviside} & $\s{\heav{x-\alfa}}$ & \Cod{\heav{x-\alfa}} \HL
+	\CaTb{Función Rectangular} & $\s{\rect(x-\alfa)}$ & \Cod{\rect(x-\alfa)} \HL
+	\CaTb{Función Valor Absoluto} & $\s{\abs\x}$& \Cod{\abs\x} \HL
+	\CaTb{Función Rampa} & $\s{\ramp\x}$ & \Cod{\ramp\x} \HL
+	\CaTb{Función Techo} & $\s{\techo\x}$ & \Cod{\techo\x} \HL
+	\CaTb{Función Piso} & $\s{\piso\x}$ & \Cod{\piso\x} \HL
+\end{tabular}
+		\subsection{Funciones Antiderivadas De Funciones Elementales}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Nombre} & \bf \Tb{Funciones Partidas} & \bf \Tb{Código} \HL
+	\CaTb{Exponencial Integral} & $\s{\Ei\x}$ & \Cod{\Ei\x} \HL
+	\CaTb{Logaritmo Integral} & $\s{\li\x}$ & \Cod{\li\x} \HL
+	\CaTb{Logaritmo Integral Desplazada} & $\s{\Li\x}$ & \Cod{\Li\x} \HL
+	\CaTb{Seno Integral} & $\s{\si\x}$ & \Cod{\si\x} \HL
+	\CaTb{Seno Integral} & $\s{\Si\x}$ & \Cod{\Si\x} \HL
+	\CaTb{Coseno Integral} & $\s{\Ci\x}$ & \Cod{\Ci\x} \HL
+	\CaTb{Seno Hiperbólico Integral} & $\s{\Shi\x}$ & \Cod{\Shi\x} \HL
+	\CaTb{Coseno Hiperbólico Integral} & $\s{\Chi\x}$ & \Cod{\Chi\x} \HL
+	\CaTb{Función Error} & $\s{\erf\x}$ & \Cod{\erf\x} \HL
+\end{tabular}
+		\subsection{Funciones Especiales}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Comando} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Armónicos Esféricos Complejos (Opcional)} & $\s{\ArmS[']{2}{-1}}$ & \Cod{\ArmS[']{2}{-1}} \HL
+	\CaTb{Armónicos Esféricos Complejos Conjugados (Opcional)} & $\s{\ArmSc[']{\ell'}{m'}}$ & \Cod{\ArmSc[']{\ell'}{m'}} \HL
+	\CaTb{Armónicos Esféricos Reales} & $\s{\ArmSr{3}{-1}}$ & \Cod{\ArmSr{3}{-1}} \HL
+	\CaTb{Función Gamma} & $\s{\G{z}}$ & \Cod{\G{z}} \HL
+	\CaTb{Función Poligamma (Opcional)} & $\s{\PG[(m)]{z+1}}$ & \Cod{\PG[(m)]{z+1}} \HL
+	\CaTb{Funciones De Bessel De Primera Especie} & $\s{\BesJ{n}{x}}$ & \Cod{\BesJ{n}{x}} \HL
+	\CaTb{Funciones De Bessel De Segunda Especie} & $\s{\BesN{n}{x}}$ & \Cod{\BesN{n}{x}} \HL
+	\CaTb{Funciones De Bessel Modificadas De Primera Especie} & $\s{\BesI{n}{z}}$ & \Cod{\BesI{n}{z}} \HL
+	\CaTb{Funciones De Bessel Modificadas De Segunda Especie} & $\s{\BesK{n}{z}}$ & \Cod{\BesK{n}{z}} \HL
+\end{tabular}
+	\section{Distribuciones Matemáticas}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Nombre} & \bf \Tb{Distribución} & \bf \Tb{Código} \HL
+	\CaTb{Delta De Dirac (Opcional)} & $\s{\dirac[3]{(\vc{r}-\vc{r}')}}$ & \Cod{\dirac[3]{(\vc{r}-\vc{r}')}} \HL
+	\CaTb{Delta De Kronecker} & $\s{\kro{ij}=\kro[i]{j}}$ & \Cod{\kro{ij} = \kro[i]{j}} \HL
+\end{tabular}
+	\section{Operadores Grandes}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Operador} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Sumatoria} & $\s{\S{i \neq j}{m}{x_i}}$ & \Cod{\S{i \neq j}{m}{x_i}} \HL
+	\CaTb{Sumatoria Doble} & $\s{\SS{i=1}{n}{j=1}{m}{x_{ij}}}$ & \Cod{\SS{i=1}{n}{j=1}{m}{x_{ij}}} \HL
+	\CaTb{Sumatoria Triple} & $\s{\SSS{i=1}{n}{j=1}{m}{k=1}{l}{x_{ijk}}}$ & \Cod{\SSS{i=1}{n}{j=1}{m}{k=1}{l}{x_{ijk}}} \HL
+	\CaTb{Productoria} & $\s{\P{i \neq j}{m}{x_i}}$ & \Cod{\P{i \neq j}{m}{x_i}} \HL
+	\CaTb{Productoria Doble} & $\s{\PP{i=1}{n}{j=1}{m}{x_{ij}}}$ & \Cod{\PP{i=1}{n}{j=1}{m}{x_{ij}}} \HL
+	\CaTb{Productoria Triple} & $\s{\PPP{i=1}{n}{j=1}{m}{k=1}{l}{x_{ijk}}}$ & \Cod{\PPP{i=1}{n}{j=1}{m}{k=1}{l}{x_{ijk}}} \HL
+	\CaTb{Unión} & $\s{\U{i \neq j}{m}{x_i}}$ & \Cod{\U{i \neq j}{m}{x_i}} \HL
+	\CaTb{Unión Doble} & $\s{\UU{i=1}{n}{j=1}{m}{x_{ij}}}$ & \Cod{\UU{i=1}{n}{j=1}{m}{x_{ij}}} \HL
+	\CaTb{Unión Triple} & $\s{\UUU{i=1}{n}{j=1}{m}{k=1}{l}{x_{ijk}}}$ & \Cod{\UUU{i=1}{n}{j=1}{m}{k=1}{l}{x_{ijk}}} \HL
+	\CaTb{Intersección} & $\s{\I{i \neq j}{m}{x_i}}$ & \Cod{\I{i \neq j}{m}{x_i}} \HL
+	\CaTb{Intersección Doble} & $\s{\II{i=1}{n}{j=1}{m}{x_{ij}}}$ & \Cod{\II{i=1}{n}{j=1}{m}{x_{ij}}} \HL
+	\CaTb{Intersección Triple} & $\s{\III{i=1}{n}{j=1}{m}{k=1}{l}{x_{ijk}}}$ & \Cod{\III{i=1}{n}{j=1}{m}{k=1}{l}{x_{ijk}}} \HL
+	\CaTb{Suma Directa} & $\s{\SD{i=1}{n}{x_i}}$ & \Cod{\SD{i=1}{n}{x_i}} \HL
+\end{tabular}
+	\section{Límites}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Derivada} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Límite} & $\s{\lim{x}{a}{f_{\x}}}$ & \Cod{\lim{x}{a}{f_{\x}}} \HL
+	\CaTb{Límite Iterado Doble} & $\s{\liim{x}{y}{a}{b}{f_{\xy}}}$ & \Cod{\liim{x}{y}{a}{b}{f_{\xy}}} \HL
+	\CaTb{Límite Iterado Triple} & $\s{\liiim{x}{y}{z}{a}{b}{c}{f_{\xyz}}}$ & \Cod{\liiim{x}{y}{z}{a}{b}{c}{f_{\xyz}}} \HL
+	\CaTb{Límite Doble} & $\s{\llim{r}{2}{\tita}{\frr{\pi}{2}}{f_{\rf}}}$ & \Cod{\llim{r}{2}{\tita}{\frr{\pi}{2}}{f_{\rf}}} \HL
+	\CaTb{Límite Triple} & $\s{\lllim{\rho}{R}{\tita}{\pi}{\phi}{\frr{\pi}{4}}{f_{\rtf}}}$ & \Cod{\lllim{\rho}{R}{\tita}{\pi}{\phi}{\frr{\pi}{4}}{f_{\rtf}}} \HL
+	\CaTb{Límite $\s{n}$-ésimo} & $\s{\limite[n]{x}{a}{f_{\prs{x}}}}$ & \Cod{\limite[n]{x}{a}{f_{\prs{x}}}} \HL
+	\CaTb{Límite Superior} & $\s{\lims{x}{a}{f_{\x}}}$ & \Cod{\lims{x}{a}{f_{\x}}} \HL
+	\CaTb{Límite Inferior} & $\s{\limi{x}{a}{f_{\x}}}$ & \Cod{\limi{x}{a}{f_{\x}}} \HL
+	\CaTb{Máximo (Opcional)} & $\s{\max[1 \leq i \leq n]{f_{\xyz}}}$ & \Cod{\max[1 \leq i \leq n]{f_{\xyz}}} \HL
+	\CaTb{Mínimo (Opcional)} & $\s{\min[1 \leq j \leq m]{f_{\x}}}$ & \Cod{\min[1 \leq j \leq m]{f_{\x}}} \HL
+	\CaTb{Supremo (Opcional)} & $\s{\sup[x \in a]{f_{\x}}}$ & \Cod{\sup[x \in a]{f_{\x}}} \HL
+	\CaTb{Infimo (Opcional)} & $\s{\infm[x \in v]{f_{\x}}}$ & \Cod{\infm[x \in v]{f_{\x}}} \HL
+\end{tabular}
+	\section{Derivadas}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Derivada} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Diferencial/Derivada (Opcional)} & $\s{\d[x] \psi_{\xt}}$ & \Cod{\d[x] \psi_{\xt}} \HL
+	\CaTb{Diferencial Inexacto} & $\dj W$ & \Cod{\dj W} \HL
+	\CaTb{Derivada Parcial (Opcionales)} & $\s{\p[\ni][\mi]}$ & \Cod{\p[\ni][\mi]} \HL
+	\CaTb{Derivada Material (Opcional)} & $\s{\D}$ & \Cod{\D} \HL
+	\CaTb{Derivada De Orden $\s{n}$ (Opcional)} & $\s{\dv[n]{f_{\x}}{x}}$ & \Cod{\dv[n]{f_{\x}}{x}} \HL
+	\CaTb{Derivada Direccional} & $\s{\ddir{\vec{u}}{f_{\xyz}}}$ & \Cod{\ddir{\vec{u}}{f_{\xyz}}} \HL
+	\CaTb{Derivada Parcial De Orden $\s{n}$ (Opcional)} & $\s{\pd[n]{f_{\x}}{x}}$ & \Cod{\pd[n]{f_{\x}}{x}} \HL
+	\CaTb{Derivada Parcial De Orden $\s{n+m}$} & $\s{\ppd{f_{\xy}}{x}{n}{y}{1}}$ & \Cod{\ppd{f_{\xy}}{x}{n}{y}{1}} \HL
+	\CaTb{Derivada Parcial De Orden $\s{n+m+l}$} & $\s{\pppd{f_{\xyz}}{x}{n}{y}{3}{z}{l}}$ & \Cod{\pppd{f_{\xyz}}{x}{n}{y}{3}{z}{l}} \HL
+	\CaTb{Derivada Parcial De Orden $\s{n+m+l+o}$} & $\s{\ppppd{f_{(w,x,y,z)}}{w}{2}{x}{n}{y}{3}{z}{l}}$ & \Cod{\ppppd{f_{(w,x,y,z)}}{w}{2}{x}{n}{y}{3}{z}{l}} \HL
+	\CaTb{Derivada Relativa De Orden $n$ (Opcional)} & $\s{\dvr[n]{f_{\x}}{x}{S}}$ & \Cod{\dvr[n]{f_{\x}}{x}{S}} \HL
+	\CaTb{Derivada Parcial Relativa} & $\s{\pdr{f_{\x}}{x}{S}}$ & \Cod{\pdr{f_{\x}}{x}{S}} \HL
+	\CaTb{Derivada Material} & $\s{\dm{\phij_{\xyz}}}$ & \Cod{\dm{\phij_{\xyz}}} \HL
+\end{tabular}
+		\subsection{Derivadas Pequeñas (Small)}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Derivada} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Derivada De Orden $\s{n}$ (Opcional)} & $\s{\dvs[n]{f_{\x}}{x}}$ & \Cod{\dvs[n]{f_{\x}}{x}} \HL
+	\CaTb{Derivada Parcial De Orden $\s{n}$ (Opcional)} & $\s{\pds[n]{f_{\x}}{x}}$ & \Cod{\pds[n]{f_{\x}}{x}} \HL
+	\CaTb{Derivada Parcial De Orden $\s{n+m}$} & $\s{\ppds{f_{\xy}}{x}{n}{y}{1}}$ & \Cod{\ppds{f_{\xy}}{x}{n}{y}{1}} \HL
+	\CaTb{Derivada Parcial De Orden $\s{n+m+l}$} & $\s{\pppds{f_{\xyz}}{x}{n}{y}{3}{z}{l}}$ & \Cod{\pppds{f_{\xyz}}{x}{n}{y}{3}{z}{l}} \HL
+	\CaTb{Derivada Parcial De Orden $\s{n+m+l+o}$} & $\s{\ppppds{f_{(w,x,y,z)}}{w}{2}{x}{n}{y}{3}{z}{l}}$ & \Cod{\ppppds{f_{(w,x,y,z)}}{w}{2}{x}{n}{y}{3}{z}{l}} \HL
+	\CaTb{Derivada Relativa De Orden $n$ (Opcional)} & $\s{\dvrs[n]{f_{\x}}{x}{S}}$ & \Cod{\dvrs[n]{f_{\x}}{x}{S}} \HL
+	\CaTb{Derivada Parcial Relativa} & $\s{\pdrs{f_{\x}}{x}{S}}$ & \Cod{\pdrs{f_{\x}}{x}{S}} \HL
+	\CaTb{Derivada Material} & $\s{\dms{\phij_{\xyz}}}$ & \Cod{\dms{\phij_{\xyz}}} \HL
+\end{tabular}
+	\section{Integrales}
+\SB{0.92}{\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Integral} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Integral Simple} & $\s{\Int{a}{b}{f_{\x} \cos(x)}{x}}$ & \Cod{\Int{a}{b}{f_{\x} \cos(x)}{x}} \HL
+	\CaTb{Integral Simple (Diferencial Inexacto)} & $\s{\Intj{A}{B}{\esp{-6}}{W}}$ & \Cod{\Intj{A}{B}{\esp{-6}}{W}} \HL
+	\CaTb{Integral Simple Cerrada (Ángulo Sólido)} & $\s{\Oint{0}{4\pi}{f_{\rtf}}{\Omega}}$ & \Cod{\Oint{0}{4\pi}{f_{\rtf}}{\Omega}} \HL
+	\CaTb{Integral Doble} & $\s{\ii{0}{R}{0}{2 \pi}{r \cos^2(\tita) \sen^2(\tita)}{r}{\tita}}$ & \Cod{\ii{0}{R}{0}{2 \pi}{r \cos^2(\tita) \sen^2(\tita)}{r}{\tita}} \HL
+	\CaTb{Integral Triple} & $\s{\iii{0}{R}{0}{2 \pi}{0}{\pi}{r \cos^2(\tita) \sen^2(\phi)}{r}{\tita}{\phi}}$ & \Cod{\iii{0}{R}{0}{2 \pi}{0}{\pi}{r \cos^2(\tita) \sen^2(\phi)}{r}{\tita}{\phi}} \HL
+\end{tabular}}
+		\subsection{Integral De Linea}
+\paragraph{Integral De Linea Para Campos Escalares}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Integral} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Integral Simple (Opcional)} & $\s{\ils[\cal{C}_f]{\cal{C}}{f_{\x}}{s}}$ & \Cod{\ils[\cal{C}_f]{\cal{C}}{f_{\x}}{s}} \HL
+	\CaTb{Integral Cerrada (Opcional)} & $\s{\ilos[\cal{C}_f]{\cal{C}}{f_{\x}}{s}}$ & \Cod{\ilos[\cal{C}_f]{\cal{C}}{f_{\x}}{s}} \HL
+	\CaTb{Integral Cerrada Orientada Negativamente (Opcional)} & $\s{\iloscl[\cal{C}_f]{\cal{C}^-}{f_{\x}}{s}}$ & \Cod{\iloscl[\cal{C}_f]{\cal{C}^-}{f_{\x}}{s}} \HL
+	\CaTb{Integral Cerrada Orientada Positivamente (Opcional)} & $\s{\iloscr[\cal{C}_f]{\cal{C}^+}{f_{\x}}{s}}$ &\Cod{\iloscr[\cal{C}_f]{\cal{C}^+}{f_{\x}}{s}} \HL
+\end{tabular}
+\paragraph{Integral De Linea Para Campos Vectoriales}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Integral} & \bf \Tb{Ejemplo 1} & \bf \Tb{Código} \HL
+	\CaTb{Integral Simple (Opcional)} & $\s{\ilv[\cal{C}_f]{\cal{C}}{\ff{F}_{\xyz}}{r}}$ & \Cod{\ilv[\cal{C}_f]{\cal{C}}{\ff{F}_{\xyz}}{r}} \HL
+	\CaTb{Integral Cerrada (Opcional)} & $\s{\ilov[\cal{C}_f]{\cal{C}}{\ff{F}_{\xyz}}{\ell}}$ & \Cod{\ilov[\cal{C}_f]{\cal{C}}{\ff{F}_{\xyz}}{\ell}} \HL
+	\CaTb{Integral Cerrada Orientada Negativamente (Opcional)} & $\s{\ilovcl[\cal{C}_f]{\cal{C}^-}{\ff{F}_{\xyz}}{r}}$ & \Cod{\ilovcl[\cal{C}_f]{\cal{C}^-}{\ff{F}_{\xyz}}{r}} \HL
+	\CaTb{Integral Cerrada Orientada Positivamente (Opcional)} & $\s{\ilovcr[\cal{C}_f]{\cal{C}^+}{\ff{F}_{\xyz}}{\ell}}$ & \Cod{\ilovcr[\cal{C}_f]{\cal{C}^+}{\ff{F}_{\xyz}}{\ell}} \HL
+\end{tabular}
+		\subsection{Integral De Superficie}
+\paragraph{Integral De Superficie Para Campos Escalares}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Integral} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Integral Simple (Opcional)} & $\s{\iss[\ff{S}_f]{\ff{S}}{f_{\xyz}}{S}}$ & \Cod{\iss[\ff{S}_f]{\ff{S}}{f_{\xyz}}{S}} \HL
+	\CaTb{Integral Cerrada (Opcional)} & $\s{\isos[\ff{S}_f]{\ff{S}}{f_{\xyz}}{S}}$ & \Cod{\isos[\ff{S}_f]{\ff{S}}{f_{\xyz}}{S}} \HL
+\end{tabular}
+\paragraph{Integral De Superficie Para Campos Vectoriales}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Integral} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Integral Simple (Opcional)} & $\s{\isv[\ff{S}_f]{\ff{S}}{\ff{F}_{\xyz}}{S}}$ & \Cod{\isv[\ff{S}_f]{\ff{S}}{\ff{F}_{\xyz}}{S}} \HL
+	\CaTb{Integral Cerrada (Opcional)} & $\s{\isov[\ff{S}_f]{\ff{S}}{\ff{F}_{\xyz}}{S}'}$ & \Cod{\isov[\ff{S}_f]{\ff{S}}{\ff{F}_{\xyz}}{S}'} \HL
+\end{tabular}
+		\subsection{Integral De Volumen Para Campos Escalares}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Integral} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Integral De Volumen (Opcional)} & $\s{\ivs[\bb{Q}_f]{\bb{Q}}{f_{\rtf}}{V}}$ & \Cod{\ivs[\bb{Q}_f]{\bb{Q}}{f_{\rtf}}{V}} \HL
+	\CaTb{Integral De Volumen (Opcional)} & $\s{\ivsr[\vc{r}_f]{\vc{r}_i}{f_{(\vc{r})}}{r}}$ & \Cod{\ivsr[\vc{r}_f]{\vc{r}_i}{f_{\rtf}}{r}} \HL
+\end{tabular}
+		\subsection{Integral De Volumen Para Campos Vectoriales}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Integral} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Integral De Volumen (Opcional)} & $\s{\ivv[\bb{Q}_f]{\bb{Q}}{\ff{F}_{\xyz}}{V}}$ & \Cod{\ivv[\bb{Q}_f]{\bb{Q}}{\ff{F}_{\xyz}}{V}} \HL
+\end{tabular}
+	\section{Transformadas}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Transformada} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Transformada De Fourier (Opcional)} & $\s{\TF[x]{f_{\x}}{\xi} = \pi e^{-|\xi|}}$ & \Cod{\TF[x]{f_{\x}}{\xi} = \pi e^{-|\xi|}} \HL
+	\CaTb{Transformada De Laplace (Opcional)} & $\s{\TL[x]{f_{\x}}{s} = \fr{1}{s-z}}$ & \Cod{\TL[x]{f_{\x}}{s} = \fr{1}{s-z}} \HL
+\end{tabular}
+	\section{Matrices}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Matriz} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Número Combinatorio} & $\s{\S{k=0}{n}{\comb{n}{k} \por x^{n-k} \por y^k}}$ & \Cod{\S{k=0}{n}{\comb{n}{k} \por x^{n-k} \por y^k}} \HL
+	\CaTb{Matriz Con Paréntesis} & $\s{\lpm a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \rpm}$ & \Cod{\lpm a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \rpm} \HL
+	\CaTb{Matriz Con Corchetes} & $\s{\lbm a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \rbm}$ & \Cod{\lbm a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \rbm} \HL
+	\CaTb{Matriz Con Llaves} & $\s{\llam a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \rlam}$ & \Cod{\llam a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \rlam} \HL
+	\CaTb{Matriz Con Módulo} & $\s{\lvm a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \rvm}$ & \Cod{\lvm a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \rvm} \HL
+	\CaTb{Matriz Con Norma} & $\s{\lvvm a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \rvvm}$ & \Cod{\lvvm a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} \rvvm} \HL
+	\CaTb{Dimensión $\s{\dxd}$} & $\s{A \in \bb{K}^{\dxd}}$ & \Cod{A \in \bb{K}^{\dxd}} \HL
+	\CaTb{Dimensión $\s{\txt}$} & $\s{A \in \bb{K}^{\txt}}$ & \Cod{A \in \bb{K}^{\txt}} \HL
+	\CaTb{Dimensión $\s{\nxn}$} & $\s{A \in \bb{K}^{\nxn}}$ & \Cod{A \in \bb{K}^{\nxn}} \HL
+	\CaTb{Dimensión $\s{\nxm}$} & $\s{A \in \bb{K}^{\nxm}}$ & \Cod{A \in \bb{K}^{\nxm}} \HL
+\end{tabular}
+	\section{Tensores}
+\begin{tabular}{|Sl|Sc|Sl|} \hline
+	\Fa \bf \Tb{Tipo De Tensor} & \bf \Tb{Ejemplo} & \bf \Tb{Código} \HL
+	\CaTb{Símbolo De Levi-Civita (Opcional)} & $\s{\levi[nml]{ijk}}$ & \Cod{\levi[nml]{ijk}} \HL
+\end{tabular}

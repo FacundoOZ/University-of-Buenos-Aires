@@ -1,0 +1,53 @@
+
+\title{\Huge\sc\SB{1.1}{\txsub{Licenciatura En Ciencias Físicas}}}							% Título.
+\author{																					% Autor.
+	\LARGE Facundo Otero Zappa | Viernes 10 de Julio del 2020 \vspace{2.5mm} \\ ${}$ \\
+	\Large \cur{Departamento de Física, Facultad de Ciencias Exactas} \& \cur{Naturales, U.B.A.}
+	}
+\date{\vspace{2.5mm}\Large Contacto: \txcol{blue!100}{\txsub{facuotero20.88@outlook.com}}}	% Fecha.
+\pagestyle{fancy} \fancyhf{} % Estilo:
+
+\RC{\sectionmark}[1]{\markright{#1}{}}					% Muestra el número y nombre de la sección.
+\RC{\chaptermark}[1]{\markboth{#1}{}}					% Muestra el número y nombre del capítulo.
+\NC*\parttitle{} \let\origpart\part \RC*{\part}[2][]{	% Muestra El Número Y Nombre De La Parte.
+	\ifx \\#1\\ \origpart{#2} \RC*\parttitle{#2}
+	\else \origpart[#1]{#2} \RC*\parttitle{#1}
+	\fi
+}
+
+\fancyhead[L]{Capítulo \thechapter \ --- \leftmark}		% Encabezado.
+\fancyhead[C]{ }
+\fancyhead[R]{Parte \thepart : \parttitle}
+\lfoot{Sección \thesection \ --- \rightmark}			% Pie de página.
+\cfoot{ }
+\rfoot{Página \thepage}
+
+\maketitle
+
+\RC{\partname}{Parte}									% Nombre de títulos y subtítulos en español.
+\RC{\chaptername}{Capítulo}
+\RC{\abstractname}{Resumen}
+\RC{\appendixpagename}{Apéndice}
+\RC{\appendixname}{Apéndice}
+\RC{\refname}{Bibliografía}
+\RC{\figurename}{Figura}
+\RC{\tablename}{Tabla}
+
+\NC{\NL}{\newline} 										% Nuevo renglón.
+\NC{\NS}{\noindent}										% Sin sangría.
+\NC{\NP}{\newpage}										% Nueva página.
+
+\cellspacetoplimit 2pt \cellspacebottomlimit 2pt		% Espaciado del contenido interno de las tablas.
+\NC{\MC}{\multicolumn}									% Comandos de tablas.
+\NC{\MR}{\multirow}
+\NC{\HL}{\\ \hline}
+\NC{\TNL}[2][Sl]{										% Nuevo renglón en tablas.
+	\begin{tabular}[c]{@{}c@{}#1}
+		#2
+	\end{tabular}
+}
+
+\tableofcontents										% Índice.
+
+\setupname
+\setcounter{page}{1}									% Contador de páginas (del índice).

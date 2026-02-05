@@ -1,0 +1,74 @@
+
+%============================================================================================================================================
+% Librerías
+%============================================================================================================================================
+
+% IMPORTANTE: cambiar los package de lugar (intercambiar entre arriba y abajo) puede ocasionar problemas a la hora de compilar el documento.
+
+% Configuración general del documento:
+\usepackage[utf8]{inputenc}			% Codificación UTF-8 para caracteres especiales
+\usepackage[T1]{fontenc}			% Codificación de fuente T1 (mejor manejo de acentos y símbolos europeos)
+\usepackage[spanish,english]{babel}	% Idiomas: Español, Inglés
+\usepackage{geometry}				% Control de márgenes y dimensiones de página
+\usepackage{float}					% Control de posición exacta de figuras y tablas (opción [H])
+\usepackage{pdflscape}				% Páginas en orientación apaisada dentro del PDF
+\usepackage{setspace}				% Control de interlineado (simple, 1.5, doble, etc.)
+\usepackage[none]{hyphenat}			% Elimina la separación de palabras por sílabas
+\usepackage{titlesec}				% Personalización de secciones, capítulos y títulos
+\usepackage{fancyhdr}				% Encabezados y pies de página personalizados
+
+% Fuentes y tipografía:
+\usepackage{lmodern}				% Fuente Latin Modern (mejor que la Computer Modern por defecto)
+\usepackage{color}					% Soporte básico de color
+\usepackage{xargs}					% Definición de comandos con argumentos opcionales múltiples
+\usepackage{url}					% Permite mostrar y formatear direcciones URL correctamente
+%\usepackage[skip=0.25cm]{parskip} 	% Espaciado entre párrafos en lugar de sangría
+
+% Matemática:
+\usepackage{amsmath}				% Paquete de matemática principal (alinear ecuaciones, entornos, etc.)
+\usepackage{mathtools}				% Extensión de amsmath con funciones adicionales
+\usepackage{amsfonts}				% Fuentes matemáticas adicionales (como \mathbb)
+\usepackage{amssymb}				% Símbolos matemáticos adicionales
+\usepackage{bm}						% Negrita para símbolos matemáticos
+\usepackage{nccmath}				% Permite alinear ecuaciones a la izquierda o modificar el espaciado
+\usepackage{esint}					% Integrales extendidas (como integrales de superficie cerrada)
+\usepackage{xfp}					% Cálculos aritméticos en LaTeX (float-point)
+
+% Tablas:
+\usepackage{booktabs}				% Mejora el diseño de tablas (líneas horizontales más elegantes)
+\usepackage{multirow}				% Permite combinar varias filas en tablas
+\usepackage[table]{xcolor}			% Tablas con colores (permite colorear filas y columnas)
+\usepackage[math]{cellspace}		% Espaciado interno en celdas de tablas (útil con expresiones matemáticas)
+
+% Figuras, gráficos y entornos visuales:
+\usepackage{graphicx}				% Inclusión y manejo de imágenes
+\usepackage{caption}				% Personalización de subtítulos de figuras y tablas
+\usepackage{subfig}					% Subfiguras dentro de una misma figura
+\usepackage[subfigure]{tocloft}		% Complemento para subfiguras en listas de figuras
+\usepackage{wrapfig}				% Inserta figuras dentro del texto (envolventes)
+\usepackage{animate}				% Inserta animaciones (por ejemplo, secuencias de imágenes)
+
+% Gráficos matemáticos y físicos:
+\usepackage{pgfplots}				% Gráficos de funciones y datos con TikZ
+\usepackage{circuitikz}				% Dibujos de circuitos eléctricos y diagramas físicos con TikZ
+\usepackage{stackengine}			% Permite apilar objetos (texto, símbolos, etc.) unos sobre otros
+\usepackage{wasysym}				% Símbolos adicionales (astronómicos, eléctricos, etc.)
+\usetikzlibrary{					% Librerías adicionales para TikZ y circuitikz
+	positioning,					% Control avanzado de posiciones relativas de nodos
+	fit,							% Agrupar nodos en un solo recuadro
+	calc,							% Cálculos de coordenadas (operaciones matemáticas con posiciones)
+	angles,							% Dibujo y etiquetado de ángulos
+	quotes,							% Anotaciones tipo "quotes" en diagramas
+	arrows							% Control de tipos de flechas
+}
+\tikzset{>=latex}					% Estilo de flechas tipo LaTeX (con punta rellena)
+
+% Código fuente y programación:
+\usepackage{listings}				% Entorno para mostrar código fuente (resaltado sintáctico, etc.)
+
+% Bibliografía:
+\usepackage{biblatex}				% Manejo moderno de bibliografía (compatible con Biber/BibTeX)
+
+% Otros:
+\usepackage{xstring}				% Manipulación de cadenas de texto dentro de LaTeX
+

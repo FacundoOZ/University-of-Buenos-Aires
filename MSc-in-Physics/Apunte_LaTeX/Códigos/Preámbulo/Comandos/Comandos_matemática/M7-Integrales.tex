@@ -1,0 +1,40 @@
+
+%============================================================================================================================================
+% Comandos de matemática
+%============================================================================================================================================
+
+% Parte 7: Integrales.
+%---------------------
+
+\NC{\cte}{\tx{C}} % Constante
+
+\NC{\Int} [4]{ \int\limits_{#1}^{#2} #3 \esp{5}\d#4}															% Integral en una  variable
+\NC{\ii}  [7]{ \int\limits_{#3}^{#4}\esp{-3}\int\limits_{#1}^{#2} #5 \esp{5}\d#6\esp{3}\d#7}					% Integral en dos  variables
+\NC{\iii} [7]{ \int\limits_{#5}^{#6}\esp{-3}\int\limits_{#3}^{#4}\esp{-3}\int\limits_{#1}^{#2} #7 \esp{5}\dxyz}	% Integral en tres variables
+\NC{\Intj}[4]{ \int\limits_{#1}^{#2} #3 \esp{5}\dj#4}															% Integral de diferencial inexacto
+\NC{\Oint}[4]{\oint\limits_{#1}^{#2} #3 \esp{5}\d #4}															% Integral ángulo sólido (cerrada)
+
+% Comando auxiliar (para la integral de tres variables):
+\NC{\dxyz}[3]{\d#1\esp{3}\d#2\esp{3}\d#3}
+
+% Integrales de línea:
+\NC{\ils}   [4][]{             \int\limits_{#2}^{#1} #3 \esp{5}\tx{d#4}} % Campo escalar
+\NC{\ilos}  [4][]{            \oint\limits_{#2}^{#1} #3 \esp{5}\tx{d#4}} % Campo escalar (integral cerrada)
+\NC{\iloscl}[4][]{   \ointclockwise\limits_{#2}^{#1} #3 \esp{5}\tx{d#4}} % Campo escalar, integral cerrada, orientación negativa (horario)
+\NC{\iloscr}[4][]{\ointctrclockwise\limits_{#2}^{#1} #3 \esp{5}\tx{d#4}} % Campo escalar, integral cerrada, orientación positiva (anti-horario)
+
+\NC{\ilv}   [4][]{             \int\limits_{#2}^{#1} #3 \por \d\vc{#4}} % Campo vectorial
+\NC{\ilov}  [4][]{            \oint\limits_{#2}^{#1} #3 \por \d\vc{#4}} % Campo vectorial (integral cerrada)
+\NC{\ilovcl}[4][]{   \ointclockwise\limits_{#2}^{#1} #3 \por \d\vc{#4}} % Campo vectorial, integral cerrada, orientación negativa (horario)
+\NC{\ilovcr}[4][]{\ointctrclockwise\limits_{#2}^{#1} #3 \por \d\vc{#4}} % Campo vectorial, integral cerrada, orientación positiva (anti-horario)
+
+% Integrales de superficie:
+\NC{\iss} [4][]{ \iint\limits_{#2}^{#1} #3 \esp{5}\tx{d#4}}	% Campo escalar
+\NC{\isos}[4][]{\oiint\limits_{#2}^{#1} #3 \esp{5}\tx{d#4}}	% Campo escalar (integral cerrada)
+\NC{\isv} [4][]{ \iint\limits_{#2}^{#1} #3 \por \d\vc{#4}}	% Campo vectorial
+\NC{\isov}[4][]{\oiint\limits_{#2}^{#1} #3 \por \d\vc{#4}}	% Campo vectorial (integral cerrada)
+
+% Integrales de volumen:
+\NC{\ivs} [4][]{\iiint\limits_{#2}^{#1} #3 \esp{5}\tx{d#4}}			% Campo escalar
+\NC{\ivv} [4][]{\iiint\limits_{#2}^{#1} #3 \por \d\vc{#4}}			% Campo vectorial
+\NC{\ivsr}[4][]{\iiint\limits_{#2}^{#1} #3 \esp{5}\tx{d}^3\vc{#4}}	% Notación vectorial

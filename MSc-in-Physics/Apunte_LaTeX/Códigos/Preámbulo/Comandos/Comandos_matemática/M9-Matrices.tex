@@ -1,0 +1,38 @@
+
+%============================================================================================================================================
+% Comandos de matemática
+%============================================================================================================================================
+
+% Parte 9: Matrices.
+%-------------------
+
+\NC{\tras} [1]{{#1}^{\tx{t}}}	% Matriz transpuesta
+\RC{\ast}  [1]{{#1}^*}			% Matriz transpuesta conjugada (hermítica)
+\NC{\psinv}[1]{{#1}^+}			% Matriz pseudo-inversa
+\Mo{\adj}{adj}					% Matriz adjunta
+\Mo{\Nu}  {Nu}		% Núcleo
+\Mo{\rang}{rang}	% Rango
+\Mo{\tr}  {tr}		% Traza
+\Mo{\diag}{diag}	% Diagonal
+
+\NC{\comb}[2]{					% Número combinatorio (coeficiente binomial)
+	\begin{pmatrix}
+		#1 \\
+		#2
+	\end{pmatrix}
+}
+\NC{\lpm} {\begin{pmatrix}}		% Matriz con paréntesis
+\NC{\rpm} {  \end{pmatrix}}
+\NC{\lbm} {\begin{bmatrix}}		% Matriz con corchetes
+\NC{\rbm} {  \end{bmatrix}}
+\NC{\llam}{\begin{Bmatrix}}		% Matriz con llaves
+\NC{\rlam}{  \end{Bmatrix}}
+\NC{\lvm} {\begin{vmatrix}}		% Matriz con módulo (determinante)
+\NC{\rvm} {  \end{vmatrix}}
+\NC{\lvvm}{\begin{Vmatrix}}		% Matriz con norma
+\NC{\rvvm}{  \end{Vmatrix}}
+
+\NC{\dxd}{2 \Por 2} % Dimensiones
+\NC{\txt}{3 \Por 3}
+\NC{\nxn}{n \Por n}
+\NC{\nxm}{n \Por m}

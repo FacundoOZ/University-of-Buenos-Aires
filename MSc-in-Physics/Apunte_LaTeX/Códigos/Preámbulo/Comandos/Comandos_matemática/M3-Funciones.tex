@@ -1,0 +1,251 @@
+
+%============================================================================================================================================
+% Comandos de matemática
+%============================================================================================================================================
+
+% Parte 3: Funciones.
+%--------------------
+
+\setlength\defaultaddspace{0.75ex}
+
+% Variables de funciones:
+\NC{\x}{(x)}		% Cartesianas 1D
+\NC{\y}{(y)}
+\NC{\z}{(z)}
+\NC{\xy}{(x,y)}		% Cartesianas 2D
+\NC{\xz}{(x,z)}
+\NC{\yz}{(y,z)}
+\NC{\xyz}{(x,y,z)}	% Cartesianas 3D
+\NCX{\prs}[3][1=1,3=n]{({#2}_{#1},\pors,{#2}_{#3})} %Función De n-Variables.
+
+\NC{\rf}{(\ro,\phi)}		% Polares	  = (ro, phi)
+\NC{\rfz}{(\ro,\phi,z)}		% Cilíndricas = (ro, phi, z)
+\NC{\rtf}{(r,\tita,\phi)}	% Esféricas	  = (r, tita, phi)
+
+% Variables + tiempo:
+\NC{\xt}{(x,t)}					% Cartesianas 1D
+\NC{\xyt}{(x,y,t)}				% Cartesianas 2D
+\NC{\xyzt}{(x,y,z,t)}			% Cartesianas 3D
+\NC{\rft}{(\ro,\phi,t)}			% Polares
+\NC{\rfzt}{(\ro,\phi,z,t)}		% Cilíndricas
+\NC{\rtft}{(r,\tita,\phi,t)}	% Esféricas
+
+% Operaciones de funciones:
+\NC{\comp}[2]{#1 \circ #2}													% Composición
+\NC{\conv}[2]{#1 * #2}														% Convolución
+\NC{\rectan}[2]{\tx{R}_{\tx{T}}\left[{{#1}_{\,\left({#2}\right)}}\right]}	% Recta tangente
+\NC{\platan}[2]{\Pi_{\tx{T}}\left[{{#1}_{\,\left({#2}\right)}}\right]}		% Plano tangente
+
+% Análisis:
+\NC{\dom}[1]{\bb{D}_{\,\left({#1}\right)}}	% Dominio
+\NC{\cod}[1]{\bb{C}_{\,\left({#1}\right)}}	% Codominio
+\NC{\img}[1]{\bb{I}_{\,\left({#1}\right)}}	% Imagen
+
+% Funciones Trigonométricas:
+\Mo{\sen}{sen}			% Seno
+\Mo{\asen}{arcsen}		% Arcoseno
+\Mo{\acos}{arccos}		% Arcocoseno
+\Mo{\atan}{arctan}		% Arcotangente
+\Mo{\acsc}{arccsc}		% Arcocosecante
+\Mo{\asec}{arcsec}		% Arcosecante
+\Mo{\acot}{arccot}		% Arcocotangente
+\Mo{\senh}{senh}		% Seno Hiperbólico
+\Mo{\csch}{csch}		% Cosecante Hiperbólica
+\Mo{\sech}{sech}		% Secante Hiperbólica
+\Mo{\asenh}{arcsenh}	% Arcoseno Hiperbólico
+\Mo{\acosh}{arccosh}	% Arcocoseno Hiperbólico
+\Mo{\atanh}{arctanh}	% Arcotangente Hiperbólica
+\Mo{\acsch}{arccsch}	% Arcocosecante Hiperbólica
+\Mo{\asech}{arcsech}	% Arcosecante Hiperbólica
+\Mo{\acoth}{arccoth}	% Arcocotangente Hiperbólica
+
+% Polinomios:
+\Mo{\grad}{grad}										% Grado
+\Mo{\coefp}{cp}											% Coeficiente principal
+\NC{\mult}[2]{\tx{mult}\esp{-3}\left\{{#2,#1}\right\}}	% Multiplicidad
+
+\NC{\Polh}[2]{H_{#1\left({#2}\right)}}								% Polinomios de Hermite
+\NC{\PolH}[2]{H_{#1}\esp{-4}\left({\SB{0.7}{$#2$}}\right)}
+\NC{\Polle}[3][]{P_{#2\left({#3}\right)}^{#1}}						% Polinomios de Legendre
+\NC{\Pollet}[2][]{P_{#2(\cos\tita)}^{#1}}							% Polinomios de Legendre Trigonométricos
+\NC{\Polla}[3][]{L_{#2\left({#3}\right)}^{#1}}						% Polinomios de Laguerre
+\NC{\PolLa}[3][]{L_{#2}^{#1}\esp{-4}\left({\SB{0.7}{$#3$}}\right)}
+\NC{\Polch}[2]{T_{#1\left({#2}\right)}}								% Polinomios de Chebyshev
+\NC{\Polchs}[2]{U_{#1\left({#2}\right)}}							% Polinomios de Chebyshev de Segunda Especie
+\NC{\Polcht}[1]{T_{#1(\cos\tita)}}									% Polinomios de Chebyshev Trigonométricos
+\NC{\Polchst}[1]{U_{#1(\cos\tita)}}									% Polinomios de Chebyshev de Segunda Especie Trigonométricos
+\NC{\Polja}[4]{P_{#1\left({#4}\right)}^{\left({#2,#3}\right)}}		% Polinomios de Jacobi
+
+% Funciones partidas:
+\NC{\crc}[2]{\ji_{#1\,\left({#2}\right)}}	% Función característica
+\Mo{\sg}{sg}								% Función signo
+\NC{\heav}[1]{\titaj_{\,\left({#1}\right)}} % Función de Heaviside
+\Mo{\rect}{rect}							% Función rectángulo
+\Mo{\abs}{abs}								% Función valor absoluto
+\Mo{\ramp}{ramp}							% Función rampa
+\Mo{\techo}{techo}							% Función techo
+\Mo{\piso}{piso}							% Función piso
+
+% Funciones antiderivadas de funciones elementales:
+\Mo{\Ei}{Ei}
+\Mo{\li}{li}
+\Mo{\Li}{Li}
+\Mo{\si}{si}
+\Mo{\Si}{Si}
+\Mo{\Ci}{Ci}
+\Mo{\Shi}{Shi}
+\Mo{\Chi}{Chi}
+\Mo{\erf}{erf}
+
+% Funciones especiales:
+\Mo{\senc}{senc}																	% Seno cardinal
+\NC{\ArmS}[3][]{Y_{#2(\tita #1,\phi #1)}^{#3}}										% Armónicos esféricos
+\NC{\ArmSr}[2]{Y_{#1,#2}}
+\NC{\ArmSc}[3][]{Y_{#2(\tita #1,\phi #1)}^{#3 \esp{3} \SB{0.9}{*}}}
+\NC{\G}[1]{\Gama_{\left({#1}\right)}} \NC{\PG}[2][]{\psi_{\left({#2}\right)}^{#1}}	% Función Gamma
+\NC{\BesJ}[2]{J_{#1\esp{3}\left({#2}\right)}}										% Funciones de Bessel
+\NC{\BesN}[2]{N_{#1\esp{3}\left({#2}\right)}}
+\NC{\BesI}[2]{I_{#1\esp{3}\left({#2}\right)}}
+\NC{\BesK}[2]{K_{#1\esp{3}\left({#2}\right)}}
+
+% Distribuciones:
+\NC{\dirac}[2][]{\del_{#2}^{#1}}				% Delta de Dirac
+\NC{\kro}[2][]{\del_{#2}^{#1}} \Mo{\var}{var}	% Delta de Kronecker
+
+\NC{\Fs}[2]{#1 : \bb{D} \inc \bb{R}^{#2} \to \bb{R}}			% Función escalar
+\NC{\Fv}[3]{#1 : \bb{D} \inc \bb{R}^{#2} \to \bb{R}^{#3}}		% Función vectorial
+\NC{\Cv}[2]{\ff{#1} : \bb{D} \inc \bb{R}^{#2} \to \bb{R}^{#2}}	% Campo vectorial
+
+\NC{\Def}[5]{						% Definición de una función
+	\begin{array}{llccl}
+		& #1 : & #2 & \To & #3 \\
+		& & #4 & \to & \boxed{#5}
+	\end{array}
+}
+\NC{\Defc}[6]{						% Definición de una función con parámetro
+	\begin{array}{llccl}
+		& #1 : & #2 & \To & #3 \\
+		& & #4 & \to & \boxed{#5} \tx{ , con } \boxed{#6}
+	\end{array}
+}
+
+% Funciones definidas a trozos (casos):
+\NC{\Ftt}[5][]{												% Dos casos
+	\left\{\begin{array}{SlSrSr}
+		$\esp{-10} #2$ & $\esp{20}$ #1 $\esp{5}$ & $#3$ \\
+		$\esp{-10} #4$ & $\esp{20}$ #1 $\esp{5}$ & $#5$
+	\end{array}\right. \esp{-9}
+}
+\NC{\Fttt}[7][]{											% Tres casos
+	\left\{\begin{array}{SlSrSr}
+		$\esp{-10} #2$ & $\esp{20}$ #1 $\esp{5}$ & $#3$ \\
+		$\esp{-10} #4$ & $\esp{20}$ #1 $\esp{5}$ & $#5$ \\
+		$\esp{-10} #6$ & $\esp{20}$ #1 $\esp{5}$ & $#7$
+	\end{array}\right. \esp{-9}
+}
+\NC{\Ftttt}[9][]{											% Cuatro casos
+	\left\{\begin{array}{SlSrSr}
+		$\esp{-10} #2$ & $\esp{20}$ #1 $\esp{5}$ & $#3$ \\
+		$\esp{-10} #4$ & $\esp{20}$ #1 $\esp{5}$ & $#5$ \\
+		$\esp{-10} #6$ & $\esp{20}$ #1 $\esp{5}$ & $#7$ \\
+		$\esp{-10} #8$ & $\esp{20}$ #1 $\esp{5}$ & $#9$
+	\end{array}\right. \esp{-9}
+}
+\NC{\Ftn}[9][]{												% n-casos (3 ejemplos + ... + n-ésimo)
+	\left\{\begin{array}{SlSrSr}
+		$\esp{-10} #2$ & $\esp{20}$ #1 $\esp{5}$ & $#3$ \\
+		$\esp{-10} #4$ & $\esp{20}$ #1 $\esp{5}$ & $#5$ \\
+		$\esp{-10} #6$ & $\esp{20}$ #1 $\esp{5}$ & $#7$ \\
+		\quad \porv \\
+		$\esp{-10} #8$ & $\esp{20}$ #1 $\esp{5}$ & $#9$
+	\end{array}\right. \esp{-9}
+}
+
+% Funciones partidas (con llave grande):
+\NC{\Fp}[1]{					% Un caso
+	\left\{\begin{array}{Sl}
+		$\esp{-10} #1$
+	\end{array}\right. \esp{-9}
+}
+\NC{\Fpp}[2]{					% Dos casos
+	\left\{\begin{array}{Sl}
+		$\esp{-10} #1$ \\
+		$\esp{-10} #2$
+	\end{array}\right. \esp{-9}
+}
+\NC{\Fppp}[3]{					% Tres casos
+	\left\{\begin{array}{Sl}
+		$\esp{-10} #1$ \\
+		$\esp{-10} #2$ \\
+		$\esp{-10} #3$
+	\end{array}\right. \esp{-9}
+}
+\NC{\Fpppp}[4]{					% Cuatro casos
+	\left\{\begin{array}{Sl}
+		$\esp{-10} #1$ \\
+		$\esp{-10} #2$ \\
+		$\esp{-10} #3$ \\
+		$\esp{-10} #4$
+	\end{array}\right. \esp{-9}
+}
+\NC{\Fppppp}[5]{				% Cinco casos
+	\left\{\begin{array}{Sl}
+		$\esp{-10} #1$ \\
+		$\esp{-10} #2$ \\
+		$\esp{-10} #3$ \\
+		$\esp{-10} #4$ \\
+		$\esp{-10} #5$
+	\end{array}\right. \esp{-9}
+}
+\NC{\Fpppppp}[6]{				% Seis casos
+	\left\{\begin{array}{Sl}
+		$\esp{-10} #1$ \\
+		$\esp{-10} #2$ \\
+		$\esp{-10} #3$ \\
+		$\esp{-10} #4$ \\
+		$\esp{-10} #5$ \\
+		$\esp{-10} #6$
+	\end{array}\right. \esp{-9}
+}
+\NC{\Fppppppp}[7]{				% Siete casos
+	\left\{\begin{array}{Sl}
+		$\esp{-10} #1$ \\
+		$\esp{-10} #2$ \\
+		$\esp{-10} #3$ \\
+		$\esp{-10} #4$ \\
+		$\esp{-10} #5$ \\
+		$\esp{-10} #6$ \\
+		$\esp{-10} #7$
+	\end{array}\right. \esp{-9}
+}
+\NC{\Fpppppppp}[8]{				% Ocho casos
+	\left\{\begin{array}{Sl}
+		$\esp{-10} #1$ \\
+		$\esp{-10} #2$ \\
+		$\esp{-10} #3$ \\
+		$\esp{-10} #4$ \\
+		$\esp{-10} #5$ \\
+		$\esp{-10} #6$ \\
+		$\esp{-10} #7$ \\
+		$\esp{-10} #8$
+	\end{array}\right. \esp{-9}
+}
+\NC{\Fpn}[5][\quad]{			% n-casos (3 ejemplos + ... + n-ésimo)
+	\left\{\begin{array}{Sl}
+		$\esp{-10} #2$ \\
+		$\esp{-10} #3$ \\
+		$\esp{-10} #4$ \\
+		$#1$ \porv \\
+		$\esp{-10} #5$
+	\end{array}\right. \esp{-9}
+}
+\NC{\Fppn}[5]{					% n-casos (4 ejemplos + ... + n-ésimo)
+	\left\{\begin{array}{Sl}
+		$\esp{-10} #1$ \\
+		$\esp{-10} #2$ \\
+		$\esp{-10} #3$ \\
+		$\esp{-10} #4$ \\
+		\quad \porv \\
+		$\esp{-10} #5$
+	\end{array}\right. \esp{-9}
+}

@@ -1,0 +1,1202 @@
+
+
+\part{Electrostática} %Capítulo •% TERMINADO
+
+%\chapter*{Introducción}
+
+%La Electrostática es la rama de la Electrodinámica que estudia los fenómenos físicos producidos por cargas eléctricas estáticas o inmóviles, por lo tanto:
+%\B{La densidad de carga volumétrica no depende del tiempo: $\s{\pd{\ro_{(\vc{r})}}{t} = 0}$}
+\chapter{Fuerza Electrostática: Ley De Coulomb}
+	\section{Definición}
+\begin{wrapfigure}[16]{r}{0.35\txw} \C \includegraphics[width=0.3\txw]{Estructura/Tomo 2/2.Electromagnetismo/1.Electrostática/Imágenes/Ley De Coulomb.png}
+\caption{Fuerza Electrostática que una partícula estática cargada eléctricamente con carga $q_1$ en la posición $\vc{r}_1$ ejerce sobre una partícula estática cargada eléctricamente con carga $q_2$ en la posición $\vc{r}_2$ en el vacío, con permitividad eléctrica $\kpev$.} \end{wrapfigure}
+Sean $q_1$ y $q_2$ dos partículas estáticas cargadas eléctricamente en el vacío en las posiciones $\vc{r}_1 := \pra{x_1,y_1,z_1}$ y $\vc{r}_2 := \pra{x_2,y_2,z_2}$, respectivamente, entonces: \\\\
+La Fuerza Eléctrica que la partícula $q_1$ le hace a la partícula $q_2$ está dada por la siguiente expresión:
+\f{\vc{F}_{12} := \fr{q_1 q_2 (\vc{r}_2 - \vc{r}_1)}{4\pi\kpev \mod[3]{\vc{r}_2 - \vc{r}_1}}}
+La Fuerza Eléctrica que la partícula $q_2$ le hace a la partícula $q_1$ está dada por la siguiente expresión:
+\f{\vc{F}_{21} := \fr{q_1 q_2 (\vc{r}_1 - \vc{r}_2)}{4\pi\kpev \mod[3]{\vc{r}_1 - \vc{r}_2}}} \\\\\\\\\\
+	\section{Fuerza Electrostática En Un Sistema De $N$-Partículas}
+Sean $q_i$, $N$-partículas estáticas cargadas eléctricamente en el vacío en las posiciones $\vc{r}_i = \pra{x_i,y_i,z_i}$ , y sea $Q$ una partícula estática cargada eléctricamente en la posición $\vc{r} = \pra{x,y,z}$, con $1 \nig i \nig N$, entonces: \\\\
+La Fuerza Eléctrica que la partícula $q_i$ le hace a la partícula $Q$ está dada por la siguiente expresión:
+\f{\vc{F}_{q_i Q} := \fr{Q q_i (\vc{r} - \vc{r}_i)}{4\pi\kpev \mod[3]{\vc{r} - \vc{r}_i}}}
+\paragraph{Principio De Superposición}
+Como se sabe experimentalmente que la Fuerza Eléctrica ejercida por las $N$-partículas $q_i$ a la partícula $Q$ es igual a la suma vectorial de cada fuerza ejercida individualmente, entonces:
+\begin{align*}
+	\vc{F}_{q_1 \pors q_N Q} :&= \S{i=1}{N}{\vc{F}_{q_i Q}} \\
+	&= \vc{F}_{q_1 Q} + \vc{F}_{q_2 Q} + \vc{F}_{q_3 Q} + \porh + \vc{F}_{q_N Q} \\
+	&= \fr{Q}{4\pi\kpev} \S{i=1}{N}{\fr{q_i (\vc{r} - \vc{r}_i)}{\mod[3]{\vc{r} - \vc{r}_i}}}
+\end{align*}
+La Fuerza Eléctrica que las partículas $q_1,q_2,q_3,\pors,q_N$ le hacen a la partícula $Q$ está dada por la siguiente expresión:
+\f{\vc{F}_{q_1\pors q_N Q} := \fr{Q}{4\pi\kpev} \S{i=1}{N}{\fr{q_i (\vc{r} - \vc{r}_i)}{\mod[3]{\vc{r} - \vc{r}_i}}}}
+	\section{Fuerza Electrostática En Una Distribución Continua De Carga}
+Cuando la cantidad de partículas cargadas $q_i$ tiende a infinito, obtenemos una Suma de Riemann por cada Diferencial de Carga:
+\begin{align*}
+	\lim{N}{\inf}{\pr{\vc{F}_{q_1 \pors q_N Q}}} &= \lim{N}{\inf}{\cor{\fr{Q}{4\pi\kpev} \S{i=1}{N}{\fr{q_i (\vc{r} - \vc{r}_i)}{\mod[3]{\vc{r} - \vc{r}_i}}}}} \\
+	\vc{F}_{\tx{e}(\vc{r})} &= \fr{Q}{4\pi\kpev} \lim{N}{\inf}{\cor{\S{i=1}{N}{\fr{q_i (\vc{r} - \vc{r}_i)}{\mod[3]{\vc{r} - \vc{r}_i}}}}} \\
+	&= \fr{Q}{4\pi\kpev} \Int{}{}{\fr{\vc{r} - \vc{r}'}{\mod[3]{\vc{r} - \vc{r}'}}}{q}'
+\end{align*}
+La Fuerza Eléctrica que cualquier \cur{punto fuente} $\vc{r}'$ le hace al \cur{punto campo} $\vc{r}$ (con $\vc{r},\vc{r}' \in \bb{R}^3$), está dada por la siguiente expresión:
+\f{\vc{F}_{\tx{e}(\vc{r})} = \fr{Q}{4\pi\kpev} \Int{}{}{\fr{\vc{r} - \vc{r}'}{\mod[3]{\vc{r} - \vc{r}'}}}{q}'}
+\paragraph{Distribución Lineal}
+Si la distribución de cargas $q'$ puede expresarse como una densidad lineal de carga $\lamda := \lamda_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{\vc{F}_{\tx{e}(\vc{r})} = \fr{Q}{4\pi\kpev} \ilv{\cal{C}}{\fr{\lamda_{(\vc{r}')} (\vc{r} - \vc{r}')}{\mod[3]{\vc{r} - \vc{r}'}}}{\ell}'}
+\paragraph{Distribución Superficial}
+Si la distribución de cargas $q'$ puede expresarse como una densidad superficial de carga $\sigma := \sigma_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{\vc{F}_{\tx{e}(\vc{r})} = \fr{Q}{4\pi\kpev} \isv{\ff{S}}{\fr{\sigma_{(\vc{r}')} (\vc{r} - \vc{r}')}{\mod[3]{\vc{r} - \vc{r}'}}}{S}'}
+\paragraph{Distribución Volumétrica}
+Si la distribución de cargas $q'$ puede expresarse como una densidad volumétrica de carga $\ro := \ro_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{\vc{F}_{\tx{e}(\vc{r})} = \fr{Q}{4\pi\kpev} \ivv{\bb{Q}}{\fr{\ro_{(\vc{r}')} (\vc{r} - \vc{r}')}{\mod[3]{\vc{r} - \vc{r}'}}}{V}'}
+	\section{Fuerza Electrostática En Función Del Campo Electrostático}
+Sea $q$ una particula estática cargada eléctricamente inmersa en un Campo Electrostático $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces:
+\f{\vc{F}_{\tx{e}(\vc{r})} := q \vc{E}_{(\vc{r})}}
+\chapter{Campo Electrostático}
+Sean $q_i$, $N$-partículas estáticas cargadas eléctricamente en las posiciones $\vc{r}_i$, con $1 \nig i \nig N$, y sea $Q$ una partícula estática cargada eléctricamente en la posición $\vc{r}$, entonces: \\\\
+La Fuerza Electrostática que las partículas $q_1,q_2,q_3,\pors,q_N$ le hacen a la partícula $Q$ será:
+\begin{align*}
+	\vc{F}_{q_1\pors q_N Q} :&= \kc Q \S{i=1}{N}{\pr{\fr{q_i}{\mod[2]{\vc{r} - \vc{r}_i}} \ver{r}_i}} \tx{, con: } \boxed{\ver{r}_i := \fr{\vc{r} - \vc{r}_i}{\mod{\vc{r} - \vc{r}_i}}} \\
+	&= \fr{Q}{4\pi\kpev} \S{i=1}{N}{\pr{q_i \fr{\vc{r} - \vc{r}_i}{\mod[3]{\vc{r} - \vc{r}_i}}}} \\
+	&= Q \cor{\fr{1}{4\pi\kpev} \S{i=1}{N}{\pr{q_i \fr{\vc{r} - \vc{r}_i}{\mod[3]{\vc{r} - \vc{r}_i}}}}} \\
+	&= Q \vc{E}_{q_1\pors q_N}
+\end{align*}
+	\section{Definición}
+Se denomina Campo Electrostático al Campo de Fuerzas Vectorial $\vc{E} := \vc{E}_{q_1\pors q_N} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ en el espacio, producido por la Fuerza Electrostática que ejercen las $N$-partículas cargadas eléctricamente $q_i$ en las posiciones $\vc{r}_i$ sobre una unidad de carga de prueba en la posición $\vc{r}$, con $1 \nig i \nig N$ y $\vc{r},\vc{r}' \in \bb{R}^3$:
+\f{\vc{E}_{q_1\pors q_N} := \fr{1}{4\pi\kpev} \S{i=1}{N}{\pr{q_i \fr{\vc{r} - \vc{r}_i}{\mod[3]{\vc{r} - \vc{r}_i}}}}}
+	\section{Campo Electrostático En Una Distribución Continua De Carga}
+Cuando la cantidad de partículas cargadas $q_i$ tiende a infinito, obtenemos una Suma de Riemann por cada Diferencial de Carga:
+\begin{align*}
+	\lim{N}{\inf}{(\vc{E}_{q_1 \pors q_N Q})} &= \lim{N}{\inf}{\cor{\fr{1}{4 \pi \kpev} \S{i=1}{N}{\pr{q_i \fr{\vc{r} - \vc{r}_i}{\mod[3]{\vc{r} - \vc{r}_i}}}}}} \\
+	\vc{E}_{(\vc{r})} &= \fr{1}{4\pi\kpev} \lim{N}{\inf}{\cor{\S{i=1}{N}{\pr{q_i \fr{\vc{r} - \vc{r}_i}{\mod[3]{\vc{r} - \vc{r}_i}}}}}} \\
+	&= \fr{1}{4\pi\kpev} \Int{}{}{\fr{\vc{r} - \vc{r}'}{\mod[3]{\vc{r} - \vc{r}'}}}{q'}
+\end{align*}
+\q{\vc{E}_{(\vc{r})} = \fr{1}{4\pi\kpev} \Int{}{}{\fr{\vc{r} - \vc{r}'}{\mod[3]{\vc{r} - \vc{r}'}}}{q}'}
+\paragraph{Punto Fuente: $\vc{r}'$}
+\B{Se denomina \cur{punto fuente} a cualquier punto en la posición $\vc{r}' \in \bb{R}^3$ que ejerce Fuerza Eléctrica sobre la carga eléctrica $Q$.}
+\paragraph{Punto Campo: $\vc{r}$}
+\B{Se denomina \cur{punto campo} a la posición $\vc{r}$ donde se encuentra la carga eléctrica $Q$.}
+		\subsection{Distribuciones De Carga}
+\paragraph{Distribución Lineal}
+Si la distribución de cargas $q'$ puede expresarse como una densidad lineal de carga $\lamda := \lamda_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{\vc{E}_{(\vc{r})} = \fr{1}{4\pi\kpev} \ilv{\cal{C}}{\lamda_{(\vc{r}')} \fr{\vc{r} - \vc{r}'}{\mod[3]{\vc{r} - \vc{r}'}}}{\ell}'}
+\paragraph{Distribución Superficial}
+Si la distribución de cargas $q'$ puede expresarse como una densidad superficial de carga $\sigma := \sigma_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{\vc{E}_{(\vc{r})} = \fr{1}{4\pi\kpev} \isv{\ff{S}}{\sigma_{(\vc{r}')} \fr{\vc{r} - \vc{r}'}{\mod[3]{\vc{r} - \vc{r}'}}}{S}'}
+\paragraph{Distribución Volumétrica}
+Si la distribución de cargas $q'$ puede expresarse como una densidad volumétrica de carga $\ro := \ro_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{\vc{E}_{(\vc{r})} = \fr{1}{4\pi\kpev} \ivv{\bb{Q}}{\ro_{(\vc{r}')} \fr{\vc{r} - \vc{r}'}{\mod[3]{\vc{r} - \vc{r}'}}}{V}'}
+	\section{Teorema: El Campo Electrostático Es Conservativo}
+Sea $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Eléctrico producido por una distribución volumétrica $\ro := \ro_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ de $N$ cargas puntuales estáticas $q_i$ cuya carga total es $Q_{\tx{enc}}$, que se encuentran a una distancia $\vc{r}_i$ con respecto a un punto cualquiera $P$ fuera de la distribución, con $1 \nig i \nig N$ y $N \to \inf$, y sea $\cal{C}^+ : \ff{I} \inc \bb{R} \to \bb{R}^3$ una curva paramétrica cerrada cualquiera que pasa por el punto $P$, entonces: \\\\
+La circulación total del campo $\vc{E}_{(\vc{r})}$ a través de la curva $\cal{C}$ será, por el Principio de Superposición, de la forma:
+\begin{align*}
+	\ilov{\cal{C}^+}{\vc{E}_{(\vc{r})}}{\ell} :&= \ilov{\cal{C}^+}{\lim{N}{\inf}{\pr{\S{i=1}{N}{\vc{E}_{q_i}}}}}{\ell} \\
+	&= \lim{N}{\inf}{\cor{\S{i=1}{N}{\pr{\ilov{\cal{C}^+}{\vc{E}_{q_i}}{\ell}}}}} \\
+	&= \lim{N}{\inf}{\lla{\S{i=1}{N}{\cor{\int\limits_{\vc{r}_i}^{\vc{r}_i} \PI{\pr{\fr{q_i}{4\pi\kpev r^2} \ver{r}}}{(\d r \ver{r} + r \d \tita \ver{\tita} + r \sen(\tita) \d \phi \ver{\phi})}}}}} \\
+	&= \fr{1}{4\pi\kpev} \lim{N}{\inf}{\cor{\S{i=1}{N}{\pr{q_i \Int{r_i}{r_i}{\fr{1}{r^2}}{r} (\PI{\ver{r}}{\ver{r}}) + 0 + 0}}}} \\
+	&= \fr{1}{4\pi\kpev} \lim{N}{\inf}{\lla{\S{i=1}{N}{\cor{q_i {\ldot{\pr{- \fr{1}{r}}}\right|}_{r_i}^{r_i} . 1}}}} \\
+	&= \fr{1}{4\pi\kpev} \lim{N}{\inf}{\lla{\S{i=1}{N}{\cor{q_i \pr{\fr{1}{r_i} - \fr{1}{r_i}}}}}} \\
+	&= \fr{1}{4\pi\kpev} \lim{N}{\inf}{\pr{\S{i=1}{N}{q_i . 0}}} \\
+	&= \fr{Q_{\tx{enc}}}{4\pi\kpev} . 0 \\
+	&= 0
+\end{align*}
+Por lo tanto:
+\paragraph{La Circulación Es Nula}
+\f{\ilovcr{\cal{C}^+}{\vc{E}_{(\vc{r})}}{\ell} = 0}
+\paragraph{La Integral De Línea Es Independiente Del Camino}
+\f{\ilv{\cal{C}_1^+}{\vc{E}_{(\vc{r})}}{\ell} = \ilv{\cal{C}_2^+}{\vc{E}_{(\vc{r})}}{\ell}}
+\paragraph{Existe Un Potencial Escalar}
+\f{\phij_{(\vc{r})} := -\ilv{\cal{C}^+}{\vc{E}_{(\vc{r}')}}{\ell}' = - \ilv[\vc{r}]{\vc{r}_0}{\vc{E}_{(\vc{r}')}}{\ell}'}
+\paragraph{El Campo Es Irrotacional}
+\f{\rot[\vc{r}]{E}_{(\vc{r})} = 0}
+	\section{Expansión Multipolar Del Campo Electrostático}
+		\subsection{Expansión Multipolar En Coordenadas Esféricas}
+Mediante la expansión multipolar del potencial electrostático, es posible obtener una expansión multipolar del campo electrostático debido a la relación conocida entre el campo y el potencial, de la forma:
+\begin{align*}
+	\vc{E}_{(\vc{r})} :&= -\gr[\vc{r}]{\phij}_{(\vc{r})} \\
+	\vc{E}_{\rtf} &= -\gr[\vc{r}]{\phij}_{\rtf} \\
+	\tx{Por la } &\tx{expansión multipolar del potencial electrostático en coordenadas esféricas, tenemos que:} \\
+	&= -\gr[\vc{r}]{} \cor{\fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m} Q_{\ell m}}{(2\ell+1)r^{\ell+1}}} + \cte} \\
+	&= -\cor{\pd{}{r} \ver{r} + \fr{1}{r} \pd{}{\tita} \ver{\tita} + \fr{1}{r\sen(\tita)} \pd{}{\phi} \ver{\phi}} \cor{\fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m} Q_{\ell m}}{(2\ell+1)r^{\ell+1}}} + \cte} \\
+	&= -\fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{Q_{\ell m}}{2\ell+1} \lla{\pd{}{r} \cor{\fr{\ArmS{\ell}{m}}{r^{\ell+1}}} \ver{r} + \fr{1}{r} \pd{}{\tita} \cor{\fr{\ArmS{\ell}{m}}{r^{\ell+1}}} \ver{\tita} + \fr{1}{r\sen(\tita)} \pd{}{\phi} \cor{\fr{\ArmS{\ell}{m}}{r^{\ell+1}}} \ver{\phi}}} + 0 \\
+	&= \fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{Q_{\ell m}}{2\ell+1} \cor{(\ell+1) \fr{\ArmS{\ell}{m}}{r^{\ell+2}} \ver{r} - \fr{1}{r^{\ell+2}} \pd{\ArmS{\ell}{m}}{\tita} \ver{\tita} - \fr{im \ArmS{\ell}{m}}{r^{\ell+2}\sen(\tita)} \pd{}{\phi} \ver{\phi}}}
+\end{align*}
+\q{\vc{E}_{\rtf} := -\gr[\vc{r}]{\phij}_{\rtf} = \fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{Q_{\ell m}}{2\ell+1} \cor{(\ell+1) \fr{\ArmS{\ell}{m}}{r^{\ell+2}} \ver{r} - \fr{1}{r^{\ell+2}} \pd{\ArmS{\ell}{m}}{\tita} \ver{\tita} - \fr{im \ArmS{\ell}{m}}{r^{\ell+2}\sen(\tita)} \pd{}{\phi} \ver{\phi}}}}
+	\section{Ley De Gauss}
+Sea $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Eléctrico producido por una distribución volumétrica $\ro := \ro_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ de $N$ cargas puntuales estáticas $q_i$ encerradas por una superficie esférica $\ff{S}$ en un volumen $\bb{Q} \inc \bb{R}^3$ ($\ff{S}^+ := \p \bb{Q}$) y cuya carga total es $Q_{\tx{enc}}$, con $1 \nig i \nig N$ y $N \to \inf$, entonces: \\\\
+El flujo total del campo $\vc{E}_{(\vc{r})}$ a través de la superficie $\ff{S}$ será, por el Principio de Superposición, de la forma:
+\begin{align*}
+	\isov{\ff{S}^+:=\p \bb{Q}}{\esp{-10}\vc{E}_{(\vc{r})}}{S} :&= \isov{\ff{S}^+:=\p \bb{Q}}{\esp{-10}\lim{N}{\inf}{\pr{\S{i=1}{N}{\vc{E}_{q_i}}}}}{S} \\
+	&= \lim{N}{\inf}{\cor{\S{i=1}{N}{\pr{\isov{\ff{S}^+:=\p \bb{Q}}{\esp{-10}\vc{E}_{q_i}}{S}}}}} \\
+	&= \lim{N}{\inf}{\lla{\S{i=1}{N}{\cor{\iint\limits_{\ff{S}} \PI{\pr{\fr{q_i}{4\pi\kpev r^2} \ver{r}}}{(\d \tx{S}_r \ver{r} + \d \tx{S}_{\tita} \ver{\tita} + \d \tx{S}_{\phi} \ver{\phi})}}}}} \\
+	&= \fr{1}{4\pi\kpev} \lim{N}{\inf}{\pr{\S{i=1}{N}{q_i}}} \ii{0}{\pi}{0}{2\pi}{\fr{1}{r^2} r^2\sen(\tita)}{\tita}{\phi} (\PI{\ver{r}}{\ver{r}}) + 0 + 0 \\
+	&= \fr{Q_{\tx{enc}}}{4\pi\kpev} \Int{0}{\pi}{\sen(\tita)}{\tita} \Int{0}{2\pi}{\esp{-6}}{\phi}.1 \\
+	&= \fr{4\pi Q_{\tx{enc}}}{4\pi\kpev} \\
+	&= \fr{1}{\kpev} \ivs{\bb{Q}}{\ro_{(\vc{r})}}{V}
+\end{align*}
+\q{\isov{\ff{S}^+:=\p \bb{Q}}{\esp{-10}\vc{E}_{(\vc{r})}}{S} = \fr{1}{\kpev} \ivs{\bb{Q}}{\ro_{(\vc{r})}}{V}}
+\paragraph{Teorema De Gauss}
+Por el Teorema De Gauss, tenemos que:
+\begin{align*}
+	\isov{\ff{S}^+:=\p \bb{Q}}{\esp{-10}\vc{E}_{(\vc{r})}}{S} &= \ivs{\bb{Q}}{\div[\vc{r}]{E}_{(\vc{r})}}{V} \\
+	\ivs{\bb{Q}}{\div[\vc{r}]{E}_{(\vc{r})}}{V} &= \fr{1}{\kpev} \ivs{\bb{Q}}{\ro_{(\vc{r})}}{V} \\
+	\div[\vc{r}]{E}_{(\vc{r})} &= \fr{\ro_{(\vc{r})}}{\kpev}
+\end{align*}
+\q{\div[\vc{r}]{E}_{(\vc{r})} = \fr{\ro_{(\vc{r})}}{\kpev}}
+\paragraph{Ley De Gauss: Forma Integral}
+\f{\isov{\ff{S}^+:=\p \bb{Q}}{\esp{-10}\vc{E}_{(\vc{r})}}{S} = \fr{1}{\kpev} \ivs{\bb{Q}}{\ro_{(\vc{r})}}{V}}
+\paragraph{Ley De Gauss: Forma Diferencial}
+\f{\div[\vc{r}]{E}_{(\vc{r})} = \fr{\ro_{(\vc{r})}}{\kpev}}
+	\section{Condiciones De Contorno}
+Debido a que el Campo Electrostático es divergente, cuando una superficie $\ff{S} : \bb{D} \inc \bb{R}^2 \to \bb{R}^3$ se encuentra cargada con una densidad superficial de carga eléctrica $\sigma := \sigma_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ el Campo Eléctrico sufre una discontinuidad al pasar de la Superficie Superior $\ff{S}_{\tx{Sup.}}$ a la Superficie Interior $\ff{S}_{\tx{Int.}}$. De esta forma, dado $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Electrostático continuo generado por una superficie cargada con una densidad superficial de carga $\sigma$ y con normal exterior $\ver{\ita}_{\tx{e}}$, podemos escribir sus condiciones de contorno en función de la densidad superficial de carga $\sigma$.
+\paragraph{Componente Paralela: Circulación Nula}
+Sea $\cal{C} := \cal{C}_{\tx{Sup.}} + \cal{C}_{\tx{Inf.}} + \cal{C}_{\tx{Izq.}} + \cal{C}_{\tx{Der.}} : \ff{I} \inc \bb{R} \to \bb{R}^3$ una curva cerrada que encierra a la superficie cargada con densidad superficial $\sigma$, cuyos caminos superior ($\cal{C}_{\tx{Sup.}}$) e inferior $\cal{C}_{\tx{Inf.}}$ tienen longitud $L$, y sus caminos laterales izquierdo ($\cal{C}_{\tx{Izq.}}$) y derecho ($\cal{C}_{\tx{Der.}}$) tienen longitud $h$ muy pequeña ($h \to 0$), entonces:
+\begin{align*}
+	\ilov{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{E}_{(\vc{r})}}{\ell} :&= 0 \\
+	\ilv{\cal{C}_{\tx{Sup.}}}{\esp{-6}\vc{E}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Inf.}}}{\esp{-4}\vc{E}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Izq.}}}{\esp{-4}\vc{E}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Der.}}}{\esp{-6}\vc{E}_{(\vc{r})}}{\ell} &= 0 \\
+	E_{\paral (\vc{r})}^+ L_{(\cal{C}_{\tx{Sup.}})} - E_{\paral (\vc{r})}^- L_{(\cal{C}_{\tx{Inf.}})} + 0 + 0 &= 0 \\
+	E_{\paral (\vc{r})}^+ L - E_{\paral (\vc{r})}^- L &= 0 \\
+	E_{\paral (\vc{r})}^+ - E_{\paral (\vc{r})}^- &= 0 \\
+	\PV{\ver{\ita}_{\tx{e}}}{\cor{\vc{E}_{2(\vc{r})} - \vc{E}_{1(\vc{r})}}} &= 0
+\end{align*}
+\q{\PV{\ver{\ita}_{\tx{e}}}{\cor{\vc{E}_{2(\vc{r})} - \vc{E}_{1(\vc{r})}}} = 0}
+\paragraph{Componente Perpendicular: Ley De Gauss}
+Sea $\ff{S} := \ff{S}_{\tx{Sup.}} + \ff{S}_{\tx{Inf.}} + \ff{S}_{\tx{Lat.}} : \bb{D} \inc \bb{R}^2 \to \bb{R}^3$ una superficie cilíndrica cerrada que encierra a la superficie cargada con densidad superficial $\sigma$, cuyas caras superior ($\ff{S}_{\tx{Sup.}}$) e inferior $\ff{S}_{\tx{Inf.}}$ tienen normales $\ver{\ita}_{\tx{e}}$ y $-\ver{\ita}_{\tx{e}}$, y área $A$, respectivamente, y se encuentran separada por una altura $h$ muy pequeña ($h \to 0$), entonces:
+\begin{align*}
+	\isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\vc{E}_{(\vc{r})}}{S} :&= \fr{Q_{\tx{enc}}}{\kpev} \\
+	\isv{\ff{S}_{\tx{Sup.}}}{\esp{-6}\vc{E}_{(\vc{r})}}{S} + \isv{\ff{S}_{\tx{Inf.}}}{\esp{-4}\vc{E}_{(\vc{r})}}{S} + \isv{\ff{S}_{\tx{Lat.}}}{\esp{-6}\vc{E}_{(\vc{r})}}{S} &= \fr{\sigma_{(\vc{r})} A_{(\ff{S})}}{\kpev} \\
+	E_{\perp (\vc{r})}^+ A_{(\ff{S}_{\tx{Sup.}})} - E_{\perp (\vc{r})}^- A_{(\ff{S}_{\tx{Inf.}})} + 0 &= \fr{\sigma_{(\vc{r})} A_{(\ff{S})}}{\kpev} \\
+	E_{\perp (\vc{r})}^+ A - E_{\perp (\vc{r})}^- A &= \fr{\sigma_{(\vc{r})} A}{\kpev} \\
+	E_{\perp (\vc{r})}^+ - E_{\perp (\vc{r})}^- &= \fr{\sigma_{(\vc{r})}}{\kpev} \\
+	\PI{\cor{\vc{E}_{2(\vc{r})} - \vc{E}_{1(\vc{r})}}}{\ver{\ita}_{\tx{e}}} &= \fr{\sigma_{(\vc{r})}}{\kpev}
+\end{align*}
+\q{\PI{\cor{\vc{E}_{2(\vc{r})} - \vc{E}_{1(\vc{r})}}}{\ver{\ita}_{\tx{e}}} = \fr{\sigma_{(\vc{r})}}{\kpev}}
+\chapter{Potencial Electrostático}
+	\section{Deducción}
+Sea $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Electrostático Continuo, sea $\cal{C}^+ : [\vc{r}_0,\vc{r}] \inc \bb{R} \to \bb{R}^3$ una curva orientada positivamente, que va desde el Punto $\vc{r}_0$ hasta el Punto $\vc{r}$ , y sea $\phij := \phij_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ una Función de Tres Variables Diferenciable a Primer Orden ($C^1$), entonces:
+\begin{align*}
+	\vc{E}_{q_1\pors q_N} :&= \fr{1}{4\pi\kpev} \S{i=1}{N}{\pr{q_i \fr{\vc{r} - \vc{r}_i}{\mod[3]{\vc{r} - \vc{r}_i}}}} \\
+	&= \fr{1}{4\pi\kpev} \S{i=1}{N}{\lla{q_i \fr{(x - x_i) \ver{x} + (y - y_i) \ver{y} + (z - z_i) \ver{z}}{\cor[3]{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}}}} \\
+	&= \fr{1}{4\pi\kpev} \S{i=1}{N}{q_i \lla{\fr{x - x_i}{[(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2]^{3/2}} \ver{x} + \fr{y - y_i}{[(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2]^{3/2}} \ver{y} + \fr{z - z_i}{[(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2]^{3/2}} \ver{z}}} \\
+	&= \fr{1}{4\pi\kpev} \S{i=1}{N}{q_i \lla{\pd{}{x} \cor{-\fr{1}{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}} \ver{x} + \pd{}{y} \cor{-\fr{1}{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}} \ver{y} + \pd{}{z} \cor{-\fr{1}{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}} \ver{z}}} \\
+	&= -\fr{1}{4\pi\kpev} \S{i=1}{N}{q_i \lla{\pd{}{x} \cor{\fr{1}{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}} \ver{x} + \pd{}{y} \cor{\fr{1}{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}} \ver{y} + \pd{}{z} \cor{\fr{1}{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}} \ver{z}}} \\
+	&= -\fr{1}{4\pi\kpev} \S{i=1}{N}{q_i \gr[\vc{r}]{\pr{\fr{1}{\mod{\vc{r} - \vc{r}_i}} + \cte}}} \\
+	&= -\gr[\vc{r}]{\pr{\fr{1}{4\pi\kpev} \S{i=1}{N}{\fr{q_i}{\mod{\vc{r} - \vc{r}_i}}} + \cte}} \\
+	&= - \gr[\vc{r}]{\phij_{q_1\pors q_N}}
+\end{align*}
+	\section{Definición}
+Se denomina Potencial Electrostático al Campo de Fuerzas Escalar $\phij := \phij_{q_1\pors q_N} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ en el espacio, producido por el Potencial Electrostático que ejercen $N$-partículas cargadas eléctricamente $q_i$ en las posiciones $\vc{r}_i$ sobre una unidad de carga de prueba en la posición $\vc{r}$, con $1 \nig i \nig N$ y $\vc{r},\vc{r}_i \in \bb{R}^3$:
+\f{\phij_{q_1\pors q_N} := \fr{1}{4\pi\kpev} \S{i=1}{N}{\fr{q_i}{\mod{\vc{r} - \vc{r}_i}}} + \cte \tx{, donde: } \vc{E}_{q_1\pors q_N} = - \gr[\vc{r}]{\phij_{q_1\pors q_N}}}
+\paragraph{Observación}
+Sean $\phij_1$ y $\phij_2$ dos Potenciales de un Campo Electrostático Continuo $\vc{E} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces:
+\f{\phij_1 = \phij_2 + \cte}
+	\section{Potencial Electrostático En Una Distribución Continua De Carga}
+Cuando la cantidad de partículas cargadas $q_i$ tiende a infinito, obtenemos una Suma de Riemann por cada Diferencial de Carga:
+\begin{align*}
+	\lim{N}{\inf}{\pr{\phij_{q_1 \pors q_N}}} &= \lim{N}{\inf}{\pr{\fr{1}{4\pi\kpev} \S{i=1}{N}{\fr{q_i}{\mod{\vc{r} - \vc{r}_i}}} + \cte}} \\
+	\phij_{(\vc{r})} &= \fr{1}{4\pi\kpev} \lim{N}{\inf}{\pr{\S{i=1}{N}{\fr{q_i}{\mod{\vc{r} - \vc{r}_i}}} + \cte}} \\
+	&= \fr{1}{4\pi\kpev} \Int{}{}{\fr{1}{\mod{\vc{r} - \vc{r}'}}}{q}' + \cte
+\end{align*}
+\q{\phij_{(\vc{r})} := \fr{1}{4\pi\kpev} \Int{}{}{\fr{1}{\mod{\vc{r} - \vc{r}'}}}{q'} + \cte}
+\paragraph{Distribución Lineal}
+Si la distribución de cargas $q'$ puede expresarse como una densidad lineal de carga $\lamda := \lamda_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{\phij_{(\vc{r})} = \fr{1}{4\pi\kpev} \ils{\cal{C}}{\fr{\lamda_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{s}' + \cte}
+\paragraph{Distribución Superficial}
+Si la distribución de cargas $q'$ puede expresarse como una densidad superficial de carga $\sigma := \sigma_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{\phij_{(\vc{r})} = \fr{1}{4\pi\kpev} \iss{\ff{S}}{\fr{\sigma_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{S}' + \cte}
+\paragraph{Distribución Volumétrica}
+Si la distribución de cargas $q'$ puede expresarse como una densidad volumétrica de carga $\ro := \ro_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{\phij_{(\vc{r})} = \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' + \cte}
+	\section{Expansión Multipolar Del Potencial Electrostático}
+		\subsection{Deducción}
+Sea $\ro := \ro_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ una densidad volumétrica de $(N\to\inf)$-partículas estáticas $q'$ cargadas eléctricamente en las posiciones $\vc{r}' = r' \ver{r}$ que producen un Campo Escalar $\phij := \phij_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ sobre una carga de prueba muy lejana en la posición $\vc{r} = r \ver{r}$ con un ángulo $\tita$ respecto a las posiciones $\vc{r}'$, entonces:
+\begin{itemize}
+	\item Podemos reescribir el Potencial Electrostático de la forma:
+	\begin{align*}
+		\phij_{(\vc{r})} :&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' + \cte \\
+		&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\rz{\PI{(\vc{r} - \vc{r}')}{(\vc{r} - \vc{r}')}}}}{V}' + \cte \\
+		&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\rz{\PI{(r \ver{r} - r' \ver{r})}{(r \ver{r} - r' \ver{r})}}}}{V}' + \cte \\
+		&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\rz{r^2 + r'^2 - 2 r r' \cos(\tita)}}}{V}' + \cte \\
+		&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{r \rz{1 + \fr{r'^2}{r^2} - 2 \fr{r'}{r} \cos(\tita)}}}{V}' + \cte \\
+		&= \fr{1}{4\pi\kpev r} \ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\rz{1 + \fr{r'}{r} \cor{\fr{r'}{r} - 2 \cos(\tita)}}}}{V}' + \cte
+	\end{align*}
+	\item Ahora, dada $f_{\x} := \frr{1}{\rz{1+x}} = \cor[-\frrr{1}{2}]{1 + \frr{r'}{r} \pr{\frr{r'}{r} - 2 \cos\tita}} : \bb{D} \inc \bb{R} \to \bb{R}$ una Función de Una Variable Diferenciable, realizando un desarrollo en Serie de Maclaurin con respecto a $x$, tenemos:
+	\begin{align*}
+		f_{\x} &= f_{(0)} + \dv{f_{(0)}}{x} (x - 0) + \fr{1}{2!} \dv[2]{f_{(0)}}{x} (x - 0)^2 + \fr{1}{3!} \dv[3]{f_{(0)}}{x} (x - 0)^3 + \porh + \fr{1}{\ell!} \dv[\ell]{f_{(0)}}{x} (x - 0)^{\ell} \\
+		&= 1 - \fr{1}{2} x + \fr{3}{8} x^2 - \fr{5}{16} x^3 + \porh \\
+		&= 1 - \fr{1}{2} \fr{r'}{r} \cor{\fr{r'}{r} - 2 \cos(\tita)} + \fr{3}{8} \fr{r'^2}{r^2} \cor[2]{\fr{r'}{r} - 2 \cos(\tita)} - \fr{5}{16} \fr{\mod[3]{\vc{r}'}}{\mod[3]{\vc{r}}} \cor[3]{\fr{r'}{r} - 2 \cos(\tita)} + \porh \\
+		&= 1 + \fr{r'}{r} \cos(\tita) + \fr{r'^2}{r^2} \fr{3 \cos^2(\tita) - 1}{2} + \fr{r'^3}{r^3} \fr{5\cos^3(\tita) - 3\cos(\tita)}{2} + \porh + \fr{r'^{\ell}}{r^{\ell}} \Pollet{\ell} \\
+		&= \S{\ell=0}{\inf}{\fr{r'^{\ell}}{r^{\ell}} \Pollet{\ell}}
+	\end{align*}
+	\item Obtuvimos una Suma Infinita de Polinomios de Legendre Trigonométricos $P_{\ell} := \Pollet{\ell} : \bb{D} \inc \bb{R} \to \bb{R}$ de Grado $\ell$. Reemplazando en el Potencial Electrostático, tenemos:
+	\begin{align*}
+		\phij_{(\vc{r})} &= \fr{1}{4\pi\kpev r} \ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\rz{1 + \fr{r'}{r} \cor{\fr{r'}{r} - 2 \cos(\tita)}}}}{V}' + \cte \\
+		&= \fr{1}{4\pi\kpev r} \ivs{\bb{Q}}{\cor{\ro_{(\vc{r}')} \S{\ell=0}{\inf}{\fr{r'^{\ell}}{r^{\ell}} \Pollet{\ell}}}}{V}' + \cte \\
+		&= \fr{1}{4\pi\kpev} \S{\ell=0}{\inf}{\cor{\fr{1}{r^{\ell+1}} \ivs{\bb{Q}}{\ro_{(\vc{r}')} r'^{\ell} \Pollet{\ell}}{V}'}} + \cte
+	\end{align*}
+	\q{\phij_{(\vc{r})} = \fr{1}{4\pi\kpev} \S{\ell=0}{\inf}{\cor{\fr{1}{r^{\ell+1}} \ivs{\bb{Q}}{\ro_{(\vc{r}')} r'^{\ell} \Pollet{\ell}}{V}'}} + \cte}
+\end{itemize}
+\f{\phij_{(\vc{r})} = \fr{1}{4\pi\kpev} \lla{\fr{1}{r} \ivs{\bb{Q}}{\ro_{(\vc{r}')}}{V}' + \fr{1}{r^2} \ivs{\bb{Q}}{\ro_{(\vc{r}')} r' \cos(\tita)}{V}' + \fr{1}{2 r^3} \ivs{\bb{Q}}{\ro_{(\vc{r}')} r'^2 \cor{3\cos^2(\tita)-1}}{V}' + \porh + \fr{1}{r^{\ell+1}} \ivs{\bb{Q}}{\ro_{(\vc{r}')} r'^{\ell} \Pollet{\ell}}{V}'} + \cte}
+\paragraph{Observación}
+Relacionando el desarrollo en serie de Maclaurin efectuado con la expresión del potencial electrostático, puede obtenerse una expansión del término $\frr{1}{\mod{\vc{r}-\vc{r}'}}$ en término de los polinomios de Legendre, de la forma:
+\begin{align*}
+	\tx{Por el desarrollo en serie de } &\tx{Maclaurin respecto a } x \tx{, tenemos que:} \\
+	f_{\x} &= \S{\ell=0}{\inf}{\fr{r'^{\ell}}{r^{\ell}} \Pollet{\ell}} \\
+	\fr{1}{r\rz{1+x}} &= \fr{1}{r} \S{\ell=0}{\inf}{\fr{r'^{\ell}}{r^{\ell}} \Pollet{\ell}} \\
+	\fr{1}{\mod{\vc{r}-\vc{r}'}} &= \S{\ell=0}{\inf}{\fr{r'^{\ell}}{r^{\ell+1}} \Pollet{\ell}} \\
+	\tx{Si extendemos la notación para una } &\tx{carga en una esfera de radio } r<r' \tx{, tenemos:} \\
+	\fr{1}{\mod{\vc{r}-\vc{r}'}} &= \Ftt{\S{\ell=0}{\inf}{\fr{r^{\ell}}{r'^{\ell+1}} \Pollet{\ell}}}{r<r'}{\S{\ell=0}{\inf}{\fr{r'^{\ell}}{r^{\ell+1}} \Pollet{\ell}}}{r'<r} \\
+	\tx{Utilizando la notación de } &r_> \tx{ y } r_< \tx{, tenemos que:} \\
+	\fr{1}{\mod{\vc{r}-\vc{r}'}} &= \S{\ell=0}{\inf}{\ldot{\pr{\fr{r_<^{\ell}}{r_>^{\ell+1}}}}\rdot_{r'} \Pollet{\ell}}
+\end{align*}
+\q{\fr{1}{\mod{\vc{r}-\vc{r}'}} = \S{\ell=0}{\inf}{\ldot{\pr{\fr{r_<^{\ell}}{r_>^{\ell+1}}}}\rdot_{r'} \Pollet{\ell}}}
+			\subsubsection{Contribución Monopolar}
+\begin{align*}
+	\phij_{\tx{mon}(\vc{r})} :&= \fr{1}{4\pi\kpev r} \ivs{\bb{Q}}{\ro_{(\vc{r}')}}{V}' \\
+	&= \fr{Q_{\tx{enc}}}{4\pi\kpev r}
+\end{align*}
+\q{\phij_{\tx{mon}(\vc{r})} = \fr{Q_{\tx{enc}}}{4\pi\kpev r}}
+			\subsubsection{Contribución Dipolar}
+\begin{align*}
+	\phij_{\tx{dip}(\vc{r})} :&= \fr{1}{4\pi\kpev r^2} \ivs{\bb{Q}}{\ro_{(\vc{r}')} r' \cos(\tita)}{V}' \\
+	&=\fr{1}{4\pi\kpev r^2} \ivs{\bb{Q}}{\ro_{(\vc{r}')} \mod{\vc{r}'} \mod{\ver{r}} \cos(\tita)}{V}' \\
+	&=\fr{1}{4\pi\kpev r^2} \ivs{\bb{Q}}{\ro_{(\vc{r}')} (\PI{\vc{r}'}{\ver{r}})}{V}' \\
+	&=\fr{1}{4\pi\kpev r^2} \PI{\ver{r}}{\cor{\ivv{\bb{Q}}{\ro_{(\vc{r}')} \vc{r}'}{V}'}} \\
+	&= \fr{(\PI{\vc{p}}{\ver{r}})}{4\pi\kpev r^2}
+\end{align*}
+\q{\phij_{\tx{dip}(\vc{r})} = \fr{(\PI{\vc{p}}{\ver{r}})}{4\pi\kpev r^2} = \fr{\mod{\vc{p}} \cos(\tita)}{4\pi\kpev r^2}}
+			\subsubsection{Contribución Cuadrupolar}
+\f{\phij_{\tx{cuad}(\vc{r})} = \fr{1}{8\pi\kpev r^3} \ivs{\bb{Q}}{\ro_{(\vc{r}')} r'^2 \cor{3\cos^2(\tita)-1}}{V}'}
+		\subsection{Deducción En Notación De Einstein}
+Utilizando notación de Einstein, si consideramos a la distribución volumétrica de carga eléctrica $\ro_{(\vc{r}')}$ confinada en una región $d$, con $\mod{\vc{r}} \mm d$, podemos obtener el potencial electrostático en expansión multipolar de la siguiente forma:
+\begin{align*}
+	\phij_{(\vc{r})} :&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' + \cte \\
+	&\tx{Realizando un desarrollo de Taylor alrededor de } \vc{r}'=\vc{0} \tx{, tenemos que:} \\
+	&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\ro_{(\vc{r}')} \lla{\fr{1}{\mod{\vc{r}}} + \PI{\cor{\p[i'] \ldot{\pr{\fr{1}{\mod{\vc{r} - \vc{r}'}}}}\right|_{\vc{r}'=\vc{0}}}}{r'_i} + \fr{1}{2!} \p[i']\p[j'] \ldot{\pr{\fr{1}{\mod{\vc{r} - \vc{r}'}}}}\right|_{\vc{r}'=\vc{0}} r'_i r'_j + \porh}}{V}' + \cte \\
+	&\tx{Por el teorema de Clairaut-Schwartz, tenemos que:} \\
+	&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\ro_{(\vc{r}')} \lla{\fr{1}{\mod{\vc{r}}} + \PI{\cor{\ldot{\pr{\fr{r_i - r'_i}{\mod[3]{\vc{r} - \vc{r}'}}}}\right|_{\vc{r}'=\vc{0}}}}{r'_i} + \fr{1}{2!} \p[j']\p[i'] \ldot{\pr{\fr{1}{\mod{\vc{r} - \vc{r}'}}}}\right|_{\vc{r}'=\vc{0}} r'_i r'_j + \porh}}{V}' + \cte \\
+	&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\ro_{(\vc{r}')} \lla{\fr{1}{\mod{\vc{r}}} + \PI{\cor{\pr{\fr{r_i - 0}{\mod[3]{\vc{r} - \vc{0}}}}}}{r'_i} + \fr{1}{2!} \p[j'] \ldot{\pr{\fr{r_i - r'_i}{\mod[3]{\vc{r} - \vc{r}'}}}}\right|_{\vc{r}'=\vc{0}} r'_i r'_j + \porh}}{V}' + \cte \\
+	&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\ro_{(\vc{r}')} \lla{\fr{1}{\mod{\vc{r}}} + \PI{\pr{\fr{r_i}{\mod[3]{\vc{r}}}}}{r'_i} + \fr{1}{2!} \ldot{\cor{-\fr{\kro{i'j'}}{\mod[3]{\vc{r} - \vc{r}'}} + \fr{3(r_i - r'_i)(r_j - r'_j)}{\mod[5]{\vc{r} - \vc{r}'}}}}\right|_{\vc{r}'=\vc{0}} r'_i r'_j + \porh}}{V}' + \cte \\
+	&\tx{Como } \kro{ij} = \kro{i'j'} \tx{, tenemos que:} \\
+	&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\ro_{(\vc{r}')} \lla{\fr{1}{\mod{\vc{r}}} + \PI{\pr{\fr{r_i}{\mod[3]{\vc{r}}}}}{r'_i} + \fr{1}{2!} \cor{-\fr{\kro{ij}}{\mod[3]{\vc{r} - \vc{0}}} + \fr{3(r_i - 0)(r_j - 0)}{\mod[5]{\vc{r} - \vc{0}}}} r'_i r'_j + \porh}}{V}' + \cte \\
+	&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\ro_{(\vc{r}')} \cor{\fr{1}{\mod{\vc{r}}} + \PI{\pr{\fr{r_i}{\mod[3]{\vc{r}}}}}{r'_i} + \fr{1}{2!} \pr{-\fr{\kro{ij}}{\mod[3]{\vc{r}}} + \fr{3r_i r_j}{\mod[5]{\vc{r}}}} r'_i r'_j + \porh}}{V}' + \cte \\
+	&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\ro_{(\vc{r}')} \cor{\fr{1}{\mod{\vc{r}}} + \PI{\pr{\fr{r_i}{\mod[3]{\vc{r}}}}}{r'_i} + \fr{1}{2!} \pr{\fr{3r_ir_j - \kro{ij}\mod[2]{\vc{r}}}{\mod[5]{\vc{r}}}} r'_i r'_j + \porh}}{V}' + \cte \\
+	&= \fr{1}{4\pi\kpev} \lla{\fr{1}{\mod{\vc{r}}} \ivs{\bb{Q}}{\ro_{(\vc{r}')}}{V}' + \PI{\pr{\fr{\vc{r}}{\mod[3]{\vc{r}}}}}{\cor{\ivs{\bb{Q}}{\ro_{(\vc{r}')} \vc{r}'}{V}'}} + \fr{1}{2!} \pr{\fr{3r_ir_j - \kro{ij}\mod[2]{\vc{r}}}{\mod[5]{\vc{r}}}} \ivs{\bb{Q}}{\ro_{(\vc{r}')} r'_i r'_j}{V}' + \porh} + \cte
+\end{align*}
+\q{\phij_{(\vc{r})} = \fr{1}{4\pi\kpev} \lla{\fr{1}{\mod{\vc{r}}} \ivs{\bb{Q}}{\ro_{(\vc{r}')}}{V}' + \PI{\pr{\fr{\vc{r}}{\mod[3]{\vc{r}}}}}{\cor{\ivs{\bb{Q}}{\ro_{(\vc{r}')} \vc{r}'}{V}'}} + \fr{1}{2!} \pr{\fr{3r_ir_j - \kro{ij}\mod[2]{\vc{r}}}{\mod[5]{\vc{r}}}} \ivs{\bb{Q}}{\ro_{(\vc{r}')} r'_i r'_j}{V}' + \porh} + \cte}
+			\subsubsection{Contribución Monopolar}
+\begin{align*}
+	\phij_{\tx{mon}(\vc{r})} &= \fr{1}{4\pi\kpev\mod{\vc{r}}} \ivs{\bb{Q}}{\ro_{(\vc{r}')}}{V}' \\
+	\tx{Por la definición de } &\tx{distribución volumétrica de carga, tenemos:} \\
+	&= \fr{Q_{\tx{enc}}}{4\pi\kpev\mod{\vc{r}}}
+\end{align*}
+\q{\phij_{\tx{mon}(\vc{r})} = \fr{Q_{\tx{enc}}}{4\pi\kpev\mod{\vc{r}}}}
+			\subsubsection{Contribución Dipolar}
+\begin{align*}
+	\phij_{\tx{dip}(\vc{r})} &= \fr{1}{4\pi\kpev\mod[3]{\vc{r}}} \PI{\vc{r}}{\cor{\ivs{\bb{Q}}{\ro_{(\vc{r}')} \vc{r}'}{V}'}} \\
+	\tx{Por la definición de } &\tx{momento dipolar electrostático, tenemos:} \\
+	&= \fr{\PI{\vc{p}}{\vc{r}}}{4\pi\kpev\mod[3]{\vc{r}}}
+\end{align*}
+\q{\phij_{\tx{dip}(\vc{r})} = \fr{\PI{\vc{p}}{\vc{r}}}{4\pi\kpev\mod[3]{\vc{r}}}}
+			\subsubsection{Contribución Cuadrupolar}
+\begin{align*}
+	\phij_{\tx{cuad}(\vc{r})} &= \fr{1}{4\pi\kpev} \pr{\fr{3r_ir_j - \kro{ij} \mod[2]{\vc{r}}}{2! \mod[5]{\vc{r}}}} \ivs{\bb{Q}}{\ro_{(\vc{r}')}r'_ir'_j}{V}' \\
+	&= \fr{1}{8\pi\kpev \mod[5]{\vc{r}}} \cor{3r_ir_j\ivs{\bb{Q}}{\ro_{(\vc{r}')} r'_ir'_j}{V}' - \kro{ij} \mod[2]{\vc{r}}\ivs{\bb{Q}}{\ro_{(\vc{r}')}r'_ir'_j}{V}'} \\
+	&\tx{La delta } \kro{ij} \tx{ dentro de la integral, resulta:} \\
+	&= \fr{1}{8\pi\kpev \mod[5]{\vc{r}}} \cor{3r_ir_j\ivs{\bb{Q}}{\ro_{(\vc{r}')} r'_ir'_j}{V}' - \mod[2]{\vc{r}}\ivs{\bb{Q}}{\ro_{(\vc{r}')}\kro{i'j'}r'_ir'_j}{V}'} \\
+	&= \fr{1}{8\pi\kpev \mod[5]{\vc{r}}} \cor{3r_ir_j\ivs{\bb{Q}}{\ro_{(\vc{r}')} r'_ir'_j}{V}' - \kro{ij}r_ir_j\ivs{\bb{Q}}{\ro_{(\vc{r}')}r'^2}{V}'} \\
+	&= \fr{r_ir_j}{8\pi\kpev \mod[5]{\vc{r}}} \ivs{\bb{Q}}{\ro_{(\vc{r}')} (3r'_ir'_j - \kro{ij}r'^2)}{V}' \\
+	\tx{Definiendo } &\tx{el tensor } Q_{ij} = \ivs{\bb{Q}}{\ro_{(\vc{r}')} (3r'_ir'_j - \kro{ij}r'^2)}{V}' \tx{, tenemos:} \\
+	&= \fr{r_ir_j}{8\pi\kpev \mod[5]{\vc{r}}} Q_{ij}
+\end{align*}
+\q{\phij_{\tx{cuad}(\vc{r})} = \fr{r_ir_j}{8\pi\kpev \mod[5]{\vc{r}}} Q_{ij}}
+			\subsubsection{Momento Cuadrupolar Electrostático}
+Se denomina \cur{momento cuadrupolar electrostático} $Q_{ij}$ al tensor de rango 2 de la forma:
+\f{Q_{ij} := \ivs{\bb{Q}}{\ro_{(\vc{r}')} (3r'_ir'_j - \kro{ij}r'^2)}{V}'}
+\paragraph{Notación Matricial}
+\begin{align*}
+	Q_{ij} &= \ivs{\bb{Q}}{\ro_{(\vc{r}')} (3r'_ir'_j - \kro{ij}r'^2)}{V}' \\
+	&= \ivs{\bb{Q}}{\ro_{(\vc{r}')} \lpm 3r'_xr'_x - \kro{xx}r'^2 & 3r'_xr'_y - \kro{xy}r'^2 & 3r'_xr'_z - \kro{xz}r'^2 \\ 3r'_yr'_x - \kro{yx}r'^2 & 3r'_yr'_y - \kro{yy}r'^2 & 3r'_yr'_z - \kro{yz}r'^2 \\ 3r'_zr'_x - \kro{zx}r'^2 & 3r'_zr'_y - \kro{zy}r'^2 & 3r'_zr'_z - \kro{zz}r'^2 \rpm}{V}' \\
+	&= \ivs{\bb{Q}}{\ro_{(\vc{r}')} \lpm 3r_x'^2 - r'^2 & 3r'_xr'_y - 0 & 3r'_xr'_z - 0 \\ 3r'_yr'_x - 0 & 3r_y'^2 - r'^2 & 3r'_yr'_z - 0 \\ 3r'_zr'_x - 0 & 3r'_zr'_y - 0 & 3r_z'^2 - r'^2 \rpm}{V}' \\
+	&= \ivs{\bb{Q}}{\ro_{(\vc{r}')} \lpm 3r_x'^2 - r'^2 & 3r'_xr'_y & 3r'_xr'_z \\ 3r'_yr'_x & 3r_y'^2 - r'^2 & 3r'_yr'_z \\ 3r'_zr'_x & 3r'_zr'_y & 3r_z'^2 - r'^2 \rpm}{V}'
+\end{align*}
+\q{Q_{ij} = \ivs{\bb{Q}}{\ro_{(\vc{r}')} \lpm 3r_x'^2 - r'^2 & 3r'_xr'_y & 3r'_xr'_z \\ 3r'_yr'_x & 3r_y'^2 - r'^2 & 3r'_yr'_z \\ 3r'_zr'_x & 3r'_zr'_y & 3r_z'^2 - r'^2 \rpm}{V}'}
+\paragraph{Observación: Traza}
+La traza del momento cuadrupolar electrostático es nula:
+\begin{align*}
+	\tr(Q_{ij}) :&= Q_{xx} + Q_{yy} + Q_{zz} \\
+	&= \ivs{\bb{Q}}{\ro_{(\vc{r}')}(3r_x'^2 - r'^2)}{V}' + \ivs{\bb{Q}}{\ro_{(\vc{r}')}(3r_y'^2 - r'^2)}{V}' + \ivs{\bb{Q}}{\ro_{(\vc{r}')}(3r_z'^2 - r'^2)}{V}' \\
+	&= \ivs{\bb{Q}}{\ro_{(\vc{r}')}(3r_x'^2 + 3r_y'^2 + 3r_z'^2 - r'^2 - r'^2 - r'^2)}{V}' \\
+	&= \ivs{\bb{Q}}{\ro_{(\vc{r}')}\cor{3(r_x'^2 + r_y'^2 + r_z'^2) - 3r'^2}}{V}' \\
+	&= \ivs{\bb{Q}}{\ro_{(\vc{r}')}(3r'^2 - 3r'^2)}{V}' \\
+	&= \ivs{\bb{Q}}{0}{V}' \\
+	&= 0
+\end{align*}
+\q{\tr(Q_{ij}) = 0}
+\paragraph{Observación: Simetría}
+El momento cuadrupolar electrostático es simétrico, es decir:
+\f{Q_{ij} = Q_{ji}}
+		\subsection{Expansión Multipolar En Coordenadas Esféricas}
+			\subsubsection{Deducción}
+\begin{align*}
+	\tx{Por la } &\tx{expansión multipolar del potencial electrostático, tenemos que:} \\
+	\phij_{(\vc{r})} :&= \fr{1}{4\pi\kpev} \S{\ell=0}{\inf}{\cor{\fr{1}{r^{\ell+1}} \ivs{\bb{Q}}{\ro_{(\vc{r}')}r'^{\ell}\Pollet{\ell}}{V}'}} + \cte \\
+	\tx{Por el } &\tx{teorema de adición de los armónicos esféricos, tenemos que:} \\
+	\phij_{\rtf} &= \fr{1}{4\pi\kpev} \S{\ell=0}{\inf}{\lla{\fr{1}{r^{\ell+1}} \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')}r'^{\ell} \cor{\fr{4\pi}{2\ell+1} \S{m=-\ell}{\ell}{\ArmS{\ell}{m}\ArmSc[']{\ell}{m}}}}{V}'}} + \cte \\
+	&= \fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\cor{\fr{\ArmS{\ell}{m}}{(2\ell+1)r^{\ell+1}} \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')}r'^{\ell} \ArmSc[']{\ell}{m}}{V}'}} + \cte \\
+	\tx{Definiendo } &\tx{el tensor } Q_{\ell m} = \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} r'^{\ell} \ArmSc[']{\ell}{m}}{V}' \tx{, tenemos:} \\
+	&= \fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m} Q_{\ell m}}{(2\ell+1)r^{\ell+1}}} + \cte
+\end{align*}
+\q{\phij_{\rtf} = \fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m} Q_{\ell m}}{(2\ell+1)r^{\ell+1}}} + \cte}
+\paragraph{Caso General}
+Si extendemos la notación para cargas en esferas de radio $r<r'$, tenemos que:
+\begin{align*}
+	\tx{Por la } &\tx{definición del potencial electrostático, tenemos que:} \\
+	\phij_{(\vc{r})} :&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\mod{\vc{r}-\vc{r}'}}}{V}' + \cte \\
+	\tx{Por la } &\tx{función de Green en coordenadas esféricas, tenemos que:} \\
+	\phij_{\rtf} &= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} \cor{4\pi \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m}\ArmSc[']{\ell}{m}}{2\ell+1} \ldot{\pr{\fr{r_<^{\ell}}{r_>^{\ell+1}}}}\rdot_{r'}}}}{V}' + \cte \\
+	&= \fr{1}{\kpev} \S{\ell=0}{\inf}{\lla{\fr{1}{(2\ell+1)} \S{m=-\ell}{\ell}{\cor{\ArmS{\ell}{m} \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} \ldot{\pr{\fr{r_<^{\ell}}{r_>^{\ell+1}}}}\rdot_{r'} \ArmSc[']{\ell}{m}}{V}'}}}} + \cte
+\end{align*}
+\q{\phij_{\rtf} = \fr{1}{\kpev} \S{\ell=0}{\inf}{\lla{\fr{1}{(2\ell+1)} \S{m=-\ell}{\ell}{\cor{\ArmS{\ell}{m} \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} \ldot{\pr{\fr{r_<^{\ell}}{r_>^{\ell+1}}}}\rdot_{r'} \ArmSc[']{\ell}{m}}{V}'}}}} + \cte}
+			\subsubsection{Contribución Monopolar}
+La contribución monopolar es la única contribución del potencial electrostático que no depende del sistema de coordenadas (pues es un escalar), y es de la forma:
+\f{\phij_{\ell=0\rtf} \sim \fr{1}{r}}
+			\subsubsection{Contribución Dipolar}
+\f{\phij_{\ell=1\rtf} \sim \fr{1}{r^2}}
+\paragraph{Observación}
+Si el término monopolar es nulo, la contribución dipolar no depende del sistema de coordenadas.
+			\subsubsection{Contribución Cuadrupolar}
+\f{\phij_{\ell=2\rtf} \sim \fr{1}{r^3}}
+\paragraph{Observación}
+Si el término monopolar y el dipolar son nulos, entonces la contribución cuadrupolar no depende del sistema de coordenadas, y así sucesivamente.
+			\subsubsection{Momento Multipolar Electrostático}
+Se denomina \cur{momento multipolar electrostático} $Q_{\ell m}$ al tensor de rango $\ell$ de la forma:
+\f{Q_{\ell m} := \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} r'^{\ell} \ArmSc[']{\ell}{m}}{V}' = \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} r'^{\ell} P_{\ell(\cos\tita')} e^{im\phi'}}{V}'}
+\paragraph{Caso 0 ($\ell=0$): Momento $Q_{00}$}
+\begin{align*}
+	Q_{\ell m} &= \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} r'^{\ell} \ArmSc[']{\ell}{m}}{V}' \\
+	Q_{00} &= \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} r'^0 \ArmSc[']{0}{0}}{V}' \\
+	&= \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} .1 \fr{1}{2\rz{\pi}}}{V}' \\
+	\tx{Por la definición de } &\tx{distribución volumétrica de carga, tenemos:} \\
+	&= \fr{Q_{\tx{T}}}{2\rz{\pi}}
+\end{align*}
+\q{Q_{00} := \fr{Q_{\tx{T}}}{2\rz{\pi}}}
+\paragraph{Caso 1 ($\ell=1$): Momentos $Q_{1-1}$, $Q_{10}$ y $Q_{11}$}
+\begin{align*}
+	Q_{\ell m} &= \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} r'^{\ell} \ArmSc[']{\ell}{m}}{V}' & Q_{\ell m} &= \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} r'^{\ell} \ArmSc[']{\ell}{m}}{V}' \\
+	Q_{1\pm 1} &= \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} r'^1 \ArmSc[']{1}{\pm 1}}{V}' & Q_{10} &= \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} r'^1 \ArmSc[']{1}{0}}{V}' \\
+	&= \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} r' \cor{\mp \fr{1}{2} \rz{\fr{3}{2\pi}} e^{\pm i\phi'}\sen(\tita')}}{V}' & &= \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} .1 \fr{1}{2}\rz{\fr{3}{\pi}} \cos(\tita')}{V}' \\
+	\tx{Por } &\tx{la fórmula de Euler, tenemos:} & \tx{Por la } &\tx{definición de momento dipolar eléctrico, tenemos:} \\
+	&= \mp \fr{1}{2} \rz{\fr{3}{2\pi}} \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} r' \cor{\cos(\phi') \pm i\sen(\phi')}\sen(\tita')}{V}' & &= \fr{1}{2}\rz{\fr{3}{\pi}} p_z \\
+	&= \mp \fr{1}{2} \rz{\fr{3}{2\pi}} \cor{\ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} r' \cos(\phi')\sen(\tita')}{V}' \pm i \ivs{\bb{Q}}{\ro_{(r',\tita',\phi')} r' \sen(\phi')\sen(\tita')}{V}'} \\
+	\tx{Por } &\tx{la definición de momento dipolar eléctrico, tenemos:} \\
+	&= \mp \fr{1}{2} \rz{\fr{3}{2\pi}} \pr{p_x \pm ip_y}
+\end{align*}
+\q{\Fppp{Q_{1-1} := \fr{1}{2} \rz{\fr{3}{2\pi}} \pr{p_x - ip_y}}{Q_{10} := \fr{1}{2}\rz{\fr{3}{\pi}} p_z}{Q_{11} := -\fr{1}{2} \rz{\fr{3}{2\pi}} \pr{p_x + ip_y}}}
+	\section{Momento Dipolar Electrostático}
+		\subsection{Definición}
+Sean $q_i$, $N$-partículas estáticas cargadas eléctricamente en las posiciones $\vc{r}_i$, y sea $\vc{r}$ la posición de una unidad de carga de prueba, entonces:
+\f{\vc{p}_{q_1\pors q_N} := \S{i=1}{N}{q_i (\vc{r}_i-\vc{r})}}
+\paragraph{Dipolo Electrostático Físico}
+Sean $-q$ y $q$ dos partículas estáticas cargadas eléctricamente en las posiciones $\vc{r}'_-$ y $\vc{r}'_+$, respectivamente, separadas por una distancia $\vc{d}$, entonces:
+\f{\vc{p} := q (\vc{r}'_+ - \vc{r}'_-) = q \vc{d}}
+			\subsubsection{Momento Dipolar Electrostático En Una Distribución Continua De Carga}
+Cuando la cantidad de partículas $q_i$ tiende a infinito, obtenemos una Suma de Riemann por cada Diferencial de Carga:
+\begin{align*}
+	\lim{N}{\inf}{\pr{\vc{p}_{q_1\pors q_N}}} &= \lim{N}{\inf}{\cor{\S{i=1}{N}{q_i (\vc{r}_i - \vc{r})}}} \\
+	\vc{p}_{(\vc{r})} &= \Int{}{}{(\vc{r}' - \vc{r})}{q'}
+\end{align*}
+\q{\vc{p}_{(\vc{r})} := \Int{}{}{(\vc{r}'-\vc{r})}{q}'}
+\paragraph{Distribución Lineal}
+Si la distribución de cargas $q'$ puede expresarse como una densidad lineal de carga $\lamda := \lamda_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{\vc{p}_{(\vc{r})} := \ilv{\cal{C}}{\lamda_{(\vc{r}')} (\vc{r}' - \vc{r})}{\ell}'}
+\paragraph{Distribución Superficial}
+Si la distribución de cargas $q'$ puede expresarse como una densidad superficial de carga $\sigma := \sigma_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{\vc{p}_{(\vc{r})} := \isv{\ff{S}}{\sigma_{(\vc{r}')} (\vc{r}' - \vc{r})}{S}'}
+\paragraph{Distribución Volumétrica}
+Si la distribución de cargas $q'$ puede expresarse como una densidad volumétrica de carga $\ro := \ro_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{\vc{p}_{(\vc{r})} := \ivv{\bb{Q}}{\ro_{(\vc{r}')} (\vc{r}' - \vc{r})}{V}'}
+	\section{Ecuaciones Diferenciales Para El Potencial Electrostático}
+		\subsection{Ecuación De Poisson}
+Sea $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Electrostático continuo producido por una distribución volumétrica de carga $\ro := \ro_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ cuyo Potencial Electrostático es $\phij := \phij_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\begin{align*}
+	\div[\vc{r}]{E}_{(\vc{r})} &= \fr{\ro_{(\vc{r})}}{\kpev} \\
+	\nabla_{\vc{r}} \por \cor{-\gr[\vc{r}]{\phij}_{(\vc{r})}} &= \fr{\ro_{(\vc{r})}}{\kpev} \\
+	-\nabla_{\vc{r}} \por \cor{\gr[\vc{r}]{\phij}_{(\vc{r})}} &= \fr{\ro_{(\vc{r})}}{\kpev} \\
+	\lap[\vc{r}]{\phij}_{(\vc{r})} &= - \fr{\ro_{(\vc{r})}}{\kpev}
+\end{align*}
+\q{\lap[\vc{r}]{\phij}_{(\vc{r})} = -\fr{\ro_{(\vc{r})}}{\kpev}}
+			\subsubsection{Unicidad De La Solución}
+Sean $\phij_1$ y $\phij_2$ dos soluciones de la ecuación de Poisson, y sea $u = \phij_{1(\vc{r}')} - \phij_{2(\vc{r}')}$, entonces:
+\begin{align*}
+	\tx{Por la primera } &\tx{identidad de Green, tenemos que:} \\
+	\ivs{\bb{Q}}{\cor{f\lap{g} + (\PI{\gr{f}}{\gr{g}})}}{V}' :&= \isov{\vc{S}^+:=\p\bb{Q}}{\esp{-6} (f\gr{g})}{S}' \\
+	\tx{Si } &f = g = u \tx{, tenemos que:} \\
+	\ivs{\bb{Q}}{\lla{u_{(\vc{r}')}\lap{u}_{(\vc{r}')} + \cor{\PI{\gr{u}_{(\vc{r}')}}{\gr{u}_{(\vc{r}')}}}}}{V}' &= \isov{\vc{S}^+:=\p\bb{Q}}{\esp{-6} \cor{u_{(\vc{r}')}\gr{u}_{(\vc{r}')}}}{S}' \\
+	\ivs{\bb{Q}}{\lla{u_{(\vc{r}')} \cor{\lap{\phij}_{1(\vc{r}')} - \lap{\phij}_{2(\vc{r}')}} + \mod[2]{\gr{u}_{(\vc{r}')}}}}{V}' &= \isos{\vc{S}^+:=\p\bb{Q}}{\esp{-6} \cor{u_{(\vc{r}')}\pd{u_{(\vc{r}')}}{\ver{\ita}'}}}{S}' \\
+	\tx{Por la ecuación } &\tx{de Poisson, tenemos que:} \\
+	\ivs{\bb{Q}}{\lla{u_{(\vc{r}')} \cor{-\fr{\ro_{(\vc{r}')}}{\kpev} + \fr{\ro_{(\vc{r}')}}{\kpev}} + \mod[2]{\gr{u}_{(\vc{r}')}}}}{V}' &= \isos{\vc{S}^+:=\p\bb{Q}}{\esp{-6} \cor{u_{(\vc{r}')}\pd{u_{(\vc{r}')}}{\ver{\ita}'}}}{S}' \\
+	\tx{Si utilizamos } &\tx{condiciones de Dirichlet, tenemos:} \\
+	\ivs{\bb{Q}}{\cor{u_{(\vc{r}')} .0 + \mod[2]{\gr{u}_{(\vc{r}')}}}}{V}' &= \isos{\vc{S}^+:=\p\bb{Q}}{\esp{-6} 0}{S}' \\
+	\ivs{\bb{Q}}{\cor{0 + \mod[2]{\gr{u}_{(\vc{r}')}}}}{V}' &= 0 \\
+	\ivs{\bb{Q}}{\mod[2]{\gr{u}_{(\vc{r}')}}}{V}' &= 0 \\
+	\mod[2]{\gr{u}_{(\vc{r}')}} &= 0 \\
+	\tx{Como } \mod[2]{\gr{u}_{(\vc{r}')}} \tx{ es definida } &\tx{positiva, tenemos:} \\
+	\gr{u}_{(\vc{r}')} &= 0 \\
+	u_{(\vc{r}')} &\sii \cte \\
+\end{align*}
+\q{\phij_{1(\vc{r}')} = \phij_{2(\vc{r}')}}
+		\subsection{Ecuación De Laplace}
+Se denomina \cur{ecuación de Laplace} a la EDP para el potencial electrostático correspondiente a la ecuación de Poisson cuando la densidad volumétrica de carga es nula:
+\f{\lap{\phij}_{(\vc{r})} = 0}
+	\section{Condiciones De Contorno}
+Dado $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Electrostático continuo generado por una superficie $\ff{S} : \bb{D} \inc \bb{R}^2 \to \bb{R}^3$ cargada con una densidad superficial de carga eléctrica $\sigma := \sigma_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ y con normal exterior $\ver{\ita}$, debido a que el Potencial Electrostático es la integral del Campo Electrostático, podemos estudiar su continuidad directamente.
+\paragraph{Continuidad}
+Sea $\cal{C} : [\vc{r}_0,\vc{r}_0+\eps] \inc \bb{R} \to \bb{R}^3$ una curva que representa un segmento que parte de la posición $\vc{r}_0$ hasta la posición $\vc{r}_0 + \eps$ atravesando a la superficie cargada con densidad superficial $\sigma$, con $\eps \to 0$, entonces:
+\begin{align*}
+	\phij_{(\vc{r})}^+ - \phij_{(\vc{r})}^- :&= -\ilv{\cal{C}}{\vc{E}_{(\vc{r}')}}{\ell}' \\
+	\phij_{(\vc{r})}^+ - \phij_{(\vc{r})}^- &= - \ilv[\vc{r}_0+\eps]{\vc{r}_0}{\vc{E}_{(\vc{r}')}}{\ell}' \\
+	\tx{Cuando } \eps &\to 0 \tx{, tenemos que:} \\
+	\phij_{(\vc{r})}^+ - \phij_{(\vc{r})}^- &= - \ilv[\vc{r}_0]{\vc{r}_0}{\vc{E}_{(\vc{r}')}}{\ell}' \\
+	\phij_{(\vc{r})}^+ - \phij_{(\vc{r})}^- &= 0 \\
+	\phij_{(\vc{r})}^+ &= \phij_{(\vc{r})}^-
+\end{align*}
+\q{\phij_{(\vc{r})}^+ = \phij_{(\vc{r})}^-}
+\paragraph{Discontinuidad Del Campo Electrostático En Función Del Potencial}
+Dada la discontinuidad en forma vectorial del Campo Electrostático, podemos escribirla en forma escalar, de la forma:
+\begin{align*}
+	\vc{E}_{(\vc{r})}^+ - \vc{E}_{(\vc{r})}^- &= \fr{\sigma_{(\vc{r})}}{\kpev} \ver{\ita} \\
+	- \gr[\vc{r}]{\phij}_{(\vc{r})}^+ - \cor{- \gr[\vc{r}]{\phij}_{(\vc{r})}^-} &= \fr{\sigma_{(\vc{r})}}{\kpev} \ver{\ita} \\
+	- \pd{\phij_{(\vc{r})}^+}{\ita} + \pd{\phij_{(\vc{r})}^-}{\ita} &= \fr{\sigma_{(\vc{r})}}{\kpev} \\
+	\pd{\phij_{(\vc{r})}^-}{\ita} - \pd{\phij_{(\vc{r})}^+}{\ita} &= \fr{\sigma_{(\vc{r})}}{\kpev}
+\end{align*}
+\q{\pd{\phij_{(\vc{r})}^-}{\ita} - \pd{\phij_{(\vc{r})}^+}{\ita} = \fr{\sigma_{(\vc{r})}}{\kpev}}
+\chapter{Trabajo Y Energía Electrostática}
+	\section{Definiciones}
+Sea $q$ una partícula estática cargada eléctricamente en la posición $\vc{r}'$ inmersa en un Campo Electrostático Continuo $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces el Trabajo Electrostático necesario para llevar a la partícula $q$ desde una posición $\vc{r}_0$ hasta la posición $\vc{r}$, será de la forma:
+\begin{align*}
+	W_{\tx{e}(\vc{r})} :&= \ilv{\cal{C}^+}{\vc{F}_{\tx{e}(\vc{r}')}}{\ell}' \\
+	&= \ilv{\cal{C}^+}{q \vc{E}_{(\vc{r}')}}{\ell}' \\
+	&= q \ilv[\vc{r}]{\vc{r}_0}{\vc{E}_{(\vc{r}')}}{\ell}' \\
+	&= q [\phij_{(\vc{r}_0)} - \phij_{(\vc{r})}]
+\end{align*}
+		\subsection{Trabajo Electrostático De Una Partícula}
+Se denomina \cur{trabajo electrostático} a la diferencia de potencial necesaria para mover una carga de prueba $q$ de un punto $\vc{r}_0$ hasta un punto $\vc{r}$, multiplicada por dicha carga $q$:
+\f{W_{\tx{e}(\vc{r})} = q [\phij_{(\vc{r}_0)} - \phij_{(\vc{r})}]}
+\paragraph{Observación}
+Si tomamos $\vc{r}_0 = \inf$, como $\phij_{(\vc{r})} \Tiende{\vc{r}\to\inf} 0$, tenemos que:
+\f{W_{\tx{e}(\vc{r})} = q \phij_{(\vc{r})}}
+		\subsection{Energía Electrostática Entre Dos Partículas}
+Se denomina \cur{energía electrostática} al potencial de interacción que se produce entre dos cargas $q_1$ y $q_2$ ubicadas en las posiciones $\vc{r}_1$ y $\vc{r}_2$, respectivamente, cuya expresión es de la forma:
+\f{E_{12} := \fr{q_1q_2}{4\pi\kpev\mod{\vc{r}_2-\vc{r}_1}}}
+		\subsection{Energía Electrostático En Un Sistema De $N$-Partículas}
+Sean $q_i$, $N$-partículas estáticas cargadas eléctricamente en las posiciones $\vc{r}_i$, cuyos potenciales corresponden a los de una carga puntual, con $1 \nig i \nig N$, entonces:
+\begin{align*}
+	E_{q_1\pors q_N} &= W_{q_1} + W_{q_2} + W_{q_3} + \porh + W_{q_N} \\
+	&= 0 + q_2 \phij_{1(\vc{r})} + q_3 [\phij_{1(\vc{r})} + \phij_{2(\vc{r})}] + q_4 [\phij_{1(\vc{r})} + \phij_{2(\vc{r})} + \phij_{3(\vc{r})}] + \porh + q_N [\phij_{1(\vc{r})} + \porh + \phij_{N-1(\vc{r})}] \\
+	&= \fr{q_2 q_1}{4\pi\kpev \mod{\vc{r}_2 - \vc{r}_1}} + q_3 \pr{\fr{q_1}{4\pi\kpev \mod{\vc{r}_3 - \vc{r}_1}} + \fr{q_2}{4\pi\kpev \mod{\vc{r}_3 - \vc{r}_2}}} + q_4 \pr{\fr{q_1}{4\pi\kpev \mod{\vc{r}_4 - \vc{r}_1}} + \fr{q_2}{4\pi\kpev \mod{\vc{r}_4 - \vc{r}_2}} + \fr{q_3}{4\pi\kpev \mod{\vc{r}_4 - \vc{r}_3}}} + \porh + q_N \pr{\fr{q_1}{4\pi\kpev \mod{\vc{r}_N - \vc{r}_1}} + \porh + \fr{q_{N-1}}{4\pi\kpev \mod{\vc{r}_N - \vc{r}_{N-1}}}} \\
+	&= \fr{1}{4\pi\kpev} \pr{\fr{q_1q_2}{\mod{\vc{r}_2 - \vc{r}_1}} + \fr{q_1q_3}{\mod{\vc{r}_3 - \vc{r}_1}} + \porh + \fr{q_1q_N}{\mod{\vc{r}_N - \vc{r}_1}} + \fr{q_2q_3}{\mod{\vc{r}_3 - \vc{r}_2}} + \fr{q_2q_4}{\mod{\vc{r}_4 - \vc{r}_2}} + \fr{q_3q_4}{\mod{\vc{r}_4 - \vc{r}_3}} + \porh + \fr{q_2q_N}{\mod{\vc{r}_N - \vc{r}_2}} + \porh + \fr{q_{N-1}q_N}{\mod{\vc{r}_{N-1} - \vc{r}_N}}} \\
+	&= \fr{1}{4\pi\kpev} \fr{1}{2} \SS{i\dis j}{N}{i=1}{N}{\fr{q_i q_j}{\mod{\vc{r}_i - \vc{r}_j}}} \\
+	&= \fr{1}{2} \S{i=1}{N}{q_i\pr{\fr{1}{4\pi\kpev} \S{i\dis j}{N}{\fr{q_j}{\mod{\vc{r}_i - \vc{r}_j}}}}} \\
+	&= \fr{1}{2} \S{i=1}{N}{q_i \phij_{(\vc{r}_i)}}
+\end{align*}
+\q{E_{q_1\pors q_N} = \fr{1}{2} \S{i=1}{N}{q_i \phij_{(\vc{r}_i)}} \tx{, donde } \phij_{(\vc{r}_i)} \tx{ es el potencial electrostático generado por todas las cargas, excepto la carga } q_i.}
+		\subsection{Energía Electrostática En Una Distribución Continua De Carga}
+Cuando la cantidad de partículas cargadas $q_i$ tiende a infinito, obtenemos una Suma de Riemann por cada Diferencial de Carga:
+\begin{align*}
+	\lim{N}{\inf}{\pr{E_{q_1 \pors q_N}}} &= \lim{N}{\inf}{\cor{\fr{1}{2} \S{i=1}{N}{q_i \phij_{(\vc{r}_i)}}}} \\
+	E_{\tx{e}} &= \fr{1}{2} \lim{N}{\inf}{\cor{\S{i=1}{N}{q_i \phij_{(\vc{r}_i)}}}} \\
+	&= \fr{1}{2} \Int{}{}{\phij_{(\vc{r}')}}{q}'
+\end{align*}
+\q{E_{\tx{e}} := \fr{1}{2} \Int{}{}{\phij_{(\vc{r}')}}{q}'}
+\paragraph{Distribución Lineal}
+Si la distribución de cargas $q'$ puede expresarse como una densidad lineal de carga $\lamda := \lamda_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{E_{\tx{e}} = \fr{1}{2} \ils{\cal{C}}{\lamda_{(\vc{r}')} \phij_{(\vc{r}')}}{s}'}
+\paragraph{Distribución Superficial}
+Si la distribución de cargas $q'$ puede expresarse como una densidad superficial de carga $\sigma := \sigma_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{E_{\tx{e}} = \fr{1}{2} \iss{\ff{S}}{\sigma_{(\vc{r}')} \phij_{(\vc{r}')}}{S}'}
+\paragraph{Distribución Volumétrica}
+Si la distribución de cargas $q'$ puede expresarse como una densidad volumétrica de carga $\ro := \ro_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\f{E_{\tx{e}} = \fr{1}{2} \ivs{\bb{Q}}{\ro_{(\vc{r}')} \phij_{(\vc{r}')}}{V}'}
+			\subsubsection{Energía Electrostática En Función Del Campo Electrostático}
+Debido a que conocemos el Trabajo Electrostático $W_{\tx{e}(\vc{r})}$ para una distribución continua de carga eléctrica, suele denominarse Energía Electrostática a dicho trabajo realizado cuando la región de integración $\bb{Q}$ es todo el espacio ($\bb{Q} = \bb{R}^3$), y puede representarse en función del Campo Electrostático $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ de la forma:
+\begin{align*}
+	E_{\tx{e}} :&= \fr{1}{2} \ivs{\bb{Q}}{\ro_{(\vc{r}')} \phij_{(\vc{r}')}}{V}' \\
+	&\tx{Por la Ley de Gauss, tenemos:} \\
+	&= \fr{\kpev}{2} \ivs{\bb{Q}}{\phij_{(\vc{r}')} \cor{\div[\vc{r}']{E}_{(\vc{r}')}}}{V}' \\
+	&\tx{Por la Regla del Producto de la Divergencia, tenemos:} \\
+	&= \fr{\kpev}{2} \ivs{\bb{Q}}{\lla{\nabla_{\vc{r}'} \por \cor{\phij_{(\vc{r}')} \vc{E}_{(\vc{r}')}} - \cor{\PI{\gr[\vc{r}']{\phij}_{(\vc{r}')}}{\vc{E}_{(\vc{r}')}}}}}{V}' \\
+	&= \fr{\kpev}{2} \ivs{\bb{Q}}{\nabla_{\vc{r}'} \por \cor{\phij_{(\vc{r}')} \vc{E}_{(\vc{r}')}}}{V}' + \fr{\kpev}{2} \ivs{\bb{Q}}{\PI{\cor{-\gr[\vc{r}']{\phij}_{(\vc{r}')}}}{\vc{E}_{(\vc{r}')}}}{V}' \\
+	&\tx{Por el Teorema de Gauss, tenemos:} \\
+	&= \fr{\kpev}{2} \isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\phij_{(\vc{r}')} \vc{E}_{(\vc{r}')}}{S}' + \fr{\kpev}{2} \ivs{\bb{Q}}{\PI{\vc{E}_{(\vc{r}')}}{\vc{E}_{(\vc{r}')}}}{V}' \\
+	&\tx{Si } \bb{Q} = \bb{R}^3 \tx{, la integral de superficie tiende a cero, entonces:} \\
+	&= \fr{\kpev}{2}.0 + \fr{\kpev}{2} \ivs{\bb{R}^3}{\mod[2]{\vc{E}_{(\vc{r}')}}}{V}' \\
+	&= \fr{\kpev}{2} \ivs{\bb{R}^3}{\mod[2]{\vc{E}_{(\vc{r}')}}}{V}'
+\end{align*}
+\q{E_{\tx{e}} = \fr{\kpev}{2} \ivs{\bb{R}^3}{\mod[2]{\vc{E}_{(\vc{r}')}}}{V}'}
+	\section{Ejemplos}
+		\subsection{Energía Electrostática De Una Distribución Sometida A Un Campo Externo}
+Sea una distribución volumétrica de carga eléctrica $\ro := \ro_{(\vc{r})}$ confinada en una región de longitud característica $d$ sometida a un campo electrostático externo $\vc{E}^{\tx{ext}}$ de potencial electrostático $\phi_{(\vc{r})}^{\tx{ext}}$ tal que $d$ es mucho menor a la longitud característica de variación de $\phij$, entonces la energía electrostática de interacción entre la distribución de cargas y el campo electrostático externo será de la forma:
+\begin{align*}
+	E_{\tx{e}} :&= \ivs{\bb{Q}}{\ro_{(\vc{r}')} \phij_{(\vc{r}')}^{\tx{ext}}}{V}' \\
+	&\tx{Realizando un desarrollo en serie de Taylor alrededor de } \vc{r}_0 \tx{, tenemos que:} \\
+	&= \ivs{\bb{Q}}{\ro_{(\vc{r}')} \cor{\phij_{(\vc{r}_0)}^{\tx{ext}} + \fr{\p\phij_{(\vc{r}_0)}^{\tx{ext}}}{\p r'_i} (r'_i-r_{0i}) + \fr{1}{2!} \fr{\p[][2] \phij_{(\vc{r}_0)}^{\tx{ext}}}{\p r'_j \p r'_i} (r'_i-r_{0i}) (r'_j-r_{0j}) + \porh }}{V}' \\
+	&= \phij_{(\vc{r}_0)}^{\tx{ext}} \ivs{\bb{Q}}{\ro_{(\vc{r}')}}{V}' + \fr{\p\phij_{(\vc{r}_0)}^{\tx{ext}}}{\p r'_i} \ivs{\bb{Q}}{\ro_{(\vc{r}')} (r'_i-r_{0i})}{V}' + \fr{1}{2} \fr{\p[][2] \phij_{(\vc{r}_0)}^{\tx{ext}}}{\p r'_j \p r'_i} \ivs{\bb{Q}}{\ro_{(\vc{r}')} (r'_i-r_{0i}) (r'_j-r_{0j})}{V}' \\
+	&\tx{Por la definición de carga total encerrada y momento dipolar electrostático, tenemos:} \\
+	&= Q_{\tx{enc}} \phij_{(\vc{r}_0)}^{\tx{ext}} + \fr{\p\phij_{(\vc{r}_0)}^{\tx{ext}}}{\p r'_i} p_{i(\vc{r}_0)} + \fr{1}{2} \fr{\p[][2] \phij_{(\vc{r}_0)}^{\tx{ext}}}{\p r'_i \p r'_j} \ivs{\bb{Q}}{\ro_{(\vc{r}')} (r'_i-r_{0i}) (r'_j-r_{0j})}{V}' \\
+	&\tx{Como } \vc{E}_{(\vc{r})} := -\gr[\vc{r}]{\phij}_{(\vc{r})} = -\p[i] \phij_{(\vc{r})} \tx{, tenemos que:} \\
+	&= Q_{\tx{enc}} \phij_{(\vc{r}_0)}^{\tx{ext}} - E_{i(\vc{r}_0)}^{\tx{ext}} p_{i(\vc{r}_0)} + \fr{1}{2} \fr{\p E_{j(\vc{r}_0)}^{\tx{ext}}}{\p r'_i} \ivs{\bb{Q}}{\ro_{(\vc{r}')} (r'_i-r_{0i}) (r'_j-r_{0j})}{V}' \\
+	&\tx{Definiendo el tensor } c_{ij} = \ivs{\bb{Q}}{\ro_{(\vc{r}')} (r'_i-r_{0i})(r'_j-r_{0j})}{V}' \tx{, tenemos que:} \\
+	&= Q_{\tx{enc}} \phij_{(\vc{r}_0)}^{\tx{ext}} - \PI{\vc{p}_{(\vc{r}_0)}}{\vc{E}_{(\vc{r}_0)}^{\tx{ext}}} + \fr{1}{2} \fr{\p E_{j(\vc{r}_0)}^{\tx{ext}}}{\p r'_i} c_{ij}
+\end{align*}
+\q{E_{\tx{e}} = Q_{\tx{enc}} \phij_{(\vc{r}_0)}^{\tx{ext}} - \PI{\vc{p}_{(\vc{r}_0)}}{\vc{E}_{(\vc{r}_0)}^{\tx{ext}}} + \fr{1}{2} \fr{\p E_{j(\vc{r}_0)}^{\tx{ext}}}{\p r'_i} c_{ij}}
+\chapter{Función De Green}
+	\section{Definición}
+Se denomina \cur{función de Green} a toda función que representa la respuesta al impulso de un operador diferencial lineal e inhomogéneo definido en un dominio con condiciones iniciales o condiciones de contorno específicas. En electrostática, la función de Green representa el potencial electrostático en todo el espacio donde la distribución de cargas presente corresponde a una carga de valor $q'=1$ colocada en la posición $\vc{r}'$, una posición asociada a un punto totalmente arbitrario del espacio.
+	\section{Función De Green En Electrostática}
+La función de Green en electrostática corresponde a la solución de la ecuación de Poisson y Laplace en tres dimensiones, válida tanto para coordenadas cartesianas, cilíndricas y esféricas cuando la región de interés es acotada. Cuando la región en la que se desea calcular el potencial electrostático en todo el espacio es todo el espacio ($\bb{R}^3$), se recupera la expresión del potencial electrostático de la electrostática.
+		\subsection{Definición}
+La función de Green en electrostática corresponde al potencial electrostático producido por una carga puntual $q$ de valor unidad ($q=1$), y es de la forma:
+\begin{align*}
+	\tx{Por la definición del potencial } &\tx{electrostático de una carga puntual, tenemos:} \\
+	\phij_q :&= \fr{1}{4\pi\kpev} \fr{q}{\mod{\vc{r}-\vc{r}'}} \\
+	\tx{Si } &q=1 \tx{, tenemos que:} \\
+	\phij_{q=1} &= \fr{1}{4\pi\kpev} \fr{1}{\mod{\vc{r}-\vc{r}'}} \\
+	G_{(\vc{r},\vc{r}')} &= \fr{1}{4\pi\kpev\mod{\vc{r}-\vc{r}'}}
+\end{align*}
+\q{G_{(\vc{r},\vc{r}')} := \fr{1}{4\pi\kpev\mod{\vc{r}-\vc{r}'}}}
+			\subsubsection{Ecuación De Poisson}
+De la función de Green en electrostática, se sigue inmediatamente cómo resulta su ecuación de Poisson, de la forma:
+\begin{align*}
+	\phij_{(\vc{r})} :&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\mod{\vc{r}-\vc{r}'}}}{V}' \\
+	\lap[\vc{r}]{\phij}_{(\vc{r})} &= \lap[\vc{r}]{} \cor{\ivs{\bb{Q}}{\ro_{(\vc{r}')} G_{(\vc{r},\vc{r}')}}{V}'} \\
+	-\fr{\ro_{(\vc{r})}}{\kpev} &= \ivs{\bb{Q}}{\ro_{(\vc{r}')} \lap[\vc{r}]{G}_{(\vc{r},\vc{r}')}}{V}' \\
+	\sii \lap[\vc{r}]{G}_{(\vc{r},\vc{r}')} &= -\fr{\dirac{(\vc{r}-\vc{r}')}}{\kpev}
+\end{align*}
+\q{\lap[\vc{r}]{G}_{(\vc{r},\vc{r}')} = -\fr{\dirac{(\vc{r}-\vc{r}')}}{\kpev}}
+		\subsection{Expresión General Para El Potencial Electrostático}
+Sea una densidad volumétrica de carga $\ro_{(\vc{r}')}$ contenida en una región del espacio $\bb{Q}$ ($\ro \inc \bb{Q}$), y sean $f = \phij_{(\vc{r}')}$ y $g = G_{(\vc{r},\vc{r}')} := \frr{1}{4\pi\kpev\mod{\vc{r}-\vc{r}'}}$ dos funciones que representan al potencial electrostático en la región de cargas y a la función de green en todo el espacio, entonces:
+\begin{align*}
+	\tx{Por la segunda } &\tx{identidad de Green, tenemos que:} \\
+	\ivs{\bb{Q}}{(f\lap{g} - g\lap{f})}{V}' :&= \isov{\vc{S}^+:=\p\bb{Q}}{(f\gr{g} - g\gr{f})}{S}' \\
+	\ivs{\bb{Q}}{\cor{\phij_{(\vc{r}')}\lap{G}_{(\vc{r},\vc{r}')} - G_{(\vc{r},\vc{r}')}\lap{\phij}_{(\vc{r}')}}}{V}' &= \isov{\vc{S}^+:=\p\bb{Q}}{\cor{\phij_{(\vc{r}')}\gr{G}_{(\vc{r},\vc{r}')} - G_{(\vc{r},\vc{r}')}\gr{\phij}_{(\vc{r}')}}}{S}' \\
+	\tx{Por la ecuación } &\tx{de Poisson, tenemos que:} \\
+	\ivs{\bb{Q}}{\cor{\phij_{(\vc{r}')}\lap{G}_{(\vc{r},\vc{r}')} + G_{(\vc{r},\vc{r}')} \fr{\ro_{(\vc{r}')}}{\kpev}}}{V}' &= \isos{\vc{S}^+:=\p\bb{Q}}{\cor{\phij_{(\vc{r}')} \pd{G_{(\vc{r},\vc{r}')}}{\ver{\ita}'} - G_{(\vc{r},\vc{r}')} \pd{\phij_{(\vc{r}')}}{\ver{\ita}'}}}{S}' \\
+	\tx{Como } &\lap{G}_{(\vc{r},\vc{r}')} = -\frr{\dirac{(\vc{r} - \vc{r}')}}{\kpev} \tx{, tenemos que:} \\
+	\ivs{\bb{Q}}{\phij_{(\vc{r}')}\cor{-\fr{\dirac{(\vc{r}-\vc{r}')}}{\kpev}}}{V}' &= -\fr{1}{\kpev}\ivs{\bb{Q}}{\ro_{(\vc{r}')} G_{(\vc{r},\vc{r}')}}{V}' + \isos{\vc{S}^+:=\p\bb{Q}}{\cor{\phij_{(\vc{r}')} \pd{G_{(\vc{r},\vc{r}')}}{\ver{\ita}'} - G_{(\vc{r},\vc{r}')} \pd{\phij_{(\vc{r}')}}{\ver{\ita}'}}}{S}' \\
+	\tx{Como } &G_{(\vc{r},\vc{r}')} = \fr{1}{4\pi\kpev\mod{\vc{r} - \vc{r}'}} \tx{, tenemos que:} \\
+	-\fr{\phij_{(\vc{r})}}{\kpev} &= -\fr{1}{\kpev}\ivs{\bb{Q}}{\ro_{(\vc{r}')} \fr{1}{4\pi\kpev\mod{\vc{r} - \vc{r}'}}}{V}' + \isos{\vc{S}^+:=\p\bb{Q}}{\cor{\phij_{(\vc{r}')} \pd{}{\ver{\ita}'}\pr{\fr{1}{4\pi\kpev\mod{\vc{r} - \vc{r}'}}} - \fr{1}{4\pi\kpev\mod{\vc{r} - \vc{r}'}} \pd{\phij_{(\vc{r}')}}{\ver{\ita}'}}}{S}' \\
+	\phij_{(\vc{r})} &= \fr{1}{4\pi\kpev}\ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' + \fr{1}{4\pi}\isos{\vc{S}^+:=\p\bb{Q}}{\cor{\fr{1}{\mod{\vc{r} - \vc{r}'}} \pd{\phij_{(\vc{r}')}}{\ver{\ita}'} - \phij_{(\vc{r}')} \pd{}{\ver{\ita}'}\pr{\fr{1}{\mod{\vc{r} - \vc{r}'}}}}}{S}'
+\end{align*}
+\q{\phij_{(\vc{r})} = \fr{1}{4\pi\kpev}\ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' + \fr{1}{4\pi}\isos{\vc{S}^+:=\p\bb{Q}}{\cor{\fr{1}{\mod{\vc{r} - \vc{r}'}} \pd{\phij_{(\vc{r}')}}{\ver{\ita}'} - \phij_{(\vc{r}')} \pd{}{\ver{\ita}'}\pr{\fr{1}{\mod{\vc{r} - \vc{r}'}}}}}{S}'}
+\paragraph{Observación}
+Basta con conocer la densidad volumétrica de carga eléctrica $\ro_{(\vc{r}')}$, el valor del potencial electrostático en la superficie $\phij_{(\vc{r}')}$ y la información de su densidad de carga en superficie $\pds{\phij_{(\vc{r}')}}{\ver{\ita}'}$ para hallar el potencial electrostático en toda la región del espacio $\bb{Q}$.
+			\subsubsection{Condiciones De Contorno De Dirichlet: Especificación Del Potencial}
+Se denominan \cur{condiciones de Dirichlet} a la condición de contorno particular de la expresión general del potencial electrostático en una región del espacio en la que se fija el valor de la componente normal del potencial a cero. De esta forma, el potencial electrostático resulta:
+\f{\phij_{(\vc{r})} = \fr{1}{4\pi\kpev}\ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' - \fr{1}{4\pi}\isos{\vc{S}^+:=\p\bb{Q}}{\esp{-6} \phij_{(\vc{r}')} \pd{}{\ver{\ita}'}\pr{\fr{1}{\mod{\vc{r} - \vc{r}'}}}}{S}'}
+\paragraph{Observación: Función De Green En Superficie}
+Debido a que la condición de contorno es la condición de Dirichlet, se tiene que:
+\begin{align*}
+	\phij_{(\vc{r})} :&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\mod{\vc{r}-\vc{r}'}}}{V}' \\
+	\ldot{\phij_{(\vc{r})}}\right|_{\vc{S}} &= \ivs{\bb{Q}}{\ro_{(\vc{r}')} \ldot{\cor{G_{(\vc{r},\vc{r}')}}}\right|_{\vc{S}}}{V}' \\
+	0 &= \ivs{\bb{Q}}{\ro_{(\vc{r}')} \ldot{\cor{G_{\tx{D}(\vc{r},\vc{r}')}}}\right|_{\vc{S}}}{V}' \\
+	\sii \ldot{\cor{G_{\tx{D}(\vc{r},\vc{r}')}}}\right|_{\vc{S}} &= 0
+\end{align*}
+\q{\ldot{\cor{G_{\tx{D}(\vc{r},\vc{r}')}}}\right|_{\vc{S}} = 0}
+			\subsubsection{Condiciones De Contorno De Neumann: Especificación Del Campo Eléctrico}
+Se denominan \cur{condiciones de Neumann} a la condición de contorno particular de la expresión general del potencial electrostático en una región del espacio en la que se fija el valor del potencial a cero. De esta forma, el potencial electrostático resulta:
+\f{\phij_{(\vc{r})} = \fr{1}{4\pi\kpev}\ivs{\bb{Q}}{\fr{\ro_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' + \fr{1}{4\pi}\isos{\vc{S}^+:=\p\bb{Q}}{\fr{1}{\mod{\vc{r} - \vc{r}'}} \pd{\phij_{(\vc{r}')}}{\ver{\ita}'}}{S}'}
+			\subsubsection{Condiciones De Contorno De Robin}
+Se denominan \cur{condiciones de Robin} a la condición de contorno particular de la expresión general del potencial electrostático en una región del espacio en la que se fija el valor del potencial y su componente normal como una combinación lineal de ambos.
+	\section{Propiedades}
+		\subsection{Simetría}
+Sea una densidad volumétrica de carga $\ro_{(\vc{r}')}$ contenida en una región del espacio $\bb{Q}$ ($\ro \inc \bb{Q}$), y sean $f = \phij_{(\vc{r}')}$ y $g = G_{(\vc{r},\vc{r}')} := \frr{1}{4\pi\kpev\mod{\vc{r}-\vc{r}'}}$ dos funciones que representan al potencial electrostático en la región de cargas y a la función de green en todo el espacio, entonces:
+\begin{align*}
+	\tx{Por la segunda } &\tx{identidad de Green, tenemos que:} \\
+	\ivs{\bb{Q}}{(f\lap{g} - g\lap{f})}{V}' :&= \isov{\vc{S}^+:=\p\bb{Q}}{(f\gr{g} - g\gr{f})}{S}' \\
+	\ivs{\bb{Q}}{\cor{G_{(\vc{r}_0,\vc{r})}\lap{G}_{(\vc{r}_0,\vc{r}')} - G_{(\vc{r}_0,\vc{r}')}\lap{G}_{(\vc{r}_0,\vc{r})}}}{V}' &= \isov{\vc{S}^+:=\p\bb{Q}}{\cor{G_{(\vc{r}_0,\vc{r})}\gr{G}_{(\vc{r}_0,\vc{r}')} - G_{(\vc{r}_0,\vc{r}')}\gr{G}_{(\vc{r}_0,\vc{r})}}}{S}' \\
+	\tx{Como } &\lap{G}_{(\vc{r},\vc{r}')} = -\frr{\dirac{(\vc{r} - \vc{r}')}}{\kpev} \tx{, tenemos que:} \\
+	\ivs{\bb{Q}}{\lla{G_{(\vc{r}_0,\vc{r})} \cor{-\frr{\dirac{(\vc{r}_0 - \vc{r}')}}{\kpev}} - G_{(\vc{r}_0,\vc{r}')}\cor{-\frr{\dirac{(\vc{r}_0 - \vc{r})}}{\kpev}}}}{V}' &= \isos{\vc{S}^+:=\p\bb{Q}}{\cor{G_{(\vc{r}_0,\vc{r})}\pd{G_{(\vc{r}_0,\vc{r}')}}{\ver{\ita}'} - G_{(\vc{r}_0,\vc{r}')}\pd{G_{(\vc{r}_0,\vc{r})}}{\ver{\ita}'}}}{S}' \\
+	\tx{Si utilizamos condiciones de } &\tx{contorno de Dirichlet, tenemos que:} \\
+	\fr{1}{\kpev} \ivs{\bb{Q}}{G_{\tx{D}(\vc{r}_0,\vc{r}')} \dirac{(\vc{r}_0 - \vc{r})}}{V}' - \fr{1}{\kpev} \ivs{\bb{Q}}{G_{\tx{D}(\vc{r}_0,\vc{r})} \dirac{(\vc{r}_0 - \vc{r}')}}{V}' &= \isos{\vc{S}^+:=\p\bb{Q}}{\cor{G_{\tx{D}(\vc{r}_0,\vc{r})}.0 - G_{\tx{D}(\vc{r}_0,\vc{r}')}.0}}{S}' \\
+	\fr{1}{\kpev} G_{\tx{D}(\vc{r},\vc{r}')} - \fr{1}{\kpev} G_{\tx{D}(\vc{r}',\vc{r})} &= \isos{\vc{S}^+:=\p\bb{Q}}{0}{S}' \\
+	\fr{1}{\kpev} G_{\tx{D}(\vc{r},\vc{r}')} - \fr{1}{\kpev} G_{\tx{D}(\vc{r}',\vc{r})} &= 0 \\
+	G_{\tx{D}(\vc{r},\vc{r}')} &= G_{\tx{D}(\vc{r}',\vc{r})}
+\end{align*}
+\q{G_{\tx{D}(\vc{r},\vc{r}')} = G_{\tx{D}(\vc{r}',\vc{r})}}
+	\section{Funciones De Green En Sistemas De Coordenadas}
+		\subsection{Función De Green En Coordenadas Cartesianas}
+			\subsubsection{Función De Green Del Espacio No Acotado}
+		\subsection{Función De Green En Coordenadas Cilíndricas}
+		\subsection{Función De Green En Coordenadas Esféricas}
+			\subsubsection{Función De Green Del Espacio Acotado}
+\paragraph{Deducción}
+Sea una carga eléctrica puntual $q$ en la posición arbitraria $\vc{r}' := r'\ver{r}$ tal que ésta puede considerarse en la cáscara de una esfera centrada en el origen de radio $r'$, entonces:
+\begin{itemize}
+	\item En primer lugar, dividimos el espacio en las dos regiones: \\\\
+	$\s{\bb{R}^3 := \Ftt{\tx{Región I}}{r<r'}{\tx{Región II}}{r'<r}}$
+	\item De esta forma, se cumplirá la ecuación de Laplace en todo el espacio, salvo en la cáscara de radio $r'$ donde se encuentra la carga puntual $q$. De esta forma, el potencial electrostático general en todo el espacio será de la forma: \\\\
+	$\s{\phij_{(\vc{r})} := \Ftt{\phij_{I\rtf} = \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\pr{A_{\ell,m} r^{\ell} + \fr{B_{\ell,m}}{r^{\ell+1}}} \ArmS{\ell}{m}}}{r<r'}{\phij_{II\rtf} = \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\pr{C_{\ell,m} r^{\ell} + \fr{D_{\ell,m}}{r^{\ell+1}}} \ArmS{\ell}{m}}}{r'<r}}$
+	\item Debido a que $\phij_I$ diverge cuando $r=0$ y $\phij_{II}$ diverge cuando $r\to\inf$, pidiendo que $B_{\ell,m}=C_{\ell,m}=0$, tenemos que: \\\\
+	$\s{\phij_{(\vc{r})} := \Ftt{\phij_{I\rtf} = \SS{m=-\ell}{\ell}{\ell=0}{\inf}{A_{\ell,m} r^{\ell} \ArmS{\ell}{m}}}{r<r'}{\phij_{II\rtf} = \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{D_{\ell,m}}{r^{\ell+1}} \ArmS{\ell}{m}}}{r'<r}}$
+	\item Para hallar las constantes $A_{\ell,m}$ y $D_{\ell,m}$, como la dirección normal de las regiones es $\ver{\ita} = \ver{r}$, pidiendo condiciones de contorno de Dirichlet, que corresponden a la condición de continuidad del potencial, y discontinuidad en función del potencial (o condición del continuidad del salto de la derivada del potencial), tenemos que:
+	\f{\tx{CC}_{\tx{D}} := \Fpp{\phij_{I(r=r',\tita,\phi)} = \phij_{II(r=r',\tita,\phi)}}{\pd{\phij_{I(r=r',\tita,\phi)}}{r} - \pd{\phij_{II(r=r',\tita,\phi)}}{r} = \fr{\sigma_{(\tita,\phi)}}{\kpev}}}
+	\item Para calcular la densidad de carga eléctrica superficial $\sigma := \sigma_{(\tita,\phi)}$ debido a la carga puntual, tenemos que:
+	\begin{align*}
+		Q_{\tx{T}} :&= \ivs{\vc{S}}{\sigma_{(\vc{r})}}{S} \\
+		\tx{En coordenadas } &\tx{esféricas, tenemos que:} \\
+		q &= \ivs{\vc{S}}{\sigma_{(\vc{r}')}}{S}' \\
+		\tx{Como la carga } &q \tx{ se encuentra en } r' \tx{, tenemos:} \\
+		&= \ii{0}{\pi}{0}{2\pi}{\sigma_{(\tita',\phi')} r'^2 \sen(\tita')}{\tita'}{\phi'} \\
+		\sii \sigma_{(\tita',\phi')} &= \fr{q \dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{r'^2 \sen(\tita)}
+	\end{align*}
+	\q{\sigma_{(\tita,\phi)} := \fr{q \dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{r'^2 \sen(\tita)}}
+	\item De esta forma, por la condición de continuidad en $r=r'$, tenemos que:
+	\begin{align*}
+		\phij_{I(r=r',\tita,\phi)} &= \phij_{II(r=r',\tita,\phi)} \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{A_{\ell,m} r'^{\ell} \ArmS{\ell}{m}} &= \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{D_{\ell,m}}{r'^{\ell+1}} \ArmS{\ell}{m}} \\
+		\sii A_{\ell,m} r'^{\ell} &= \fr{D_{\ell,m}}{r'^{\ell+1}} \\
+		D_{\ell,m} &= A_{\ell,m} r'^{2\ell+1}
+	\end{align*}
+	\q{D_{\ell,m} = A_{\ell,m} r'^{2\ell+1}}
+	\item Por la condición de continuidad de la derivada, tenemos que:
+	\begin{align*}
+		\pd{\phij_{I(r=r',\tita,\phi)}}{r} - \pd{\phij_{II(r=r',\tita,\phi)}}{r} &= \fr{\sigma_{(\tita,\phi)}}{\kpev} \\
+		\pd{}{r} \ldot{\cor{\SS{m=-\ell}{\ell}{\ell=0}{\inf}{A_{\ell,m} r^{\ell} \ArmS{\ell}{m}}}}\right|_{r'} - \pd{}{r} \ldot{\cor{\SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{D_{\ell,m}}{r^{\ell+1}} \ArmS{\ell}{m}}}}\right|_{r'} &= \fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{\ell A_{\ell,m} r'^{\ell-1} \ArmS{\ell}{m}} + \SS{m=-\ell}{\ell}{\ell=0}{\inf}{(\ell+1)D_{\ell,m} r'^{-\ell-2} \ArmS{\ell}{m}} &= \fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \\
+		\tx{Por la condición de continuidad en } r=r' &\tx{, tenemos que:} \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{\ell A_{\ell,m} r'^{\ell-1} \ArmS{\ell}{m}} + \SS{m=-\ell}{\ell}{\ell=0}{\inf}{(\ell+1)A_{\ell,m} r'^{\ell-1} \ArmS{\ell}{m}} &= \fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{(2\ell+1)A_{\ell,m} r'^{\ell-1} \ArmS{\ell}{m}} &= \fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \\
+		\ii{0}{\pi}{0}{2\pi}{\cor{\SS{m=-\ell}{\ell}{\ell=0}{\inf}{(2\ell+1)A_{\ell,m} r'^{\ell-1} \ArmS{\ell}{m} \ArmSc{\ell'}{m'} \sen(\tita)}}}{\tita}{\phi} &= \ii{0}{\pi}{0}{2\pi}{\fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \ArmSc{\ell'}{m'} \sen(\tita)}{\tita}{\phi} \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{\lla{(2\ell+1)A_{\ell,m} r'^{\ell-1} \cor{\ii{0}{\pi}{0}{2\pi}{\ArmS{\ell}{m} \ArmSc{\ell'}{m'} \sen(\tita)}{\tita}{\phi}}}} &= \fr{q}{\kpev r'^2} \ii{0}{\pi}{0}{2\pi}{\dirac{(\tita-\tita')}\dirac{(\phi-\phi')} \ArmSc{\ell'}{m'}}{\tita}{\phi} \\
+		\tx{Por la relación de ortogonalidad: } \ii{0}{\pi}{0}{2\pi}{\ArmS{\ell}{m} \ArmSc{\ell'}{m'} \sen(\tita)}{\tita}{\phi} = \kro{\ell\ell'}\kro{mm'} &\tx{, tenemos que:}  \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{(2\ell+1)A_{\ell,m} r'^{\ell-1} \kro{\ell\ell'}\kro{mm'}} &= \fr{q}{\kpev r'^2} \ArmSc[']{\ell'}{m'} \\
+		(2\ell'+1)A_{\ell',m'} r'^{\ell'-1} &= \fr{q}{\kpev r'^2} \ArmSc[']{\ell'}{m'} \\
+		\tx{Renombrando } \ell'=\ell \tx{ y } m'=m &\tx{, tenemos que:} \\
+		A_{\ell,m} &= \fr{q}{(2\ell+1)\kpev r'^{\ell+1}} \ArmSc[']{\ell}{m}
+	\end{align*}
+	\q{A_{\ell,m} = \fr{q}{(2\ell+1)\kpev r'^{\ell+1}} \ArmSc[']{\ell}{m}}
+	\item Reemplazando $A_{\ell,m}$ en $D_{\ell,m}$, tenemos que:
+	\begin{align*}
+		D_{\ell,m} &= A_{\ell,m} r'^{2\ell+1} \\
+		&= \fr{q}{(2\ell+1)\kpev r'^{\ell+1}} \ArmSc[']{\ell}{m} r'^{2\ell+1} \\
+		&= \fr{q r'^{\ell}}{(2\ell+1)\kpev} \ArmSc[']{\ell}{m}
+	\end{align*}
+	\q{D_{\ell,m} = \fr{q r'^{\ell}}{(2\ell+1)\kpev} \ArmSc[']{\ell}{m}}
+	\item Reemplazando todas las constantes, el potencial electrostático resulta:
+	\f{\phij_{\rtf} := \Ftt{\phij_{I\rtf} = \fr{q}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m}\ArmSc[']{\ell}{m}}{2\ell+1} \fr{r^{\ell}}{r'^{\ell+1}}}}{r<r'}{\phij_{II\rtf} = \fr{q}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m}\ArmSc[']{\ell}{m}}{2\ell+1} \fr{r'^{\ell}}{r^{\ell+1}}}}{r'<r}}
+	\item Introduciendo la notación $r_< := \min{}{r,r'}$ y $r_> := \max{}{r,r'}$, y tomando el valor de la carga puntual $q=1$, finalmente tenemos que la función de Green en todo el espacio con condiciones de contorno de Dirichlet, será de la forma:
+	\f{G_{\tx{D}(r,\tita,\phi,r',\tita',\phi')} = \fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m}\ArmSc[']{\ell}{m}}{2\ell+1} \ldot{\pr{\fr{r_<^{\ell}}{r_>^{\ell+1}}}}\rdot_{r'}}}
+\end{itemize}
+\paragraph{Función De Green}
+La función de Green en todo el espacio en coordenadas esféricas con condiciones de contorno de Dirichlet, es de la forma:
+\f{G_{\tx{D}(r,\tita,\phi,r',\tita',\phi')} := \fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m}\ArmSc[']{\ell}{m}}{2\ell+1} \ldot{\pr{\fr{r_<^{\ell}}{r_>^{\ell+1}}}}\rdot_{r'}}}
+\paragraph{Observación}
+Debido a que el potencial electrostático de una carga puntual es conocido, mediante la función de Green del espacio en coordenadas esféricas con condiciones de Dirichlet es posible obtener una expansión del término $\frr{1}{\mod{\vc{r}-\vc{r}'}}$. Por la expresión del potencial electrostático de una carga puntual en la posición $\vc{r}'$, tenemos que:
+\begin{align*}
+	\phij_q :&= \fr{q}{4\pi\kpev} \fr{1}{\mod{\vc{r}-\vc{r}'}} \\
+	\tx{Si } &q=1 \tx{, tenemos que:} \\
+	\fr{1}{4\pi\kpev} \fr{1}{\mod{\vc{r}-\vc{r}'}} &= G_{\tx{D}(r,\tita,\phi,r',\tita',\phi')} \\
+	\fr{1}{4\pi\kpev} \fr{1}{\mod{\vc{r}-\vc{r}'}} &= \fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m}\ArmSc[']{\ell}{m}}{2\ell+1} \ldot{\pr{\fr{r_<^{\ell}}{r_>^{\ell+1}}}}\rdot_{r'}} \\
+	\fr{1}{\mod{\vc{r}-\vc{r}'}} &= 4\pi \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m}\ArmSc[']{\ell}{m}}{2\ell+1} \ldot{\pr{\fr{r_<^{\ell}}{r_>^{\ell+1}}}}\rdot_{r'}}
+\end{align*}
+\q{\fr{1}{\mod{\vc{r}-\vc{r}'}} = 4\pi \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m}\ArmSc[']{\ell}{m}}{2\ell+1} \ldot{\pr{\fr{r_<^{\ell}}{r_>^{\ell+1}}}}\rdot_{r'}}}
+			\subsubsection{Función De Green Entre Dos Cáscaras Esféricas}
+\paragraph{Deducción}
+Sea una carga eléctrica puntual $q$ en la posición arbitraria $\vc{r}' := r'\ver{r}$ tal que ésta puede considerarse en la cáscara de una esfera centrada en el origen de radio $r'$, y que contiene una cáscara esférica de radio $a<r'$ en su interior y una de radio $b>r'$ en su exterior, ambas a potencial cero, entonces:
+\begin{itemize}
+	\item En primer lugar, dividimos el espacio en dos regiones: \\\\
+	$\s{\bb{R}^3 := \Ftt{\tx{Región I}}{a<r<r'}{\tx{Región II}}{r'<r<b}}$
+	\item De esta forma, se cumplirá la ecuación de Laplace en todo el espacio, salvo en la cáscara de radio $r'$ donde se encuentra la carga puntual $q$, y el potencial para $r<a$ y $r>b$ será nulo. Así, el potencial electrostático general en todo el espacio será de la forma: \\\\
+	$\s{\phij_{(\vc{r})} := \Ftt{\phij_{I\rtf} = \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\pr{A_{\ell,m} r^{\ell} + \fr{B_{\ell,m}}{r^{\ell+1}}} \ArmS{\ell}{m}}}{a<r<r'}{\phij_{II\rtf} = \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\pr{C_{\ell,m} r^{\ell} + \fr{D_{\ell,m}}{r^{\ell+1}}} \ArmS{\ell}{m}}}{r'<r<b}}$
+	\item Para hallar las constantes $A_{\ell,m}$, $B_{\ell,m}$, $C_{\ell,m}$ y $D_{\ell,m}$, como la dirección normal de las regiones es $\ver{\ita} = \ver{r}$, pidiendo condiciones de contorno de Dirichlet, que corresponden a la condición de continuidad del potencial, y salto, tenemos que:
+	\f{\tx{CC}_{\tx{D}} := \Fpppp{\phij_{I(r=a,\tita,\phi)} = 0}{\phij_{I(r=r',\tita,\phi)} = \phij_{II(r=r',\tita,\phi)}}{\pd{\phij_{I(r=r',\tita,\phi)}}{r} - \pd{\phij_{II(r=r',\tita,\phi)}}{r} = \fr{\sigma_{(\tita,\phi)}}{\kpev}}{\phij_{II(r=b,\tita,\phi)} = 0}}
+	\item De esta forma, por la primera y última condiciones de contorno, tenemos que:
+	\begin{align*}
+		\phij_{I(r=a,\tita,\phi)} &= 0 & \phij_{II(r=b,\tita,\phi)} &= 0 \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{\pr{A_{\ell,m} a^{\ell} + \fr{B_{\ell,m}}{a^{\ell+1}}}\ArmS{\ell}{m}} &= 0 & \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\pr{C_{\ell,m} b^{\ell} + \fr{D_{\ell,m}}{b^{\ell+1}}}\ArmS{\ell}{m}} &= 0 \\
+		\sii A_{\ell,m} a^{\ell} + \fr{B_{\ell,m}}{a^{\ell+1}} &= 0 & \sii C_{\ell,m} b^{\ell} + \fr{D_{\ell,m}}{b^{\ell+1}} &= 0 \\
+		A_{\ell,m} &= -\fr{B_{\ell,m}}{a^{2\ell+1}} & C_{\ell,m} &= -\fr{D_{\ell,m}}{b^{2\ell+1}}
+	\end{align*}
+	\q{\Fpp{A_{\ell,m} = -\fr{B_{\ell,m}}{a^{2\ell+1}}}{C_{\ell,m} = -\fr{D_{\ell,m}}{b^{2\ell+1}}}}
+	\item Reemplazando estas condiciones en el potencial, se tiene que: \\\\
+	$\s{\phij_{(\vc{r})} := \Ftt{\phij_{I\rtf} = \SS{m=-\ell}{\ell}{\ell=0}{\inf}{B_{\ell,m} \pr{\fr{1}{r^{\ell+1}} - \fr{r^{\ell}}{a^{2\ell+1}}} \ArmS{\ell}{m}}}{a<r<r'}{\phij_{II\rtf} = \SS{m=-\ell}{\ell}{\ell=0}{\inf}{D_{\ell,m} \pr{\fr{1}{r^{\ell+1}} - \fr{r^{\ell}}{b^{2\ell+1}}} \ArmS{\ell}{m}}}{r'<r<b}}$
+	\item La densidad de carga eléctrica superficial $\sigma := \sigma_{(\tita,\phi)}$ debida a la carga puntual corresponde a la densidad de carga de la función de green del espacio no acotado en coordenadas esféricas, por lo que su expresión es de la forma:
+	\f{\sigma_{(\tita,\phi)} := \fr{q \dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{r'^2 \sen(\tita)}}
+	\item Por la condición de continuidad en $r=r'$, tenemos que:
+	\begin{align*}
+		\phij_{I(r=r',\tita,\phi)} &= \phij_{II(r=r',\tita,\phi)} \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{B_{\ell,m} \pr{\fr{1}{r'^{\ell+1}} - \fr{r'^{\ell}}{a^{2\ell+1}}} \ArmS{\ell}{m}} &= \SS{m=-\ell}{\ell}{\ell=0}{\inf}{D_{\ell,m} \pr{\fr{1}{r'^{\ell+1}} - \fr{r'^{\ell}}{b^{2\ell+1}}} \ArmS{\ell}{m}} \\
+		\sii B_{\ell,m} \pr{\fr{1}{r'^{\ell+1}} - \fr{r'^{\ell}}{a^{2\ell+1}}} &= D_{\ell,m} \pr{\fr{1}{r'^{\ell+1}} - \fr{r'^{\ell}}{b^{2\ell+1}}} \\
+		B_{\ell,m} \fr{a^{2\ell+1} - r'^{2\ell+1}}{r'^{\ell+1}a^{2\ell+1}} &= D_{\ell,m} \fr{b^{2\ell+1} - r'^{2\ell+1}}{r'^{\ell+1}b^{2\ell+1}} \\
+		D_{\ell,m} &= B_{\ell,m} \fr{a^{2\ell+1} - r'^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}} \pr[2\ell+1]{\fr{b}{a}}
+	\end{align*}
+	\q{D_{\ell,m} = B_{\ell,m} \fr{a^{2\ell+1} - r'^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}} \pr[2\ell+1]{\fr{b}{a}}}
+	\item Por la condición de salto, tenemos que:
+	\begin{align*}
+		\pd{\phij_{I(r=r',\tita,\phi)}}{r} - \pd{\phij_{II(r=r',\tita,\phi)}}{r} &= \fr{\sigma_{(\tita,\phi)}}{\kpev} \\
+		\pd{}{r} \ldot{\cor{\SS{m=-\ell}{\ell}{\ell=0}{\inf}{B_{\ell,m} \pr{\fr{1}{r'^{\ell+1}} - \fr{r'^{\ell}}{a^{2\ell+1}}} \ArmS{\ell}{m}}}}\right|_{r'} - \pd{}{r} \ldot{\cor{\SS{m=-\ell}{\ell}{\ell=0}{\inf}{D_{\ell,m} \pr{\fr{1}{r'^{\ell+1}} - \fr{r'^{\ell}}{b^{2\ell+1}}} \ArmS{\ell}{m}}}}\right|_{r'} &= \fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \\
+		-\SS{m=-\ell}{\ell}{\ell=0}{\inf}{B_{\ell,m} \cor{(\ell+1)r'^{-\ell-2} + \fr{\ell r'^{\ell-1}}{a^{2\ell+1}}} \ArmS{\ell}{m}} + \SS{m=-\ell}{\ell}{\ell=0}{\inf}{D_{\ell,m} \cor{(\ell+1)r'^{-\ell-2} + \fr{\ell r'^{\ell-1}}{b^{2\ell+1}}} \ArmS{\ell}{m}} &= \fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \\
+		\tx{Por la condición de continuidad en } r=r' &\tx{, tenemos que:} \\
+		-\SS{m=-\ell}{\ell}{\ell=0}{\inf}{B_{\ell,m} \cor{(\ell+1)r'^{-\ell-2} + \fr{\ell r'^{\ell-1}}{a^{2\ell+1}}} \ArmS{\ell}{m}} + \SS{m=-\ell}{\ell}{\ell=0}{\inf}{B_{\ell,m} \fr{a^{2\ell+1} - r'^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}} \pr[2\ell+1]{\fr{b}{a}} \cor{(\ell+1)r'^{-\ell-2} + \fr{\ell r'^{\ell-1}}{b^{2\ell+1}}} \ArmS{\ell}{m}} &= \fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{B_{\ell,m} \lla{\fr{a^{2\ell+1} - r'^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}} \pr[2\ell+1]{\fr{b}{a}} \cor{(\ell+1)r'^{-\ell-2} + \fr{\ell r'^{\ell-1}}{b^{2\ell+1}}} - \cor{(\ell+1)r'^{-\ell-2} + \fr{\ell r'^{\ell-1}}{a^{2\ell+1}}}} \ArmS{\ell}{m}} &= \fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{B_{\ell,m} \lla{(\ell+1) r'^{-\ell-2} \cor{\fr{(ab)^{2\ell+1} - (br')^{2\ell+1}}{(ab)^{2\ell+1} - (ar')^{2\ell+1}} - 1} + \fr{\ell r'^{\ell-1}}{a^{2\ell+1}} \pr{\fr{a^{2\ell+1} - r'^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}} - 1}} \ArmS{\ell}{m}} &= \fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{B_{\ell,m} \lla{(\ell+1) r'^{-\ell-2} \cor{\fr{(ar')^{2\ell+1} - (br')^{2\ell+1}}{(ab)^{2\ell+1} - (ar')^{2\ell+1}}} + \fr{\ell r'^{\ell-1}}{a^{2\ell+1}} \pr{\fr{a^{2\ell+1} - b^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}}}} \ArmS{\ell}{m}} &= \fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{B_{\ell,m} \lla{(\ell+1) r'^{-\ell-2} r'^{2\ell+1} \fr{a^{2\ell+1}}{a^{2\ell+1}} \cor{\fr{1 - (b/a)^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}}} + \ell r'^{\ell-1} \fr{a^{2\ell+1}}{a^{2\ell+1}} \cor{\fr{1 - (b/a)^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}}}} \ArmS{\ell}{m}} &= \fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{B_{\ell,m} \lla{(\ell+1) r'^{\ell-1} \cor{\fr{1 - (b/a)^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}}} + \ell r'^{\ell-1} \cor{\fr{1 - (b/a)^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}}}} \ArmS{\ell}{m}} &= \fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{(2\ell+1) B_{\ell,m} r'^{\ell-1} \cor{\fr{1 - (b/a)^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}}} \ArmS{\ell}{m}} &= \fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \\
+		\ii{0}{\pi}{0}{2\pi}{\lla{\SS{m=-\ell}{\ell}{\ell=0}{\inf}{(2\ell+1) B_{\ell,m} r'^{\ell-1} \cor{\fr{1 - (b/a)^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}}} \ArmS{\ell}{m} \ArmSc{\ell'}{m'} \sen(\tita)}}}{\tita}{\phi} &= \ii{0}{\pi}{0}{2\pi}{\fr{q\dirac{(\tita-\tita')}\dirac{(\phi-\phi')}}{\kpev r'^2 \sen(\tita)} \ArmSc{\ell'}{m'} \sen(\tita)}{\tita}{\phi} \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{\lla{(2\ell+1)B_{\ell,m} r'^{\ell-1} \cor{\fr{1 - (b/a)^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}}} \cor{\ii{0}{\pi}{0}{2\pi}{\ArmS{\ell}{m} \ArmSc{\ell'}{m'} \sen(\tita)}{\tita}{\phi}}}} &= \fr{q}{\kpev r'^2} \ii{0}{\pi}{0}{2\pi}{\dirac{(\tita-\tita')}\dirac{(\phi-\phi')} \ArmSc{\ell'}{m'}}{\tita}{\phi} \\
+		\tx{Por la relación de ortogonalidad: } \ii{0}{\pi}{0}{2\pi}{\ArmS{\ell}{m} \ArmSc{\ell'}{m'} \sen(\tita)}{\tita}{\phi} = \kro{\ell\ell'}\kro{mm'} &\tx{, tenemos que:}  \\
+		\SS{m=-\ell}{\ell}{\ell=0}{\inf}{(2\ell+1)B_{\ell,m} r'^{\ell-1} \cor{\fr{1 - (b/a)^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}}} \kro{\ell\ell'}\kro{mm'}} &= \fr{q}{\kpev r'^2} \ArmSc[']{\ell'}{m'} \\
+		(2\ell'+1)B_{\ell',m'} r'^{\ell'-1} \cor{\fr{1 - (b/a)^{2\ell'+1}}{b^{2\ell'+1} - r'^{2\ell'+1}}} &= \fr{q}{\kpev r'^2} \ArmSc[']{\ell'}{m'} \\
+		\tx{Renombrando } \ell'=\ell \tx{ y } m'=m &\tx{, tenemos que:} \\
+		B_{\ell,m} &= \fr{q}{(2\ell+1)\kpev r'^{\ell+1}} \cor{\fr{b^{2\ell+1} - r'^{2\ell+1}}{1 - (b/a)^{2\ell+1}}} \ArmSc[']{\ell}{m}
+	\end{align*}
+	\q{B_{\ell,m} = \fr{q}{(2\ell+1)\kpev r'^{\ell+1}} \cor{\fr{b^{2\ell+1} - r'^{2\ell+1}}{1 - (b/a)^{2\ell+1}}} \ArmSc[']{\ell}{m}}
+	\item Reemplazando $B_{\ell,m}$ en $D_{\ell,m}$, tenemos que:
+	\begin{align*}
+		D_{\ell,m} &= B_{\ell,m} \fr{a^{2\ell+1} - r'^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}} \pr[2\ell+1]{\fr{b}{a}} \\
+		&= \fr{q}{(2\ell+1)\kpev r'^{\ell+1}} \cor{\fr{b^{2\ell+1} - r'^{2\ell+1}}{1 - (b/a)^{2\ell+1}}} \ArmSc[']{\ell}{m} \fr{a^{2\ell+1} - r'^{2\ell+1}}{b^{2\ell+1} - r'^{2\ell+1}} \pr[2\ell+1]{\fr{b}{a}} \\
+		&= \fr{q}{(2\ell+1)\kpev r'^{\ell+1}} \cor{\fr{a^{2\ell+1} - r'^{2\ell+1}}{1 - (b/a)^{2\ell+1}}} \ArmSc[']{\ell}{m} \pr[2\ell+1]{\fr{b}{a}} \\
+		&= \fr{q}{(2\ell+1)\kpev r'^{\ell+1}} \cor{\fr{a^{2\ell+1} - r'^{2\ell+1}}{(a/b)^{2\ell+1} - 1}} \ArmSc[']{\ell}{m}
+	\end{align*}
+	\q{D_{\ell,m} = \fr{q}{(2\ell+1)\kpev r'^{\ell+1}} \cor{\fr{a^{2\ell+1} - r'^{2\ell+1}}{(a/b)^{2\ell+1} - 1}} \ArmSc[']{\ell}{m}}
+	\item Reemplazando las constantes en el potencial electrostático, resulta:
+	\begin{align*}
+		\phij_{I\rtf} &= \SS{m=-\ell}{\ell}{\ell=0}{\inf}{B_{\ell,m} \pr{\fr{1}{r^{\ell+1}} - \fr{r^{\ell}}{a^{2\ell+1}}} \ArmS{\ell}{m}} & \phij_{II\rtf} &= \SS{m=-\ell}{\ell}{\ell=0}{\inf}{D_{\ell,m} \pr{\fr{1}{r^{\ell+1}} - \fr{r^{\ell}}{b^{2\ell+1}}} \ArmS{\ell}{m}} \\
+		&= \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{q}{(2\ell+1)\kpev r'^{\ell+1}} \cor{\fr{b^{2\ell+1} - r'^{2\ell+1}}{1 - (b/a)^{2\ell+1}}} \ArmSc[']{\ell}{m} \pr{\fr{1}{r^{\ell+1}} - \fr{r^{\ell}}{a^{2\ell+1}}} \ArmS{\ell}{m}} & &= \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{q}{(2\ell+1)\kpev r'^{\ell+1}} \cor{\fr{a^{2\ell+1} - r'^{2\ell+1}}{(a/b)^{2\ell+1} - 1}} \ArmSc[']{\ell}{m} \pr{\fr{1}{r^{\ell+1}} - \fr{r^{\ell}}{b^{2\ell+1}}} \ArmS{\ell}{m}} \\
+		&= \fr{q}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{r'^{-\ell-1}}{2\ell+1} \pr[2\ell+1]{\fr{a}{b}} \cor{\fr{b^{2\ell+1} - r'^{2\ell+1}}{(a/b)^{2\ell+1} - 1}} \pr{\fr{1}{r^{\ell+1}} - \fr{r^{\ell}}{a^{2\ell+1}}} \ArmS{\ell}{m} \ArmSc[']{\ell}{m}} & &= \fr{q}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{r'^{-\ell-1}}{2\ell+1} \cor{\fr{r'^{2\ell+1} - a^{2\ell+1}}{1-(a/b)^{2\ell+1}}} \pr{\fr{1}{r^{\ell+1}} - \fr{r^{\ell}}{b^{2\ell+1}}} \ArmS{\ell}{m} \ArmSc[']{\ell}{m}} \\
+		&= \fr{q}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m} \ArmSc[']{\ell}{m}}{(2\ell+1)\cor{1-(a/b)^{2\ell+1}}} \pr{r^{\ell} - \fr{a^{2\ell+1}}{r^{\ell+1}}} \pr{\fr{1}{r'^{\ell+1}} - \fr{r'^{\ell}}{b^{2\ell+1}}}} & &= \fr{q}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m} \ArmSc[']{\ell}{m}}{(2\ell+1)\cor{1-(a/b)^{2\ell+1}}} \pr{r'^{\ell} - \fr{a^{2\ell+1}}{r'^{\ell+1}}} \pr{\fr{1}{r^{\ell+1}} - \fr{r^{\ell}}{b^{2\ell+1}}}}
+	\end{align*}
+	\q{\phij_{\rtf} := \Ftt{\phij_{I\rtf} = \fr{q}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m} \ArmSc[']{\ell}{m}}{(2\ell+1)\cor{1-(a/b)^{2\ell+1}}} \pr{r^{\ell} - \fr{a^{2\ell+1}}{r^{\ell+1}}} \pr{\fr{1}{r'^{\ell+1}} - \fr{r'^{\ell}}{b^{2\ell+1}}}}}{a<r<r'}{\phij_{II\rtf} = \fr{q}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m} \ArmSc[']{\ell}{m}}{(2\ell+1)\cor{1-(a/b)^{2\ell+1}}} \pr{r'^{\ell} - \fr{a^{2\ell+1}}{r'^{\ell+1}}} \pr{\fr{1}{r^{\ell+1}} - \fr{r^{\ell}}{b^{2\ell+1}}}}}{r'<r<b}}
+	\item Introduciendo la notación $r_< := \min{}{r,r'}$ y $r_> := \max{}{r,r'}$, y tomando el valor de la carga puntual $q=1$, finalmente tenemos que la función de Green en todo el espacio con condiciones de contorno de Dirichlet, será de la forma:
+	\f{G_{\tx{D}(r,\tita,\phi,r',\tita',\phi')} = \fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m}\ArmSc[']{\ell}{m}}{(2\ell+1)\cor{1-(a/b)^{2\ell+1}}} \ldot{\pr{r_<^{\ell} - \fr{a^{2\ell+1}}{r_<^{\ell+1}}}}\rdot_{r'} \ldot{\pr{\fr{1}{r_>^{\ell+1}} - \fr{r_>^{\ell}}{b^{2\ell+1}}}}\rdot_{r'}}}
+\end{itemize}
+\paragraph{Función De Green}
+La función de Green en todo el espacio en coordenadas esféricas con condiciones de contorno de Dirichlet, es de la forma:
+\f{G_{\tx{D}(r,\tita,\phi,r',\tita',\phi')} = \fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m}\ArmSc[']{\ell}{m}}{(2\ell+1)\cor{1-(a/b)^{2\ell+1}}} \ldot{\pr{r_<^{\ell} - \fr{a^{2\ell+1}}{r_<^{\ell+1}}}}\rdot_{r'} \ldot{\pr{\fr{1}{r_>^{\ell+1}} - \fr{r_>^{\ell}}{b^{2\ell+1}}}}\rdot_{r'}}}
+\begin{itemize}
+	\item Caso 1: Si $b\to\inf$, se obtiene que el último término dentro del corchete de la función de Green representa la imagen de una carga puntual en el interior de la esfera de radio $a$, de la forma:
+	\f{G_{\tx{D}(r,\tita,\phi,r',\tita',\phi')} = \fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m}\ArmSc[']{\ell}{m}}{2\ell+1} \ldot{\cor{\fr{r_<^{\ell}}{r_>^{\ell+1}} - \fr{1}{a} \pr[\ell+1]{\fr{a^2}{rr'}}}}\rdot_{r'}}}
+	\item Caso 2: Si $a\to 0$, se obtiene que el último término dentro del corchete de la función de Green representa la imagen de una carga puntual por fuera de la esfera de radio $b$, de la forma:
+	\f{G_{\tx{D}(r,\tita,\phi,r',\tita',\phi')} = \fr{1}{\kpev} \SS{m=-\ell}{\ell}{\ell=0}{\inf}{\fr{\ArmS{\ell}{m}\ArmSc[']{\ell}{m}}{2\ell+1} \ldot{\cor{\fr{r_<^{\ell}}{r_>^{\ell+1}} - \fr{1}{b} \pr[\ell]{\fr{rr'}{b^2}}}}\rdot_{r'}}}
+\end{itemize}
+\chapter{Método De Imágenes}
+	\section{Definición}
+Se denomina \cur{método de imágenes} a un método matemático para resolver ecuaciones diferenciales con condiciones de contorno dadas, en el cual se extiende la solución del problema agregando singularidades virtuales en posiciones simétricas como \comilla{imágnes espejadas} que no se encuentran restringidas al dominio de la solución original, de tal forma que la solución total mantenga las condiciones de contorno del problema original. \\\\
+Debido al teorema de existencia y unicidad de la solución de las ecuaciones de Poisson y Laplace, si se encuentra mediante el método de imágenes la solución de un problema electrostático con las mismas condiciones de contorno que las de un problema electrostático donde no existen dichas imágenes o singularidades ficticias, la solución de la ecuación diferencial original es igual a la solución del problema hallada mediante el método de imágenes y es única.
+	\section{Plano Infinito Conductor Frente A Una Carga Puntual}
+Sea un plano infinito conductor en el plano $xy$ en la posición $z=0$ conectado a tierra ($\phij_{(\vc{r})} = 0$) junto a una carga puntual $q$ que se encuentra en la posición $\vc{r}' = x'\ver{x} + y'\ver{y} + z'\ver{z}$ en el semiespacio $z>0$. Para hallar el potencial electrostático en el semiespacio $z>0$ puede utilizarse el método de imágenes, de la siguiente forma:
+		\subsection{Condiciones De Contorno}
+Debido a que la carga $q$ induce cargas superficiales en el plano infinito, en principio no se sabe cómo se dará esta distribución de cargas ya que para puntos en el plano cercanos a la carga $q$ la inducción será distinta que para puntos muy lejanos. Las condiciones de contorno del problema son las siguientes:
+\f{\tx{CC} := \Fpp{\phij_{(x,y,z = 0)} = 0}{\phij_{(\vc{r})} \Tiende{z\to\inf} 0}}
+		\subsection{Potencial Electrostático}
+Para hallar el potencial electrostático en el semiespacio $z>0$, consideramos el problema en todo el espacio, donde colocamos una carga puntual imágen de valor $q_{\tx{im}}$ en la posición $\vc{r}'_{\tx{im}}$ en el espacio que no se encuentra restringido por el contorno (es decir, en alguna posición en $z<0$), de esta forma:
+\begin{itemize}
+	\item Debido a que la expresión del potencial electrostático de una carga puntual es conocido, por el principio de superposición el potencial electrostático en todo el espacio será la suma de los potenciales producidos por la carga $q$ y $q_{\tx{im}}$, de la forma:
+	\begin{align*}
+		\phij'_{(\vc{r})} :&= \phij_{(\vc{r})} + \phij_{\tx{im}(\vc{r})} \\
+		\tx{Por la } &\tx{definición del potencial electrostático de una carga puntual, tenemos:} \\
+		&= \fr{q}{4\pi\kpev \mod{\vc{r} - \vc{r}'}} + \fr{q_{\tx{im}}}{4\pi\kpev \mod{\vc{r} - \vc{r}'_{\tx{im}}}} \\
+		&= \fr{q}{4\pi\kpev \mod{(x \ver{x} + y \ver{y} + z \ver{z}) - (x'\ver{x} + y'\ver{y} + z'\ver{z})}} + \fr{q_{\tx{im}}}{4\pi\kpev \mod{(x \ver{x} + y \ver{y} + z \ver{z}) - (x'_{\tx{im}}\ver{x} + y'_{\tx{im}}\ver{y} + z'_{\tx{im}}\ver{z})}} \\
+		&= \fr{1}{4\pi\kpev} \cor{\fr{q}{\rz{(x-x')^2 + (y-y')^2 + (z-z')^2}} + \fr{q_{\tx{im}}}{\rz{(x-x'_{\tx{im}})^2 + (y-y'_{\tx{im}})^2 + (z-z'_{\tx{im}})^2}}} \\
+		\tx{Por la } &\tx{primera condición de contorno, tenemos que:} \\
+		\phij'_{(x,y,z=0)} &= \fr{1}{4\pi\kpev} \cor{\fr{q}{\rz{(x-x')^2 + (y-y')^2 + (0-z')^2}} + \fr{q_{\tx{im}}}{\rz{(x-x'_{\tx{im}})^2 + (y-y'_{\tx{im}})^2 + (0-z'_{\tx{im}})^2}}} \\
+		0 &= \fr{1}{4\pi\kpev} \cor{\fr{q}{\rz{(x-x')^2 + (y-y')^2 + (0-z')^2}} + \fr{q_{\tx{im}}}{\rz{(x-x'_{\tx{im}})^2 + (y-y'_{\tx{im}})^2 + (0-z'_{\tx{im}})^2}}} \\
+		\fr{q}{\rz{(x-x')^2 + (y-y')^2 + (-z')^2}} &= -\fr{q_{\tx{im}}}{\rz{(x-x'_{\tx{im}})^2 + (y-y'_{\tx{im}})^2 + (-z'_{\tx{im}})^2}} \\
+		\sii &\Fpppp{q_{\tx{im}} = -q}{x'_{\tx{im}} = x'}{y'_{\tx{im}} = y'}{z'_{\tx{im}} = -z'}
+	\end{align*}
+	\q{\phij'_{(\vc{r})} = \fr{q}{4\pi\kpev} \cor{\fr{1}{\rz{(x-x')^2 + (y-y')^2 + (z-z')^2}} - \fr{1}{\rz{(x-x')^2 + (y-y')^2 + (z+z')^2}}}}
+	\item Por la segunda condición de contorno, tenemos que:
+	\begin{align*}
+		\phij'_{(x,y,z\to\inf)} &= \fr{q}{4\pi\kpev} \cor{\fr{1}{\rz{(x-x')^2 + (y-y')^2 + (\inf-z')^2}} - \fr{1}{\rz{(x-x')^2 + (y-y')^2 + (\inf+z')^2}}} \\
+		&= \fr{q}{4\pi\kpev} \pr{\fr{1}{\inf} - \fr{1}{\inf}} \\
+		&= \fr{q}{4\pi\kpev}.0 \\
+		&= 0
+	\end{align*}
+	\q{\tx{CC}' := \Fpp{\phij'_{(x,y,z=0)} = 0}{\phij'_{(\vc{r})} \Tiende{z\to\inf} 0}}
+	\item Como el potencial electrostático $\phij'_{(\vc{r})}$ tiene las mismas condiciones de contorno que el problema original, entonces por el teorema de existencia y unicidad el potencial electrostático $\phij_{(\vc{r})}$ del plano infinito conductor frente a la carga puntual es de la forma:
+	\f{\phij_{(\vc{r})} := \Ftt{\fr{q}{4\pi\kpev} \cor{\fr{1}{\rz{(x-x')^2 + (y-y')^2 + (z-z')^2}} - \fr{1}{\rz{(x-x')^2 + (y-y')^2 + (z+z')^2}}}}{0<z}{0}{z<0}}
+\end{itemize}
+\paragraph{Observación}
+El potencial electrostático se obtuvo al colocar una carga de valor $-q$ de forma espejada al plano infinito conductor, en la posición $\vc{r}'_{\tx{im}} = x'\ver{x} + y'\ver{y} - z'\ver{z}$.
+		\subsection{Función De Green}
+Debido a que el potencial electrostático del plano infinito conductor en $z=0$ frente a la carga puntual $q$ fue obtenido para un valor de la posición de la carga totalmente arbitrario ($\vc{r}' = x'\ver{x} + y'\ver{y} + z'\ver{z}$), la función de Green del semiespacio $z>0$ corresponderá al valor del potencial electrostático cuando $q=1$, de la forma:
+\f{G_{\tx{D}(x,y,z,x',y',z')} = \Ftt{\fr{1}{4\pi\kpev} \cor{\fr{1}{\rz{(x-x')^2 + (y-y')^2 + (z-z')^2}} - \fr{1}{\rz{(x-x')^2 + (y-y')^2 + (z+z')^2}}}}{0<z}{0}{z<0}}
+		\subsection{Densidad De Carga Inducida}
+Por la expresión de las condiciones de contorno del potencial electrostátio, podemos obtener el valor de la densidad de carga inducida en el plano infinito conductor, de la forma:
+\begin{align*}
+	\pd{\phij_{(\vc{r})}^-}{\ita} - \pd{\phij_{(\vc{r})}^+}{\ita} :&= \fr{\sigma_{(\vc{r})}}{\kpev} \\
+	\tx{Como } &\phij_{(\vc{r})} = 0 \ptd z<0 \tx{, tenemos que:} \\
+	0 - \pd{\phij_{(\vc{r})}^+}{\ita} &= \fr{\sigma_{(\vc{r})}}{\kpev} \\
+	\sigma_{(\vc{r})} &= -\kpev \pd{\phij_{(\vc{r})}}{\ita} \\
+	&= -\kpev \pd{\phij_{(z=0)}}{z} \\
+	&= -\kpev \pd{}{z} {\ldot{\lla{\fr{q}{4\pi\kpev} \cor{\fr{1}{\rz{(x-x')^2 + (y-y')^2 + (z-z')^2}} - \fr{1}{\rz{(x-x')^2 + (y-y')^2 + (z+z')^2}}}}}\right|}_{z=0} \\
+	&= -\fr{q}{4\pi} {\ldot{\lla{\fr{z'-z}{[(x-x')^2+(y-y')^2+(z-z')^2]^{3/2}} + \fr{z'+z}{[(x-x')^2+(y-y')^2+(z+z')^2]^{3/2}}}}\right|}_{z=0} \\
+	&= -\fr{q}{4\pi} \cor{\fr{z'}{[(x-x')^2+(y-y')^2+z'^2]^{3/2}} + \fr{z'}{[(x-x')^2+(y-y')^2+z'^2]^{3/2}}} \\
+	&= -\fr{qz'}{2\pi[(x-x')^2+(y-y')^2+z'^2]^{3/2}}
+\end{align*}
+\q{\sigma_{\tx{ind}(\vc{r})} := \sigma_{\xy} = -\fr{qz'}{2\pi[(x-x')^2+(y-y')^2+z'^2]^{3/2}}}
+		\subsection{Carga Total Inducida}
+La carga total inducida sobre el conductor será de la forma:
+\begin{align*}
+	Q_{\tx{T}} :&= \iss{\ff{S}}{\sigma_{(\vc{r})}}{S} \\
+	&= -\fr{qz'}{2\pi} \iss{\ff{S}}{\fr{1}{[(x-x')^2+(y-y')^2+z'^2]^{3/2}}}{S} \\
+	&\tx{Tomando } x'=y'=0 \tx{, tenemos:} \\
+	&= -\fr{qz'}{2\pi} \ii{0}{\inf}{0}{2\pi}{\fr{|\ro|}{(\ro^2+z'^2)^{3/2}}}{\ro}{\phi} \\
+	&= -\fr{qz'}{2\pi} \Int{0}{2\pi}{\esp{-6}}{\phi} \Int{0}{\inf}{\fr{\ro}{(\ro^2+z'^2)^{3/2}}}{\ro} \\
+	&= -\fr{qz'}{2\pi} . 2\pi . \fr{1}{z'} \\
+	&= -q
+\end{align*}
+\q{Q_{\tx{T}} := q_{\tx{im}} = -q}
+	\section{Esfera Conductora Frente A Una Carga Puntual}
+Sea un esfera conductora de radio $R$ centrada en el origen de coordenadas conectada a tierra ($\phij_{(\vc{r})} = 0$) junto a una carga puntual $q$ que se encuentra en la posición $\vc{r}' = r'\ver{r}$ fuera de la esfera. Para hallar el potencial electrostático fuera de la esfera puede utilizarse el método de imágenes, de la siguiente forma:
+		\subsection{Condiciones De Contorno}
+Debido a que la carga $q$ induce cargas superficiales en la esfera, en principio no se sabe cómo se dará esta distribución de cargas. Las condiciones de contorno del problema son las siguientes:
+\f{\tx{CC} := \Fpp{\phij_{(r=R,\tita,\phi)} = 0}{\phij_{(\vc{r})} \Tiende{r\to\inf} 0}}
+		\subsection{Potencial Electrostático}
+Para hallar el potencial electrostático en el espacio fuera de la esfera, consideramos el problema en todo el espacio, donde colocamos una carga puntual imágen de valor $q_{\tx{im}}$ en la posición $\vc{r}'_{\tx{im}} = r'_{\tx{im}}\ver{r}$ en el interior de la esfera, de esta forma:
+\begin{itemize}
+	\item Debido a que la expresión del potencial electrostático de una carga puntual es conocido, por el principio de superposición el potencial electrostático en todo el espacio será la suma de los potenciales producidos por la carga $q$ y $q_{\tx{im}}$, de la forma:
+	\begin{align*}
+		\phij'_{(\vc{r})} :&= \phij_{(\vc{r})} + \phij_{\tx{im}(\vc{r})} \\
+		\tx{Por la } &\tx{definición del potencial electrostático de una carga puntual, tenemos:} \\
+		&= \fr{q}{4\pi\kpev \mod{\vc{r} - \vc{r}'}} + \fr{q_{\tx{im}}}{4\pi\kpev \mod{\vc{r} - \vc{r}'_{\tx{im}}}} \\
+		&= \fr{q}{4\pi\kpev \rz{\PI{(\vc{r} - \vc{r}')}{(\vc{r} - \vc{r}')}}} + \fr{q_{\tx{im}}}{4\pi\kpev \rz{\PI{(\vc{r} - \vc{r}'_{\tx{im}})}{(\vc{r} - \vc{r}'_{\tx{im}})}}} \\
+		&= \fr{q}{4\pi\kpev \rz{\PI{(r\ver{r} - r'\ver{r})}{(r\ver{r} - r'\ver{r})}}} + \fr{q_{\tx{im}}}{4\pi\kpev \rz{\PI{(r\ver{r} - r'_{\tx{im}}\ver{r})}{(r\ver{r} - r'_{\tx{im}}\ver{r})}}} \\
+		&= \fr{q}{4\pi\kpev \rz{r^2 + r'^2 -2rr'\cos(\tita)}} + \fr{q_{\tx{im}}}{4\pi\kpev \rz{r^2 + r_{\tx{im}}'^2 - 2rr'_{\tx{im}}\cos(\tita)}} \\
+		\tx{Por la } &\tx{primera condición de contorno, tenemos que:} \\
+		\phij'_{(r=R,\tita,\phi)} &= \fr{q}{4\pi\kpev \rz{R^2 + r'^2 -2Rr'\cos(\tita)}} + \fr{q_{\tx{im}}}{4\pi\kpev \rz{R^2 + r_{\tx{im}}'^2 - 2Rr'_{\tx{im}}\cos(\tita)}} \\
+		0 &= \fr{1}{4\pi\kpev} \cor{\fr{q}{\rz{R^2 + r'^2 -2Rr'\cos(\tita)}} + \fr{q_{\tx{im}}}{\rz{R^2 + r_{\tx{im}}'^2 - 2Rr'_{\tx{im}}\cos(\tita)}}} \\
+		\fr{q}{\rz{R^2 + r'^2 -2Rr'\cos(\tita)}} &= -\fr{q_{\tx{im}}}{\rz{R^2 + r_{\tx{im}}'^2 - 2Rr'_{\tx{im}}\cos(\tita)}} \\
+		q^2 \cor{R^2 + r_{\tx{im}}'^2 - 2Rr'_{\tx{im}}\cos(\tita)} &= q_{\tx{im}}^2 \cor{R^2 + r'^2 -2Rr'\cos(\tita)} \\
+		\sii &\Fppp{\sg{(q_{\tx{im}})} = -\sg{(q)}}{q^2(R^2 + r_{\tx{im}}'^2) = q_{\tx{im}}^2(R^2 + r'^2)}{2q^2Rr'_{\tx{im}} \cos(\tita) = 2q_{\tx{im}}^2Rr' \cos(\tita)}
+	\end{align*}
+	\item Obtuvimos un sistema de ecuaciones para $q_{\tx{im}}$ y $r'_{\tx{im}}$. Por la última ecuación, tenemos que:
+	\begin{align*}
+		2q^2Rr'_{\tx{im}} \cos(\tita) &= 2q_{\tx{im}}^2Rr' \cos(\tita) \\
+		\fr{q^2}{q_{\tx{im}}^2} &= \fr{r'}{r'_{\tx{im}}}
+	\end{align*}
+	\q{\fr{q^2}{q_{\tx{im}}^2} = \fr{r'}{r'_{\tx{im}}}}
+	\item Por la segunda ecuación, tenemos que:
+	\begin{align*}
+		\fr{q^2}{q_{\tx{im}}^2} (R^2 + r_{\tx{im}}'^2) &= R^2 + r'^2 \\
+		\tx{Reemplazando la } &\tx{primera ecuación, tenemos que:} \\
+		\fr{r'}{r'_{\tx{im}}} (R^2 + r_{\tx{im}}'^2) &= R^2 + r'^2 \\
+		r'R^2 + r'r_{\tx{im}}'^2 &= r'_{\tx{im}} R^2 + r'_{\tx{im}} r'^2 \\
+		0 &= (r')r_{\tx{im}}'^2 + (-R^2 - r'^2) r'_{\tx{im}} + (r'R^2) \\
+		r'_{\tx{im} 1,2} :&= \fr{- (-R^2 - r'^2) \mp \rz{(-R^2-r'^2)^2 - 4 r'^2 R^2}}{2r'} \\
+		&= \fr{R^2 + r'^2 \mp \rz{R^4 + r'^4 - 2r'^2R^2}}{2r'} \\
+		&= \fr{R^2 + r'^2 \mp \rz{(r'^2 - R^2)^2}}{2r'} \\
+		&= \fr{R^2 + r'^2 \mp \mod{r'^2 - R^2}}{2r'} \\
+		&\tx{Como } r'>R \tx{, tenemos que:} \\
+		&= \fr{R^2 + r'^2 \mp (r'^2 - R^2)}{2r'} \\
+		&= \Fpp{r'_{\tx{im}1} = \fr{2R^2}{2r'} = \fr{R^2}{r'}}{r'_{\tx{im}2} = \fr{2r'^2}{2r'} = r' \tx{ abs. pues } r'_{\tx{im}} < R < r'}
+	\end{align*}
+	\q{r'_{\tx{im}} = \fr{R^2}{r'}}
+	\item Reemplazando en la última ecuación nuevamente, tenemos que:
+	\begin{align*}
+		\fr{q^2}{q_{\tx{im}}^2} &= \fr{r'}{r'_{\tx{im}}} \\
+		q_{\tx{im}}^2 &= q^2 \fr{r'_{\tx{im}}}{r'} \\
+		q_{\tx{im}}^2 &= q^2 \fr{R^2}{r'^2} \\
+		\tx{Como } &\sg(q_{\tx{im}}) = -\sg(q) \tx{, tenemos que:} \\
+		q_{\tx{im}} &= -\fr{qR}{r'}
+	\end{align*}
+	\q{\Fpp{r'_{\tx{im}} = \fr{R^2}{r'}}{q_{\tx{im}} = -\fr{qR}{r'}}}
+	\item Reemplazando las condiciones en el potencial electrostático, tenemos que:
+	\begin{align*}
+		\phij'_{(\vc{r})} &= \fr{q}{4\pi\kpev \mod{\vc{r} - \vc{r}'}} + \fr{q_{\tx{im}}}{4\pi\kpev \mod{\vc{r} - \vc{r}'_{\tx{im}}}} \\
+		&= \fr{q}{4\pi\kpev \mod{\vc{r} - r'\ver{r}}} - \fr{qR}{4\pi\kpev r' \mod{\vc{r} - \frr{R^2}{r'} \ver{r}}} \\
+		&= \fr{q}{4\pi\kpev} \cor{\fr{1}{\rz{r^2 + r'^2 - 2rr'\cos(\tita)}} - \fr{R}{r'\rz{r^2 + \frr{R^4}{r'^2} - 2\frr{rR^2}{r'} \cos(\tita)}}}
+	\end{align*}
+	\q{\phij'_{(\vc{r})} = \fr{q}{4\pi\kpev} \pr{\fr{1}{\mod{\vc{r} - r'\ver{r}}} - \fr{R}{r'\mod{\vc{r} - \frr{R^2}{r'} \ver{r}}}} = \fr{q}{4\pi\kpev} \cor{\fr{1}{\rz{r^2 + r'^2 - 2rr'\cos(\tita)}} - \fr{R}{r'\rz{r^2 + \frr{R^4}{r'^2} - 2\frr{rR^2}{r'} \cos(\tita)}}}}
+	\item Por la segunda condición de contorno, tenemos que:
+	\begin{align*}
+		\phij'_{(r\to\inf,\tita,\phi)} &= \fr{q}{4\pi\kpev} \cor{\fr{1}{\rz{\inf^2 + r'^2 - 2\inf r'\cos(\tita)}} - \fr{R}{r'\rz{\inf^2 + \frr{R^4}{r'^2} - 2\frr{\inf R^2}{r'} \cos(\tita)}}} \\
+		&= \fr{q}{4\pi\kpev} \pr{\fr{1}{\inf} - \fr{1}{\inf}} \\
+		&= \fr{q}{4\pi\kpev}.0 \\
+		&= 0
+	\end{align*}
+	\q{\tx{CC}' := \Fpp{\phij'_{(r=R,\tita,\phi)} = 0}{\phij'_{(\vc{r})} \Tiende{r\to\inf} 0}}
+	\item Como el potencial electrostático $\phij'_{(\vc{r})}$ tiene las mismas condiciones de contorno que el problema original, entonces por el teorema de existencia y unicidad el potencial electrostático $\phij_{(\vc{r})}$ de la esfera conductora frente a la carga puntual es de la forma:
+	\f{\phij_{(\vc{r})} := \Ftt{0}{0<r<R}{\fr{q}{4\pi\kpev} \cor{\fr{1}{\rz{r^2 + r'^2 - 2rr'\cos(\tita)}} - \fr{R}{r'\rz{r^2 + \frr{R^4}{r'^2} - 2\frr{rR^2}{r'} \cos(\tita)}}}}{R<r}}
+\end{itemize}
+\paragraph{Observación}
+El potencial electrostático se obtuvo al colocar una carga de valor $-q$ de forma espejada a la esfera conductora, en la posición $\vc{r}'_{\tx{im}} = \frr{R^2}{r'} \ver{r}$.
+		\subsection{Función De Green}
+Debido a que el potencial electrostático de la esfera conductora en $r=R$ frente a la carga puntual $q$ fue obtenido para un valor de la posición de la carga totalmente arbitrario ($\vc{r}' = r'\ver{r}$), la función de Green del espacio fuera de la esfera corresponderá al valor del potencial electrostático cuando $q=1$, de la forma:
+\f{G_{\tx{D}(r,\tita,\phi,r',\tita',\phi')} := \Ftt{0}{0<r<R}{\fr{1}{4\pi\kpev} \cor{\fr{1}{\rz{r^2 + r'^2 - 2rr'\cos(\tita)}} - \fr{R}{r'\rz{r^2 + \frr{R^4}{r'^2} - 2\frr{rR^2}{r'} \cos(\tita)}}}}{R<r}}
+		\subsection{Densidad De Carga Inducida}
+Por la expresión de las condiciones de contorno del potencial electrostátio, podemos obtener el valor de la densidad de carga inducida en la esfera conductora, de la forma:
+\begin{align*}
+	\pd{\phij_{(\vc{r})}^-}{\ita} - \pd{\phij_{(\vc{r})}^+}{\ita} :&= \fr{\sigma_{(\vc{r})}}{\kpev} \\
+	\tx{Como } &\phij_{(\vc{r})} = 0 \ptd r<R \tx{, tenemos que:} \\
+	0 - \pd{\phij_{(\vc{r})}^+}{\ita} &= \fr{\sigma_{(\vc{r})}}{\kpev} \\
+	\sigma_{(\vc{r})} &= -\kpev \pd{\phij_{(\vc{r})}}{\ita} \\
+	&= -\kpev \pd{\phij_{(r=R)}}{r} \\
+	&= -\kpev \pd{}{r} {\ldot{\lla{\fr{q}{4\pi\kpev} \cor{\fr{1}{\rz{r^2 + r'^2 - 2rr'\cos(\tita)}} - \fr{R}{r'\rz{r^2 + \frr{R^4}{r'^2} - 2\frr{rR^2}{r'} \cos(\tita)}}}}}\right|}_{r=R} \\
+	&= -\fr{q}{4\pi} {\ldot{\lla{\fr{r'\cos(\tita) - r}{[r^2 + r'^2 - 2rr'\cos(\tita)]^{3/2}} + \fr{R [r - \frr{R^2}{r'} \cos(\tita)]}{r'\cor[3/2]{r^2 + \frr{R^4}{r'^2} - 2\frr{rR^2}{r'} \cos(\tita)}}}}\right|}_{r=R} \\
+	&= -\fr{q}{4\pi} \lla{\fr{r'\cos(\tita) - R}{[R^2 + r'^2 - 2Rr'\cos(\tita)]^{3/2}} + \fr{R^2 [1 - \frr{R}{r'} \cos(\tita)]}{r'R^3 \cor[3/2]{1 + \frr{R^2}{r'^2} - 2\frr{R}{r'} \cos(\tita)}}} \\
+	&= -\fr{q}{4\pi} \lla{\fr{r'\cos(\tita) - R}{[R^2 + r'^2 - 2Rr'\cos(\tita)]^{3/2}} + \fr{1 - \frr{R}{r'} \cos(\tita)}{r'R \cor[3/2]{1 + \frr{R^2}{r'^2} - 2\frr{R}{r'} \cos(\tita)}}}
+\end{align*}
+\q{\sigma_{\tx{ind}(\vc{r})} := \sigma_{(\tita)} = -\fr{q}{4\pi} \lla{\fr{r'\cos(\tita) - R}{[R^2 + r'^2 - 2Rr'\cos(\tita)]^{3/2}} + \fr{1 - \frr{R}{r'} \cos(\tita)}{r'R \cor[3/2]{1 + \frr{R^2}{r'^2} - 2\frr{R}{r'} \cos(\tita)}}}}
+		\subsection{Carga Puntual En El Interior De Una Esfera Conductora}
+Este problema es igual al problema que corresponde a la esfera conductora a potencial cero que se encuentra frente a una carga puntual en su exterior, por lo que su potencial electrostático, función de Green, etc. son idénticos.
+\chapter{Medios Materiales Electrostáticos}
+	\section{Conductor Eléctrico}
+		\subsection{Definición}
+Un conductor eléctrico es un medio material que permite el flujo de carga eléctrica en una o varias direcciones. En un conductor eléctrico metálico, uno o más electrones por átomo son libres de moverse mientras que en un conductor eléctrico líquido los iones son libres de moverse por el medio. \\\\
+En contraste, un aislante eléctrico es un medio material cuyo flujo de carga eléctrica es mínimo o nulo, es decir, la corriente eléctrica no fluye libremente. A diferencia de los conductores eléctricos, los aislantes eléctricos presentan una alta resistividad.
+		\subsection{Conductor Eléctrico Perfecto}
+Un conductor eléctrico perfecto o ideal es un medio material que contiene una cantidad infinita de cargas libres. En la naturaleza estos materiales no existen pero son un buen modelo para los metales conductores.
+		\subsection{Inducción De Carga Eléctrica En La Superficie}
+Cuando un conductor eléctrico perfecto cuya carga eléctrica total es nula ($Q_{\tx{T}} = 0$) se ve sometido a un Campo Electrostático $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ generado por una densidad volumétrica de carga $\ro := \ro_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, las cargas en su superficie se redistribuyen para contrarrestar el Campo $\vc{E}$ producido, y como la fuerza eléctrica ejercida sobre las cargas cercanas del conductor, es mayor a la ejercida sobre las cargas lejanas, se produce \cur{Inducción Eléctrica} sobre el conductor.
+\paragraph{Jaula De Faraday}
+Debido a que cuando un conductor eléctrico se ve sometido a un Campo Electrostático $\vc{E}$, el conductor redistribuye sus cargas superficiales para contrarrestar al campo de tal forma que el campo en su interior sea nulo, si se construye un conductor con un grosor finito y con una cavidad o hueco en su interior, cualquier campo electromagnético externo no podrá penetrar en el interior de la cavidad que encierra el conductor. Este efecto se conoce como la \cur{Jaula de Faraday}.
+		\subsection{Propiedades}
+\paragraph{Carga Neta}
+\B{La carga neta de un conductor eléctrico perfecto reside en su superficie.}
+\paragraph{Campo Electrostático Interior}
+Cuando un conductor eléctrico perfecto se encuentra inmerso en un Campo Electrostático $\vc{E}_0 := \vc{E}_{0(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, se inducen prácticamente de forma instantánea, cargas sobre su superficie para contrarrestar y cancelar dicho Campo $\vc{E}_0$, produciendo en dirección opuesta un Campo Electrostático propio $\vc{E}_1 := \vc{E}_{1(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$. Tras cancelar al Campo $\vc{E}_0$, el Campo Electrostático Total en el interior del conductor es nulo:
+\B{$\vc{E}_{\tx{T}(\vc{r})}^- = \vc{0}$}
+\paragraph{Campo Electrostático Exterior}
+Las cargas eléctricas sobre la superficie de un conductor eléctrico perfecto se distribuyen de tal forma que contrarrestan y cancelan las componentes tangenciales del Campo Electrostático $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ en el que se encuentra, por lo que el Campo $\vc{E}$ en el exterior del conductor es perpendicular a su superficie. Por la Condición de Contorno del Campo $\vc{E}$, tenemos:
+\begin{align*}
+	\vc{E}_{(\vc{r})}^+ - \vc{E}_{(\vc{r})}^- &= \fr{\sigma_{(\vc{r})}}{\kpev} \ver{\ita} \\
+	\tx{Como el Campo en el } &\tx{interior es nulo, tenemos:} \\
+	\vc{E}_{(\vc{r})}^+ - 0 &= \fr{\sigma_{(\vc{r})}}{\kpev} \ver{\ita} \\
+	\vc{E}_{(\vc{r})}^+ &= \fr{\sigma_{(\vc{r})}}{\kpev} \ver{\ita}
+\end{align*}
+\q{\vc{E}_{(\vc{r})}^+ = \fr{\sigma_{(\vc{r})}}{\kpev} \ver{\ita}}
+\paragraph{Densidad De Carga Eléctrica Neta Interior}
+Debido a que el Campo Electrostático Total en un conductor eléctrico perfecto es nulo, la distribución de cargas eléctricas positivas y negativas en su interior se compensan de tal forma que la densidad de carga eléctrica neta es nula:
+\begin{align*}
+	\tx{Por la Ley de } &\tx{Gauss, tenemos:} \\
+	\div[\vc{r}]{E}_{(\vc{r})} &= \fr{\ro_{(\vc{r})}}{\kpev} \\
+	\div[\vc{r}]{0} &= \fr{\ro_{(\vc{r})}}{\kpev} \\
+	0 &= \fr{\ro_{(\vc{r})}}{\kpev} \\
+	\ro_{(\vc{r})} &= 0
+\end{align*}
+\q{\ro_{(\vc{r})} = 0}
+\paragraph{Equipotencialidad}
+Debido a que el Campo Electrostático Total en el interior de un conductor eléctrico perfecto es nulo, el conductor es Equipotencial en su interior y superficie.
+\begin{align*}
+	\phij_{(\vc{r})} :&= - \ilv[\vc{r}_f]{\vc{r}_i}{\vc{E}_{(\vc{r}')}}{\ell}' \\
+	\phij_{(\vc{r})} &= - \ilv[\vc{r}_f]{\vc{r}_i}{\vc{0}}{\ell}' \\
+	\phij_{(\vc{r}_i)} - \phij_{(\vc{r}_f)} &= 0 \\
+	\phij_{(\vc{r}_i)} &= \phij_{(\vc{r}_f)}
+\end{align*}
+\q{\phij_{(\vc{r}_i)} = \phij_{(\vc{r}_f)}}
+		\subsection{Densidad De Carga Inducida}
+Dado un conductor eléctrico perfecto sometido a un Campo Electrostático $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ de Potencial $\phij := \phij_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, podemos obtener la densidad de carga eléctrica superficial $\sigma := \sigma_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, mediante la condición de contorno sobre el Campo Externo $\vc{E}_{(\vc{r})}^+$ de la forma:
+\begin{align*}
+	\vc{E}_{(\vc{r})}^+ &= \fr{\sigma_{(\vc{r})}}{\kpev} \ver{\ita} \\
+	- \pd{\phij_{(\vc{r})}^+}{\ita} &= \fr{\sigma_{(\vc{r})}}{\kpev} \\
+	\sigma_{(\vc{r})} &= -\kpev \pd{\phij_{(\vc{r})}^+}{\ita}
+\end{align*}
+\q{\sigma_{(\vc{r})} = -\kpev \pd{\phij_{(\vc{r})}^+}{\ita}}
+		\subsection{Presión Electrostática}
+Dado un conductor eléctrico perfecto con densidad de carga superficial $\sigma := \sigma_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, y Campo Electrostático $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces:
+\begin{align*}
+	P_{(\vc{r})} :&= \fr{\vc{F}_{(\vc{r})}}{A} \\
+	&= \sigma_{(\vc{r})} \vc{E}_{(\vc{r})} \\
+	&= \sigma_{(\vc{r})} \fr{\vc{E}_{(\vc{r})}^+ + \vc{E}_{(\vc{r})}^-}{2} \\
+	&= \fr{\sigma_{(\vc{r})}}{2} \cor{\fr{\sigma_{(\vc{r})}}{\kpev} \ver{\ita} + 0} \\
+	&= \fr{\sigma_{(\vc{r})}^2}{2\kpev} \ver{\ita} \\
+	&= \fr{\kpev}{2} \mod[2]{\vc{E}_{(\vc{r})}}
+\end{align*}
+\q{P_{(\vc{r})} = \fr{\sigma_{(\vc{r})}^2}{2\kpev} \ver{\ita} = \fr{\kpev}{2} \mod[2]{\vc{E}_{(\vc{r})}}}
+	\section{Material Dieléctrico}
+		\subsection{Definición}
+Un material dieléctrico es un aislante eléctrico que se \cur{polariza} o sufre un torque cuando se ve sometido a un Campo Electrostático externo.
+		\subsection{Inducción De Dipolos Eléctricos En El Interior}
+La polarización en el dieléctrico ocurre debido a que los átomos del material, si bien se encuentran en equilibrio, están compuestos de cargas positivas (los núcleos) y negativas (los electrones), por lo que al aplicar el campo externo se redistribuyen y se ven afectadas en forma distinta: los núcleos se alinean en dirección del campo y los electrones en sentido contrario. De esta forma se genera un momento dipolar electrostático inducido en los átomos del material produciendo la \cur{polarización dieléctrica}. \\\\
+Cuando un material está compuesto por moléculas que ya se encuentran polarizadas, al aplicar un campo externo se produce de forma resultante un torque sobre sus moléculas.
+		\subsection{Momento Dipolar Electrostático Inducido (Átomo Neutral)}
+Dado un material dieléctrico compuesto por átomos en equilibrio (neutrales) sometido a un Campo Electrostático $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces el Momento Dipolar Electrostático Inducido $\vc{p} := \vc{p}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ sobre un átomo del material será de la forma:
+\f{\vc{p}_{(\vc{r})} := \alfa_{ij} \vc{E}_{(\vc{r})}}
+\paragraph{Polarizabilidad Eléctrica}
+Se denomina Polarizabilidad Eléctrica al tensor de segundo orden $\alfa_{ij}$.
+			\subsubsection{Medio Lineal Isótropo Y Homogéneo (L.I.H.)}
+En un Medio Material Lineal, Isótropo y Homogéneo (L.I.H.) el tensor $\alfa_{ij}$ puede escribirse de la forma:
+\f{\vc{p}_{(\vc{r})} = \kpev \kse \vc{E}_{(\vc{r})}}
+\paragraph{Constante De Susceptibilidad Eléctrica}
+\f{\kse := \kper - 1 \tx{, con } \kper := \fr{\eps}{\kpev}}
+		\subsection{Torque Inducido (Molécula Polar)}
+Dado un material dieléctrico compuesto por moléculas ya polarizadas sometido a un Campo Electrostático Uniforme $\vc{E} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces el Torque Inducido $\vc{\taf} := \vc{\taf}_{\tx{e}} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ sobre un dipolo eléctrico $\vc{p} :=  q \vc{d}$ del material será de la forma:
+\begin{align*}
+	\vc{\taf}_{\tx{e}} :&= \PV{\vc{r}_+}{\vc{F}_+} + \PV{\vc{r}_-}{\vc{F}_-} \\
+	&= \PV{\fr{\vc{d}}{2}}{(q \vc{E})} + \PV{\pr{-\fr{\vc{d}}{2}}}{(-q \vc{E})} \\
+	&= \fr{q}{2} \PV{\vc{d}}{\vc{E}} + \fr{q}{2} \PV{\vc{d}}{\vc{E}} \\
+	&= q \PV{\vc{d}}{\vc{E}} \\
+	&= \PV{\vc{p}}{\vc{E}}
+\end{align*}
+\q{\vc{\taf}_{\tx{e}} = \PV{\vc{p}}{\vc{E}}}
+\paragraph{Fuerza Inducida (Campo No Uniforme)}
+Cuando sobre el material dieléctrico con moléculas ya polarizadas actúa un Campo Electrostático $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, la Fuerza Inducida $\vc{F} := \vc{F}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ sobre un dipolo del material resulta:
+\begin{align*}
+	\vc{F}_{(\vc{r})} &= \vc{F}_{(\vc{r})}^+ + \vc{F}_{(\vc{r})}^- \\
+	&= q \vc{E}_{(\vc{r})}^+ - q \vc{E}_{(\vc{r})}^- \\
+	&= q \Del \vc{E}_{(\vc{r})} \\
+	\tx{Si } \vc{d} &\to 0 \tx{, entonces:} \\
+	&= q \d \vc{E}_{(\vc{r})} \\
+	&= q (\PI{\vc{d}}{\nabla}) \vc{E}_{(\vc{r})} \\
+	&= (\PI{\vc{p}}{\nabla}) \vc{E}_{(\vc{r})}
+\end{align*}
+\q{\vc{F}_{(\vc{r})} = (\PI{\vc{p}}{\nabla}) \vc{E}_{(\vc{r})}}
+		\subsection{Campo Polarización}
+Debido a que todos los dipolos eléctricos inducidos en los átomos de un material dieléctrico apuntan en dirección del Campo Electrostático externo $\vc{E}$, el material en su conjunto se encuentra polarizado.
+			\subsubsection{Definición}
+Se denomina Campo Polarización al Campo Vectorial $\vc{P} := \vc{P}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ que representa la densidad de polarización del dieléctrico, de la forma:
+\f{\vc{P}_{(\vc{r})} := \dv{\vc{p}_{(\vc{r})}}{V}}
+			\subsubsection{Relación Constitutiva Del Medio}
+Se denomina \cur{relación constitutiva del medio} a la relación entre el campo polarización y el campo eléctrico, cuya expresión puede obtenerse mediante un desarrollo en serie de Taylor, que en notación de índices es de la forma:
+\f{\vc{P}_{(\vc{E}_{(\vc{r})})} = \vc{P}_{(\vc{E}_{(\vc{r})}=\vc{0})} + \pd{\vc{P}_{(\vc{E}_{(\vc{r})}=\vc{0})}}{E_{i(\vc{r})}} E_{i(\vc{r})} + \ppd{\vc{P}_{(\vc{E}_{(\vc{r})}=\vc{0})}}{E_{i(\vc{r})}}{1}{E_{j(\vc{r})}}{1} E_{i(\vc{r})}E_{j(\vc{r})} + \porh }
+\paragraph{Electrete}
+Se denomina \cur{electrete} a un material dieléctrico que presenta una polarización eléctrica cuasi-permanente, es decir, cuyo campo de polarización satisface:
+\f{\vc{P}_{(\vc{E}_{(\vc{r})} = \vc{0})} \dis 0}
+\paragraph{Respuesta Lineal}
+Cuando el material dieléctrico no tiene polarización permanente ($\vc{P}_{(\vc{0})} = 0$) y el campo eléctrico $\vc{E}_{(\vc{r})}$ es débil, la relación entre el campo la polarización y el campo eléctrico es de la forma:
+\f{P_{i(\vc{E}_{(\vc{r})})} = \kpev \ji_{ij} E_{j(\vc{r})}}
+\begin{itemize}
+	\item Si el medio es Lineal, Isótropo y Homogéneo (LIH) el campo densidad de polarización es de la forma:
+	\f{\vc{P}_{(\vc{r})} = \kpev \kse \vc{E}_{(\vc{r})}}
+\end{itemize}
+\paragraph{Tensor Susceptibilidad Eléctrica}
+En forma general, la susceptibilidad eléctrica es un tensor de rango 2 de la forma:
+\f{\ji_{ij} := \pd{P_{i(\vc{E}_{(\vc{r})}=\vc{0})}}{E_{j(\vc{r})}} = \lpm \ji_{xx} & \ji_{xy} & \ji_{xz} \\ \ji_{yx} & \ji_{yy} & \ji_{yz} \\ \ji_{zx} & \ji_{zy} & \ji_{zz} \rpm}
+			\subsubsection{Potencial Electrostático De Un Dieléctrico Polarizado}
+Debido a que el Potencial Electrostático $\phij := \phij_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ de un Dipolo Electrostático es conocido, podemos obtener mediante la definición del Campo Densidad de Polarización el potencial total de un material dieléctrico polarizado:
+\begin{align*}
+	\phij_{\tx{dip}(\vc{r})} :&= \fr{1}{4\pi\kpev} \fr{\PI{\vc{p}_{(\vc{r})}}{(\vc{r} - \vc{r}')}}{\mod[3]{\vc{r} - \vc{r}'}} \\
+	&\tx{El Potencial Total de una Densidad de Polarización, será de la forma:} \\
+	\phij_{(\vc{r})} &= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\PI{\vc{P}_{(\vc{r}')}}{(\vc{r} - \vc{r}')}}{\mod[3]{\vc{r} - \vc{r}'}}}{V}' \\
+	&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\PI{\vc{P}_{(\vc{r}')}}{\fr{(\vc{r} - \vc{r}')}{\mod[3]{\vc{r} - \vc{r}'}}}}{V}' \\
+	&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\PI{\vc{P}_{(\vc{r}')}}{\lla{\fr{(x - x') \ver{x} + (y - y') \ver{y} + (z - z') \ver{z}}{\cor[3]{\rz{(x - x')^2 + (y - y')^2 + (z - z')^2}}}}}}{V}' \\
+	&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\PI{\vc{P}_{(\vc{r}')}}{\lla{\fr{x - x'}{[(x - x')^2 + (y - y')^2 + (z - z')^2]^{3/2}} \ver{x} + \fr{y - y'}{[(x - x')^2 + (y - y')^2 + (z - z')^2]^{3/2}} \ver{y} + \fr{z - z'}{[(x - x')^2 + (y - y')^2 + (z - z')^2]^{3/2}} \ver{z}}}}{V}' \\
+	&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\PI{\vc{P}_{(\vc{r}')}}{\lla{\pd{}{x'} \cor{\fr{1}{\rz{(x - x')^2 + (y - y')^2 + (z - z')^2}}} \ver{x} + \pd{}{y'} \cor{\fr{1}{\rz{(x - x')^2 + (y - y')^2 + (z - z')^2}}} \ver{y} + \pd{}{z'} \cor{\fr{1}{\rz{(x - x')^2 + (y - y')^2 + (z - z')^2}}} \ver{z}}}}{V}' \\
+	&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\PI{\vc{P}_{(\vc{r}')}}{\gr[\vc{r}']{\pr{\fr{1}{\mod{\vc{r} - \vc{r}'}}}}}}{V}' \\
+	&\tx{Por la Regla del Producto de la Divergencia, tenemos:} \\
+	&= \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\nabla_{\vc{r}'} \por \cor{\fr{\vc{P}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}}{V}' - \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\div[\vc{r}']{P}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' \\
+	&\tx{Por el Teorema de Gauss:} \\
+	&= \fr{1}{4\pi\kpev} \isov{\ff{S}^+:=\p\bb{Q}}{\esp{-6} \fr{\vc{P}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{S}' - \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\div[\vc{r}']{P}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' \\
+	&= \fr{1}{4\pi\kpev} \isos{\ff{S}^+:=\p\bb{Q}}{\esp{-6} \fr{\PI{\vc{P}_{(\vc{r}')}}{\ver{\ita}}}{\mod{\vc{r} - \vc{r}'}}}{S}' - \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\div[\vc{r}']{P}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' \\
+	&= \fr{1}{4\pi\kpev} \isos{\ff{S}^+:=\p\bb{Q}}{\esp{-6} \fr{\sigma_{p(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{S}' + \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\ro_{p(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}'
+\end{align*}
+\q{\phij_{(\vc{r})} = \fr{1}{4\pi\kpev} \isos{\ff{S}^+:=\p\bb{Q}}{\esp{-6} \fr{\sigma_{p(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{S}' + \fr{1}{4\pi\kpev} \ivs{\bb{Q}}{\fr{\ro_{p(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}'}
+\paragraph{Densidad De Carga Superficial De Polarización}
+Se denomina Densidad Superficial de Cargas de Polarización al Campo Escalar $\sigma_p := \sigma_{p(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ de la forma:
+\f{\sigma_{p(\vc{r})} := \PI{\vc{P}_{(\vc{r})}}{\ver{\ita}}}
+\paragraph{Densidad De Carga Volumétrica De Polarización}
+Se denomina Densidad Volumétrica de Cargas de Polarización al Campo Escalar $\ro_p := \ro_{p(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ de la forma:
+\f{\ro_{p(\vc{r})} := - \div[\vc{r}]{P}_{(\vc{r})}}
+		\subsection{Campo Desplazamiento Eléctrico}
+Dado un dieléctrico polarizado que cuenta con una densidad de carga volumétrica de polarización $\ro_p := \ro_{p(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, definimos como densidad de carga volumétrica total $\ro := \ro_{(\vc{r})} = \ro_{p(\vc{r})} + \ro_{l(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ a la suma de la densidad de polarización $\ro_{p(\vc{r})}$ y todo el resto de cargas presentes en el medio material que no corresponden a cargas de polarización, que denominamos cargas libres $\ro_l := \ro_{l(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$, entonces:
+\begin{align*}
+	\tx{Por la Ley de Gauss, } &\tx{tenemos:} \\
+	\div[\vc{r}]{E}_{(\vc{r})} &= \fr{\ro_{(\vc{r})}}{\kpev} \\
+	\kpev \div[\vc{r}]{E}_{(\vc{r})} &= \ro_{l(\vc{r})} + \ro_{p(\vc{r})} \\
+	\nabla_{\vc{r}} \por \cor{\kpev \vc{E}_{(\vc{r})}} &= \ro_{l(\vc{r})} - \div[\vc{r}]{P}_{(\vc{r})} \\
+	\nabla_{\vc{r}} \por \cor{\kpev \vc{E}_{(\vc{r})}} + \div[\vc{r}]{P}_{(\vc{r})} &= \ro_{l(\vc{r})} \\
+	\nabla_{\vc{r}} \por \cor{\kpev \vc{E}_{(\vc{r})} + \vc{P}_{(\vc{r})}} &= \ro_{l(\vc{r})} \\
+	\div[\vc{r}]{D}_{(\vc{r})} &= \ro_{l(\vc{r})}
+\end{align*}
+			\subsubsection{Definición}
+Se denomina Campo Desplazamiento Eléctrico $\vc{D} := \vc{D}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ al campo vectorial total de un medio material dieléctrico, que tiene en cuenta las contribuciones del Campo Electrostático $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ y el Campo Densidad de Polarización $\vc{P} := \vc{P}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, y es de la forma:
+\f{\vc{D}_{(\vc{r})} := \kpev \vc{E}_{(\vc{r})} + \vc{P}_{(\vc{r})}}
+			\subsubsection{Respuesta Lineal}
+Cuando el material dieléctrico responde linealmente al campo eléctrico, el campo desplazamiento eléctrico resulta:
+\begin{align*}
+	\vc{D}_{(\vc{r})} :&= \kpev \vc{E}_{(\vc{r})} + \vc{P}_{(\vc{r})} \\
+	&= \kpev \vc{E}_{(\vc{r})} + \ji_{ij} E_{j(\vc{r})} \\
+	&= \kpev (1 + \ji_{ij}) E_{j(\vc{r})} \\
+	&= \eps_{ij} E_{j(\vc{r})}
+\end{align*}
+\q{D_{i(\vc{r})} = \eps_{ij} E_{j(\vc{r})}}
+\paragraph{Medio LIH}
+Si el medio es lineal, isótropo y homogéneo, el campo desplazamiento eléctrico es de la forma:
+\begin{align*}
+	\vc{D}_{(\vc{r})} :&= \kpev \vc{E}_{(\vc{r})} + \vc{P}_{(\vc{r})} \\
+	&= \kpev \vc{E}_{(\vc{r})} + \kpev \kse \vc{E}_{(\vc{r})} \\
+	&= \kpev (1 + \kse) \vc{E}_{(\vc{r})} \\
+	&= \kpev \kper \vc{E}_{(\vc{r})} \\
+	&= \eps \vc{E}_{(\vc{r})}
+\end{align*}
+\q{\vc{D}_{(\vc{r})} = \eps \vc{E}_{(\vc{r})}}
+			\subsubsection{Permitividad Eléctrica}
+Se denomina \cur{permitividad eléctrica} $\eps$ a la constante de la forma:
+\f{\eps := \kpev \kper}
+\paragraph{Permitividad Relativa}
+La constante $\kper$ es la \cur{permitividad eléctrica relativa} del medio material.
+\paragraph{Tensor Permitividad Eléctrica}
+En forma general, la permitividad eléctrica es un tensor de rango 2 de la forma:
+\f{\eps_{ij} := \eps_0 (1 + \ji_{ij}) = \eps_0 \cor{1 + \pd{P_{i(\vc{E}_{(\vc{r})}=\vc{0})}}{E_{j(\vc{r})}}} = \lpm \eps_{xx} & \eps_{xy} & \eps_{xz} \\ \eps_{yx} & \eps_{yy} & \eps_{yz} \\ \eps_{zx} & \eps_{zy} & \eps_{zz} \rpm}
+			\subsubsection{Ley De Gauss Para Dieléctricos}
+Por el Teorema De Gauss, tenemos que:
+\begin{align*}
+	\div[\vc{r}]{D}_{(\vc{r})} &= \ro_{l(\vc{r})} \\
+	\ivs{\bb{Q}}{\div[\vc{r}]{D}_{(\vc{r})}}{V} &= \ivs{\bb{Q}}{\ro_{l(\vc{r})}}{V} \\
+	\isov{\ff{S}^+:=\p \bb{Q}}{\esp{-10}\vc{D}_{(\vc{r})}}{S} &= \ivs{\bb{Q}}{\ro_{l(\vc{r})}}{V}
+\end{align*}
+\q{\isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\vc{D}_{(\vc{r})}}{S} = \ivs{\bb{Q}}{\ro_{l(\vc{r})}}{V}}
+\paragraph{Ley De Gauss Para Dieléctricos: Forma Integral}
+\f{\isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\vc{D}_{(\vc{r})}}{S} = \ivs{\bb{Q}}{\ro_{l(\vc{r})}}{V}}
+\paragraph{Ley De Gauss Para Dieléctricos: Forma Diferencial}
+\f{\div[\vc{r}]{D}_{(\vc{r})} = \ro_{l(\vc{r})}}
+			\subsubsection{Rotor Del Campo Desplazamiento Eléctrico}
+\paragraph{Rotor En Volumen}
+\begin{align*}
+	\rot[\vc{r}]{D}_{(\vc{r})} &= \nabla_{\vc{r}} \Por \cor{\kpev \vc{E}_{(\vc{r})} + \vc{P}_{(\vc{r})}} \\
+	&= \kpev \rot[\vc{r}]{E}_{(\vc{r})} + \rot[\vc{r}]{P}_{(\vc{r})} \\
+	&= \kpev . 0 + \rot[\vc{r}]{P}_{(\vc{r})} \\
+	&= \rot[\vc{r}]{P}_{(\vc{r})}
+\end{align*}
+\q{\rot[\vc{r}]{D}_{(\vc{r})} = \rot[\vc{r}]{P}_{(\vc{r})}}
+\paragraph{Rotor En Superficie}
+\begin{align*}
+	\isov{\ff{S}}{\rot[\vc{r}]{D}_{(\vc{r})}}{S} &= \isov{\ff{S}}{\rot[\vc{r}]{P}_{(\vc{r})}}{S} \\
+	&= \ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{P}_{(\vc{r})}}{\ell} \\
+	&= \PV{\vc{P}_{(\vc{r})}}{\ver{\ita}}
+\end{align*}
+\q{\rot[\vc{r}]{D}_{(\vc{r})} = \PV{\vc{P}_{(\vc{r})}}{\ver{\ita}}}
+			\subsubsection{Condiciones De Contorno}
+Debido a que el Campo Desplazamiento Eléctrico representa la suma del Campo Densidad de Polarización y el Campo Electrostático, cuando una superficie $\ff{S} : \bb{D} \inc \bb{R}^2 \to \bb{R}^3$ se encuentra cargada con una densidad superficial de cargas libres $\sigma_l := \sigma_{l(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ el Campo Desplazamiento sufre una discontinuidad al pasar de la Superficie Superior $\ff{S}_{\tx{Sup.}}$ a la Superficie Interior $\ff{S}_{\tx{Int.}}$. De esta forma, dado $\vc{D} := \vc{D}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Desplazamiento Eléctrico continuo generado por una superficie cargada con una densidad superficial de cargas libres $\sigma_l$ y con normal exterior $\ver{\ita}_{\tx{e}}$, podemos escribir sus condiciones de contorno en función de la densidad superficial de carga $\sigma_l$.
+\paragraph{Componente Paralela: Rotor Del Desplazamiento Eléctrico}
+Sea $\cal{C} := \cal{C}_{\tx{Sup.}} + \cal{C}_{\tx{Inf.}} + \cal{C}_{\tx{Izq.}} + \cal{C}_{\tx{Der.}} : \ff{I} \inc \bb{R} \to \bb{R}^3$ una curva cerrada que encierra a la superficie cargada con densidad superficial libre $\sigma_l$, cuyos caminos superior ($\cal{C}_{\tx{Sup.}}$) e inferior $\cal{C}_{\tx{Inf.}}$ tienen longitud $L$, y sus caminos laterales izquierdo ($\cal{C}_{\tx{Izq.}}$) y derecho ($\cal{C}_{\tx{Der.}}$) tienen longitud $h$ muy pequeña ($h \to 0$), entonces:
+\begin{align*}
+	\rot[\vc{r}]{D}_{(\vc{r})} &= \rot[\vc{r}]{P}_{(\vc{r})} \\
+	\isv{\ff{S}}{\rot[\vc{r}]{D}_{(\vc{r})}}{S} &= \isv{\ff{S}}{\rot[\vc{r}]{P}_{(\vc{r})}}{S} \\
+	\tx{Por el Teorema de } &\tx{Stokes, tenemos:} \\
+	\ilov{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{D}_{(\vc{r})}}{\ell} &= \ilov{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{P}_{(\vc{r})}}{\ell} \\
+	\ilv{\cal{C}_{\tx{Sup.}}}{\esp{-6}\vc{D}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Inf.}}}{\esp{-4}\vc{D}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Izq.}}}{\esp{-4}\vc{D}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Der.}}}{\esp{-6}\vc{D}_{(\vc{r})}}{\ell} &= 	\ilv{\cal{C}_{\tx{Sup.}}}{\esp{-6}\vc{P}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Inf.}}}{\esp{-4}\vc{P}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Izq.}}}{\esp{-4}\vc{P}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Der.}}}{\esp{-6}\vc{P}_{(\vc{r})}}{\ell} \\
+	D_{\paral (\vc{r})}^+ L_{(\cal{C}_{\tx{Sup.}})} - D_{\paral (\vc{r})}^- L_{(\cal{C}_{\tx{Inf.}})} + 0 + 0 &= P_{\paral (\vc{r})}^+ L_{(\cal{C}_{\tx{Sup.}})} - P_{\paral (\vc{r})}^- L_{(\cal{C}_{\tx{Inf.}})} + 0 + 0 \\
+	D_{\paral (\vc{r})}^+ L - D_{\paral (\vc{r})}^- L &= P_{\paral (\vc{r})}^+ L - P_{\paral (\vc{r})}^- L \\
+	D_{\paral (\vc{r})}^+ - D_{\paral (\vc{r})}^- &= P_{\paral (\vc{r})}^+ - P_{\paral (\vc{r})}^- \\
+	\PV{\ver{\ita}_{\tx{e}}}{\cor{\vc{D}_{2(\vc{r})} - \vc{D}_{1(\vc{r})}}} &= \PV{\ver{\ita}_{\tx{e}}}{\cor{\vc{P}_{2(\vc{r})} - \vc{P}_{1(\vc{r})}}}
+\end{align*}
+\q{\PV{\ver{\ita}_{\tx{e}}}{\cor{\vc{D}_{2(\vc{r})} - \vc{D}_{1(\vc{r})}}} = \PV{\ver{\ita}_{\tx{e}}}{\cor{\vc{P}_{2(\vc{r})} - \vc{P}_{1(\vc{r})}}}}
+\paragraph{Componente Perpendicular: Ley De Gauss Para Dieléctricos}
+Sea $\ff{S} := \ff{S}_{\tx{Sup.}} + \ff{S}_{\tx{Inf.}} + \ff{S}_{\tx{Lat.}} : \bb{D} \inc \bb{R}^2 \to \bb{R}^3$ una superficie cilíndrica cerrada que encierra a la superficie cargada con densidad superficial libre $\sigma_l$, cuyas caras superior ($\ff{S}_{\tx{Sup.}}$) e inferior $\ff{S}_{\tx{Inf.}}$ tienen normales $\ver{\ita}_{\tx{e}}$ y $-\ver{\ita}_{\tx{e}}$, y área $A$, respectivamente, y se encuentran separada por una altura $h$ muy pequeña ($h \to 0$), entonces:
+\begin{align*}
+	\isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\vc{D}_{(\vc{r})}}{S} :&= Q_{l\tx{enc}} \\
+	\isv{\ff{S}_{\tx{Sup.}}}{\esp{-6}\vc{D}_{(\vc{r})}}{S} + \isv{\ff{S}_{\tx{Inf.}}}{\esp{-4}\vc{D}_{(\vc{r})}}{S} + \isv{\ff{S}_{\tx{Lat.}}}{\esp{-6}\vc{D}_{(\vc{r})}}{S} &= \sigma_{l(\vc{r})} A_{(\ff{S})} \\
+	D_{\perp (\vc{r})}^+ A_{(\ff{S}_{\tx{Sup.}})} - D_{\perp (\vc{r})}^- A_{(\ff{S}_{\tx{Inf.}})} + 0 &= \sigma_{l(\vc{r})} A_{(\ff{S})} \\
+	D_{\perp (\vc{r})}^+ A - D_{\perp (\vc{r})}^- A &= \sigma_{l(\vc{r})} A \\
+	D_{\perp (\vc{r})}^+ - D_{\perp (\vc{r})}^- &= \sigma_{l(\vc{r})} \\
+	\PI{\cor{\vc{D}_{2(\vc{r})} - \vc{D}_{1(\vc{r})}}}{\ver{\ita}_{\tx{e}}} &= \sigma_{l(\vc{r})}
+\end{align*}
+\q{\PI{\cor{\vc{D}_{2(\vc{r})} - \vc{D}_{1(\vc{r})}}}{\ver{\ita}_{\tx{e}}} = \sigma_{l(\vc{r})}}
+		\subsection{Energía Eléctrica En Dieléctricos}
+Debido a que conocemos la expresión del Trabajo Electrostático, podemos hallar la Energía Electrostática (que coincide con la Energía Eléctrica) por unidad de volumen de un material dieléctrico cuando la región de integración $\bb{Q} \inc \bb{R}^3$ es todo el espacio $\bb{Q} = \bb{R}^3$ sobre las cargas libres, ya que la energía de las cargas fijas que se polarizan no es de interés, por lo tanto:
+\begin{align*}
+	W_{\tx{e}(\vc{r},t)} :&= \fr{1}{2} \ivs{\bb{Q}}{\ro_{l(\vc{r}',t)} \phij_{(\vc{r}',t)}}{V}' \\
+	&\tx{Por la Ley de Gauss para Dieléctricos, tenemos:} \\
+	&= \fr{1}{2} \ivs{\bb{Q}}{\phij_{(\vc{r}',t)} \cor{\div[\vc{r}']{D}_{(\vc{r}',t)}}}{V}' \\
+	&\tx{Por la Regla del Producto de la Divergencia, tenemos:} \\
+	&= \fr{1}{2} \ivs{\bb{Q}}{\lla{\nabla_{\vc{r}'} \por \cor{\phij_{(\vc{r}',t)} \vc{D}_{(\vc{r}',t)}} - \cor{\PI{\gr[\vc{r}']{\phij}_{(\vc{r}',t)}}{\vc{D}_{(\vc{r}',t)}}}}}{V}' \\
+	&= \fr{1}{2} \ivs{\bb{Q}}{\nabla_{\vc{r}'} \por \cor{\phij_{(\vc{r}',t)} \vc{D}_{(\vc{r}',t)}}}{V}' + \fr{1}{2} \ivs{\bb{Q}}{\PI{\cor{-\gr[\vc{r}']{\phij}_{(\vc{r}',t)}}}{\vc{D}_{(\vc{r}',t)}}}{V}' \\
+	&\tx{Por el Teorema de Gauss, tenemos:} \\
+	&= \fr{1}{2} \isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\phij_{(\vc{r}',t)} \vc{D}_{(\vc{r}',t)}}{S}' + \fr{1}{2} \ivs{\bb{Q}}{\PI{\vc{E}_{(\vc{r}',t)}}{\vc{D}_{(\vc{r}',t)}}}{V}' \\
+	&\tx{Si } \bb{Q} = \bb{R}^3 \tx{, la integral de superficie tiende a cero, entonces:} \\
+	&= \fr{1}{2}.0 + \fr{1}{2} \ivs{\bb{R}^3}{\PI{\vc{D}_{(\vc{r}',t)}}{\vc{E}_{(\vc{r}',t)}}}{V}' \\
+	&= \fr{1}{2} \ivs{\bb{R}^3}{\PI{\vc{D}_{(\vc{r}',t)}}{\vc{E}_{(\vc{r}',t)}}}{V}'
+\end{align*}
+\q{E_{\tx{e}(t)} = \fr{1}{2} \ivs{\bb{R}^3}{\PI{\vc{D}_{(\vc{r}',t)}}{\vc{E}_{(\vc{r}',t)}}}{V}'}

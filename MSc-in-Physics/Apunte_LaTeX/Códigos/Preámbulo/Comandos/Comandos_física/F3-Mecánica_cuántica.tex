@@ -1,0 +1,18 @@
+
+%============================================================================================================================================
+% Comandos de física
+%============================================================================================================================================
+
+% Parte 3: Mecánica cuántica.
+%----------------------------
+
+\NC{\op}[1]{\hat{#1}}                           % Operadores
+\NC{\conm}[2]{\left[{#1,\esp{-2} #2}\right]}    % Conmutador
+\NC{\aconm}[2]{\left\{{#1,\esp{-2} #2}\right\}} % Anticonmutador
+
+% Brakets
+\NC{\bra}[1]{\left\langle{#1}\right|}                                   % <x|
+\NC{\ket}[1]{\left|{#1}\right\rangle}                                   % |x>
+\NC{\bret}[2]{\left\langle{#1}\middle|{#2}\right\rangle}                % <x|y>
+\NC{\kbra}[2]{\left|{#1}\right\rangle\left\langle{#2}\right|}           % |x><y|
+\NC{\braket}[3]{\left\langle{#1}\middle|{#2}\middle|{#3}\right\rangle}  % <x|y|z>

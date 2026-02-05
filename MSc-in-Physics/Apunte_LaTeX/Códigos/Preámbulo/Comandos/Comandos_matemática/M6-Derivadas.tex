@@ -1,0 +1,64 @@
+
+%============================================================================================================================================
+% Comandos de matemática
+%============================================================================================================================================
+
+% Parte 6: Derivadas.
+%--------------------
+
+% Signos De Derivada:
+\RC{\d}  [1][]     {\tx{d}_{#1}}		% Derivada
+\NCX{\p} [2][1=,2=]{\partial_{#1}^{#2}}	% Derivada parcial
+\NC{\D}  [1][t]    {\tx{D}_{#1}}		% Derivada material
+\NC{\ddir}[2]      {\tx{D}_{#1} #2}		% Derivada direccional
+
+\NC{\dv} [3][]{\Mc{\fr{\d^{#1} #2}      {\d #3^{#1}}}}				% Derivada
+\NC{\pd} [3][]{\Mc{\fr{\partial^{#1}#2} {\p #3^{#1}}}}				% Derivada parcial (de orden n en una misma variable)
+\NC{\dm} [1]  {\Mc{\fr{\tx{D} #1}       {\tx{D} t}}}				% Derivada material
+\NC{\dvr}[4][]{\Mc{\fr{\d^{#1} #2}      {\d #3^{#1}}\bigg|_{#4}}}	% Derivada relativa
+\NC{\pdr}[4][]{\Mc{\fr{\partial^{#1} #2}{\p #3^{#1}}\bigg|_{#4}}}	% Derivada parcial relativa
+
+% Derivadas small (tamaño pequeño):
+\NC{\dvs}[3][]{\Mc{\frr{\d^{#1} #2}{\d #3^{#1}}}}					% Derivada
+\NC{\pds}[3][]{\Mc{\frr{\partial^{#1}#2}{\p #3^{#1}}}}				% Derivada parcial
+\NC{\dms}[1]{\Mc{\frr{\tx{D} #1}{\tx{D} t}}}						% Derivada material
+\NC{\dvrs}[4][]{\Mc{\frr{\d^{#1} #2}{\d #3^{#1}}\Big|_{#4}}}		% Derivada relativa
+\NC{\pdrs}[4][]{\Mc{\frr{\partial^{#1} #2}{\p #3^{#1}}\Big|_{#4}}}	% Derivada parcial relativa
+
+% Derivada parcial de orden superior:
+\makeatletter
+	\def\@IntergerSum{0}
+	\def\@NonIntergerSum{}
+	\NC{\@GetSumAux}[1]{
+		\IfStrEq{#1}{}{}{\IfInteger{#1}{\edef\@IntergerSum{\fpeval{\@IntergerSum + #1}}}{\IfStrEq{\@NonIntergerSum}{}{\g@addto@macro\@NonIntergerSum{#1}}{\g@addto@macro\@NonIntergerSum{+ #1}}}}
+	}
+	\NC{\@GetSum}[5]{
+		\gdef\@IntergerSum{0} \gdef\@NonIntergerSum{} \@GetSumAux{#2} \@GetSumAux{#3} \@GetSumAux{#4} \@GetSumAux{#5} \IfStrEq{\@NonIntergerSum}{}{\@GetExponent{#1}{\@IntergerSum}}{\IfStrEq{\@IntergerSum}{0}{\edef#1{^{\@NonIntergerSum}}}{\edef#1{^{\@NonIntergerSum + \@IntergerSum}}}}
+	}
+	\NC{\@GetExponent}[2]{
+		\IfStrEq{#2}{}{\def#1{}}{\IfStrEq{#2}{1}{\def#1{}}{\def#1{^{#2}}}}
+	}
+	\NC{\@ShowVar}[2]{
+		\IfStrEq{#1}{}{}{\partial#1#2}
+	}
+	\NC*{\@SumExponenet}{}
+	\NC{\@PPD}[9]{
+		\begingroup
+			\@GetSum{\@SumExponenet}{#9}{#7}{#5}{#3} \@GetExponent{\@ExponenentV}{#3} \@GetExponent{\@ExponenentX}{#5} \@GetExponent{\@ExponenentY}{#7} \@GetExponent{\@ExponenentZ}{#9} \fr{\partial\@SumExponenet#1}{\@ShowVar{#2}{\@ExponenentV} \@ShowVar{#4}{\@ExponenentX} \@ShowVar{#6}{\@ExponenentY} \@ShowVar{#8}{\@ExponenentZ}}
+		\endgroup
+	}
+	\NC{\@PPDs}[9]{
+		\begingroup
+			\@GetSum{\@SumExponenet}{#9}{#7}{#5}{#3} \@GetExponent{\@ExponenentV}{#3} \@GetExponent{\@ExponenentX}{#5} \@GetExponent{\@ExponenentY}{#7} \@GetExponent{\@ExponenentZ}{#9} \frr{\partial\@SumExponenet#1}{\@ShowVar{#2}{\@ExponenentV} \@ShowVar{#4}{\@ExponenentX} \@ShowVar{#6}{\@ExponenentY} \@ShowVar{#8}{\@ExponenentZ}}
+		\endgroup
+	}
+
+	\NC{\ppd}  [5]{\@PPD{#1}{#4}{#5}{#2}{#3}{}{}{}{}}			% Derivada parcial en dos variables
+	\NC{\pppd} [7]{\@PPD{#1}{#6}{#7}{#4}{#5}{#2}{#3}{}{}}		% Derivada parcial en tres variables
+	\NC{\ppppd}[9]{\@PPD{#1}{#8}{#9}{#6}{#7}{#4}{#5}{#2}{#3}}	% Derivada parcial en cuatro variables
+
+	% Derivadas small (tamaño pequeño):
+	\NC{\ppds}  [5]{\@PPDs{#1}{#4}{#5}{#2}{#3}{}{}{}{}}			% Derivada parcial en dos variables
+	\NC{\pppds} [7]{\@PPDs{#1}{#6}{#7}{#4}{#5}{#2}{#3}{}{}}		% Derivada parcial en tres variables
+	\NC{\ppppds}[9]{\@PPDs{#1}{#8}{#9}{#6}{#7}{#4}{#5}{#2}{#3}}	% Derivada parcial en cuatro variables
+\makeatother

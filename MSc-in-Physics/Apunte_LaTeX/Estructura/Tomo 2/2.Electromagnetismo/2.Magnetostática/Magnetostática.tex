@@ -1,0 +1,592 @@
+
+\part{Magnetostática} %Capítulo •% TERMINADO
+
+%\chapter*{Introducción}
+%La Magnetostática es la rama de la Electrodinámica que estudia los fenómenos físicos producidos por corrientes eléctricas estacionarias (que se mueven con velocidad constante), por lo tanto:
+%\B{La densidad de corriente volumétrica no depende del tiempo: $\s{\pd{\vc{J}_{(\vc{r})}}{t} = 0}$}
+\chapter{Fuerza Magnetostática}
+Sea $q$ una partícula cargada eléctricamente en el vacío en la posición $\vc{r}$ que se mueve con velocidad $\vc{v}$, inmersa en un Campo Magnetostático $\vc{B} := \vc{B}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces: \\\\
+La Fuerza Magnetostática que la partícula en movimiento sufre debido al Campo $\vc{B}$ está dada por:
+\f{\vc{F}_q := q \PV{\vc{v}}{\vc{B}_{(\vc{r})}}}
+		\subsection{Fuerza Magnetostática En Un Sistema De $N$-Partículas}
+Sean $q_i$, $N$-partículas estáticas cargadas eléctricamente en el vacío en las posiciones $\vc{r}_i$ que se mueven con velocidades $\vc{v}_{(\vc{r}_i)}$, con $1 \nig i \nig N$, entonces: \\\\
+La Fuerza Magnetostática que las partículas $q_1,q_2,q_3,\pors,q_N$ en movimiento sufren debido al Campo $\vc{B}$ será, por el Principio de Superposición, de la forma:
+\begin{align*}
+	\vc{F}_{q_1\pors q_N} :&= \S{i=1}{N}{\vc{F}_{q_i}} \\
+	&= \vc{F}_{q_1} + \vc{F}_{q_2} + \vc{F}_{q_3} + \porh + \vc{F}_{q_N} \\
+	&= \PV{\cor{\S{i=1}{N}{q_i \vc{v}_{(\vc{r}_i)}}}}{\vc{B}_{(\vc{r})}}
+\end{align*}
+\q{\vc{F}_{q_1\pors q_N} := \PV{\cor{\S{i=1}{N}{q_i \vc{v}_{(\vc{r}_i)}}}}{\vc{B}_{(\vc{r})}}}
+		\subsection{Fuerza Magnetostática En Una Distribución Continua De Corriente}
+Cuando la cantidad de partículas cargadas $q_i$ tiende a infinito, obtenemos una Suma de Riemann por cada Diferencial de Carga:
+\begin{align*}
+	\lim{N}{\inf}{\pr{\vc{F}_{q_1 \pors q_N}}} &= \lim{N}{\inf}{\lla{\PV{\cor{\S{i=1}{N}{q_i \vc{v}_{(\vc{r}_i)}}}}{\vc{B}_{(\vc{r})}}}} \\
+	\vc{F}_{\tx{m}(\vc{r})} &= \PV{\lla{\lim{N}{\inf}{\cor{\S{i=1}{N}{q_i \vc{v}_{(\vc{r}_i)}}}}}}{\vc{B}_{(\vc{r})}} \\
+	&= \Int{}{}{\PV{\vc{v}_{(\vc{r}')}}{\vc{B}_{(\vc{r})}}}{q}'
+\end{align*}
+\q{\vc{F}_{\tx{m}(\vc{r})} = \Int{}{}{\PV{\vc{v}_{(\vc{r}')}}{\vc{B}_{(\vc{r})}}}{q}'}
+\paragraph{Distribución Lineal}
+Si la distribución de cargas $q'$ puede expresarse como una densidad lineal de carga $\lamda := \lamda_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad lineal vectorial de corriente $\vc{I}_{(\vc{r}')} := \lamda_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{F}_{\tx{m}(\vc{r})} = \ils{\cal{C}}{\PV{\vc{I}_{(\vc{r}')}}{\vc{B}_{(\vc{r})}}}{s}'}
+\paragraph{Distribución Superficial}
+Si la distribución de cargas $q'$ puede expresarse como una densidad superficial de carga $\sigma := \sigma_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad superficial vectorial de corriente $\vc{K}_{(\vc{r}')} := \sigma_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{F}_{\tx{m}(\vc{r})} = \iss{\ff{S}}{\PV{\vc{K}_{(\vc{r}')}}{\vc{B}_{(\vc{r})}}}{S}'}
+\paragraph{Distribución Volumétrica}
+Si la distribución de cargas $q'$ puede expresarse como una densidad volumétrica de carga $\ro := \ro_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad volumétrica vectorial de corriente $\vc{J}_{(\vc{r}')} := \ro_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{F}_{\tx{m}(\vc{r})} = \ivs{\bb{Q}}{\PV{\vc{J}_{(\vc{r}')}}{\vc{B}_{(\vc{r})}}}{V}'}
+\chapter{Torque Magnetostático} %%  TODA ESTA SECCIÓN NO ESTÁ NI EN WIKIPEDIA NI EN BIBLIOGRAFÍA  %%  DUDOSO
+Sea $q$ una partícula cargada eléctricamente en el vacío en la posición $\vc{r}$ que se mueve con velocidad $\vc{v}$, inmersa en un Campo Magnetostático $\vc{B} := \vc{B}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces: \\\\
+La Fuerza Magnetostática que la partícula en movimiento sufre debido al Campo $\vc{B}$ está dada por:
+\f{\vc{\taf}_q := \PV{\vc{r}}{\vc{F}_q}}
+		\subsection{Torque Magnetostático En Un Sistema De $N$-Partículas}
+Sean $q_i$, $N$-partículas estáticas cargadas eléctricamente en el vacío en las posiciones $\vc{r}_i$ que se mueven con velocidades $\vc{v}_{(\vc{r}_i)}$, con $1 \nig i \nig N$, entonces: \\\\
+La Fuerza Magnetostática que las partículas $q_1,q_2,q_3,\pors,q_N$ en movimiento sufren debido al Campo $\vc{B}$ será, por el Principio de Superposición, de la forma:
+\begin{align*}
+	\vc{\taf}_{q_1\pors q_N} :&= \S{i=1}{N}{\PV{\vc{r}_i}{\vc{F}_{q_i}}} \\
+	&= \PV{\vc{r}_1}{\vc{F}_{q_1}} + \PV{\vc{r}_2}{\vc{F}_{q_2}} + \PV{\vc{r}_3}{\vc{F}_{q_3}} + \porh + \PV{\vc{r}_N}{\vc{F}_{q_N}} \\
+	&= \PV{\cor{\S{i=1}{N}{\PV{\vc{r}_i}{q_i \vc{v}_{(\vc{r}_i)}}}}}{\vc{B}_{(\vc{r})}}
+\end{align*}
+\q{\vc{\taf}_{q_1\pors q_N} := \PV{\cor{\S{i=1}{N}{\PV{\vc{r}_i}{q_i \vc{v}_{(\vc{r}_i)}}}}}{\vc{B}_{(\vc{r})}}}
+		\subsection{Torque Magnetostático En Una Distribución Continua De Corriente}
+Cuando la cantidad de partículas cargadas $q_i$ tiende a infinito, obtenemos una Suma de Riemann por cada Diferencial de Carga:
+\begin{align*}
+	\lim{N}{\inf}{\pr{\vc{\taf}_{q_1 \pors q_N}}} &= \lim{N}{\inf}{\lla{\PV{\cor{\S{i=1}{N}{\PV{\vc{r}_i}{q_i \vc{v}_{(\vc{r}_i)}}}}}{\vc{B}_{(\vc{r})}}}} \\
+	\vc{\taf}_{\tx{m}(\vc{r})} &= \PV{\lla{\lim{N}{\inf}{\cor{\S{i=1}{N}{\PV{\vc{r}_i}{q_i \vc{v}_{(\vc{r}_i)}}}}}}}{\vc{B}_{(\vc{r})}} \\
+	&= \Int{}{}{\PV{\vc{r}'}{\cor{\PV{\vc{v}_{(\vc{r}')}}{\vc{B}_{(\vc{r})}}}}}{q}'
+\end{align*}
+\q{\vc{\taf}_{\tx{m}(\vc{r})} = \Int{}{}{\PV{\vc{r}'}{\cor{\PV{\vc{v}_{(\vc{r}')}}{\vc{B}_{(\vc{r})}}}}}{q}'}
+\paragraph{Distribución Lineal}
+Si la distribución de cargas $q'$ puede expresarse como una densidad lineal de carga $\lamda := \lamda_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad lineal vectorial de corriente $\vc{I}_{(\vc{r}')} := \lamda_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{\taf}_{\tx{m}(\vc{r})} = \ils{\cal{C}}{\PV{\vc{r}'}{\cor{\PV{\vc{I}_{(\vc{r}')}}{\vc{B}_{(\vc{r})}}}}}{s}'}
+\paragraph{Distribución Superficial}
+Si la distribución de cargas $q'$ puede expresarse como una densidad superficial de carga $\sigma := \sigma_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad superficial vectorial de corriente $\vc{K}_{(\vc{r}')} := \sigma_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{\taf}_{\tx{m}(\vc{r})} = \iss{\ff{S}}{\PV{\vc{r}'}{\cor{\PV{\vc{K}_{(\vc{r}')}}{\vc{B}_{(\vc{r})}}}}}{S}'}
+\paragraph{Distribución Volumétrica}
+Si la distribución de cargas $q'$ puede expresarse como una densidad volumétrica de carga $\ro := \ro_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad volumétrica vectorial de corriente $\vc{J}_{(\vc{r}')} := \ro_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{\taf}_{\tx{m}(\vc{r})} = \ivs{\bb{Q}}{\PV{\vc{r}'}{\cor{\PV{\vc{J}_{(\vc{r}')}}{\vc{B}_{(\vc{r})}}}}}{V}'}
+\chapter{Campo Magnetostático: Ley De Biot-Savart}
+		\subsection{Definición}
+Se denomina Campo Magnetostático al Campo de Fuerzas Vectorial $\vc{B} := \vc{B}_{q_1\pors q_N} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ en el espacio, producido por la Fuerza Magnetostática que ejercen $N$-partículas cargadas eléctricamente $q_i$ en las posiciones $\vc{r}_i$ que se mueven con una velocidad $\vc{v}_{(\vc{r}_i)}$ sobre una unidad de carga de prueba en la posición $\vc{r}$, con $1 \nig i \nig N$ y $\vc{r},\vc{r}' \in \bb{R}^3$:
+\f{\vc{B}_{q_1\pors q_N} := \fr{\kpmv}{4\pi} \S{i=1}{N}{\fr{q_i \PV{\vc{v}_{(\vc{r}_i)}}{(\vc{r}-\vc{r}_i)}}{\mod[3]{\vc{r} - \vc{r}_i}}}}
+		\subsection{Campo Magnetostático En Una Distribución Continua De Corriente}
+Cuando la cantidad de partículas cargadas $q_i$ tiende a infinito, obtenemos una Suma de Riemann por cada Diferencial de Carga:
+\begin{align*}
+	\lim{N}{\inf}{\pr{\vc{B}_{q_1 \pors q_N}}} &= \lim{N}{\inf}{\cor{\fr{\kpmv}{4\pi} \S{i=1}{N}{\fr{q_i \PV{\vc{v}_{(\vc{r}_i)}}{(\vc{r}-\vc{r}_i)}}{\mod[3]{\vc{r} - \vc{r}_i}}}}} \\
+	\vc{B}_{(\vc{r})} &= \fr{\kpmv}{4\pi} \lim{N}{\inf}{\cor{\fr{\kpmv}{4\pi} \S{i=1}{N}{\fr{q_i \PV{\vc{v}_{(\vc{r}_i)}}{(\vc{r}-\vc{r}_i)}}{\mod[3]{\vc{r} - \vc{r}_i}}}}} \\
+	&= \fr{\kpmv}{4\pi} \Int{}{}{\fr{\PV{\vc{v}_{(\vc{r}')}}{(\vc{r}-\vc{r}')}}{\mod[3]{\vc{r} - \vc{r}'}}}{q}'
+\end{align*}
+\q{\vc{B}_{(\vc{r})} := \fr{\kpmv}{4\pi} \Int{}{}{\fr{\PV{\vc{v}_{(\vc{r}')}}{(\vc{r}-\vc{r}')}}{\mod[3]{\vc{r} - \vc{r}'}}}{q}'}
+\paragraph{Distribución Lineal}
+Si la distribución de cargas $q'$ puede expresarse como una densidad lineal de carga $\lamda := \lamda_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad lineal vectorial de corriente $\vc{I}_{(\vc{r}')} := \lamda_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{B}_{(\vc{r})} := \fr{\kpmv}{4 \pi} \ils{\cal{C}}{\fr{\PV{\vc{I}_{(\vc{r}')}}{(\vc{r}-\vc{r}')}}{\mod[3]{\vc{r} - \vc{r}'}}}{s}'}
+\paragraph{Distribución Superficial}
+Si la distribución de cargas $q'$ puede expresarse como una densidad superficial de carga $\sigma := \sigma_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad superficial vectorial de corriente $\vc{K}_{(\vc{r}')} := \sigma_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{B}_{(\vc{r})} := \fr{\kpmv}{4 \pi} \iss{\vc{S}}{\fr{\PV{\vc{K}_{(\vc{r}')}}{(\vc{r}-\vc{r}')}}{\mod[3]{\vc{r} - \vc{r}'}}}{S}'}
+\paragraph{Distribución Volumétrica}
+Si la distribución de cargas $q'$ puede expresarse como una densidad volumétrica de carga $\ro := \ro_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad volumétrica vectorial de corriente $\vc{J}_{(\vc{r}')} := \ro_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{B}_{(\vc{r})} := \fr{\kpmv}{4 \pi} \ivs{\bb{Q}}{\fr{\PV{\vc{J}_{(\vc{r}')}}{(\vc{r}-\vc{r}')}}{\mod[3]{\vc{r} - \vc{r}'}}}{V}'}
+		\subsection{Teorema: El Campo Magnetostático Es Solenoidal}
+Sea $\vc{B} := \vc{B}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Magnetostático Diferenciable a Primer Orden ($C^1$) producido por una densidad de corriente volumétrica $\vc{J} := \vc{J}_{(\vc{r})} : \bb{D}\inc \bb{R}^3 \to \bb{R}^3$, entonces:
+\begin{align*}
+	\div[\vc{r}]{B}_{(\vc{r})} :&= \nabla \por \cor{\fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\fr{\PV{\vc{J}_{(\vc{r}')}}{(\vc{r}-\vc{r}')}}{\mod[3]{\vc{r} - \vc{r}'}}}{V}'} \\
+	&= \fr{\kpmv}{4\pi} \nabla_{\vc{r}} \por \cor{\ivs{\bb{Q}}{\PV{\vc{J}_{(\vc{r}')}}{\fr{(\vc{r}-\vc{r}')}{\mod[3]{\vc{r} - \vc{r}'}}}}{V}'} \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\nabla_{\vc{r}} \por \cor{\PV{\vc{J}_{(\vc{r}')}}{\fr{(\vc{r}-\vc{r}')}{\mod[3]{\vc{r} - \vc{r}'}}}}}{V}' \\
+	&\tx{Por las Identidades de la Divergencia:} \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\lla{\PI{\cor{\rot[\vc{r}]{J}_{(\vc{r}')}}}{\cor{\fr{(\vc{r}-\vc{r}')}{\mod[3]{\vc{r} - \vc{r}'}}}} - \PI{\vc{J}_{(\vc{r}')}}{\cor{\nabla_{\vc{r}} \Por \fr{(\vc{r} - \vc{r}')}{\mod[3]{\vc{r} - \vc{r}'}}}}}}{V}' \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\PI{0}{\cor{\fr{(\vc{r}-\vc{r}')}{\mod[3]{\vc{r} - \vc{r}'}}}}}{V}' - \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\PI{\vc{J}_{(\vc{r}')}}{\lla{\nabla_{\vc{r}} \Por \fr{(x-x') \ver{x} + (y-y') \ver{y} + (z-z') \ver{z}}{\cor[3]{\rz{(x-x')^2 + (y-y')^2 + (z-z')^2}}}}}}{V}' \\
+	&= 0 - \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\PI{\vc{J}_{(\vc{r}')}}{\lla{\nabla_{\vc{r}} \Por \fr{(x-x') \ver{x} + (y-y') \ver{y} + (z-z') \ver{z}}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{3/2}}}}}{V}' \\
+	&= -\fr{\kpmv}{4\pi} \iiint\limits_{\bb{Q}} \PI{\vc{J}_{(\vc{r}')}}{\left[{\pr{\pd{}{y}\lla{\fr{z - z'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{3/2}}} - \pd{}{z}\lla{\fr{y - y'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{3/2}}}}\ver{x}}\rdot} \\
+	&+ \pr{\pd{}{z} \lla{\fr{x - x'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{3/2}}} - \pd{}{x} \lla{\fr{z - z'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{3/2}}}} \ver{y} \\
+	&+ \ldot{\pr{\pd{}{x} \lla{\fr{y - y'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{3/2}}} - \pd{}{y} \lla{\fr{x - x'}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{3/2}}}} \ver{z}}\right] \; \d \tx{V}' \\
+	&= -\fr{\kpmv}{4\pi} \iiint\limits_{\bb{Q}} \PI{\vc{J}_{(\vc{r}')}}{\left({\lla{- \fr{3(y-y')(z-z')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{5/2}} + \fr{3(y-y')(z-z')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{5/2}}} \ver{x}}\rdot} \\
+	&+ \lla{- \fr{3(x-x')(z-z')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{5/2}} + \fr{3(x-x')(z-z')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{5/2}}} \ver{y} \\
+	&+ \ldot{\lla{- \fr{3(x-x')(y-y')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{5/2}} + \fr{3(x-x')(y-y')}{[(x-x')^2 + (y-y')^2 + (z-z')^2]^{5/2}}} \ver{z}}\right) \; \d \tx{V}' \\
+	&= -\fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\PI{\vc{J}_{(\vc{r}')}}{(0.\ver{x} + 0.\ver{y} + 0.\ver{z})}}{V}' \\
+	&= -\fr{\kpmv}{4\pi} \ivs{\bb{Q}}{0}{V}' \\
+	&= 0
+\end{align*}
+Por lo tanto:
+\paragraph{El Flujo Es Nulo}
+\f{\isov{\vc{S}^+}{\vc{B}_{(\vc{r})}}{S} = 0}
+\paragraph{Existe Un Potencial Vectorial}
+\begin{itemize}
+	\item \f{\vc{B}_{(\vc{r})} := \cor{\Int{0}{z}{B_{y(x,y,z')}}{z}' - \Int{0}{y}{B_{z(x,y',0)}}{y}'} \,\ver{x} - \Int{0}{z}{B_{x(x,y,z')}}{z}' \,\ver{y} + 0 \,\ver{z}}
+	\item \f{\vc{B}_{(\vc{r})} := }
+	\item \f{\vc{B}_{(\vc{r})} := 0 \,\ver{x} + \Int{0}{x}{B_{z(x',y,z)}}{x}' \,\ver{y} + \cor{- \Int{0}{x}{B_{y(x',y,z)}}{x}' + \Int{0}{y}{B_{x(0,y',z)}}{y}'} \,\ver{z}}
+\end{itemize}
+\paragraph{El Campo Es Incompresible: Ley De Gauss Para El Magnetismo}
+\f{\div[\vc{r}]{B}_{(\vc{r})} = 0}
+		\subsection{Condiciones De Contorno}
+Debido a que el Campo Magnetostático es rotacional, cuando una superficie $\ff{S} : \bb{D} \inc \bb{R}^2 \to \bb{R}^3$ se encuentra cargada con una densidad superficial de corriente eléctrica $\vc{K} := \vc{K}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ el Campo Magnetostático sufre una discontinuidad al pasar de la Superficie Superior $\ff{S}_{\tx{Sup.}}$ a la Superficie Interior $\ff{S}_{\tx{Int.}}$. De esta forma, dado $\vc{B} := \vc{B}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Magnetostático continuo generado por una superficie cargada con una densidad superficial de corriente $\vc{K}$ y con normal exterior $\ver{\ita}_{\tx{e}}$, podemos escribir sus condiciones de contorno en función de la densidad superficial de corriente $\vc{K}$.
+\paragraph{Componente Paralela: Ley De Ampère}
+Sea $\cal{C} := \cal{C}_{\tx{Sup.}} + \cal{C}_{\tx{Inf.}} + \cal{C}_{\tx{Izq.}} + \cal{C}_{\tx{Der.}} : \ff{I} \inc \bb{R} \to \bb{R}^3$ una curva cerrada que encierra a la superficie cargada con densidad superficial de corriente $\vc{K}$, cuyos caminos superior ($\cal{C}_{\tx{Sup.}}$) e inferior $\cal{C}_{\tx{Inf.}}$ tienen longitud $L$, y sus caminos laterales izquierdo ($\cal{C}_{\tx{Izq.}}$) y derecho ($\cal{C}_{\tx{Der.}}$) tienen longitud $h$ muy pequeña ($h \to 0$), entonces:
+\begin{align*}
+	\ilov{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{B}_{(\vc{r})}}{\ell} :&= \kpmv I_{\tx{enc}} \\
+	\ilv{\cal{C}_{\tx{Sup.}}}{\esp{-6}\vc{B}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Inf.}}}{\esp{-4}\vc{B}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Izq.}}}{\esp{-4}\vc{B}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Der.}}}{\esp{-6}\vc{B}_{(\vc{r})}}{\ell} &= \kpmv \vc{K}_{(\vc{r})} L_{(\cal{C})} \\
+	B_{\paral (\vc{r})}^+ L_{(\cal{C}_{\tx{Sup.}})} - B_{\paral (\vc{r})}^- L_{(\cal{C}_{\tx{Inf.}})} + 0 + 0 &= \kpmv \vc{K}_{(\vc{r})} L_{(\cal{C})} \\
+	B_{\paral (\vc{r})}^+ L - B_{\paral (\vc{r})}^- L &= \kpmv \vc{K}_{(\vc{r})} L \\
+	B_{\paral (\vc{r})}^+ - B_{\paral (\vc{r})}^- &= \kpmv \vc{K}_{(\vc{r})} \\
+	\PV{\ver{\ita}_{\tx{e}}}{\cor{\vc{B}_{2(\vc{r})} - \vc{B}_{1(\vc{r})}}} &= \kpmv \vc{K}_{(\vc{r})}
+\end{align*}
+\q{\PV{\ver{\ita}_{\tx{e}}}{\cor{\vc{B}_{2(\vc{r})} - \vc{B}_{1(\vc{r})}}} = \kpmv \vc{K}_{(\vc{r})}}
+\paragraph{Componente Perpendicular: Flujo Nulo}
+Sea $\ff{S} := \ff{S}_{\tx{Sup.}} + \ff{S}_{\tx{Inf.}} + \ff{S}_{\tx{Lat.}} : \bb{D} \inc \bb{R}^2 \to \bb{R}^3$ una superficie cilíndrica cerrada que encierra a la superficie cargada con densidad superficial de corriente $\vc{K}$, cuyas caras superior ($\ff{S}_{\tx{Sup.}}$) e inferior $\ff{S}_{\tx{Inf.}}$ tienen normales $\ver{\ita}_{\tx{e}}$ y $-\ver{\ita}_{\tx{e}}$, y área $A$, respectivamente, y se encuentran separada por una altura $h$ muy pequeña ($h \to 0$), entonces:
+\begin{align*}
+	\isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\vc{B}_{(\vc{r})}}{S} :&= 0 \\
+	\isv{\ff{S}_{\tx{Sup.}}}{\esp{-6}\vc{B}_{(\vc{r})}}{S} + \isv{\ff{S}_{\tx{Inf.}}}{\esp{-4}\vc{B}_{(\vc{r})}}{S} + \isv{\ff{S}_{\tx{Lat.}}}{\esp{-6}\vc{B}_{(\vc{r})}}{S} &= 0 \\
+	B_{\perp (\vc{r})}^+ A_{(\ff{S}_{\tx{Sup.}})} - B_{\perp (\vc{r})}^- A_{(\ff{S}_{\tx{Inf.}})} + 0 &= 0 \\
+	B_{\perp (\vc{r})}^+ A - B_{\perp (\vc{r})}^- A &= 0 \\
+	B_{\perp (\vc{r})}^+ - B_{\perp (\vc{r})}^- &= 0 \\
+	\PI{\cor{\vc{B}_{2(\vc{r})} - \vc{B}_{1(\vc{r})}}}{\ver{\ita}_{\tx{e}}} &= 0
+\end{align*}
+\q{\PI{\cor{\vc{B}_{2(\vc{r})} - \vc{B}_{1(\vc{r})}}}{\ver{\ita}_{\tx{e}}} = 0}
+\chapter{Potencial Magnetostático}
+Sea $\vc{E} := \vc{E}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Electrostático Continuo, sea $\cal{C}^+ : [\vc{r}_0,\vc{r}] \inc \bb{R} \to \bb{R}^3$ una curva orientada positivamente, que va desde el Punto $\vc{r}_0$ hasta el Punto $\vc{r}$ , y sea $\phij := \phij_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ una Función de Tres Variables Diferenciable a Primer Orden ($C^1$), entonces:
+\begin{align*}
+	\vc{B}_{q_1\pors q_N} :&= \fr{\kpmv}{4\pi} \S{i=1}{N}{\fr{q_i \PV{\vc{v}_{(\vc{r}_i)}}{(\vc{r} - \vc{r}_i)}}{\mod[3]{\vc{r} - \vc{r}_i}}} \\
+	&= \fr{\kpmv}{4\pi} \S{i=1}{N}{\lla{q_i \PV{\vc{v}_{(\vc{r}_i)}}{\fr{(x - x_i) \ver{x} + (y - y_i) \ver{y} + (z - z_i) \ver{z}}{\cor[3]{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}}}}} \\
+	&= \fr{\kpmv}{4\pi} \S{i=1}{N}{q_i \PV{\vc{v}_{(\vc{r}_i)}}{\lla{\fr{x - x_i}{[(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2]^{3/2}} \ver{x} + \fr{y - y_i}{[(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2]^{3/2}} \ver{y} + \fr{z - z_i}{[(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2]^{3/2}} \ver{z}}}} \\
+	&= \fr{\kpmv}{4\pi} \S{i=1}{N}{q_i \PV{\vc{v}_{(\vc{r}_i)}}{\lla{\pd{}{x} \cor{-\fr{1}{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}} \ver{x} + \pd{}{y} \cor{-\fr{1}{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}} \ver{y} + \pd{}{z} \cor{-\fr{1}{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}} \ver{z}}}} \\
+	&= -\fr{\kpmv}{4\pi} \S{i=1}{N}{q_i \PV{\vc{v}_{(\vc{r}_i)}}{\lla{\pd{}{x} \cor{\fr{1}{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}} \ver{x} + \pd{}{y} \cor{\fr{1}{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}} \ver{y} + \pd{}{z} \cor{\fr{1}{\rz{(x - x_i)^2 + (y - y_i)^2 + (z - z_i)^2}}} \ver{z}}}} \\
+	&= -\fr{\kpmv}{4\pi} \S{i=1}{N}{\cor{q_i \PV{\vc{v}_{(\vc{r}_i)}}{\gr[\vc{r}]{\pr{\fr{1}{\mod{\vc{r} - \vc{r}_i}} + \cte}}}}} \\
+	&= \fr{\kpmv}{4\pi} \S{i=1}{N}{\lla{\PV{\cor{\gr[\vc{r}]{\pr{\fr{1}{\mod{\vc{r} - \vc{r}_i}} + \cte}}}}{q_i \vc{v}_{(\vc{r}_i)}}}} \\
+	&\tx{Por la Regla del Producto del Rotacional, tenemos:} \\
+	&= \fr{\kpmv}{4\pi} \S{i=1}{N}{\lla{\nabla_{\vc{r}} \Por \cor{\fr{q_i \vc{v}_{(\vc{r}_i)}}{\mod{\vc{r} - \vc{r}_i}} + \gr[\vc{r}]{\ji}_{(\vc{r})}} - \fr{\nabla_{\vc{r}} \Por [q_i \vc{v}_{(\vc{r}_i)}]}{\mod{\vc{r} - \vc{r}_i}}}} \\
+	&= \fr{\kpmv}{4\pi} \S{i=1}{N}{\lla{\nabla_{\vc{r}} \Por \cor{\fr{q_i \vc{v}_{(\vc{r}_i)}}{\mod{\vc{r} - \vc{r}_i}} + \gr[\vc{r}]{\ji}_{(\vc{r})}} - \fr{0}{\mod{\vc{r} - \vc{r}_i}}}} \\
+	&= \fr{\kpmv}{4\pi} \S{i=1}{N}{\lla{\nabla_{\vc{r}} \Por \cor{\fr{q_i \vc{v}_{(\vc{r}_i)}}{\mod{\vc{r} - \vc{r}_i}} + \gr[\vc{r}]{\ji}_{(\vc{r})}} - 0}} \\
+	&= \nabla_{\vc{r}} \Por \cor{\fr{\kpmv}{4\pi} \S{i=1}{N}{\fr{q_i \vc{v}_{(\vc{r}_i)}}{\mod{\vc{r} - \vc{r}_i}} + \gr[\vc{r}]{\ji}_{(\vc{r})}}} \\
+	&= \rot[\vc{r}]{A}_{q_1\pors q_N}
+\end{align*}
+		\subsection{Definición}
+Se denomina Potencial Magnetostático al Campo de Fuerzas Vectorial $\vc{A} := \vc{A}_{q_1\pors q_N} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ en el espacio, producido por el Potencial Magnetostático que ejercen $N$-partículas cargadas eléctricamente $q_i$ en las posiciones $\vc{r}_i$ y con velocidades $\vc{v}_{(\vc{r}_i)}$ sobre una unidad de carga de prueba en la posición $\vc{r}$, con $1 \nig i \nig N$ y $\vc{r},\vc{r}_i,\vc{v}_{(\vc{r}_i)} \in \bb{R}^3$:
+\f{\vc{A}_{q_1\pors q_N} := \fr{\kpmv}{4\pi} \S{i=1}{N}{\fr{q_i \vc{v}_{(\vc{r}_i)}}{\mod{\vc{r} - \vc{r}_i}} + \gr[\vc{r}]{\ji}_{(\vc{r})}} \tx{, donde: } \vc{B}_{q_1\pors q_N} = \rot[\vc{r}]{A}_{q_1\pors q_N}}
+\paragraph{Observación}
+Sean $\vc{A}_1$ y $\vc{A}_2$ dos Potenciales de un Campo Magnetostático Continuo $\vc{B} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces:
+\f{\vc{A}_1 = \vc{A}_2 + \gr[\vc{r}]{\ji}_{(\vc{r})}}
+		\subsection{Potencial Magnetostático En Una Distribución Continua De Corriente}
+Cuando la cantidad de partículas cargadas $q_i$ tiende a infinito, obtenemos una Suma de Riemann por cada Diferencial de Carga:
+\begin{align*}
+	\lim{N}{\inf}{\pr{\vc{A}_{q_1 \pors q_N}}} &= \lim{N}{\inf}{\cor{\fr{\kpmv}{4\pi} \S{i=1}{N}{\fr{q_i \vc{v}_{(\vc{r}_i)}}{\mod{\vc{r} - \vc{r}_i}} + \gr[\vc{r}]{\ji}_{(\vc{r})}}}} \\
+	\vc{A}_{(\vc{r})} &= \fr{\kpmv}{4\pi} \lim{N}{\inf}{\cor{\S{i=1}{N}{\fr{q_i \vc{v}_{(\vc{r}_i)}}{\mod{\vc{r} - \vc{r}_i}}} + \gr[\vc{r}]{\ji}_{(\vc{r})}}} \\
+	&= \fr{\kpmv}{4\pi} \Int{}{}{\fr{\vc{v}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{q}' + \gr[\vc{r}]{\ji}_{(\vc{r})}
+\end{align*}
+\q{\vc{A}_{(\vc{r})} := \fr{\kpmv}{4\pi} \Int{}{}{\fr{\vc{v}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{q}' + \gr[\vc{r}]{\ji}_{(\vc{r})}}
+\paragraph{Distribución Lineal}
+Si la distribución de cargas $q'$ puede expresarse como una densidad lineal de carga $\lamda := \lamda_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad lineal vectorial de corriente $\vc{I}_{(\vc{r}')} := \lamda_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{A}_{(\vc{r})} = \fr{\kpmv}{4\pi} \ils{\cal{C}}{\fr{\vc{I}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{s}' + \gr[\vc{r}]{\ji}_{(\vc{r})}}
+\paragraph{Distribución Superficial}
+Si la distribución de cargas $q'$ puede expresarse como una densidad superficial de carga $\sigma := \sigma_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad superficial vectorial de corriente $\vc{K}_{(\vc{r}')} := \sigma_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{A}_{(\vc{r})} = \fr{\kpmv}{4\pi} \iss{\vc{S}}{\fr{\vc{K}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{S}' + \gr[\vc{r}]{\ji}_{(\vc{r})}}
+\paragraph{Distribución Volumétrica}
+Si la distribución de cargas $q'$ puede expresarse como una densidad volumétrica de carga $\ro := \ro_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad volumétrica vectorial de corriente $\vc{J}_{(\vc{r}')} := \ro_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{A}_{(\vc{r})} = \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\fr{\vc{J}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' + \gr[\vc{r}]{\ji}_{(\vc{r})}}
+		\subsection{Expansión Multipolar Del Potencial Magnetostático}
+Sea $\ro := \ro_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ una densidad volumétrica de $(N\to\inf)$-partículas estáticas $q'$ cargadas eléctricamente en las posiciones $\vc{r}' = r' \ver{r}$ que producen un Campo Escalar $\phij := \phij_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ sobre una carga de prueba muy lejana en la posición $\vc{r} = r \ver{r}$ con un ángulo $\tita$ respecto a las posiciones $\vc{r}'$, entonces:
+\begin{itemize}
+	\item Podemos reescribir el Potencial Electrostático de la forma:
+	\begin{align*}
+		\vc{A}_{(\vc{r})} :&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\fr{\vc{J}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' + \gr[\vc{r}]{\ji}_{(\vc{r})} \\
+		&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\fr{\vc{J}_{(\vc{r}')}}{\rz{\PI{(\vc{r} - \vc{r}')}{(\vc{r} - \vc{r}')}}}}{V}' + \gr[\vc{r}]{\ji}_{(\vc{r})} \\
+		&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\fr{\vc{J}_{(\vc{r}')}}{\rz{\PI{(r \ver{r} - r' \ver{r})}{(r \ver{r} - r' \ver{r})}}}}{V}' + \gr[\vc{r}]{\ji}_{(\vc{r})} \\
+		&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\fr{\vc{J}_{(\vc{r}')}}{\rz{r^2 + r'^2 - 2 r r' \cos(\tita)}}}{V}' + \gr[\vc{r}]{\ji}_{(\vc{r})} \\
+		&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\fr{\vc{J}_{(\vc{r}')}}{r \rz{1 + \fr{r'^2}{r^2} - 2 \fr{r'}{r} \cos(\tita)}}}{V}' + \gr[\vc{r}]{\ji}_{(\vc{r})} \\
+		&= \fr{\kpmv}{4\pi r} \ivs{\bb{Q}}{\fr{\vc{J}_{(\vc{r}')}}{\rz{1 + \fr{r'}{r} \cor{\fr{r'}{r} - 2 \cos(\tita)}}}}{V}' + \gr[\vc{r}]{\ji}_{(\vc{r})}
+	\end{align*}
+	\item Ahora, dada $f_{\x} := \frr{1}{\rz{1+x}} = \cor[-\frrr{1}{2}]{1 + \frr{r'}{r} \pr{\frr{r'}{r} - 2 \cos\tita}} : \bb{D} \inc \bb{R} \to \bb{R}$ una Función de Una Variable Diferenciable, realizando un desarrollo en Serie de Maclaurin con respecto a $x$, tenemos:
+	\begin{align*}
+		f_{\x} &= f_{(0)} + \dv{f_{(0)}}{x} (x - 0) + \fr{1}{2!} \dv[2]{f_{(0)}}{x} (x - 0)^2 + \fr{1}{3!} \dv[3]{f_{(0)}}{x} (x - 0)^3 + \porh + \fr{1}{\ell!} \dv[\ell]{f_{(0)}}{x} (x - 0)^{\ell} \\
+		&= 1 - \fr{1}{2} x + \fr{3}{8} x^2 - \fr{5}{16} x^3 + \porh \\
+		&= 1 - \fr{1}{2} \fr{r'}{r} \cor{\fr{r'}{r} - 2 \cos(\tita)} + \fr{3}{8} \fr{r'^2}{r^2} \cor[2]{\fr{r'}{r} - 2 \cos(\tita)} - \fr{5}{16} \fr{\mod[3]{\vc{r}'}}{\mod[3]{\vc{r}}} \cor[3]{\fr{r'}{r} - 2 \cos(\tita)} + \porh \\
+		&= 1 + \fr{r'}{r} \cos(\tita) + \fr{r'^2}{r^2} \fr{3 \cos^2(\tita) - 1}{2} + \fr{r'^3}{r^3} \fr{5\cos^3(\tita) - 3\cos(\tita)}{2} + \porh + \fr{r'^{\ell}}{r^{\ell}} \Pollet{\ell} \\
+		&= \S{\ell=0}{\inf}{\fr{r'^{\ell}}{r^{\ell}} \Pollet{\ell}}
+	\end{align*}
+	\item Obtuvimos una Suma Infinita de Polinomios de Legendre Trigonométricos $P_{\ell} := \Pollet{\ell} : \bb{D} \inc \bb{R} \to \bb{R}$ de Grado $\ell$. Reemplazando en el Potencial Electrostático, tenemos:
+	\begin{align*}
+		\vc{A}_{(\vc{r})} &= \fr{\kpmv}{4\pi r} \ivs{\bb{Q}}{\fr{\vc{J}_{(\vc{r}')}}{\rz{1 + \fr{r'}{r} \cor{\fr{r'}{r} - 2 \cos(\tita)}}}}{V}' + \gr[\vc{r}]{\ji}_{(\vc{r})} \\
+		&= \fr{\kpmv}{4\pi r} \ivs{\bb{Q}}{\cor{\vc{J}_{(\vc{r}')} \S{\ell=0}{\inf}{\fr{r'^{\ell}}{r^{\ell}} \Pollet{\ell}}}}{V}' + \gr[\vc{r}]{\ji}_{(\vc{r})} \\
+		&= \fr{\kpmv}{4\pi} \S{\ell=0}{\inf}{\cor{\fr{1}{r^{\ell+1}} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')} r'^{\ell} \Pollet{\ell}}{V}'}} + \gr[\vc{r}]{\ji}_{(\vc{r})}
+	\end{align*}
+	\q{\vc{A}_{(\vc{r})} = \fr{\kpmv}{4\pi} \S{\ell=0}{\inf}{\cor{\fr{1}{r^{\ell+1}} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')} r'^{\ell} \Pollet{\ell}}{V}'}} + \gr[\vc{r}]{\ji}_{(\vc{r})}}
+\end{itemize}
+\f{\vc{A}_{(\vc{r})} = \fr{\kpmv}{4\pi} \lla{\fr{1}{r} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}}{V}' + \fr{1}{r^2} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')} r' \cos(\tita)}{V}' + \fr{1}{2 r^3} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')} r'^2 \cor{3\cos^2(\tita)-1}}{V}' + \porh + \fr{1}{r^{\ell+1}} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')} r'^{\ell} \Pollet{\ell}}{V}'} + \gr[\vc{r}]{\ji}_{(\vc{r})}}
+\paragraph{Contribución Monopolar}
+Sean $\phi := \phi_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ y $\psi := \psi_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ dos Funciones de Tres Variables Diferenciables a Primer Orden ($C^1$), y sea $\vc{J} := \vc{J}_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Vectorial Incompresible en el Espacio, entonces:
+\begin{align*}
+	\ivs{\bb{Q}}{\phi_{(\vc{r}')} \cor{\PI{\vc{J}_{(\vc{r}')}}{\gr[\vc{r}']{\psi_{(\vc{r}')}}}}}{V}' &= {\ldot{\cor{\phi_{(\vc{r}')} \psi_{(\vc{r}')} \vc{J}_{(\vc{r}')}}}\right|}_{\p \bb{Q}} - \ivs{\bb{Q}}{\psi_{(\vc{r}')} \nabla_{\vc{r}'} \por \cor{\phi_{(\vc{r}')} \vc{J}_{(\vc{r}')}}}{V}' \\
+	&\tx{Por la Regla del Producto de la Divergencia, tenemos:} \\
+	&= 0 - \ivs{\bb{Q}}{\lla{\psi_{(\vc{r}')} \vc{J}_{(\vc{r}')} \gr[\vc{r}']{\phi}_{(\vc{r}')} + \psi_{(\vc{r}')} \phi_{(\vc{r}')} \cor{\div[\vc{r}']{J}_{(\vc{r}')}}}}{V}' \\
+	&= - \ivs{\bb{Q}}{\cor{\psi_{(\vc{r}')} \vc{J}_{(\vc{r}')} \gr[\vc{r}']{\phi}_{(\vc{r}')} + \psi_{(\vc{r}')} \phi_{(\vc{r}')}.0}}{V}' \\
+	\ivs{\bb{Q}}{\phi_{(\vc{r}')} \cor{\PI{\vc{J}_{(\vc{r}')}}{\gr[\vc{r}']{\psi_{(\vc{r}')}}}}}{V}' &= - \ivs{\bb{Q}}{\cor{\psi_{(\vc{r}')} \vc{J}_{(\vc{r}')} \gr[\vc{r}']{\phi}_{(\vc{r}')} + 0}}{V}' \\
+	0 &= \ivs{\bb{Q}}{\lla{\phi_{(\vc{r}')} \cor{\PI{\vc{J}_{(\vc{r}')}}{\gr[\vc{r}']{\psi_{(\vc{r}')}}}} + \psi_{(\vc{r}')} \vc{J}_{(\vc{r}')} \gr[\vc{r}']{\phi}_{(\vc{r}')}}}{V}' \\
+	&\tx{Si elegimos } \phi_{(\vc{r}')} = 1 \tx{, y } \psi_{(\vc{r}')} = r' \tx{, tenemos:} \\
+	&= \ivs{\bb{Q}}{\lla{1 \cor{\PI{\vc{J}_{(\vc{r}')}}{\gr[\vc{r}']{(r')}}} + r' \vc{J}_{(\vc{r}')} \gr[\vc{r}']{(1)}}}{V}' \\
+	&= \ivs{\bb{Q}}{\cor{\PI{\vc{J}_{(\vc{r}')}}{\vc{1}} + r' \vc{J}_{(\vc{r}')}.0}}{V}' \\
+	&= \ivs{\bb{Q}}{\cor{\vc{J}_{(\vc{r}')} + 0}}{V}' \\
+	0 &= \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}}{V}' \Sii \div[\vc{r}']{J}_{(\vc{r}')} = 0 \\
+	&\tx{Reemplazando en la Contribución Monopolar:} \\
+	\vc{A}_{\tx{mon}(\vc{r})} :&= \fr{\kpmv}{4\pi r} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}}{V}' \\
+	&= \fr{\kpmv}{4\pi r}.0 \\
+	&= 0
+\end{align*}
+\q{\vc{A}_{\tx{mon}(\vc{r})} = 0}
+\paragraph{Contribución Dipolar}
+\begin{align*}
+	0 &= \ivs{\bb{Q}}{\lla{\phi_{(\vc{r}')} \cor{\PI{\vc{J}_{(\vc{r}')}}{\gr[\vc{r}']{\psi_{(\vc{r}')}}}} + \psi_{(\vc{r}')} \vc{J}_{(\vc{r}')} \gr[\vc{r}']{\phi}_{(\vc{r}')}}}{V}' \\
+	&\tx{Si elegimos } \phi_{(\vc{r}')} = r'_i \tx{, y } \psi_{(\vc{r}')} = r'_j \tx{, tenemos:} \\
+	0 &= \ivs{\bb{Q}}{\lla{r'_i \cor{\PI{J_{j(\vc{r}')}}{\gr[\vc{r}']{(r'_j)}}} + r'_j J_{i(\vc{r}')} \gr[\vc{r}']{(r'_i)}}}{V}' \\
+	0 &= \ivs{\bb{Q}}{\lla{r'_i \cor{\PI{J_{j(\vc{r}')}}{\vc{1}}} + r'_j J_{i(\vc{r}')}.\vc{1}}}{V}' \\
+	\ivs{\bb{Q}}{r'_i J_{j(\vc{r}')}}{V}' &= - \ivs{\bb{Q}}{r'_j J_{i(\vc{r}')}}{V}' \\
+	&\tx{Reemplazando en la Contribución Dipolar:} \\
+	\vc{A}_{\tx{dip}(\vc{r})} :&= \fr{\kpmv}{4\pi r^2} \ivs{\bb{Q}}{J_{i(\vc{r}')} r' \cos(\tita)}{V}' \\
+	&=\fr{\kpmv}{4\pi r^2} \ivs{\bb{Q}}{J_{i(\vc{r}')} \mod{\vc{r}'} \mod{\ver{r}} \cos(\tita)}{V}' \\
+	&=\fr{\kpmv}{4\pi r^2} \ivs{\bb{Q}}{J_{i(\vc{r}')} (\PI{\vc{r}'}{\ver{r}})}{V}' \\
+	&=\fr{\kpmv}{4\pi r^2} \S{j=1}{3}{\cor{\hat{r}_j \ivs{\bb{Q}}{r'_j J_{i(\vc{r}')}}{V}'}} \\
+	&=\fr{\kpmv}{4\pi r^2} \S{j=1}{3}{\lla{\fr{\hat{r}_j}{2} \ivs{\bb{Q}}{\cor{r'_j J_{i(\vc{r}')} + r'_j J_{i(\vc{r}')}}}{V}'}} \\
+	&=\fr{\kpmv}{4\pi r^2} \S{j=1}{3}{\lla{\fr{\hat{r}_j}{2} \ivs{\bb{Q}}{\cor{r'_j J_{i(\vc{r}')} - r'_i J_{j(\vc{r}')}}}{V}'}} \\
+	&=\fr{\kpmv}{4\pi r^2} \fr{1}{2} \S{j,k=1}{3}{\lla{\levi{ijk} \hat{r}_j \ivs{\bb{Q}}{{\cor{\PV{\vc{r}'}{\vc{J}_{(\vc{r}')}}}}_k}{V}'}} \\
+	&=\fr{\kpmv}{4\pi r^2} \PV{\cor{\fr{1}{2} \ivs{\bb{Q}}{\PV{\vc{r}'}{\vc{J}_{(\vc{r}')}}}{V}'}}{\ver{r}} \\
+	&=\fr{\kpmv}{4\pi r^2} (\PV{\vc{m}}{\ver{r}}) \\
+	&=\fr{\kpmv(\PV{\vc{m}}{\ver{r}})}{4\pi r^2}
+\end{align*}
+\q{\vc{A}_{\tx{dip}(\vc{r})} = \fr{\kpmv (\PV{\vc{m}}{\ver{r}})}{4\pi r^2} = \fr{\kpmv \mod{\vc{m}} \sen(\tita)}{4\pi r^2} \ver{\phi}}
+\paragraph{Contribución Cuadrupolar}
+\f{\vc{A}_{\tx{cuad}(\vc{r})} = \fr{\kpmv}{8\pi r^3} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')} r'^2 \cor{3\cos^2(\tita)-1}}{V}'}
+		\subsection{Notación De Einstein}
+Utilizando notación de Einstein, si consideramos a la distribución volumétrica de corriente eléctrica $\vc{J}_{(\vc{r}')}$ confinada en una región $d$, con $\mod{\vc{r}} \mm d$, podemos obtener el potencial magnetostático en expansión multipolar de la siguiente forma:
+\begin{align*}
+	\vc{A}_{(\vc{r})} :&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\fr{\vc{J}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' + \gr{\ji}_{(\vc{r})} \\
+	&\tx{Realizando un desarrollo de Taylor alrededor de } \vc{r}'=\vc{0} \tx{, tenemos que:} \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}\lla{\fr{1}{\mod{\vc{r}}} + \PI{\cor{\p[i'] \ldot{\pr{\fr{1}{\mod{\vc{r} - \vc{r}'}}}}\right|_{\vc{r}'=\vc{0}}}}{r'_i} + \fr{1}{2!} \p[i']\p[j'] \ldot{\pr{\fr{1}{\mod{\vc{r} - \vc{r}'}}}}\right|_{\vc{r}'=\vc{0}} r'_i r'_j + \porh}}{V}' + \gr{\ji}_{(\vc{r})} \\
+	&\tx{Por el teorema de Clairaut-Schwartz, tenemos que:} \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}\lla{\fr{1}{\mod{\vc{r}}} + \PI{\cor{\ldot{\pr{\fr{r_i - r'_i}{\mod[3]{\vc{r} - \vc{r}'}}}}\right|_{\vc{r}'=\vc{0}}}}{r'_i} + \fr{1}{2!} \p[j']\p[i'] \ldot{\pr{\fr{1}{\mod{\vc{r} - \vc{r}'}}}}\right|_{\vc{r}'=\vc{0}} r'_i r'_j + \porh}}{V}' + \gr{\ji}_{(\vc{r})} \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}\lla{\fr{1}{\mod{\vc{r}}} + \PI{\cor{\pr{\fr{r_i - 0}{\mod[3]{\vc{r} - \vc{0}}}}}}{r'_i} + \fr{1}{2!} \p[j'] \ldot{\pr{\fr{r_i - r'_i}{\mod[3]{\vc{r} - \vc{r}'}}}}\right|_{\vc{r}'=\vc{0}} r'_i r'_j + \porh}}{V}' + \gr{\ji}_{(\vc{r})} \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}\lla{\fr{1}{\mod{\vc{r}}} + \PI{\pr{\fr{r_i}{\mod[3]{\vc{r}}}}}{r'_i} + \fr{1}{2!} \ldot{\cor{-\fr{\kro{i'j'}}{\mod[3]{\vc{r} - \vc{r}'}} + \fr{3(r_i - r'_i)(r_j - r'_j)}{\mod[5]{\vc{r} - \vc{r}'}}}}\right|_{\vc{r}'=\vc{0}} r'_i r'_j + \porh}}{V}' + \gr{\ji}_{(\vc{r})} \\
+	&\tx{Como } \kro{ij} = \kro{i'j'} \tx{, tenemos que:} \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}\lla{\fr{1}{\mod{\vc{r}}} + \PI{\pr{\fr{r_i}{\mod[3]{\vc{r}}}}}{r'_i} + \fr{1}{2!} \cor{-\fr{\kro{ij}}{\mod[3]{\vc{r} - \vc{0}}} + \fr{3(r_i - 0)(r_j - 0)}{\mod[5]{\vc{r} - \vc{0}}}} r'_i r'_j + \porh}}{V}' + \gr{\ji}_{(\vc{r})} \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}\cor{\fr{1}{\mod{\vc{r}}} + \PI{\pr{\fr{r_i}{\mod[3]{\vc{r}}}}}{r'_i} + \fr{1}{2!} \pr{-\fr{\kro{ij}}{\mod[3]{\vc{r}}} + \fr{3r_i r_j}{\mod[5]{\vc{r}}}} r'_i r'_j + \porh}}{V}' + \gr{\ji}_{(\vc{r})} \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}\cor{\fr{1}{\mod{\vc{r}}} + \PI{\pr{\fr{r_i}{\mod[3]{\vc{r}}}}}{r'_i} + \fr{1}{2!} \pr{\fr{3r_ir_j - \kro{ij}\mod[2]{\vc{r}}}{\mod[5]{\vc{r}}}} r'_i r'_j + \porh}}{V}' + \gr{\ji}_{(\vc{r})} \\
+	&= \fr{\kpmv}{4\pi} \cor{\fr{1}{\mod{\vc{r}}} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}}{V}' + \fr{1}{\mod[3]{\vc{r}}} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')} (\PI{\vc{r}}{\vc{r}'})}{V}' + \fr{1}{2!} \pr{\fr{3r_ir_j - \kro{ij}\mod[2]{\vc{r}}}{\mod[5]{\vc{r}}}} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}r'_i r'_j}{V}' + \porh} + \gr{\ji}_{(\vc{r})}
+\end{align*}
+\q{\vc{A}_{(\vc{r})} = \fr{\kpmv}{4\pi} \cor{\fr{1}{\mod{\vc{r}}} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}}{V}' + \fr{1}{\mod[3]{\vc{r}}} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')} (\PI{\vc{r}}{\vc{r}'})}{V}' + \fr{1}{2!} \pr{\fr{3r_ir_j - \kro{ij}\mod[2]{\vc{r}}}{\mod[5]{\vc{r}}}} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}r'_i r'_j}{V}' + \porh} + \gr{\ji}_{(\vc{r})}}
+\paragraph{Contribución Monopolar}
+\begin{align*}
+	\vc{A}_{\tx{mon}(\vc{r})} &= \fr{\kpmv}{4\pi\mod{\vc{r}}} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')}}{V}' \\
+	&= \fr{\kpmv}{4\pi\mod{\vc{r}}} \ivs{\bb{Q}}{\kro{ji} J_{j(\vc{r}')}}{V}' \\
+	&= \fr{\kpmv}{4\pi\mod{\vc{r}}} \ivs{\bb{Q}}{(\p[j]r_i) J_{j(\vc{r}')}}{V}' \\
+	\tx{Por la } &\tx{regla del producto, tenemos que:} \\
+	&= \fr{\kpmv}{4\pi\mod{\vc{r}}} \ivs{\bb{Q}}{\lla{\p[j] \cor{r_i J_{j(\vc{r}')}} - r_i \p[j]J_{j(\vc{r}')}}}{V}' \\
+	\tx{Como } &\p[j]J_{j(\vc{r}')} = \div{J}_{(\vc{r}')} = 0 \tx{, tenemos que:} \\
+	&= \fr{\kpmv}{4\pi\mod{\vc{r}}} \ivs{\bb{Q}}{\lla{\p[j] \cor{r_i J_{j(\vc{r}')}} - 0}}{V}' \\
+	\tx{Si } \vc{J} \tx{ es localizada } &\p[j]\cor{r_i J_{j(\vc{r}')}} = 0 \ptd j \tx{, entonces:} \\
+	&= \fr{\kpmv}{4\pi\mod{\vc{r}}} \ivs{\bb{Q}}{\vc{0}}{V}' \\
+	&= \vc{0}
+\end{align*}
+\q{\vc{A}_{\tx{mon}(\vc{r})} = \vc{0}}
+\paragraph{Contribución Dipolar}
+\begin{itemize}
+	\item En primer lugar, calculemos la integral:
+	\begin{align*}
+		\ivs{\bb{Q}}{J_{i(\vc{r}')}r'_j}{V}' &= \ivs{\bb{Q}}{r'_j \kro{ki} J_{k(\vc{r}')}}{V}' \\
+		&= \ivs{\bb{Q}}{r'_j (\p[k']r'_i) J_{k(\vc{r}')}}{V}' \\
+		\tx{Por la } &\tx{regla del producto, tenemos:} \\
+		&= \ivs{\bb{Q}}{\lla{\p[k'] \cor{r'_ir'_j J_{k(\vc{r}')}} - (\p[k']r'_j) r'_iJ_{k(\vc{r}')} - r'_ir'_j \cor{\p[k']J_{k(\vc{r}')}}}}{V}' \\
+		\tx{Por el } &\tx{teorema de Gauss, tenemos que:} \\
+		&= \isos{\vc{S}^+=\p\bb{Q}}{\esp{-6} r'_ir'_j J_{k(\vc{r}')}}{S}_k - \ivs{\bb{Q}}{\lla{(\p[k']r'_j) r'_iJ_{k(\vc{r}')} + r'_ir'_j \cor{\p[k']J_{k(\vc{r}')}}}}{V}' \\
+		\tx{Como } &\p[k]J_{k(\vc{r}')} = \div{J}_{(\vc{r}')} = 0 \tx{, tenemos que:} \\
+		&= 0 - \ivs{\bb{Q}}{\cor{(\p[k']r'_j) r'_iJ_{k(\vc{r}')} + r'_ir'_j.0}}{V}' \\
+		&= -\ivs{\bb{Q}}{\kro{k'j'} r'_iJ_{k(\vc{r}')} + 0}{V}' \\
+		&= -\ivs{\bb{Q}}{J_{j(\vc{r}')} r'_i}{V}'
+	\end{align*}
+	\q{\ivs{\bb{Q}}{J_{i(\vc{r}')}r'_j}{V}' = -\ivs{\bb{Q}}{J_{j(\vc{r}')} r'_i}{V}'}
+	\item Es decir, obtuvimos una matriz antisimétrica. Para calcular entonces la contribución dipolar del potencial magnetostático, finalmente:
+	\begin{align*}
+		\vc{A}_{\tx{dip}(\vc{r})} &= \fr{\kpmv}{4\pi\mod[3]{\vc{r}}} \ivs{\bb{Q}}{\vc{J}_{(\vc{r}')} (\PI{\vc{r}}{\vc{r}'})}{V}' \\
+		\tx{Por la definición de } &\tx{momento dipolar electrostático, tenemos:} \\
+		&= \fr{\kpmv}{4\pi\mod[3]{\vc{r}}} \ivs{\bb{Q}}{J_{i(\vc{r}')} r_jr'_j}{V}' \\
+		&= \fr{\kpmv}{4\pi\mod[3]{\vc{r}}} r_j\ivs{\bb{Q}}{J_{i(\vc{r}')} r'_j}{V}' \\
+		&= \fr{\kpmv}{4\pi\mod[3]{\vc{r}}} \fr{r_j}{2} \ivs{\bb{Q}}{\cor{J_{i(\vc{r}')} r'_j + J_{i(\vc{r}')} r'_j}}{V}' \\
+		\tx{Como } &\ivs{\bb{Q}}{J_{i(\vc{r}')}r'_j}{V}' = -\ivs{\bb{Q}}{J_{j(\vc{r}')} r'_i}{V}' \tx{, tenemos que:} \\
+		&= \fr{\kpmv}{4\pi\mod[3]{\vc{r}}} \fr{r_j}{2} \ivs{\bb{Q}}{\cor{J_{i(\vc{r}')} r'_j - J_{j(\vc{r}')} r'_i}}{V}' \\
+		\tx{Por la } &\tx{definición del producto vectorial, tenemos:} \\
+		&= \fr{\kpmv}{4\pi\mod[3]{\vc{r}}} \fr{1}{2} \ivs{\bb{Q}}{\PV{\cor{\PV{\vc{r}'}{\vc{J}_{(\vc{r}')}}}}{\vc{r}}}{V}' \\
+		\tx{Por la definición de } &\tx{momento dipolar magnetostático, tenemos:} \\
+		&= \fr{\kpmv(\PV{\vc{m}}{\vc{r}})}{4\pi\mod[3]{\vc{r}}}
+	\end{align*}
+\end{itemize}
+\q{\vc{A}_{\tx{dip}(\vc{r})} = \fr{\kpmv(\PV{\vc{m}}{\vc{r}})}{4\pi\mod[3]{\vc{r}}}}
+\paragraph{Contribución Cuadrupolar}
+		\subsection{Condiciones De Contorno}
+Dado $\vc{B} := \vc{B}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Magnetostático continuo generado por una superficie $\ff{S} : \bb{D} \inc \bb{R}^2 \to \bb{R}^3$ cargada con una densidad superficial de corriente eléctrica $\vc{K} := \vc{K}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ y con normal exterior $\ver{\ita}$, debido a que el Potencial Magnetostático puede escribirse como la integral del Campo Magnetostático, podemos estudiar su continuidad directamente.
+\paragraph{Continuidad}
+Sea $\cal{C} : [\vc{r}_0,\vc{r}_0+\eps] \inc \bb{R} \to \bb{R}^3$ una curva que representa un segmento que parte de la posición $\vc{r}_0$ hasta la posición $\vc{r}_0 + \eps$ atravesando a la superficie cargada con densidad superficial de corriente $\vc{K}$, con $\eps \to 0$, entonces:
+\begin{align*}
+	\vc{A}_{(\vc{r})}^+ - \vc{A}_{(\vc{r})}^- :&= \int\limits_{\cal{C}} \PV{\vc{B}_{(\vc{r}')}}{\d \ell}' \\
+	\vc{A}_{(\vc{r})}^+ - \vc{A}_{(\vc{r})}^- &= \int\limits_{\vc{r}_0}^{\vc{r}_0+\eps} \PV{\vc{B}_{(\vc{r}')}}{\d \ell}' \\
+	\tx{Cuando } \eps &\to 0 \tx{, tenemos que:} \\
+	\vc{A}_{(\vc{r})}^+ - \vc{A}_{(\vc{r})}^- &= \int\limits_{\vc{r}_0}^{\vc{r}_0} \PV{\vc{B}_{(\vc{r}')}}{\d \ell}' \\
+	\vc{A}_{(\vc{r})}^+ - \vc{A}_{(\vc{r})}^- &= 0 \\
+	\vc{A}_{(\vc{r})}^+ &= \vc{A}_{(\vc{r})}^-
+\end{align*}
+\q{\vc{A}_{(\vc{r})}^+ = \vc{A}_{(\vc{r})}^-}
+\paragraph{Discontinuidad Del Campo Magnetostático En Función Del Potencial}
+Dada la discontinuidad en forma vectorial del Campo Magnetostático, podemos escribirla en forma escalar, de la forma:
+\begin{align*}
+	\vc{B}_{(\vc{r})}^+ - \vc{B}_{(\vc{r})}^- &= \kpmv \PV{\vc{K}_{(\vc{r})}}{\ver{\ita}} \\
+	\rot[\vc{r}]{A}_{(\vc{r})}^+ - \rot[\vc{r}]{A}_{(\vc{r})}^- &= \kpmv \PV{\vc{K}_{(\vc{r})}}{\ver{\ita}} \\
+	\pd{\vc{A}_{(\vc{r})}^+}{\ita} - \pd{\vc{A}_{(\vc{r})}^-}{\ita} &= - \kpmv \vc{K}_{(\vc{r})} \\
+	\pd{\vc{A}_{(\vc{r})}^-}{\ita} - \pd{\vc{A}_{(\vc{r})}^+}{\ita} &= \kpmv \vc{K}_{(\vc{r})}
+\end{align*}
+\q{\pd{\vc{A}_{(\vc{r})}^-}{\ita} - \pd{\vc{A}_{(\vc{r})}^+}{\ita} = \kpmv \vc{K}_{(\vc{r})}}
+\chapter{Momento Dipolar Magnetostático}
+Sean $q_i$, $N$-partículas estáticas cargadas eléctricamente en las posiciones $\vc{r}_i$, y sea $\vc{r}$ la posición de una unidad de carga de prueba, entonces:
+\f{\vc{m}_{q_1\pors q_N} := \fr{1}{2} \S{i=1}{N}{\PV{(\vc{r}_i - \vc{r})}{q_i \vc{v}_{(\vc{r}_i)}}}}
+		\subsection{Dipolo Magnetostático Físico}
+Sea $\vc{I} := I \ver{\phi} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ una corriente circular que fluye en sentido positivo que encierra una superficie $\vc{S} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces:
+\f{\vc{m} := I \vc{S}}
+		\subsection{Momento Dipolar Magnetostático En Una Distribución Continua De Carga}
+Cuando la cantidad de partículas $q_i$ tiende a infinito, obtenemos una Suma de Riemann por cada Diferencial de Carga:
+\begin{align*}
+	\lim{N}{\inf}{\pr{\vc{m}_{q_1\pors q_N}}} &= \lim{N}{\inf}{\cor{\fr{1}{2} \S{i=1}{N}{\PV{(\vc{r}_i - \vc{r})}{q_i \vc{v}_{(\vc{r}_i)}}}}} \\
+	\vc{m}_{(\vc{r})} &= \fr{1}{2} \lim{N}{\inf}{\cor{\S{i=1}{N}{\PV{(\vc{r}_i - \vc{r})}{q_i \vc{v}_{(\vc{r}_i)}}}}} \\
+	&= \fr{1}{2} \Int{}{}{\PV{(\vc{r}' - \vc{r})}{\vc{v}_{(\vc{r}')}}}{q}'
+\end{align*}
+\q{\vc{m}_{(\vc{r})} := \fr{1}{2} \Int{}{}{\PV{(\vc{r}' - \vc{r})}{\vc{v}_{(\vc{r}')}}}{q}'}
+\paragraph{Distribución Lineal}
+Si la distribución de cargas $q'$ puede expresarse como una densidad lineal de carga $\lamda := \lamda_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad lineal vectorial de corriente $\vc{I}_{(\vc{r}')} := \lamda_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{m}_{(\vc{r})} := \fr{1}{2} \ils{\cal{C}}{\PV{(\vc{r}' - \vc{r})}{\vc{I}_{(\vc{r}')}}}{s}'}
+\paragraph{Distribución Superficial}
+Si la distribución de cargas $q'$ puede expresarse como una densidad superficial de carga $\sigma := \sigma_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad superficial vectorial de corriente $\vc{K}_{(\vc{r}')} := \sigma_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{m}_{(\vc{r})} := \fr{1}{2} \iss{\ff{S}}{\PV{(\vc{r}' - \vc{r})}{\vc{K}_{(\vc{r}')}}}{S}'}
+\paragraph{Distribución Volumétrica}
+Si la distribución de cargas $q'$ puede expresarse como una densidad volumétrica de carga $\ro := \ro_{(\vc{r}')} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ que se mueve con velocidad $\vc{v}_{(\vc{r}')}$, podemos expresar la corriente $I$ como una densidad volumétrica vectorial de corriente $\vc{J}_{(\vc{r}')} := \ro_{(\vc{r}')} \vc{v}_{(\vc{r}')}$, entonces:
+\f{\vc{m}_{(\vc{r})} := \fr{1}{2} \ivs{\bb{Q}}{\PV{(\vc{r}' - \vc{r})}{\vc{J}_{(\vc{r}')}}}{V}'}
+\chapter{Trabajo Magnetostático}
+Sea $q$ una partícula cargada eléctricamente que se mueve con velocidad $\vc{v}$ a lo largo de una curva $\cal{C} := \cal{C}^+ : \bb{D} \inc \bb{R} \to \bb{R}^3$ orientada positivamente en un Campo Magnetostático continuo $\vc{B} := \vc{B}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, y sea $\vc{F}_{\tx{m}(\vc{r})} : \bb{R}^3 \to \bb{R}^3$ la Fuerza Magnetostática necesaria para mover a la partícula $q$ en el Campo $\vc{B}$, entonces:
+\begin{align*}
+	W_{\tx{m}(\vc{r})} :&= \ilv{\cal{C}^+}{\vc{F}_{\tx{m}(\vc{r})}}{\ell} \\
+	&= \Int{t_0}{t_f}{\PI{\cor{q\PV{\vc{v}}{\vc{B}_{(\vc{r})}}}}{\vc{v}}}{t} \\
+	&= q \Int{t_0}{t_f}{\PI{\cor{\PV{\vc{v}}{\vc{B}_{(\vc{r})}}}}{\vc{v}}}{t} \\
+	&= q\Int{t_0}{t_f}{0}{t} \ptd \vc{v} \\
+	&= q.0 \\
+	&= 0
+\end{align*}
+\q{W_{\tx{m}(\vc{r})} = 0}
+\chapter{Energía Magnetostática}
+Debido a que el Trabajo Magnetostático es nulo, la Energía Magnetostática también lo es:
+\f{E_{\tx{m}} = 0}
+\chapter{Ley De Ampère}
+Sea $\vc{B} := \vc{B}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Magnetostático producido por una densidad volumétrica $\vc{J} := \vc{J}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ de $N$ hilos infinitos de corriente $I_i$ encerrados por una curva cerrada $\cal{C} := \cal{C}^+ : \bb{D} \inc \bb{R} \to \bb{R}^3$ orientada positivamente en una superficie $\ff{S} \inc \bb{R}^3$ ($\cal{C}^+ := \p \ff{S}$) y cuya corriente total es $I_{\tx{enc}}$, con $1 \nig i \nig N$ y $N \to \inf$, entonces: \\\\
+La circulación total del campo $\vc{B}_{(\vc{r})}$ a través de la curva $\cal{C}$ será, por el Principio de Superposición, de la forma:
+\begin{align*}
+	\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{B}_{(\vc{r})}}{\ell} &= \ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\lim{N}{\inf}{\pr{\S{i=1}{n}{\vc{B}_{I_i}}}}}{\ell} \\
+	&= \lim{N}{\inf}{\cor{\S{i=1}{N}{\pr{\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\esp{-10}\vc{B}_{I_i}}{\ell}}}}} \\
+	&= \lim{N}{\inf}{\lla{\S{i=1}{N}{\cor{\int\limits_{\cal{C}} \PI{\pr{\fr{\kpmv I_i}{2\pi \ro} \ver{\phi}}}{(\d \ro \ver{\ro} + \ro \d \phi \ver{\phi} + \d z \ver{z})}}}}} \\
+	&= \fr{\kpmv}{2\pi} \lim{N}{\inf}{\pr{\S{i=1}{N}{I_i}}} \Int{0}{2\pi}{\fr{1}{\ro} \ro}{\phi} (\PI{\ver{\phi}}{\ver{\phi}}) + 0 + 0 \\
+	&= \fr{\kpmv I_{\tx{enc}}}{2\pi} \Int{0}{2\pi}{\esp{-6}}{\phi}.1 \\
+	&= \fr{2\pi \kpmv I_{\tx{enc}}}{2\pi} \\
+	&= \kpmv \isv{\ff{S}}{\vc{J}_{(\vc{r})}}{S}
+\end{align*}
+\q{\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{B}_{(\vc{r})}}{\ell} = \kpmv \isv{\ff{S}}{\vc{J}_{(\vc{r})}}{S}}
+\paragraph{Teorema De Stokes}
+Por el Teorema De Stokes, tenemos que:
+\begin{align*}
+	\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{B}_{(\vc{r})}}{S} &= \isv{\ff{S}}{\rot[\vc{r}]{B}_{(\vc{r})}}{S} \\
+	\isv{\vc{S}}{\rot[\vc{r}]{B}_{(\vc{r})}}{S} &= \kpmv \isv{\vc{S}}{\vc{J}_{(\vc{r})}}{S} \\
+	\rot[\vc{r}]{B}_{(\vc{r})} &= \kpmv \vc{J}_{(\vc{r})}
+\end{align*}
+\q{\rot[\vc{r}]{B}_{(\vc{r})} = \kpmv \vc{J}_{(\vc{r})}}
+\paragraph{Ley De Ampère: Forma Integral}
+\f{\ilovcr{\cal{C}^+:=\p\vc{S}^+}{\quadl\vc{B}_{(\vc{r})}}{\ell} = \kpmv \isv{\ff{S}}{\vc{J}_{(\vc{r})}}{S}}
+\paragraph{Ley De Ampère: Forma Diferencial}
+\f{\rot[\vc{r}]{B}_{(\vc{r})} = \kpmv \vc{J}_{(\vc{r})}}
+		\subsection{Ecuación De Poisson Para El Magnetismo}
+Sea $\vc{B} := \vc{B}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Magnetostático continuo producido por una distribución volumétrica de corriente $\vc{J} := \vc{J}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ cuyo Potencial Magnotostático es $\vc{A} := \vc{A}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces:
+\begin{align*}
+	\rot[\vc{r}]{B}_{(\vc{r})} &= \kpmv \vc{J}_{(\vc{r})} \\
+	\nabla_{\vc{r}} \Por \cor{\rot[\vc{r}]{A}_{(\vc{r})}} &= \kpmv \vc{J}_{(\vc{r})} \\
+	\gr[\vc{r}]{\cor{\div[\vc{r}]{A}_{(\vc{r})}}} - \lapv[\vc{r}]{A}_{(\vc{r})} &= \kpmv \vc{J}_{(\vc{r})} \\
+	\tx{Tomando el Gauge de Coulomb } & \div[\vc{r}]{A}_{(\vc{r})} = 0 \tx{, obtenemos: } \\
+	\gr[\vc{r}]{(0)} - \lapv[\vc{r}]{A}_{(\vc{r})} &= \kpmv \vc{J}_{(\vc{r})} \\
+	0 - \lapv[\vc{r}]{A}_{(\vc{r})} &= \kpmv \vc{J}_{(\vc{r})} \\
+	\lapv[\vc{r}]{A}_{(\vc{r})} &= - \kpmv \vc{J}_{(\vc{r})}
+\end{align*}
+\q{\lapv[\vc{r}]{A}_{(\vc{r})} = -\kpmv \vc{J}_{(\vc{r})} \Sii \div[\vc{r}]{A}_{(\vc{r})} = 0}
+\paragraph{Componentes}
+\begin{align*}
+	\lapv[\vc{r}]{A}_{(\vc{r})} &= -\kpmv \vc{J}_{(\vc{r})} \\
+	\nabla_{\vc{r}}^2 \pra{A_{x\xyz}, A_{y\xyz}, A_{z\xyz}} &= -\kpmv \pra{J_{x\xyz},J_{y\xyz},J_{z\xyz}} \\
+	\pra{\lap[\vc{r}]{A}_{x\xyz},\lap[\vc{r}]{A}_{y\xyz},\lap[\vc{r}]{A}_{z\xyz}} &= \pra{-\kpmv J_{x\xyz},-\kpmv J_{y\xyz},-\kpmv J_{z\xyz}}
+\end{align*}
+\q{\Fppp{\lap[\vc{r}]{A}_{x\xyz} = -\kpmv J_{x\xyz}}{\lap[\vc{r}]{A}_{y\xyz} = -\kpmv J_{y\xyz}}{\lap[\vc{r}]{A}_{z\xyz} = -\kpmv J_{z\xyz}}}
+\chapter{Medios Materiales Magnetostáticos} %Capítulo •% TERMINADO
+	\section{Material Magnético}
+		\subsection{Definición}
+Un material magnético es un medio material que se \cur{magnetiza} o sufre un torque cuando se ve sometido a un Campo Magnetostático externo. Se denomina material \cur{paramagnético} y \cur{diamagnético} a aquellos cuya inducción magnética es débil y desaparece al remover el Campo Magnetostático externo, produciéndose en la misma dirección del campo en el primer caso (generando una fuerza atractiva), y en dirección opuesta en el segundo (generando una fuerza repulsiva), respectivamente. Por otra parte, se denomina material \cur{ferromagnético} a aquellos cuya inducción magnética es fuerte y se mantiene luego de remover el Campo Magnetostático externo.
+		\subsection{Inducción De Dipolos Magnéticos En El Interior}
+Los electrones de los átomos de un medio material orbitan los núcleos atómicos produciendo corrientes diminutas que generan dipolos magnéticos, por lo que cada átomo posee un momento dipolar magnetostático inducido por estas corrientes. Estos momentos se encuentran apuntando en dirección aleatoria, pero al aplicar un campo externo todos ellos sufren un torque y se alinean produciendo la \cur{magnetización} del medio material.
+		\subsection{Torque Inducido}
+Dado un material magnético sometido a un Campo Magnetostático Uniforme $\vc{B} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces el Torque Inducido $\vc{\taf} := \vc{\taf}_{\tx{m}} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ sobre un dipolo magnético $\vc{m} :=  I \vc{S}$ del material será de la forma:
+\begin{align*}
+	\vc{\taf}_{\tx{m}} :&= a \mod{\vc{F}} \sen(\tita) \ver{x} \\
+	\tx{Como } \mod{\vc{F}} &= I b \mod{\vc{B}} \tx{, tenemos:} \\
+	&= I a b \mod{\vc{B}} \sen(\tita) \ver{x} \\
+	&= \PV{\vc{m}}{\vc{B}}
+\end{align*}
+\q{\vc{\taf}_{\tx{m}} = \PV{\vc{m}}{\vc{B}}}
+\paragraph{Fuerza Inducida (Campo No Uniforme)}
+Cuando sobre el material magnético actúa un Campo Magnetostático $\vc{B} := \vc{B}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, la Fuerza Inducida $\vc{F} := \vc{F}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ sobre un dipolo del material es de la forma:
+\f{\vc{F}_{(\vc{r})} = \nabla_{\vc{r}} \cor{\PI{\vc{m}}{\vc{B}_{(\vc{r})}}}}
+		\subsection{Campo Magnetización}
+Debido a que todos los dipolos magnéticos inducidos en los átomos de un material magnético apuntan en dirección del Campo Magnetostático externo $\vc{B}$ (ya sea en forma atractiva o repulsiva), el material en su conjunto se encuentra magnetizado.
+			\subsubsection{Definición}
+Se denomina Campo Magnetización al Campo Vectorial $\vc{M} := \vc{M}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ que representa la densidad de magnetización del material magnético, de la forma:
+\f{\vc{M}_{(\vc{r})} := \dv{\vc{m}_{(\vc{r})}}{V}}
+			\subsubsection{Respuesta Lineal}
+La relación entre el campo magnetización y el campo $\vc{H}$ es de la forma:
+\f{M_{i(\vc{r})} = \ji_{\tx{m}ij} H_{j(\vc{r})}}
+\paragraph{Medio LIH}
+Si el medio es lineal, isótropo y homogéneo, el campo magnetización es de la forma:
+\f{\vc{M}_{(\vc{r})} = \ksm \vc{H}_{(\vc{r})}}
+\paragraph{Constante De Susceptibilidad Magnética}
+\f{\ksm := \kpmr - 1 \tx{, con } \kpmr := \fr{\mi}{\kpmv}}
+\paragraph{Tensor De Susceptibilidad Magnética}
+En forma general, la susceptibilidad magnética es un tensor de rango 2 de la forma:
+\f{\ji_{\tx{m}ij} = \lpm \ji_{\tx{m}xx} & \ji_{\tx{m}xy} & \ji_{\tx{m}xz} \\ \ji_{\tx{m}yx} & \ji_{\tx{m}yy} & \ji_{\tx{m}yz} \\ \ji_{\tx{m}zx} & \ji_{\tx{m}zy} & \ji_{\tx{m}zz} \rpm}
+			\subsubsection{Potencial Magnetostático De Un Material Magnético Magnetizado}
+Debido a que el Potencial Magnetostático $\vc{A} := \vc{A}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}$ de un Dipolo Magnetostático es conocido, podemos obtener mediante la definición del Campo Densidad de Magnetización el potencial total de un material magnético magnetizado:
+\begin{align*}
+	\vc{A}_{\tx{dip}(\vc{r})} :&= \fr{\kpmv}{4\pi} \fr{\PV{\vc{m}_{(\vc{r})}}{(\vc{r} - \vc{r}')}}{\mod[3]{\vc{r} - \vc{r}'}} \\
+	&\tx{El Potencial Total de una Densidad de Polarización, será de la forma:} \\
+	\vc{A}_{(\vc{r})} &= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\fr{\PV{\vc{M}_{(\vc{r}')}}{(\vc{r} - \vc{r}')}}{\mod[3]{\vc{r} - \vc{r}'}}}{V}' \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\PV{\vc{M}_{(\vc{r}')}}{\fr{(\vc{r} - \vc{r}')}{\mod[3]{\vc{r} - \vc{r}'}}}}{V}' \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\PV{\vc{M}_{(\vc{r}')}}{\lla{\fr{(x - x') \ver{x} + (y - y') \ver{y} + (z - z') \ver{z}}{\cor[3]{\rz{(x - x')^2 + (y - y')^2 + (z - z')^2}}}}}}{V}' \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\PV{\vc{M}_{(\vc{r}')}}{\lla{\fr{x - x'}{[(x - x')^2 + (y - y')^2 + (z - z')^2]^{3/2}} \ver{x} + \fr{y - y'}{[(x - x')^2 + (y - y')^2 + (z - z')^2]^{3/2}} \ver{y} + \fr{z - z'}{[(x - x')^2 + (y - y')^2 + (z - z')^2]^{3/2}} \ver{z}}}}{V}' \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\PV{\vc{M}_{(\vc{r}')}}{\lla{\pd{}{x'} \cor{\fr{1}{\rz{(x - x')^2 + (y - y')^2 + (z - z')^2}}} \ver{x} + \pd{}{y'} \cor{\fr{1}{\rz{(x - x')^2 + (y - y')^2 + (z - z')^2}}} \ver{y} + \pd{}{z'} \cor{\fr{1}{\rz{(x - x')^2 + (y - y')^2 + (z - z')^2}}} \ver{z}}}}{V}' \\
+	&= \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\PV{\vc{M}_{(\vc{r}')}}{\gr[\vc{r}']{\pr{\fr{1}{\mod{\vc{r} - \vc{r}'}}}}}}{V}' \\
+	&\tx{Por la Regla del Producto del Rotacional, tenemos:} \\
+	&= - \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\nabla_{\vc{r}'} \Por \cor{\fr{\vc{M}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}}{V}' + \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\fr{\rot[\vc{r}']{M}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' \\
+	&\tx{Por la Identidad de Integración:} \\
+	&= \fr{\kpmv}{4\pi} \oiint\limits_{\ff{S}^+:=\p\bb{Q}} \esp{-6} \PV{\fr{\vc{M}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{\d \vc{S}'} + \fr{\kpmv}{4\pi} \ivs{\ff{S}^+:=\p\bb{Q}}{\esp{-6} \fr{\rot[\vc{r}']{M}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' \\
+	&= \fr{\kpmv}{4\pi} \oiint\limits_{\ff{S}^+:=\p\bb{Q}} \esp{-6} \fr{\PV{\vc{M}_{(\vc{r}')}}{\d \vc{S}'}}{\mod{\vc{r} - \vc{r}'}} + \fr{\kpmv}{4\pi} \ivs{\ff{S}^+:=\p\bb{Q}}{\esp{-6} \fr{\rot[\vc{r}']{M}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' \\
+	&= \fr{\kpmv}{4\pi} \isos{\ff{S}^+:=\p\bb{Q}}{\esp{-6} \fr{\PV{\vc{M}_{(\vc{r}')}}{\ver{\ita}}}{\mod{\vc{r} - \vc{r}'}}}{S}' + \fr{\kpmv}{4\pi} \ivs{\ff{S}^+:=\p\bb{Q}}{\esp{-6} \fr{\rot[\vc{r}']{M}_{(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}' \\
+	&= \fr{\kpmv}{4\pi} \isos{\ff{S}^+:=\p\bb{Q}}{\esp{-6} \fr{\vc{K}_{m(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{S}' + \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\fr{\vc{J}_{m(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}'
+\end{align*}
+\q{\vc{A}_{(\vc{r})} = \fr{\kpmv}{4\pi} \isos{\ff{S}^+:=\p\bb{Q}}{\esp{-6} \fr{\vc{K}_{m(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{S}' + \fr{\kpmv}{4\pi} \ivs{\bb{Q}}{\fr{\vc{J}_{m(\vc{r}')}}{\mod{\vc{r} - \vc{r}'}}}{V}'}
+\paragraph{Densidad De Corriente Superficial De Magnetización}
+Se denomina Densidad Superficial de Corrientes de Magnetización al Campo Vectorial$\sigma_p := \sigma_{p(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ de la forma:
+\f{\vc{K}_{m(\vc{r})} := \PV{\vc{M}_{(\vc{r})}}{\ver{\ita}}}
+\paragraph{Densidad De Corriente Volumétrica De Magnetización}
+Se denomina Densidad Volumétrica de Corrientes de Magnetización al Campo Vectorial $\ro_p := \ro_{p(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ de la forma:
+\f{\vc{J}_{m(\vc{r})} := \rot[\vc{r}]{M}_{(\vc{r})}}
+		\subsection{Campo Intensidad Magnética}
+Dado un material magnético magnetizado que cuenta con una densidad de corriente volumétrica de magnetización $\vc{J}_m := \vc{J}_{m(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, definimos como densidad de corriente volumétrica total $\vc{J} := \vc{J}_{(\vc{r})} = \vc{J}_{m(\vc{r})} + \vc{J}_{l(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ a la suma de la densidad de magnetización $\vc{J}_{m(\vc{r})}$ y todo el resto de corrientes presentes en el medio material que no corresponden a corrientes de magnetización, que denominamos corrientes libres $\vc{J}_l := \vc{J}_{l(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, entonces:
+\begin{align*}
+	\tx{Por la Ley de Ampère, } &\tx{tenemos:} \\
+	\rot[\vc{r}]{B}_{(\vc{r})} &= \kpmv \vc{J}_{(\vc{r})} \\
+	\fr{\rot[\vc{r}]{B}_{(\vc{r})}}{\kpmv} &= \vc{J}_{l(\vc{r})} + \vc{J}_{m(\vc{r})} \\
+	\nabla_{\vc{r}} \Por \cor{\fr{\vc{B}_{(\vc{r})}}{\kpmv}} &= \vc{J}_{l(\vc{r})} + \rot[\vc{r}]{M}_{(\vc{r})} \\
+	\nabla_{\vc{r}} \Por \cor{\fr{\vc{B}_{(\vc{r})}}{\kpmv}} - \rot[\vc{r}]{M}_{(\vc{r})} &= \vc{J}_{l(\vc{r})} \\
+	\nabla_{\vc{r}} \Por \cor{\fr{\vc{B}_{(\vc{r})}}{\kpmv} - \vc{M}_{(\vc{r})}} &= \vc{J}_{l(\vc{r})} \\
+	\rot[\vc{r}]{H}_{(\vc{r})} &= \vc{J}_{l(\vc{r})}
+\end{align*}
+			\subsubsection{Definición}
+Se denomina Campo Inducción Magnética $\vc{B} := \vc{B}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ al campo vectorial total de un medio material magnético, que tiene en cuenta las contribuciones del Campo Intensidad Magnética $\vc{H} := \vc{H}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ y el Campo Densidad de Magnetización $\vc{M} := \vc{M}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$, y es de la forma:
+\f{\vc{B}_{(\vc{r})} := \kpmv \cor{\vc{H}_{(\vc{r})} + \vc{M}_{(\vc{r})}}}
+			\subsubsection{Respuesta Lineal}
+Cuando el material magnético responde linealmente al campo magnético, el campo intensidad magnética resulta:
+\begin{align*}
+	\vc{B}_{(\vc{r})} :&= \kpmv \cor{\vc{H}_{(\vc{r})} + \vc{M}_{(\vc{r})}} \\
+	&= \kpmv \cor{\vc{H}_{(\vc{r})} + \ji_{\tx{m}ij} H_{j(\vc{r})}} \\
+	&= \kpmv (1 + \ji_{\tx{m}ij}) H_{j(\vc{r})} \\
+	&= \mi_{ij} H_{j(\vc{r})}
+\end{align*}
+\q{B_{i(\vc{r})} = \mi_{ij} H_{j(\vc{r})}}
+\paragraph{Medio LIH}
+Si el medio es lineal, isótropo y homogéneo, el campo intensidad magnética es de la forma:
+\begin{align*}
+	\vc{B}_{(\vc{r})} :&= \kpmv \cor{\vc{H}_{(\vc{r})} + \vc{M}_{(\vc{r})}} \\
+	&= \kpmv \cor{\vc{H}_{(\vc{r})} + \ksm \vc{H}_{(\vc{r})}} \\
+	&= \kpmv (1 + \ksm) \vc{H}_{(\vc{r})} \\
+	&= \kpmv \kpmr \vc{H}_{(\vc{r})} \\
+	&= \mi \vc{H}_{(\vc{r})}
+\end{align*}
+\q{\vc{B}_{(\vc{r})} = \mi \vc{H}_{(\vc{r})}}
+			\subsubsection{Permeabilidad Magnética}
+Se denomina \cur{permeabilidad magnética} $\mi$ a la constante de la forma:
+\f{\mi := \kpmv \kpmr}
+\paragraph{Permeabilidad Relativa}
+La constante $\kpmr$ es la \cur{permeabilidad magnética relativa} del medio material.
+\paragraph{Tensor Permeabilidad Magnética}
+En forma general, la permeabilidad magnética es un tensor de rango 2 de la forma:
+\f{\mi_{ij} := \kpmv (1 + \ji_{\tx{m}ij}) = \lpm \mi_{xx} & \mi_{xy} & \mi_{xz} \\ \mi_{yx} & \mi_{yy} & \mi_{yz} \\ \mi_{zx} & \mi_{zy} & \mi_{zz} \rpm}
+			\subsubsection{Ley De Ampère Para Materiales Magnéticos}
+Por el Teorema De Stokes, tenemos que:
+\begin{align*}
+	\rot[\vc{r}]{H}_{(\vc{r})} &= \vc{J}_{l(\vc{r})} \\
+	\isv{\ff{S}}{\rot[\vc{r}]{H}_{(\vc{r})}}{S} &= \isv{\ff{S}}{\vc{J}_{l(\vc{r})}}{S} \\
+	\ilov{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{H}_{(\vc{r})}}{\ell} &= \isv{\ff{S}}{\vc{J}_{l(\vc{r})}}{S}
+\end{align*}
+\q{\ilov{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{H}_{(\vc{r})}}{\ell} = \isv{\ff{S}}{\vc{J}_{l(\vc{r})}}{S}}
+\paragraph{Ley De Ampère Para Materiales Magnéticos: Forma Integral}
+\f{\ilov{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{H}_{(\vc{r})}}{\ell} = \isv{\ff{S}}{\vc{J}_{l(\vc{r})}}{S}}
+\paragraph{Ley De Ampère Para Materiales Magnéticos: Forma Diferencial}
+\f{\rot[\vc{r}]{H}_{(\vc{r})} = \vc{J}_{l(\vc{r})}}
+			\subsubsection{Divergencia Del Campo Intensidad}
+\paragraph{Divergencia En Volumen}
+\begin{align*}
+	\div[\vc{r}]{H}_{(\vc{r})} &= \nabla_{\vc{r}} \por \cor{\fr{\vc{B}_{(\vc{r})}}{\kpmv} - \vc{M}_{(\vc{r})}} \\
+	&= \fr{\div[\vc{r}]{B}_{(\vc{r})}}{\kpmv} - \div[\vc{r}]{M}_{(\vc{r})} \\
+	&= \fr{0}{\kpmv} - \div[\vc{r}]{M}_{(\vc{r})} \\
+	&= -\div[\vc{r}]{M}_{(\vc{r})}
+\end{align*}
+\q{\div[\vc{r}]{H}_{(\vc{r})} = -\div[\vc{r}]{M}_{(\vc{r})}}
+\paragraph{Rotor En Superficie}
+\begin{align*}
+	\isov{\ff{S}}{\div[\vc{r}]{H}_{(\vc{r})}}{S} &= -\isov{\ff{S}}{\div[\vc{r}]{M}_{(\vc{r})}}{S} \\
+	&= -\ilovcr{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{M}_{(\vc{r})}}{\ell} \\
+	&= \PI{\vc{M}_{(\vc{r})}}{\ver{\ita}}
+\end{align*}
+\q{\div[\vc{r}]{H}_{(\vc{r})} = \PI{\vc{M}_{(\vc{r})}}{\ver{\ita}}}
+			\subsubsection{Condiciones De Contorno}
+Debido a que el Campo Inducción Magnética representa la suma del Campo Densidad de Magnetización y el Campo Intensidad Magnética, cuando una superficie $\ff{S} : \bb{D} \inc \bb{R}^2 \to \bb{R}^3$ se encuentra cargada con una densidad superficial de corrientes libres $\vc{K}_l := \vc{K}_{l(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ el Campo Intensidad sufre una discontinuidad al pasar de la Superficie Superior $\ff{S}_{\tx{Sup.}}$ a la Superficie Interior $\ff{S}_{\tx{Int.}}$. De esta forma, dado $\vc{H} := \vc{H}_{(\vc{r})} : \bb{Q} \inc \bb{R}^3 \to \bb{R}^3$ un Campo Intensidad Magnética continuo generado por una superficie cargada con una densidad superficial de corrientes libres $\vc{K}_l$ y con normal exterior $\ver{\ita}_{\tx{e}}$, podemos escribir sus condiciones de contorno en función de la densidad superficial de corriente $\vc{K}_l$.
+\paragraph{Componente Paralela: Ley De Ampère Para Materiales Magnéticos}
+Sea $\cal{C} := \cal{C}_{\tx{Sup.}} + \cal{C}_{\tx{Inf.}} + \cal{C}_{\tx{Izq.}} + \cal{C}_{\tx{Der.}} : \ff{I} \inc \bb{R} \to \bb{R}^3$ una curva cerrada que encierra a la superficie cargada con densidad superficial de corriente libre $\vc{K}_l$, cuyos caminos superior ($\cal{C}_{\tx{Sup.}}$) e inferior $\cal{C}_{\tx{Inf.}}$ tienen longitud $L$, y sus caminos laterales izquierdo ($\cal{C}_{\tx{Izq.}}$) y derecho ($\cal{C}_{\tx{Der.}}$) tienen longitud $h$ muy pequeña ($h \to 0$), entonces:
+\begin{align*}
+	\ilov{\cal{C}^+:=\p\ff{S}^+}{\quadl\vc{H}_{(\vc{r})}}{\ell} :&= I_{l\tx{enc}} \\
+	\ilv{\cal{C}_{\tx{Sup.}}}{\esp{-6}\vc{H}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Inf.}}}{\esp{-4}\vc{H}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Izq.}}}{\esp{-4}\vc{H}_{(\vc{r})}}{\ell} + \ilv{\cal{C}_{\tx{Der.}}}{\esp{-6}\vc{H}_{(\vc{r})}}{\ell} &= \vc{K}_{l(\vc{r})} L_{(\cal{C})} \\
+	H_{\paral (\vc{r})}^+ L_{(\cal{C}_{\tx{Sup.}})} - H_{\paral (\vc{r})}^- L_{(\cal{C}_{\tx{Inf.}})} + 0 + 0 &= \vc{K}_{l(\vc{r})} L_{(\cal{C})} \\
+	H_{\paral (\vc{r})}^+ L - H_{\paral (\vc{r})}^- L &= \vc{K}_{l(\vc{r})} L \\
+	H_{\paral (\vc{r})}^+ - H_{\paral (\vc{r})}^- &= \vc{K}_{l(\vc{r})} \\
+	\PV{\ver{\ita}_{\tx{e}}}{\cor{\vc{H}_{2(\vc{r})} - \vc{H}_{1(\vc{r})}}} &= \vc{K}_{l(\vc{r})}
+\end{align*}
+\q{\PV{\ver{\ita}_{\tx{e}}}{\cor{\vc{H}_{2(\vc{r})} - \vc{H}_{1(\vc{r})}}} = \vc{K}_{l(\vc{r})}}
+\paragraph{Componente Perpendicular: Divergencia Del Campo Intensidad Magnética}
+Sea $\ff{S} := \ff{S}_{\tx{Sup.}} + \ff{S}_{\tx{Inf.}} + \ff{S}_{\tx{Lat.}} : \bb{D} \inc \bb{R}^2 \to \bb{R}^3$ una superficie cilíndrica cerrada que encierra a la superficie cargada con densidad superficial de corriente libre $\vc{K}_l$, cuyas caras superior ($\ff{S}_{\tx{Sup.}}$) e inferior $\ff{S}_{\tx{Inf.}}$ tienen normales $\ver{\ita}_{\tx{e}}$ y $-\ver{\ita}_{\tx{e}}$, y área $A$, respectivamente, y se encuentran separada por una altura $h$ muy pequeña ($h \to 0$), entonces:
+\begin{align*}
+	\div[\vc{r}]{H}_{(\vc{r})} &= -\div[\vc{r}]{M}_{(\vc{r})} \\
+	\ivs{\bb{Q}}{\div[\vc{r}]{H}_{(\vc{r})}}{V} &= -\ivs{\bb{Q}}{\div[\vc{r}]{M}_{(\vc{r})}}{S} \\
+	\tx{Por el Teorema de } &\tx{Gauss, tenemos:} \\
+	\isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\vc{H}_{(\vc{r})}}{S} &= -\isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\vc{M}_{(\vc{r})}}{S} \\
+	\isv{\ff{S}_{\tx{Sup.}}}{\esp{-6}\vc{H}_{(\vc{r})}}{S} + \isv{\ff{S}_{\tx{Inf.}}}{\esp{-4}\vc{H}_{(\vc{r})}}{S} + \isv{\ff{S}_{\tx{Lat.}}}{\esp{-6}\vc{H}_{(\vc{r})}}{S} &= - \isv{\ff{S}_{\tx{Sup.}}}{\esp{-6}\vc{M}_{(\vc{r})}}{S} - \isv{\ff{S}_{\tx{Inf.}}}{\esp{-4}\vc{M}_{(\vc{r})}}{S} - \isv{\ff{S}_{\tx{Lat.}}}{\esp{-6}\vc{M}_{(\vc{r})}}{S} \\
+	H_{\perp (\vc{r})}^+ A_{(\ff{S}_{\tx{Sup.}})} - H_{\perp (\vc{r})}^- A_{(\ff{S}_{\tx{Inf.}})} + 0 &= - M_{\perp (\vc{r})}^+ A_{(\ff{S}_{\tx{Sup.}})} + M_{\perp (\vc{r})}^- A_{(\ff{S}_{\tx{Inf.}})} + 0 \\
+	H_{\perp (\vc{r})}^+ A - H_{\perp (\vc{r})}^- A &= - \cor{M_{\perp (\vc{r})}^+ A - M_{\perp (\vc{r})}^- A} \\
+	H_{\perp (\vc{r})}^+ - H_{\perp (\vc{r})}^- &= - \cor{M_{\perp (\vc{r})}^+ - M_{\perp (\vc{r})}^-} \\
+	\PI{\cor{\vc{H}_{2(\vc{r})} - \vc{H}_{1(\vc{r})}}}{\ver{\ita}_{\tx{e}}} &= - \PI{\cor{\vc{M}_{2(\vc{r})} - \vc{M}_{1(\vc{r})}}}{\ver{\ita}_{\tx{e}}}
+\end{align*}
+\q{\PI{\cor{\vc{H}_{2(\vc{r})} - \vc{H}_{1(\vc{r})}}}{\ver{\ita}_{\tx{e}}} = - \PI{\cor{\vc{M}_{2(\vc{r})} - \vc{M}_{1(\vc{r})}}}{\ver{\ita}_{\tx{e}}}}
+		\subsection{Energía Magnética En Materiales Magnéticos}
+Debido a que conocemos la expresión del Trabajo Magnético (ya que el Trabajo Magnetostático es nulo), podemos hallar la Energía Magnética por unidad de volumen de un material magnético cuando la región de integración $\bb{Q} \inc \bb{R}^3$ es todo el espacio $\bb{Q} = \bb{R}^3$ sobre las corrientes libres, ya que la energía de las corrientes fijas de magnetización no es de interés, por lo tanto:
+\begin{align*}
+	W_{\tx{m}(\vc{r},t)} :&= \fr{1}{2} \ivs{\bb{Q}}{\PI{\vc{A}_{(\vc{r}',t)}}{\vc{J}_{l(\vc{r}',t)}}}{V}' \\
+	&\tx{Por la Ley de Ampère para Materiales Magnéticos, tenemos:} \\
+	&= \fr{1}{2} \ivs{\bb{Q}}{\PI{\vc{A}_{(\vc{r}',t)}}{\cor{\rot[\vc{r}']{H}_{(\vc{r}',t)}}}}{V}' \\
+	&\tx{Por la Regla del Producto Vectorial de la Divergencia, tenemos:} \\
+	&= \fr{1}{2} \ivs{\bb{Q}}{\lla{\nabla_{\vc{r}'} \por \cor{\PV{\vc{H}_{(\vc{r}',t)}}{\vc{A}_{(\vc{r}',t)}}} + \PI{\vc{H}_{(\vc{r}',t)}}{\cor{\rot[\vc{r}']{A}_{(\vc{r}',t)}}}}}{V}' \\
+	&= \fr{1}{2} \ivs{\bb{Q}}{\nabla_{\vc{r}'} \por \cor{\PV{\vc{H}_{(\vc{r}',t)}}{\vc{A}_{(\vc{r}',t)}}}}{V}' + \fr{1}{2} \ivs{\bb{Q}}{\PI{\vc{H}_{(\vc{r}',t)}}{\cor{\rot[\vc{r}']{A}_{(\vc{r}',t)}}}}{V}' \\
+	&\tx{Por el Teorema de Gauss, tenemos:} \\
+	&= \fr{1}{2} \isov{\ff{S}^+:=\p\bb{Q}}{\esp{-10}\cor{\PV{\vc{H}_{(\vc{r}',t)}}{\vc{A}_{(\vc{r}',t)}}}}{S}' + \fr{1}{2} \ivs{\bb{Q}}{\PI{\vc{H}_{(\vc{r}',t)}}{\vc{B}_{(\vc{r}',t)}}}{V}' \\
+	&\tx{Si } \bb{Q} = \bb{R}^3 \tx{, la integral de superficie tiende a cero, entonces:} \\
+	&= \fr{1}{2}.0 + \fr{1}{2} \ivs{\bb{Q}}{\PI{\vc{H}_{(\vc{r}',t)}}{\vc{B}_{(\vc{r}',t)}}}{V}' \\
+	&= \fr{1}{2} \ivs{\bb{R}^3}{\PI{\vc{H}_{(\vc{r}',t)}}{\vc{B}_{(\vc{r}',t)}}}{V}'
+\end{align*}
+\q{E_{\tx{m}(t)} = \fr{1}{2} \ivs{\bb{R}^3}{\PI{\vc{H}_{(\vc{r}',t)}}{\vc{B}_{(\vc{r}',t)}}}{V}'}

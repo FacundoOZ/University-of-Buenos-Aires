@@ -1,0 +1,241 @@
+
+%============================================================================================================================================
+% Comandos generales del documento
+%============================================================================================================================================
+
+% Comandos Latex:
+\newcommand{\NC}{\newcommand} 				% Nuevo comando
+\NC{\NCX}{\newcommandx} 					% Comando con varios argumentos opcionales
+\NC{\NDC}{\NewDocumentCommand}				% Nuevo comando del documento
+\NC{\RC}{\renewcommand} 					% Renovar Comando
+\NC{\C}{\centering} 						% Centrar figura o texto
+\NC{\SB}{\scalebox}							% Aumenta o disminuye el tamaño de un objeto arbitrario.
+\NC{\RB}{\rotatebox}						% Rota un objeto arbitrario
+\NC{\F}[1]{\framebox{\parbox{265mm}{#1}}}	% Genera un recuadro cuyo ancho es el ancho de página
+\NC{\s}[1]{\displaystyle{#1}}				% Estilo matemático
+\NC{\Cod}[1]{\texttt{\detokenize{#1}}}		% Comando para enseñar el "código" de latex que se escribió
+
+% Tipos de letra en lenguaje matemático:
+\NC{\bb}{\mathbb} 		% Doble
+\NC{\ff}{\mathbf} 		% Negrita
+\NC{\bs}{\boldsymbol} 	% Negrita (Letras Griegas)
+\RC{\cal}{\mathcal} 	% Curvada
+\NC{\gotic}{\mathfrak}	% Gótica
+
+\input{Códigos/Preámbulo/Comandos/Comandos_matemática/Comandos_matemática.tex}
+\input{Códigos/Preámbulo/Comandos/Comandos_física/Comandos_física.tex}
+\input{Códigos/Preámbulo/Comandos/Comandos_química/Comandos_química.tex}
+\input{Códigos/Preámbulo/Comandos/Entornos.tex}
+
+% Tipo De Letra:
+\NC{\tx}{\text}										% Texto
+\NC{\txinc}{\textsl}								% Inclinado
+\NC{\cur}{\textit}									% Cursiva
+\NC{\txff}{\textbf}									% Negrita
+\NC{\txmayus}{\textsc}								% Mayúscula
+\NC{\txnor}{\textnormal}							% Normal
+\NC{\txsub}{\underline}								% Subrayado
+\NC{\txcol}{\textcolor}								% Color
+\NC{\comilla}[1]{\text{``{#1}''}}					% Comillas
+\NC{\ok}{\esp{20} \txcol{green!100}{\checkmark}}	% Verificación
+
+% Ancho:
+\NC{\liw}{\linewidth} % Ancho de línea
+\NC{\txw}{\textwidth} % Ancho de texto
+
+% Colores:
+\NC{\TC}{\textcolor} 							% Color de texto
+\NC{\CC}{\cellcolor} 							% Color de celda
+\NC{\Tb}{\TC{white!100}} 						% Texto blanco
+\NC{\Ca}{\CC{blue!100}} 						% Celda azul
+\NC{\Cn}{\CC{black!100}} 						% Celda negra
+\NC{\Fa}{\rowcolor{blue!100}} 					% Fila azul
+\NC{\CaTb}{\CC{blue!100} \bf \TC{white!100}} 	% Celda azul y texto blanco
+\NC{\Faz}[1]{\fcolorbox{gray!20}{blue!100}{#1}}	
+
+% Código fuente de Python:
+\definecolor{PythonBackground}{RGB}{30,30,30}
+\definecolor{PythonText}{RGB}{212,212,212}
+\definecolor{PythonNumber}{RGB}{160,160,160}
+\definecolor{PythonFunction}{RGB}{223,3,132}
+\definecolor{PythonComment}{RGB}{3,190,3}
+\definecolor{PythonCite}{RGB}{220,125,105}
+\lstdefinestyle{mystyle}{backgroundcolor=\color{PythonBackground},
+    commentstyle=\color{PythonComment},
+    keywordstyle=\color{PythonFunction},
+    numberstyle=\tiny\color{PythonNumber},
+    stringstyle=\color{PythonCite},
+    basicstyle=\color{PythonText}\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2}
+\lstset{style=mystyle}
+
+% Bibliografía:
+\NC{\bib}[5]{\txcol{blue!100}{{#1}. \cur{#2}. {#3}. {#4}. {#5}.}}
+\NC{\cita}[1]{\txcol{blue!100}{\cite{#1}}}
+
+% Tamaño de subtítulos de figuras y tablas pequeño:
+\captionsetup[figure]{font=small}
+\captionsetup[table]{font=small}
+
+%--------------------------------------------------------------------------------------------------------------------------------------------
+% Comandos de ecuaciones (centradas a izquierda)
+%--------------------------------------------------------------------------------------------------------------------------------------------
+
+% Ecuación (displaystyle):
+\NC{\ec}[2][]{
+	\vspace{-.05cm}
+	\begin{fleqn}
+		\begin{equation}
+			\displaystyle{#2} \label{#1}
+		\end{equation}
+	\end{fleqn}
+}
+% Ecuación recuadrada (framebox):
+\NC{\f}[2][]{
+	\vspace{-.05cm}
+	\begin{fleqn}
+		\begin{equation}
+			\boxed{\displaystyle{#2}} \label{#1}
+		\end{equation}
+	\end{fleqn}
+}
+% Ecuación recuadrada (framebox) para demostraciones:
+\NC{\q}[2][]{
+	\vspace{-.05cm}
+	\begin{fleqn}
+		\begin{equation}
+			\esp{-6} \plt \boxed{\displaystyle{#2}} \label{#1}
+		\end{equation}
+	\end{fleqn}
+}
+% Ecuación enumerada (item):
+\NC{\Ic}[2][]{
+	\vspace{-.05cm}
+	\begin{fleqn}
+		\begin{equation}
+			\esp{20}\esp{5} \bullet \esp{10} \displaystyle{#2} \label{#1}
+		\end{equation}
+	\end{fleqn}
+}
+% Ecuación enumerada recuadrada (item framebox):
+\NC{\If}[2][]{
+	\vspace{-.05cm}
+	\begin{fleqn}
+		\begin{equation}
+			\esp{25} \bullet \esp{10} \boxed{\displaystyle{#2}} \label{#1}
+		\end{equation}
+	\end{fleqn}
+}
+% Ecuación enumerada recuadrada (item framebox) con título:
+\NC{\It}[3][]{
+	\vspace{-.2cm}
+	\begin{fleqn}
+		\begin{equation*}
+			\esp{20} \bullet \esp{10} \cur{#2:}
+		\end{equation*}
+	\end{fleqn}
+	\vspace{-.25cm}
+	\begin{fleqn}
+		\begin{equation}
+			\esp{40} \boxed{\displaystyle{#3}} \label{#1}
+		\end{equation}
+	\end{fleqn}
+}
+% Recuadro simple:
+\NC{\B}[1]{
+	\vspace{-.05cm}
+	\begin{fleqn}
+		\begin{equation*}
+			\boxed{\textnormal{#1}}
+		\end{equation*}
+	\end{fleqn}
+}
+
+
+%--------------------------------------------------------------------------------------------------------------------------------------------
+% Nueva sección: BOOK
+%--------------------------------------------------------------------------------------------------------------------------------------------
+\makeatletter
+	\NC\book{%
+	\if@openright
+		\cleardoublepage
+	\else
+		\clearpage
+	\fi
+	\thispagestyle{plain}%
+	\if@twocolumn
+		\onecolumn
+		\@tempswatrue
+	\else
+		\@tempswafalse
+	\fi
+	\null\vfil
+	\secdef\@book\@sbook}%
+
+	\def\@book[#1]#2{%
+		\ifnum \c@secnumdepth >-3\relax%
+		\refstepcounter{book}%
+		\addcontentsline{toc}{book}{\thebook\hspace{1em}#1}%
+		\else
+		\addcontentsline{toc}{book}{#1}%
+		\fi
+		\markboth{}{}%
+		{\centering
+		\interlinepenalty \@M
+		\normalfont
+		\ifnum \c@secnumdepth >-2\relax
+		\huge\bfseries \bookname\nobreakspace\thebook%
+		\par
+		\vskip 20\p@
+		\fi
+		\Huge \bfseries #2\par}%
+		\@endbook}%
+	\def\@sbook#1{%
+		{\centering
+		\interlinepenalty \@M
+		\normalfont
+		\Huge \bfseries #1\par}%
+		\@endbook}%
+	\def\@endbook{\vfil\newpage%
+				\if@twoside
+				\if@openright
+					\null
+					\thispagestyle{empty}%
+					\newpage
+				\fi
+				\fi
+				\if@tempswa
+					\twocolumn
+				\fi}
+	\NC*\l@book[2]{%
+	\ifnum \c@tocdepth >-3\relax%
+		\addpenalty{-\@highpenalty}%
+		\addvspace{2.25em \@plus\p@}%
+		\setlength\@tempdima{3em}%
+		\begingroup
+		\parindent \z@ \rightskip \@pnumwidth
+		\parfillskip -\@pnumwidth
+		{\leavevmode
+		\large \bfseries #1\hfil
+		\hb@xt@\@pnumwidth{\hss #2%
+							\kern-\p@\kern\p@}}\par
+		\nobreak
+			\global\@nobreaktrue
+			\everypar{\global\@nobreakfalse\everypar{}}%
+		\endgroup
+	\fi}
+\makeatother
+
+% Agregados por defecto para la nueva unidad de sección \book:
+\newcounter{book}
+\RC{\thebook}{\Roman{book}}
+\NC{\bookname}{Tomo}
