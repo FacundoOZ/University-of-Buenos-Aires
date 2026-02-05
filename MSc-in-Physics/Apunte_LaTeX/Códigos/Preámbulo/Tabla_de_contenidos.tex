@@ -1,11 +1,15 @@
 
-\geometry{								% Geometría del documento:
-	a3paper,							% Formato A3.
-	total  = {267mm, 390mm},			% Medida de ancho y altura.
-	left   = 15mm,						% Márgen izquierdo.
-	right  = 15mm,						% Márgen derecho.
-	top    = 15mm,						% Márgen superior.
-	bottom = 15mm						% Márgen inferior.
+%============================================================================================================================================
+% Índice (tabla de contenidos)
+%============================================================================================================================================
+
+\geometry{                      % Geometría del documento:
+	a3paper,                      % Formato A3.
+	total  = {267mm, 390mm},      % Medida de ancho y altura.
+	left   = 15mm,                % Márgen izquierdo.
+	right  = 15mm,                % Márgen derecho.
+	top    = 15mm,                % Márgen superior.
+	bottom = 15mm                 % Márgen inferior.
 }
 \titleformat{\chapter}					% Capítulos.
 	{\scshape\C\Huge}
@@ -32,26 +36,29 @@
 		{3.25ex plus 1ex minus .2ex}
 		{1.5ex plus .2ex}
 
-\usepackage{tocbasic}					% Paquetes.
+\usepackage{tocbasic}           % Paquetes.
 \usepackage[toc,page]{appendix}
 \usepackage{titletoc}
 \usepackage{tocloft}
 
 % Tabla de Contenidos (índice):
 \addto\captionsenglish{\RC{\contentsname}{Índice}}
-\addtotoclist[report.cls]{toc}			% Título.
-\NC{\setupname}[1][Capítulo]{			% Capítulos.
+\addtotoclist[report.cls]{toc}                                      % Título.
+\NC{\setupname}[1][Capítulo]{                                       % Capítulos.
 	\titlecontents{chapter}[0pt]
 	{\vspace{1ex}}
 	{\bfseries #1~\thecontentslabel:\quad}
 	{\bfseries}
 	{\bfseries\hfill\contentspage}
 }
-\cftsetindents{section}{1.5em}{3.75em}	% Espaciado de secciones
-\cftsetindents{subsection}{5em}{5.75em}	% Espaciado de subsecciones.
-\setcounter{secnumdepth}{3}				% Contador del índice (página inicial=3)
-\setcounter{tocdepth}{1}				% Contador de secciones: subsección=1 (hasta subsecciones).
+\cftsetindents{section}{1.5em}{3.75em}  % Espaciado de secciones
+\cftsetindents{subsection}{5em}{5.75em} % Espaciado de subsecciones.
+\setcounter{secnumdepth}{3}             % Contador del índice (página inicial=3)
+\setcounter{tocdepth}{1}                % Contador de secciones: subsección=1 (hasta subsecciones).
 
 \RC*{\tableofcontents}{\listoftoc[{\contentsname}]{toc}}
-\AfterTOCHead[toc]{\thispagestyle{empty}\pagestyle{empty}}			% Elimina páginas intermedias.
+\AfterTOCHead[toc]{\thispagestyle{empty}\pagestyle{empty}}         % Elimina páginas intermedias.
 \AfterStartingTOC[toc]{\clearpage} \let\cleardoublepage=\clearpage
+
+%————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+%————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

@@ -4,48 +4,50 @@
 %============================================================================================================================================
 
 % Parte 1: Símbolos matemáticos.
-%-------------------------------
+%———————————————————————————————
 
 % Agrupación en paréntesis, corchetes, llaves, etc.:
-\NC{\pr}   [2][]{{\!\left({#2}\right)}^{#1} \esp{-2}}					% Paréntesis
-\NC{\pra}  [2][]{{\!\left\langle{#2}\right\rangle}^{#1} \esp{-2}}		% Brackets
-\NC{\cor}  [2][]{{\!\left[{#2}\right]}^{#1} \esp{-2}}					% Corchetes
-\NC{\lla}  [2][]{{\!\left\{{#2}\right\}}^{#1} \esp{-2}}					% Llaves
+\NC{\pr}   [2][]{{\!\left({#2}\right)}^{#1} \esp{-2}}                  % Paréntesis
+\NC{\pra}  [2][]{{\!\left\langle{#2}\right\rangle}^{#1} \esp{-2}}      % Brackets
+\NC{\cor}  [2][]{{\!\left[{#2}\right]}^{#1} \esp{-2}}                  % Corchetes
+\NC{\lla}  [2][]{{\!\left\{{#2}\right\}}^{#1} \esp{-2}}                % Llaves
 \let\Mod\mod
-\RC{\mod}  [2][]{\left|{#2}\right|^{#1}}								% Módulo
-\NCX{\norm}[3][1=,3=]{\Mc{{\left|\left|{#2}\right|\right|}_{#1}^{#3}}}	% Norma
-\NC{\llar} [2][]{\overbrace{#2}^{#1}}									% Llave Arriba
-\NC{\llab} [2][]{\underbrace{#2}_{#1}}									% Llave Abajo
+\RC{\mod}  [2][]{\left|{#2}\right|^{#1}}                               % Módulo
+\NCX{\norm}[3][1=,3=]{\Mc{{\left|\left|{#2}\right|\right|}_{#1}^{#3}}} % Norma
+\NC{\llar} [2][]{\overbrace{#2}^{#1}}                                  % Llave Arriba
+\NC{\llab} [2][]{\underbrace{#2}_{#1}}                                 % Llave Abajo
 
-\NC{\lc}{\!\left\lceil}													% Techo
+\NC{\lc}{\!\left\lceil}    % Techo
 \NC{\rc}{\right\rceil\!}
-\NC{\lfl}{\!\left\lfloor}												% Piso
+\NC{\lfl}{\!\left\lfloor}  % Piso
 \NC{\rfl}{\right\rfloor\!}
-\NC{\ldot}{\left.}														% Puntos
+\NC{\ldot}{\left.}         % Puntos
 \NC{\rdot}{\right.}
 
-\NC{\esp}[1]{\mkern #1 mu}												% Espacios (PRECAUCIÓN: este comando siempre debe estar en MATHMODE)
-\NC{\quadl}{\esp{-18}}													% Quad left, es como quad pero hacia izquierda.
+\NC{\esp}[1]{\mkern #1 mu} % Espacios (PRECAUCIÓN: este comando siempre debe estar en MATHMODE)
+\NC{\quadl}{\esp{-18}}     % Quad left, es como quad pero hacia izquierda.
 
 % Desigualdades:
-\NC{\dis}   {\neq}							% Distinto
-\NC{\apx}   {\approx} 						% Aproximadamente
-\NC{\apxig} {\simeq} 						% Aproximadamente igual
-\NC{\eqv}   {\equiv} 						% Equivalente
-\NC{\eqvl}  {\leftrightsquigarrow}			% Equivalente
-\NC{\neqv}  {\not\equiv}					% Equivalente
-\NC{\mig}   {\geqslant} 					% Mayor o igual
-\NC{\nig}   {\leqslant} 					% Menor o igual
-\NC{\apxmig}{\gtrsim} 						% Mayor o aproximadamente igual
-\NC{\apxnig}{\lesssim} 						% Menor o aproximadamente igual
-\NC{\mm}    {\gg} 							% Mucho mayor
-\NC{\nn}    {\ll} 							% Mucho menor
-\NC{\mn}    {\gtrless} 						% Mayor menor
-\NC{\nm}    {\lessgtr}						% Menor mayor
-\NC{\mign}  {\gtreqless} 					% Mayor igual menor
-\NC{\txsim}[2][]{\stackrel{\tx{#1}}{#2}}	% Símbolo con texto
+\NC{\dis}   {\neq}                       % Distinto
+\NC{\apx}   {\approx}                    % Aproximadamente
+\NC{\apxig} {\simeq}                     % Aproximadamente igual
+\NC{\eqv}   {\equiv}                     % Equivalente
+\NC{\eqvl}  {\leftrightsquigarrow}       % Equivalente
+\NC{\neqv}  {\not\equiv}                 % Equivalente
+\NC{\mig}   {\geqslant}                  % Mayor o igual
+\NC{\nig}   {\leqslant}                  % Menor o igual
+\NC{\apxmig}{\gtrsim}                    % Mayor o aproximadamente igual
+\NC{\apxnig}{\lesssim}                   % Menor o aproximadamente igual
+\NC{\mm}    {\gg}                        % Mucho mayor
+\NC{\nn}    {\ll}                        % Mucho menor
+\NC{\mn}    {\gtrless}                   % Mayor menor
+\NC{\nm}    {\lessgtr}                   % Menor mayor
+\NC{\mign}  {\gtreqless}                 % Mayor igual menor
+\NC{\txsim}[2][]{\stackrel{\tx{#1}}{#2}} % Símbolo con texto
 
 % Acentos:
 \NC{\vm}[1]{\left\langle #1 \right\rangle}	% Valor medio
 \NC{\tc}[1]{{#1}^{\dagger}}					% Traspuesto conjugado
 \NC{\monio}[1]{\tilde{#1}}					% Moño
+
+%————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

@@ -4,23 +4,23 @@
 %============================================================================================================================================
 
 % Comandos Latex:
-\newcommand{\NC}{\newcommand} 				% Nuevo comando
-\NC{\NCX}{\newcommandx} 					% Comando con varios argumentos opcionales
-\NC{\NDC}{\NewDocumentCommand}				% Nuevo comando del documento
-\NC{\RC}{\renewcommand} 					% Renovar Comando
-\NC{\C}{\centering} 						% Centrar figura o texto
-\NC{\SB}{\scalebox}							% Aumenta o disminuye el tamaño de un objeto arbitrario.
-\NC{\RB}{\rotatebox}						% Rota un objeto arbitrario
-\NC{\F}[1]{\framebox{\parbox{265mm}{#1}}}	% Genera un recuadro cuyo ancho es el ancho de página
-\NC{\s}[1]{\displaystyle{#1}}				% Estilo matemático
-\NC{\Cod}[1]{\texttt{\detokenize{#1}}}		% Comando para enseñar el "código" de latex que se escribió
+\newcommand{\NC}{\newcommand}             % Nuevo comando
+\NC{\NCX}{\newcommandx}                   % Comando con varios argumentos opcionales
+\NC{\NDC}{\NewDocumentCommand}            % Nuevo comando del documento
+\NC{\RC}{\renewcommand}                   % Renovar Comando
+\NC{\C}{\centering}                       % Centrar figura o texto
+\NC{\SB}{\scalebox}                       % Aumenta o disminuye el tamaño de un objeto arbitrario.
+\NC{\RB}{\rotatebox}                      % Rota un objeto arbitrario
+\NC{\F}[1]{\framebox{\parbox{265mm}{#1}}} % Genera un recuadro cuyo ancho es el ancho de página
+\NC{\s}[1]{\displaystyle{#1}}             % Estilo matemático
+\NC{\Cod}[1]{\texttt{\detokenize{#1}}}    % Comando para enseñar el "código" de latex que se escribió
 
 % Tipos de letra en lenguaje matemático:
-\NC{\bb}{\mathbb} 		% Doble
-\NC{\ff}{\mathbf} 		% Negrita
-\NC{\bs}{\boldsymbol} 	% Negrita (Letras Griegas)
-\RC{\cal}{\mathcal} 	% Curvada
-\NC{\gotic}{\mathfrak}	% Gótica
+\NC{\bb}{\mathbb}      % Doble
+\NC{\ff}{\mathbf}      % Negrita
+\NC{\bs}{\boldsymbol}  % Negrita (Letras Griegas)
+\RC{\cal}{\mathcal}    % Curvada
+\NC{\gotic}{\mathfrak} % Gótica
 
 \input{Códigos/Preámbulo/Comandos/Comandos_matemática/Comandos_matemática.tex}
 \input{Códigos/Preámbulo/Comandos/Comandos_física/Comandos_física.tex}
@@ -28,30 +28,30 @@
 \input{Códigos/Preámbulo/Comandos/Entornos.tex}
 
 % Tipo De Letra:
-\NC{\tx}{\text}										% Texto
-\NC{\txinc}{\textsl}								% Inclinado
-\NC{\cur}{\textit}									% Cursiva
-\NC{\txff}{\textbf}									% Negrita
-\NC{\txmayus}{\textsc}								% Mayúscula
-\NC{\txnor}{\textnormal}							% Normal
-\NC{\txsub}{\underline}								% Subrayado
-\NC{\txcol}{\textcolor}								% Color
-\NC{\comilla}[1]{\text{``{#1}''}}					% Comillas
-\NC{\ok}{\esp{20} \txcol{green!100}{\checkmark}}	% Verificación
+\NC{\tx}{\text}                                  % Texto
+\NC{\txinc}{\textsl}                             % Inclinado
+\NC{\cur}{\textit}                               % Cursiva
+\NC{\txff}{\textbf}                              % Negrita
+\NC{\txmayus}{\textsc}                           % Mayúscula
+\NC{\txnor}{\textnormal}                         % Normal
+\NC{\txsub}{\underline}                          % Subrayado
+\NC{\txcol}{\textcolor}                          % Color
+\NC{\comilla}[1]{\text{``{#1}''}}                % Comillas
+\NC{\ok}{\esp{20} \txcol{green!100}{\checkmark}} % Verificación
 
 % Ancho:
 \NC{\liw}{\linewidth} % Ancho de línea
 \NC{\txw}{\textwidth} % Ancho de texto
 
 % Colores:
-\NC{\TC}{\textcolor} 							% Color de texto
-\NC{\CC}{\cellcolor} 							% Color de celda
-\NC{\Tb}{\TC{white!100}} 						% Texto blanco
-\NC{\Ca}{\CC{blue!100}} 						% Celda azul
-\NC{\Cn}{\CC{black!100}} 						% Celda negra
-\NC{\Fa}{\rowcolor{blue!100}} 					% Fila azul
-\NC{\CaTb}{\CC{blue!100} \bf \TC{white!100}} 	% Celda azul y texto blanco
-\NC{\Faz}[1]{\fcolorbox{gray!20}{blue!100}{#1}}	
+\NC{\TC}{\textcolor}                            % Color de texto
+\NC{\CC}{\cellcolor}                            % Color de celda
+\NC{\Tb}{\TC{white!100}}                        % Texto blanco
+\NC{\Ca}{\CC{blue!100}}                         % Celda azul
+\NC{\Cn}{\CC{black!100}}                        % Celda negra
+\NC{\Fa}{\rowcolor{blue!100}}                   % Fila azul
+\NC{\CaTb}{\CC{blue!100} \bf \TC{white!100}}    % Celda azul y texto blanco
+\NC{\Faz}[1]{\fcolorbox{gray!20}{blue!100}{#1}}
 
 % Código fuente de Python:
 \definecolor{PythonBackground}{RGB}{30,30,30}
@@ -86,9 +86,9 @@
 \captionsetup[figure]{font=small}
 \captionsetup[table]{font=small}
 
-%--------------------------------------------------------------------------------------------------------------------------------------------
+%————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 % Comandos de ecuaciones (centradas a izquierda)
-%--------------------------------------------------------------------------------------------------------------------------------------------
+%————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 % Ecuación (displaystyle):
 \NC{\ec}[2][]{
@@ -160,10 +160,9 @@
 	\end{fleqn}
 }
 
-
-%--------------------------------------------------------------------------------------------------------------------------------------------
+%————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 % Nueva sección: BOOK
-%--------------------------------------------------------------------------------------------------------------------------------------------
+%————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 \makeatletter
 	\NC\book{%
 	\if@openright
@@ -239,3 +238,6 @@
 \newcounter{book}
 \RC{\thebook}{\Roman{book}}
 \NC{\bookname}{Tomo}
+
+%————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+%————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

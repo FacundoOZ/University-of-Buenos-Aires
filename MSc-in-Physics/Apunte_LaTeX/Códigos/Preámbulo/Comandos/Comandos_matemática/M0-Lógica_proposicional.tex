@@ -4,49 +4,49 @@
 %============================================================================================================================================
 
 % Parte 0: Lógica proposicional.
-%-------------------------------
+%———————————————————————————————
 
 % Símbolos lógicos:
-\NC{\no}  {\lnot}											% No
-\NC{\Y}   {\wedge}											% Y
-\RC{\O}   {\vee} 											% O (no excluyente)
-\NC{\Oex} {\veebar} 										% O excluyente
-\NC{\ex}  {\exists \esp{9}} 								% Existe
-\NC{\exu} {\exists! \esp{9}} 								% Existe un único
-\NC{\nex} {\nexists \esp{9}} 								% No existe
-\NC{\ptd} {\esp{8} \forall \esp{8}} 						% Para todo
-\NC{\plt} {\esp{6} \therefore \esp{6}} 						% Por lo tanto
-\NC{\porq}{\because} 										% Porque
-\NC{\prop}{\propto} 										% Proporcional
-\NC{\QED} {\blacksquare} 									% Queda demostrado
-\NC{\pors}{\dots} 											% Puntos suspensivos
-\NC{\porv}{\vdots}											% Puntos verticales
-\NC{\porh}{\cdots} 											% Puntos centrados
-\NC{\pord}{\ddots} 											% Puntos diagonales
-\NC{\grs} {^{\circ}} 										% Grados
-\NC{\rel} [1][]{\esp{2}             \cal{R}_{#1}\esp{3}} 	% Relacionado
-\NC{\nrel}[1][]{\esp{-1}\not\esp{-6}\cal{R}_{#1}\esp{3}} 	% No relacionado
+\NC{\no}  {\lnot}																				 % No
+\NC{\Y}   {\wedge}																			 % Y
+\RC{\O}   {\vee}																				 % O (no excluyente)
+\NC{\Oex} {\veebar}																			 % O excluyente
+\NC{\ex}  {\exists \esp{9}}															 % Existe
+\NC{\exu} {\exists! \esp{9}}														 % Existe un único
+\NC{\nex} {\nexists \esp{9}}														 % No existe
+\NC{\ptd} {\esp{8} \forall \esp{8}}											 % Para todo
+\NC{\plt} {\esp{6} \therefore \esp{6}}									 % Por lo tanto
+\NC{\porq}{\because}																		 % Porque
+\NC{\prop}{\propto}																			 % Proporcional
+\NC{\QED} {\blacksquare}																 % Queda demostrado
+\NC{\pors}{\dots}																				 % Puntos suspensivos
+\NC{\porv}{\vdots}																			 % Puntos verticales
+\NC{\porh}{\cdots}																			 % Puntos centrados
+\NC{\pord}{\ddots}																			 % Puntos diagonales
+\NC{\grs} {^{\circ}}																		 % Grados
+\NC{\rel} [1][]{\esp{2}             \cal{R}_{#1}\esp{3}} % Relacionado
+\NC{\nrel}[1][]{\esp{-1}\not\esp{-6}\cal{R}_{#1}\esp{3}} % No relacionado
 
 % Conjuntos numéricos:
-\NC{\nin}  {\notin} 			% No pertenece
-\NC{\inc}  {\subseteq} 			% Incluído
-\NC{\ninc} {\not\subseteq} 		% No incluído
-\NC{\vacio}{\varnothing} 		% Conjunto vacío
+\NC{\nin}  {\notin}           % No pertenece
+\NC{\inc}  {\subseteq}        % Incluído
+\NC{\ninc} {\not\subseteq}    % No incluído
+\NC{\vacio}{\varnothing}      % Conjunto vacío
 \NC{\compl}[1]{{#1}^{\tx{c}}}	% Complemento
-\NC{\union}{\cup} 				% Unión
-\NC{\intsc}{\cap} 				% Intersección
-\NC{\difs} {\vartriangle} 		% Diferencia simétrica
-\NC{\PC}   {\Por} 				% Producto cartesiano
-\RC{\inf}  {\infty} 			% Infinito
-\NC*{\card}[1]{ 				% Cardinal
-	\begin{tikzpicture}												
-		\pgfmathsetlengthmacro\myWidth{.8*width("=")}				% Ancho = 80% del signo igual
-		\pgfmathsetlengthmacro\myHeight{height("H")}				% Altura = altura de la letra H mayúscula
-		\pgfmathsetlengthmacro\mySepY{.3333*\myWidth} 				% Espacio entre líneas horizontales
-		\pgfmathsetlengthmacro\mySideBearing{.1*\myWidth}			% Soporte lateral
-		\def\myAngle{70}											% Ángulo de las líneas verticales inclinadas
-		\pgfmathsetlengthmacro\mySepX{\mySepY/sin(\myAngle)}		% Calcula la separación de las líneas verticales en dirección horizontal
-		\pgfmathsetlengthmacro\mySlantX{\myHeight/tan(\myAngle)}	% Calcula el ancho de una línea inclinada
+\NC{\union}{\cup}             % Unión
+\NC{\intsc}{\cap}             % Intersección
+\NC{\difs} {\vartriangle}     % Diferencia simétrica
+\NC{\PC}   {\Por}             % Producto cartesiano
+\RC{\inf}  {\infty}           % Infinito
+\NC*{\card}[1]{                                              % Cardinal
+	\begin{tikzpicture}
+		\pgfmathsetlengthmacro\myWidth{.8*width("=")}            % Ancho = 80% del signo igual
+		\pgfmathsetlengthmacro\myHeight{height("H")}             % Altura = altura de la letra H mayúscula
+		\pgfmathsetlengthmacro\mySepY{.3333*\myWidth}            % Espacio entre líneas horizontales
+		\pgfmathsetlengthmacro\mySideBearing{.1*\myWidth}        % Soporte lateral
+		\def\myAngle{70}                                         % Ángulo de las líneas verticales inclinadas
+		\pgfmathsetlengthmacro\mySepX{\mySepY/sin(\myAngle)}     % Calcula la separación de las líneas verticales en dirección horizontal
+		\pgfmathsetlengthmacro\mySlantX{\myHeight/tan(\myAngle)} % Calcula el ancho de una línea inclinada
 		\draw[line cap=round]
 			(0, {(\myHeight - \mySepY)/2}) -- ++(\myWidth, 0)
 			(0, {(\myHeight + \mySepY)/2}) -- ++(\myWidth, 0)
@@ -63,11 +63,13 @@
 }
 
 % Flechas:
-\NC{\To}    {\longrightarrow} 		% Hacia
-\NC{\ent}   {\Rightarrow} 			% Entonces
-\NC{\Ent}   {\Longrightarrow} 		% Entonces largo
-\NC{\sii}   {\Leftrightarrow}		% Si y solo si
-\NC{\Sii}   {\Longleftrightarrow}	% Si y solo si largo
-\NC{\Tiende}{\xrightarrow} 			% Tiende
-\NC{\Sneg}  {\circlearrowright}		% Sentido negativo (horario)
-\NC{\Spos}  {\circlearrowleft} 		% Sentido positivo (anti-horario)
+\NC{\To}    {\longrightarrow}     % Hacia
+\NC{\ent}   {\Rightarrow}         % Entonces
+\NC{\Ent}   {\Longrightarrow}     % Entonces largo
+\NC{\sii}   {\Leftrightarrow}     % Si y solo si
+\NC{\Sii}   {\Longleftrightarrow} % Si y solo si largo
+\NC{\Tiende}{\xrightarrow}        % Tiende
+\NC{\Sneg}  {\circlearrowright}   % Sentido negativo (horario)
+\NC{\Spos}  {\circlearrowleft}    % Sentido positivo (anti-horario)
+
+%————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
