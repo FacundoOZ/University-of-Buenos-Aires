@@ -1,0 +1,16 @@
+# Java compiled files
+*.class
+*.jar
+*.war
+*.ear
+*.log
+
+# IntelliJ / VSCode project files
+.idea/
+.vscode/
+*.iml
+
+# Build directories
+target/
+bin/
+out/
