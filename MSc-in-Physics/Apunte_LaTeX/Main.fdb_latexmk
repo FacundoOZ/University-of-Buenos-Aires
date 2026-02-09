@@ -1,11 +1,11 @@
 # Fdb version 4
-["biber Main"] 1770326699.27433 "Main.bcf" "Main.bbl" "Main" 1770329184.79094 0
-  "Main.bcf" 1770329181 108053 92d793237121c8444051d54a8bc8b79c "pdflatex"
+["biber Main"] 1770326699.27433 "Main.bcf" "Main.bbl" "Main" 1770329329.84358 0
+  "Main.bcf" 1770329327 108053 92d793237121c8444051d54a8bc8b79c "pdflatex"
   (generated)
   "Main.bbl"
   "Main.blg"
   (rewritten before read)
-["pdflatex"] 1770329157.28003 "c:/Users/facuo/Dropbox/Work/GitHub Projects/MSc-in-Physics/Apunte_LaTeX/Main.tex" "Main.pdf" "Main" 1770329184.79502 0
+["pdflatex"] 1770329299.16885 "c:/Users/facuo/Dropbox/Work/GitHub Projects/MSc-in-Physics/Apunte_LaTeX/Main.tex" "Main.pdf" "Main" 1770329329.84696 0
   "C:/Users/facuo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1767388028 200717 14df417aa0b40814a8c0d55f01fb5dd0 ""
   "C:/Users/facuo/AppData/Local/MiKTeX/fonts/pk/ljfour/public/esint/dpi600/esint10.pk" 1630035273 10544 a74721cf638049b5150ba34bef81e6cf ""
   "C:/Users/facuo/AppData/Local/MiKTeX/fonts/pk/ljfour/public/wasy/dpi600/wasy10.pk" 1721529107 15116 ab9ac69ed6761fc4ca01626c59d44d1f ""
@@ -404,8 +404,8 @@
   "C:/Users/facuo/Dropbox/Book/Códigos/Preámbulo/Comandos/Comandos_matemática/M7-Integrales.tex" 1760476287 2699 dc49f03108e35dc077ed81acdb3a284e ""
   "C:/Users/facuo/Dropbox/Book/Códigos/Preámbulo/Comandos/Comandos_matemática/M8-Transformadas.tex" 1760476299 570 45be8239c34f3e8bdd17ee0f4015b74b ""
   "C:/Users/facuo/Dropbox/Book/Códigos/Preámbulo/Comandos/Comandos_matemática/M9-Matrices.tex" 1760476320 1278 376ff00b583c2c3953329960c56dea2e ""
-  "Códigos/Comandos_internos.tex" 1770329144 2736 807911fc82697d37eb3a5167783f6dd0 ""
-  "Códigos/Preámbulo.tex" 1760475018 172 8c6b7d69f01fb20be243e705edd0e2d8 ""
+  "Códigos/Comandos_internos.tex" 1770329226 3159 9df2305098809e927293c7dfc5bca4c6 ""
+  "Códigos/Preámbulo.tex" 1770329256 893 ef91141cae809c5114d39aa611f39176 ""
   "Códigos/Preámbulo/Comandos.tex" 1770328860 9407 e2a8fe005e0532cc1e88f3db0b675587 ""
   "Códigos/Preámbulo/Comandos/Comandos_física/Comandos_física.tex" 1770326903 2764 5e077d1caf3e14a6155dc451b5998e53 ""
   "Códigos/Preámbulo/Comandos/Comandos_matemática/Comandos_matemática.tex" 1770328432 3669 8d1de162508873305390c2ce2a957301 ""
@@ -422,12 +422,12 @@
   "Estructura/Tomo 2/2.Electromagnetismo/3.Electrodinámica Clásica/Electrodinámica Clásica.tex" 1760478540 171217 07095a34f2daccf8c1c27b99a0b597e2 ""
   "Estructura/Tomo 2/2.Electromagnetismo/Electromagnetismo.tex" 1760477655 723 db1a5fdee2c71dd7a88cde9c82818193 ""
   "Estructura/Tomo 2/Física.tex" 1760477800 1166 5f62de7011a443497d8e89bd4be0719c ""
-  "Main.aux" 1770329181 85362 eb89ce24b1f271dfe505799e7bdf2744 "pdflatex"
+  "Main.aux" 1770329327 85362 eb89ce24b1f271dfe505799e7bdf2744 "pdflatex"
   "Main.bbl" 1770326854 0 d41d8cd98f00b204e9800998ecf8427e "biber Main"
-  "Main.run.xml" 1770329181 2255 63376edecab3a9de0b2b3d7d5b64d80d "pdflatex"
-  "Main.tex" 1770326781 1351 6a4f08fa7d8c1b26d3d458194772eb6a ""
-  "Main.toc" 1770329181 53054 a2caff564f8d4d365b50c6219c449bb4 "pdflatex"
-  "c:/Users/facuo/Dropbox/Work/GitHub Projects/MSc-in-Physics/Apunte_LaTeX/Main.tex" 1770326781 1351 6a4f08fa7d8c1b26d3d458194772eb6a ""
+  "Main.run.xml" 1770329327 2255 63376edecab3a9de0b2b3d7d5b64d80d "pdflatex"
+  "Main.tex" 1770329298 1773 69fb0cdb194c5ab741a51ca494c776a6 ""
+  "Main.toc" 1770329327 53054 a2caff564f8d4d365b50c6219c449bb4 "pdflatex"
+  "c:/Users/facuo/Dropbox/Work/GitHub Projects/MSc-in-Physics/Apunte_LaTeX/Main.tex" 1770329298 1773 69fb0cdb194c5ab741a51ca494c776a6 ""
   (generated)
   "Main.aux"
   "Main.bcf"
