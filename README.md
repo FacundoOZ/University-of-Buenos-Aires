@@ -1,40 +1,14 @@
-\# Project Title
-
-
-
+# Project Title
 Short description of what this project does.
 
-
-
-\## Installation
-
-
-
+## Installation
 Explain how to install dependencies.
 
-
-
-\## Usage
-
-
-
+## Usage
 Explain how to run the code.
 
-
-
-\## Structure
-
-
-
+## Structure
 Describe the folder structure.
 
-
-
-\## Author
-
-
-
+## Author
 Your Name
-
-
-
