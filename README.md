@@ -86,91 +86,48 @@ The repository includes work developed in:
 ```
 ├── MSc-in-Computer-Science/
 │   ├── Algoritmos 1/
-
 │   │   ├── Programación\_en\_Haskell/            # Functional programming projects in Haskell
-
 │   │   ├── Programación\_en\_Python/             # Imperative programming projects in Python
-
-│   │   └── Projecto\_buscaminas/                # Complete Minesweeper implementation in Python with tests
-
+│   │   └── Projecto\_buscaminas/                 # Complete Minesweeper implementation in Python with tests
 │   │
-
 │   ├── Algoritmos 2/
-
-│   │   ├── Programación\_orientada\_a\_objetos/   # Object-oriented programming projects (OOP) with Java
-
-│   │   ├── Listas\_enlazadas\_e\_iteradores/      # Custom linked list implementations
-
-│   │   ├── Árboles\_binarios\_de\_búsqueda/       # Tree-based data structures
-
+│   │   ├── Programación\_orientada\_a\_objetos/  # Object-oriented programming projects (OOP) with Java
+│   │   ├── Listas\_enlazadas\_e\_iteradores/     # Custom linked list implementations
+│   │   ├── Árboles\_binarios\_de\_búsqueda/      # Tree-based data structures
 │   │   ├── Estructuras\_de\_datos/               # Heaps, handles, and custom containers
-
 │   │   └── Lenguaje\_de\_especificación/         # Abstract data type specifications
-
 │   │
-
 │   └── Organización del Computador 1/
-
-│       ├── Lógica\_digital/                     # Logic circuits projects
-
+│       ├── Lógica\_digital/                      # Logic circuits projects
 │       ├── Lenguaje\_ensamblador\_RISC-V/        # RISC-V assembly programming projects
-
 │       ├── Máquinas\_de\_estado/                 # Finite state machine implementations
-
-│       └── Micro-arquitectura/                 # CPU and architecture-related projects
-
+│       └── Micro-arquitectura/                   # CPU and architecture-related projects
 │
-
 ├── MSc-in-Physics/
-
 │   ├── Apunte\_LaTeX/
-
 │   │   ├── Comandos\_LaTeX\_personalizados/      # Custom LaTeX commands for Structure, Math and Physics
-
-│   │   └── Electromagnetismo/                  # Fragment of personal LaTeX Physics book project
-
+│   │   └── Electromagnetismo/                    # Fragment of personal LaTeX Physics book project
 │   │
-
 │   ├── Física\_experimental/
-
-│   │   ├── Informes\_electromagnetismo/         # Electrical circuits and resonance reports
-
-│   │   ├── Informes\_transferencia\_de\_calor/    # Heat transfer and thermoelectricity reports
-
+│   │   ├── Informes\_electromagnetismo/          # Electrical circuits and resonance reports
+│   │   ├── Informes\_transferencia\_de\_calor/   # Heat transfer and thermoelectricity reports
 │   │   ├── Informes\_mecánica\_cuántica/         # Zeeman effect and spectroscopy reports
-
-│   │   └── Projecto\_anual\_reactor\_plasma/      # Plasma reactor system experimental project for water treatment
-
+│   │   └── Projecto\_anual\_reactor\_plasma/     # Plasma reactor system experimental project for water treatment
 │   │
-
 │   ├── Mecánica\_de\_fluidos/
-
-│   │   └── Análisis\_hidrostático/              # Euler equation and hydrostatic models
-
+│   │   └── Análisis\_hidrostático/               # Euler equation and hydrostatic models
 │   │
-
 │   ├── Mecánica\_estadística/
-
-│   │   └── Modelo\_de\_Ising\_2D/                 # 2D Ising model simulations
-
+│   │   └── Modelo\_de\_Ising\_2D/                # 2D Ising model simulations
 │   │
-
 │   └── Sistemas\_complejos/
-
-│       ├── Dinámica\_no-lineal\_y\_PINNs/         # Dynamical systems using numerical methods and PINNs
-
-│       ├── Métodos\_pseudo-espectrales/         # Partial Differential Equations (PDEs) numerical solvers
-
+│       ├── Dinámica\_no-lineal\_y\_PINNs/        # Dynamical systems using numerical methods and PINNs
+│       ├── Métodos\_pseudo-espectrales/          # Partial Differential Equations (PDEs) numerical solvers
 │       ├── Modelos\_de\_población/               # Logistic equation simulations
-
-│       ├── Ecuación\_KdV/                       # Korteweg-de-Vries equation solver
-
-│       └── Modelos\_predador-presa/             # Lotka-Volterra and fire propagation solver
-
+│       ├── Ecuación\_KdV/                        # Korteweg-de-Vries equation solver
+│       └── Modelos\_predador-presa/              # Lotka-Volterra and fire propagation solver
 │
-
 └── README.md
-
 ```
 
 ## Highlights
