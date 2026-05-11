@@ -61,7 +61,7 @@ The repository includes work developed in:
 * Numerical methods
 * Differential equation solvers
 * RK4 integration methods
-* Pseudo-spectral methods
+* Pseudospectral methods
 * Physics-Informed Neural Networks (PINNs)
 * Scientific visualization
 * Data analysis and automation
@@ -88,7 +88,7 @@ The repository includes work developed in:
 │   ├── Algoritmos 1/
 │   │   ├── Programación\_en\_Haskell/            # Functional programming projects in Haskell
 │   │   ├── Programación\_en\_Python/             # Imperative programming projects in Python
-│   │   └── Projecto\_buscaminas/                 # Complete Minesweeper implementation in Python with tests
+│   │   └── Proyecto\_buscaminas/                 # Complete Minesweeper implementation in Python with tests
 │   │
 │   ├── Algoritmos 2/
 │   │   ├── Programación\_orientada\_a\_objetos/  # Object-oriented programming projects (OOP) with Java
@@ -112,7 +112,7 @@ The repository includes work developed in:
 │   │   ├── Informes\_electromagnetismo/          # Electrical circuits and resonance reports
 │   │   ├── Informes\_transferencia\_de\_calor/   # Heat transfer and thermoelectricity reports
 │   │   ├── Informes\_mecánica\_cuántica/         # Zeeman effect and spectroscopy reports
-│   │   └── Projecto\_anual\_reactor\_plasma/     # Plasma reactor system experimental project for water treatment
+│   │   └── Proyecto\_anual\_reactor\_plasma/     # Plasma reactor system experimental project for water treatment
 │   │
 │   ├── Mecánica\_de\_fluidos/
 │   │   └── Análisis\_hidrostático/               # Euler equation and hydrostatic models
@@ -125,7 +125,7 @@ The repository includes work developed in:
 │       ├── Métodos\_pseudo-espectrales/          # Partial Differential Equations (PDEs) numerical solvers
 │       ├── Modelos\_de\_población/               # Logistic equation simulations
 │       ├── Ecuación\_KdV/                        # Korteweg-de-Vries equation solver
-│       └── Modelos\_predador-presa/              # Lotka-Volterra and fire propagation solver
+│       └── Modelos\_predador-presa/              # Lotka-Volterra and fire propagation simulations
 │
 └── README.md
 ```
@@ -170,7 +170,7 @@ Implemented methods include:
 * Runge-Kutta 4 (RK4),
 * pseudo-spectral methods,
 * finite-dimensional approximations,
-* and non-linear dynamical system solvers.
+* and nonlinear dynamical system solvers.
 
 
 
@@ -224,9 +224,7 @@ Depending on the project, the repository may require:
 Install common Python dependencies with:
 
 ```
-
 pip install numpy pandas matplotlib torch notebook
-
 ```
 
 ## Usage
@@ -237,7 +235,6 @@ Most Python-based projects can be executed using:
 
 ```
 python main.py
-
 ```
 
 
